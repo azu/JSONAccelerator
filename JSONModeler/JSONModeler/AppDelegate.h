@@ -8,8 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface NILAppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+
+- (IBAction)downloadJSON:(id)sender;
+- (IBAction) saveButtonPressed: (id) sender;
 
 @end

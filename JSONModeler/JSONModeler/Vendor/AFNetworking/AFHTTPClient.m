@@ -31,8 +31,6 @@
 #import <UIKit/UIKit.h>
 #endif
 
-#import "JSONKit.h"
-
 static NSString * const kAFMultipartFormLineDelimiter = @"\r\n"; // CRLF
 static NSString * const kAFMultipartFormBoundary = @"Boundary+0xAbCdEfGbOuNdArY";
 
@@ -114,19 +112,19 @@ static NSString * AFQueryStringFromParameters(NSDictionary *parameters) {
 static NSString * AFJSONStringFromParameters(NSDictionary *parameters) {
     NSString *JSONString = nil;
     
-#if __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_4_3 || __MAC_OS_X_VERSION_MIN_REQUIRED > __MAC_10_6
-    if ([NSJSONSerialization class]) {
-        NSError *error = nil;
-        NSData *JSONData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
-        if (!error) {
-            JSONString = [[[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding] autorelease];
-        }
-    } else {
-        JSONString = [parameters JSONString];
-    }
-#else
-    JSONString = [parameters JSONString];
-#endif
+//#if __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_4_3 || __MAC_OS_X_VERSION_MIN_REQUIRED > __MAC_10_6
+//    if ([NSJSONSerialization class]) {
+//        NSError *error = nil;
+//        NSData *JSONData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
+//        if (!error) {
+//            JSONString = [[[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding] autorelease];
+//        }
+//    } else {
+//        JSONString = [parameters JSONString];
+//    }
+//#else
+//    JSONString = [parameters JSONString];
+//#endif
 
     return JSONString;
 }

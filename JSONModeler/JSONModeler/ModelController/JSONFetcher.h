@@ -10,4 +10,7 @@
 
 @interface JSONFetcher : NSObject
 
+- (void) downloadJSONFromLocation: (NSString *) location withSuccess: (void (^)(id object))success 
+                       andFailure:(void (^)(NSHTTPURLResponse *response, NSError *error))failure;
+
 @end
