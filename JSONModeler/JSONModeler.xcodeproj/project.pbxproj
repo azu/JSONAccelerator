@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4414992514642ABC002B6969 /* ClassBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4414992414642ABC002B6969 /* ClassBaseObject.m */; };
+		4414992914642AF4002B6969 /* ClassPropertiesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4414992814642AF4002B6969 /* ClassPropertiesObject.m */; };
+		441499351464619A002B6969 /* NSString+NSString_Nerdery.m in Sources */ = {isa = PBXBuildFile; fileRef = 441499341464619A002B6969 /* NSString+NSString_Nerdery.m */; };
 		4415E4511462F39900953014 /* JSONModeler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4415E4501462F39900953014 /* JSONModeler.m */; };
 		441FC4E71462D8E1007BF9DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC4E61462D8E1007BF9DC /* Cocoa.framework */; };
 		441FC4F11462D8E1007BF9DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4EF1462D8E1007BF9DC /* InfoPlist.strings */; };
@@ -39,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4414992314642ABC002B6969 /* ClassBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassBaseObject.h; path = Models/ClassBaseObject.h; sourceTree = "<group>"; };
+		4414992414642ABC002B6969 /* ClassBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassBaseObject.m; path = Models/ClassBaseObject.m; sourceTree = "<group>"; };
+		4414992714642AF4002B6969 /* ClassPropertiesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassPropertiesObject.h; path = Models/ClassPropertiesObject.h; sourceTree = "<group>"; };
+		4414992814642AF4002B6969 /* ClassPropertiesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassPropertiesObject.m; path = Models/ClassPropertiesObject.m; sourceTree = "<group>"; };
+		441499331464619A002B6969 /* NSString+NSString_Nerdery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NSString_Nerdery.h"; path = "Category/NSString+NSString_Nerdery.h"; sourceTree = "<group>"; };
+		441499341464619A002B6969 /* NSString+NSString_Nerdery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NSString_Nerdery.m"; path = "Category/NSString+NSString_Nerdery.m"; sourceTree = "<group>"; };
 		4415E44F1462F39900953014 /* JSONModeler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModeler.h; path = ModelController/JSONModeler.h; sourceTree = "<group>"; };
 		4415E4501462F39900953014 /* JSONModeler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONModeler.m; path = ModelController/JSONModeler.m; sourceTree = "<group>"; };
 		441FC4E21462D8E1007BF9DC /* JSONModeler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONModeler.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,13 +152,13 @@
 			isa = PBXGroup;
 			children = (
 				441FC51D1462D942007BF9DC /* Categories */,
+				441FC51A1462D92B007BF9DC /* Models */,
 				441FC5231462D9A5007BF9DC /* Model Controllers */,
 				441FC5201462D979007BF9DC /* Resources */,
 				441FC51E1462D949007BF9DC /* Singletons */,
 				441FC51F1462D960007BF9DC /* Vendor */,
 				441FC51C1462D93B007BF9DC /* View Controllers */,
 				441FC51B1462D933007BF9DC /* Views */,
-				441FC51A1462D92B007BF9DC /* Models */,
 				441FC4F81462D8E1007BF9DC /* AppDelegate.h */,
 				441FC4F91462D8E1007BF9DC /* AppDelegate.m */,
 				441FC4FB1462D8E1007BF9DC /* MainMenu.xib */,
@@ -192,6 +201,10 @@
 		441FC51A1462D92B007BF9DC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4414992314642ABC002B6969 /* ClassBaseObject.h */,
+				4414992414642ABC002B6969 /* ClassBaseObject.m */,
+				4414992714642AF4002B6969 /* ClassPropertiesObject.h */,
+				4414992814642AF4002B6969 /* ClassPropertiesObject.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -213,6 +226,8 @@
 		441FC51D1462D942007BF9DC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				441499331464619A002B6969 /* NSString+NSString_Nerdery.h */,
+				441499341464619A002B6969 /* NSString+NSString_Nerdery.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -408,6 +423,9 @@
 				441FC5471462E1CF007BF9DC /* AFURLConnectionOperation.m in Sources */,
 				441FC5481462E1CF007BF9DC /* AFXMLRequestOperation.m in Sources */,
 				4415E4511462F39900953014 /* JSONModeler.m in Sources */,
+				4414992514642ABC002B6969 /* ClassBaseObject.m in Sources */,
+				4414992914642AF4002B6969 /* ClassPropertiesObject.m in Sources */,
+				441499351464619A002B6969 /* NSString+NSString_Nerdery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
