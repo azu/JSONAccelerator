@@ -8,13 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum
+{
+    OutputTypeObjectiveC = 0,
+    OutputTypeJava
+} OutputType;
+
 @interface ClassBaseObject : NSObject
 
 @property (nonatomic, copy) NSString *className;
 @property (nonatomic, copy) NSString *baseClass;
 @property (nonatomic, retain) NSMutableDictionary *properties;
 
-- (NSString *) headerStringWithHeader: (NSString *) headerString;
-- (NSString *) implementationStringWithHeader: (NSString *) headerString;
+- (NSDictionary *)outputStringsWithType:(OutputType)type;
 
 @end

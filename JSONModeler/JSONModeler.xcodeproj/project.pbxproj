@@ -41,6 +41,7 @@
 		44FE6F5C146C715200FA13F9 /* GenerateFilesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F5A146C715200FA13F9 /* GenerateFilesViewController.xib */; };
 		44FE6F67146C736900FA13F9 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F66146C736900FA13F9 /* MainWindowController.m */; };
 		44FE6F69146C73A900FA13F9 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F68146C73A900FA13F9 /* MainWindowController.xib */; };
+		44FE6F77146C8D5600FA13F9 /* JavaTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,9 +113,10 @@
 		44FE6F58146C715200FA13F9 /* GenerateFilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenerateFilesViewController.h; path = ViewControllers/GenerateFilesViewController.h; sourceTree = "<group>"; };
 		44FE6F59146C715200FA13F9 /* GenerateFilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenerateFilesViewController.m; path = ViewControllers/GenerateFilesViewController.m; sourceTree = "<group>"; };
 		44FE6F5A146C715200FA13F9 /* GenerateFilesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GenerateFilesViewController.xib; path = ViewControllers/GenerateFilesViewController.xib; sourceTree = "<group>"; };
-		44FE6F65146C736900FA13F9 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; name = MainWindowController.h; path = ViewControllers/MainWindowController.h; sourceTree = "<group>"; };
+		44FE6F65146C736900FA13F9 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = ViewControllers/MainWindowController.h; sourceTree = "<group>"; };
 		44FE6F66146C736900FA13F9 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = ViewControllers/MainWindowController.m; sourceTree = "<group>"; };
 		44FE6F68146C73A900FA13F9 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowController.xib; path = ViewControllers/MainWindowController.xib; sourceTree = "<group>"; };
+		44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JavaTemplate.txt; path = Resources/Templates/JavaTemplate.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,8 +346,9 @@
 		44C546E6146C189F00D3860A /* Templates */ = {
 			isa = PBXGroup;
 			children = (
-				44C546E7146C18D700D3860A /* InterfaceTemplate.txt */,
 				44C546EA146C191F00D3860A /* ImplementationTemplate.txt */,
+				44C546E7146C18D700D3860A /* InterfaceTemplate.txt */,
+				44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */,
 			);
 			name = Templates;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				44FE6F57146C714200FA13F9 /* EditOutputViewController.xib in Resources */,
 				44FE6F5C146C715200FA13F9 /* GenerateFilesViewController.xib in Resources */,
 				44FE6F69146C73A900FA13F9 /* MainWindowController.xib in Resources */,
+				44FE6F77146C8D5600FA13F9 /* JavaTemplate.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

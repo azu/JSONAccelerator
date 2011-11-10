@@ -1,0 +1,16 @@
+package {PACKAGE_LIST};
+
+public class {CLASSNAME} extends {BASECLASS} {
+	
+    {PROPERTIES}
+    
+    // int, float, String, ArrayList<{TYPE}
+	public {CLASSNAME} () {
+		
+	}	
+    
+    public {CLASSNAME} ({PROPERTYLIST}) {
+{SETTERS}
+    }
+    
+}

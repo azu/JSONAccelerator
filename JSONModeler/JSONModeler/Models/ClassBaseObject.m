@@ -9,6 +9,15 @@
 #import "ClassBaseObject.h"
 #import "ClassPropertiesObject.h"
 
+@interface ClassBaseObject ()
+
+- (NSString *) ObjC_HeaderFile;
+- (NSString *) ObjC_ImplementationFile;
+
+- (NSString *) Java_ImplementationFile;
+
+@end
+
 @implementation ClassBaseObject
 
 @synthesize className = _className;
@@ -25,7 +34,12 @@
     return self;
 }
 
-- (NSString *) headerStringWithHeader: (NSString *) headerString
+- (NSDictionary *)outputStringsWithType:(OutputType)type 
+{
+    return [NSDictionary dictionary];
+}
+
+- (NSString *) ObjC_HeaderFile
 {
     NSBundle *mainBundle = [NSBundle mainBundle];
     
@@ -65,7 +79,7 @@
     return templateString;
 }
 
-- (NSString *) implementationStringWithHeader: (NSString *) headerString
+- (NSString *) ObjC_ImplementationFile
 {
     NSBundle *mainBundle = [NSBundle mainBundle];
     
@@ -100,6 +114,11 @@
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];
     
     return templateString;
+}
+
+- (NSString *) Java_ImplementationFile
+{
+    return @"";
 }
 
 @end

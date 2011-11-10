@@ -56,13 +56,20 @@
                 NSURL *selectedDirectory = [panel URL];
                 NSArray *files = [[self.modeler parsedDictionary] allValues];
                 for(ClassBaseObject *base in files) {
-                    [[base headerStringWithHeader:@""] writeToURL:[selectedDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.h", base.className]]
-                                                       atomically:NO
-                                                         encoding:NSUTF8StringEncoding error:&error];
+                    NSDictionary *outputDictionary = [base outputStringsWithType:OutputTypeObjectiveC];
+                    NSArray *keysArray = [outputDictionary allKeys];
+                    for(NSString *key in keysArray) {
+                        
+                    }
                     
-                    [[base implementationStringWithHeader:@""] writeToURL:[selectedDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.m", base.className]]
-                                                       atomically:NO
-                                                         encoding:NSUTF8StringEncoding error:&error];
+//                    
+//                    [[base headerStringWithHeader:@""] writeToURL:[selectedDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.h", base.className]]
+//                                                       atomically:NO
+//                                                         encoding:NSUTF8StringEncoding error:&error];
+//                    
+//                    [[base implementationStringWithHeader:@""] writeToURL:[selectedDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.m", base.className]]
+//                                                       atomically:NO
+//                                                         encoding:NSUTF8StringEncoding error:&error];
                 }
             } 
         }
