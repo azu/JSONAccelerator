@@ -1,0 +1,31 @@
+//
+//  {CLASSNAME}.m
+//
+//  Created by __NAME__ on {DATE}
+//  Copyright (c) __company_name__. All rights reserved.
+//
+
+#import "{CLASSNAME}.h"
+
+@implementation {CLASSNAME}
+
+{SYNTHESIZE_BLOCK}
+
++ ({CLASSNAME} *)initWithDictionary:(NSDictionary *)dict
+{
+    {CLASSNAME} *instance = [[[{CLASSNAME} alloc] init] autorelease];
+    [instance importDictionary:dict];
+    return instance;
+}
+
+- (void)importDictionary:(NSDictionary *)dict
+{
+    if ([dict isKindOfClass:[NSDictionary class]] == NO) {
+        return;
+    }
+    
+{SETTERS}
+    
+}
+
+@end

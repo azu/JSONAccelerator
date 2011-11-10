@@ -53,8 +53,8 @@
         returnString = [returnString stringByAppendingFormat:@"%@\n", property];
     }
     
-    returnString = [returnString stringByAppendingFormat:@"\n+ (%@ *) initWithDictionary: (NSDictionary *) dict", _className];
-    returnString = [returnString stringByAppendingString:@"\n- (void) importDictionary: (NSDictionary *) dict"];
+    returnString = [returnString stringByAppendingFormat:@"\n+ (%@ *) initWithDictionary: (NSDictionary *) dict;", _className];
+    returnString = [returnString stringByAppendingString:@"\n- (void) importDictionary: (NSDictionary *) dict;"];
         
     returnString = [returnString stringByAppendingString:@"\n@end"];
     
@@ -63,7 +63,39 @@
 
 - (NSString *) implementationStringWithHeader: (NSString *) headerString
 {
-    return @"";
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    
+    NSString *implementationTemplate = [mainBundle pathForResource:@"ImplementationTemplate" ofType:@"txt"];
+    NSString *templateString = [[NSString alloc] initWithContentsOfFile:implementationTemplate encoding:NSUTF8StringEncoding error:nil];
+    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];
+    
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DATE}" withString:[dateFormatter stringFromDate:currentDate]];
+    
+    NSString *sythesizeString = @"";
+    for(ClassPropertiesObject *property in _properties) {
+        sythesizeString = [sythesizeString stringByAppendingFormat:@"@synthesize %@ = _%@\n", property.name, property.name];
+    }
+    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SYNTHESIZE_BLOCK}" withString:sythesizeString];
+    
+    NSString *settersString = @"";
+    for(ClassPropertiesObject *property in _properties) {
+        if([property isClass]) {
+            //[FlickrPhotoCollectionPhotoset instanceFromDictionary:[aDictionary objectForKey:@"photoset"]];
+            settersString = [settersString stringByAppendingFormat:@"\tself.%@ = [%@ instanceFromDictionary:[dict objectForKey:@\"%@\"]];\n", [property.name capitalizedString], property.name, property.jsonName];
+        } else {
+            settersString = [settersString stringByAppendingFormat:@"\tself.%@ = [dict objectForKey:@\"%@\"];\n", property.name, property.jsonName];
+        }
+    }
+    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];
+    
+    return templateString;
 }
 
 @end

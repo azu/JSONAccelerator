@@ -122,7 +122,6 @@
                 else {
                     NSLog(@"UNDEFINED TYPE: %@", [tempObject class]);
                 }
-                
                 // This is undefined right now - add other if
             }
                         

@@ -1364,7 +1364,7 @@
 					<string key="NSFrameSize">{480, 360}</string>
 					<reference key="NSNextKeyView" ref="1064581780"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -1375,11 +1375,11 @@
 				<string key="NSClassName">NSFontManager</string>
 			</object>
 			<object class="NSWindowTemplate" id="539475930">
-				<int key="NSWindowStyleMask">31</int>
+				<int key="NSWindowStyleMask">19</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{167, 107}, {524, 378}}</string>
-				<int key="NSWTFlags">-1535638528</int>
-				<string key="NSWindowTitle">Window</string>
+				<int key="NSWTFlags">-193462272</int>
+				<string key="NSWindowTitle">Preferences Panel</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<object class="NSToolbar" key="NSViewClass" id="109022627">
 					<object class="NSMutableString" key="NSToolbarIdentifier">
@@ -1555,7 +1555,7 @@
 							</object>
 						</object>
 					</dictionary>
-					<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
+					<array key="NSToolbarIBAllowedItems">
 						<reference ref="932619409"/>
 						<reference ref="598576875"/>
 						<reference ref="721652936"/>
@@ -1564,7 +1564,7 @@
 						<reference ref="1015007738"/>
 						<reference ref="409461994"/>
 					</array>
-					<array class="NSMutableArray" key="NSToolbarIBDefaultItems">
+					<array key="NSToolbarIBDefaultItems">
 						<reference ref="932619409"/>
 						<reference ref="598576875"/>
 						<reference ref="1015007738"/>
@@ -1639,7 +1639,7 @@
 					<reference key="NSWindow"/>
 					<string key="NSReuseIdentifierKey">_NS:207</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -3620,7 +3620,7 @@
 				<string key="539.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="540.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="544.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="544.NSWindowTemplate.visibleAtLaunch"/>
+				<boolean value="NO" key="544.NSWindowTemplate.visibleAtLaunch"/>
 				<string key="545.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="546.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="547.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
