@@ -12,10 +12,9 @@
 
 @property (nonatomic, copy) NSString *className;
 @property (nonatomic, copy) NSString *baseClass;
-@property (nonatomic, retain) NSMutableArray *properties;
+@property (nonatomic, retain) NSMutableDictionary *properties;
 
 - (NSString *) headerStringWithHeader: (NSString *) headerString;
 - (NSString *) implementationStringWithHeader: (NSString *) headerString;
-
 
 @end

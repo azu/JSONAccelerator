@@ -1585,7 +1585,7 @@
 							<int key="NSvFlags">12</int>
 							<string key="NSFrameSize">{524, 378}</string>
 							<reference key="NSSuperview" ref="361450245"/>
-							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="426361752"/>
 							<string key="NSReuseIdentifierKey">_NS:608</string>
 							<array class="NSMutableArray" key="NSTabViewItems">
 								<object class="NSTabViewItem" id="22443965">
@@ -1595,8 +1595,7 @@
 										<int key="NSvFlags">256</int>
 										<string key="NSFrameSize">{524, 378}</string>
 										<reference key="NSSuperview" ref="81514891"/>
-										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="81514891"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:610</string>
 									</object>
 									<string key="NSLabel">Tab</string>
@@ -1636,7 +1635,7 @@
 					</array>
 					<string key="NSFrameSize">{524, 378}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
+					<reference key="NSNextKeyView" ref="81514891"/>
 					<string key="NSReuseIdentifierKey">_NS:207</string>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
@@ -3470,6 +3469,7 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">558</int>
 						<reference key="object" ref="426361752"/>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="22443965"/>
 					</object>
 				</array>
@@ -3654,7 +3654,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">558</int>
+			<int key="maxID">576</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

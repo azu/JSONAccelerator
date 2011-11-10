@@ -59,13 +59,15 @@
         self.parsedDictionary = [NSMutableDictionary dictionary];
     }
     
+    ClassBaseObject *tempClass = nil;
+    
     if([self.parsedDictionary objectForKey:baseObjectName]) {
-        return;
+        tempClass = [self.parsedDictionary objectForKey:baseObjectName];
+    } else {
+        tempClass = [ClassBaseObject new];
+        [tempClass setBaseClass:baseObjectClass];
+        [tempClass setClassName:[baseObjectName capitalizedString]];
     }
-        
-    ClassBaseObject *tempClass = [ClassBaseObject new];
-    [tempClass setBaseClass:baseObjectClass];
-    [tempClass setClassName:[baseObjectName capitalizedString]];
     
     NSArray *array = [dict allKeys];
     ClassPropertiesObject *tempPropertyObject = nil;
@@ -93,7 +95,23 @@
             
             tempObject = [dict objectForKey:currentKey];
             
+            BOOL shouldSetObject = YES;
+            
+            if([[tempClass properties] objectForKey:currentKey]) {
+                shouldSetObject = NO;
+            }
+            
+            
             if([tempObject isKindOfClass:[NSArray class]]) {
+                // NSArray Objects
+                if(shouldSetObject == NO) {
+                    if ([[[tempClass properties] objectForKey:currentKey] isKindOfClass:[NSDictionary class]]) {
+                        // Just in case it originally came in as a Dictionary and then later is shown as an array
+                        // We should switch this to using an array.
+                        shouldSetObject = YES;
+                    }
+                }
+                
                 [tempPropertyObject setType:@"NSArray"];
                 
                 // We now need to check to see if the first object in the array is a NSDictionary
@@ -104,13 +122,20 @@
                         [self parseData:(NSDictionary *)tempArrayObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"];
                     }
                 }
+                
             } else if([tempObject isKindOfClass:[NSString class]]) {
+                // NSString Objects
                 [tempPropertyObject setType:@"NSString"];
+                
             } else if([tempObject isKindOfClass:[NSDictionary class]]) {
+                // NSDictionary Objects
+                
                 [tempPropertyObject setIsClass:YES];
                 [tempPropertyObject setType:[currentKey capitalizedString]];
                 [self parseData:(NSDictionary *)tempObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"];
+                
             } else {
+                // Miscellaneous
                 NSString *classDecription = [[tempObject class] description];
                 if([classDecription rangeOfString:@"NSCFNumber"].location != NSNotFound) {
                     [tempPropertyObject setType:@"NSInteger"];
@@ -125,7 +150,9 @@
                 // This is undefined right now - add other if
             }
                         
-            [[tempClass properties] addObject:tempPropertyObject];
+            if(shouldSetObject) {
+                [[tempClass properties] setObject:tempPropertyObject forKey:currentKey];
+            }
         }
     }
     

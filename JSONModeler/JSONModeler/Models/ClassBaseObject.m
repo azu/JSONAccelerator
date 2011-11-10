@@ -19,7 +19,7 @@
 {
     self = [super init];
     if(self) {
-        self.properties = [NSMutableArray array];
+        self.properties = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -87,9 +87,9 @@
     for(ClassPropertiesObject *property in _properties) {
         if([property isClass]) {
             //[FlickrPhotoCollectionPhotoset instanceFromDictionary:[aDictionary objectForKey:@"photoset"]];
-            settersString = [settersString stringByAppendingFormat:@"\tself.%@ = [%@ instanceFromDictionary:[dict objectForKey:@\"%@\"]];\n", [property.name capitalizedString], property.name, property.jsonName];
+            settersString = [settersString stringByAppendingFormat:@"    self.%@ = [%@ instanceFromDictionary:[dict objectForKey:@\"%@\"]];\n", [property.name capitalizedString], property.name, property.jsonName];
         } else {
-            settersString = [settersString stringByAppendingFormat:@"\tself.%@ = [dict objectForKey:@\"%@\"];\n", property.name, property.jsonName];
+            settersString = [settersString stringByAppendingFormat:@"    self.%@ = [dict objectForKey:@\"%@\"];\n", property.name, property.jsonName];
         }
     }
     

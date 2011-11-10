@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "JSONModeler.h"
 #import "ClassBaseObject.h"
+#import "MainWindowController.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,11 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    if (myWindowController == NULL)
+		myWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindowController"];
+	
+	[myWindowController showWindow:self];
+    
 }
 
 - (IBAction)downloadJSON:(id)sender {
