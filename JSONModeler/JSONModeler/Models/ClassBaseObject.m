@@ -27,9 +27,19 @@
 
 - (NSString *) headerStringWithHeader: (NSString *) headerString
 {
-    NSString *returnString = [[NSString alloc] initWithString:headerString];
-    returnString = [returnString stringByAppendingString:@"\n\n#import <Foundation/Foundation.h>\n\n"];
+    NSBundle *mainBundle = [NSBundle mainBundle];
     
+    NSString *interfaceTemplate = [mainBundle pathForResource:@"InterfaceTemplate" ofType:@"txt"];
+    NSString *templateString = [[NSString alloc] initWithContentsOfFile:interfaceTemplate encoding:NSUTF8StringEncoding error:nil];
+
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];
+    
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DATE}" withString:[dateFormatter stringFromDate:currentDate]];
+        
     // First we need to find if there are any class properties, if so do the @Class business
     NSString *forwardDeclarationString = @"";
     for(ClassPropertiesObject *property in _properties) {
@@ -41,24 +51,18 @@
             }
         }
     }
-        
-    if([forwardDeclarationString isEqualToString:@""] == NO) {
-        returnString = [returnString stringByAppendingFormat:@"%@;", forwardDeclarationString];
-        returnString = [returnString stringByAppendingString:@"\n\n"];
-    }
     
-    returnString = [returnString stringByAppendingFormat:@"@interface %@ : %@\n\n", _className, _baseClass];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{FORWARD_DECLARATION}" withString:forwardDeclarationString];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{BASEOBJECT}" withString:_baseClass];
     
+    NSString *propertyString = @"";
     for(ClassPropertiesObject *property in _properties) {
-        returnString = [returnString stringByAppendingFormat:@"%@\n", property];
+        propertyString = [propertyString stringByAppendingFormat:@"%@\n", property];
     }
     
-    returnString = [returnString stringByAppendingFormat:@"\n+ (%@ *) initWithDictionary: (NSDictionary *) dict;", _className];
-    returnString = [returnString stringByAppendingString:@"\n- (void) importDictionary: (NSDictionary *) dict;"];
-        
-    returnString = [returnString stringByAppendingString:@"\n@end"];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{PROPERTIES}" withString:propertyString];
     
-    return returnString;
+    return templateString;
 }
 
 - (NSString *) implementationStringWithHeader: (NSString *) headerString

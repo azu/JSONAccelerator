@@ -1,0 +1,19 @@
+//
+//  {CLASSNAME}.h
+//
+//  Created by __NAME__ on {DATE}
+//  Copyright (c) __company_name__. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+{FORWARD_DECLARATION}
+
+@interface {CLASSNAME} : {BASEOBJECT}
+
+{PROPERTIES}
+
++ ({CLASSNAME} *) initWithDictionary: (NSDictionary *) dict;
+- (void) importDictionary: (NSDictionary *) dict;
+
+@end
