@@ -13,6 +13,8 @@
 	NSViewController*	myCurrentViewController;	// the current view controller
 }
 
+@property (weak) IBOutlet NSPathControl *currentPlacementPathBar;
+
 - (NSViewController*)viewController;
 
 @end

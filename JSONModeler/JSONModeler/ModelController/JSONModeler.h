@@ -13,6 +13,7 @@
 - (void) loadJSONWithURL: (NSString *) url;
 - (void) loadJSONWithString: (NSString *) string;
 
+@property (assign) BOOL parseComplete;
 @property (strong) NSDictionary *rawJSONDictionary;
 @property (strong) NSMutableDictionary *parsedDictionary;
 

@@ -22,6 +22,7 @@
 @end
 
 @implementation MainWindowController
+@synthesize currentPlacementPathBar;
 @synthesize modeler = _modeler;
 
 enum	// view controller choices

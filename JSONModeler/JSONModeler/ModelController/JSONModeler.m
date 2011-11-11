@@ -21,6 +21,7 @@
 @implementation JSONModeler
 @synthesize rawJSONDictionary = _rawJSONDictionary;
 @synthesize parsedDictionary = _parsedDictionary;
+@synthesize parseComplete = _parseComplete;
 
 - (void) loadJSONWithURL: (NSString *) url
 {
@@ -30,6 +31,7 @@
     } 
    andFailure:^(NSHTTPURLResponse *response, NSError *error) {
 #warning Handle the error case gracefully
+       
    }];
     
 }
@@ -47,7 +49,9 @@
     id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     if([object isKindOfClass:[NSDictionary class]]) {
         self.rawJSONDictionary = object;
+        self.parseComplete = NO;
         [self parseData:self.rawJSONDictionary intoObjectsWithBaseObjectName:@"MyClass" andBaseObjectClass:@"NSObject"];
+        self.parseComplete = YES;
     }
 }
 
