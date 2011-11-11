@@ -76,6 +76,8 @@ enum	// view controller choices
 	if ([myCurrentViewController view] != nil)
 		[[myCurrentViewController view] removeFromSuperview];	// remove the current view
     	
+    NSURL *pathUrl = nil;
+    
 	switch (whichViewTag)
 	{
 		case kFetchView:	// swap in the "CustomImageViewController - NSImageView"
@@ -87,6 +89,7 @@ enum	// view controller choices
 				myCurrentViewController = fetchViewController;	// keep track of the current view controller        
                 fetchViewController.delegate = self;
 			}
+            pathUrl = [NSURL URLWithString:@"/Fetch"];
 			break;
 		}
             
@@ -99,6 +102,9 @@ enum	// view controller choices
 				myCurrentViewController = chooseViewController;	// keep track of the current view controller
                 chooseViewController.delegate = self;
 			}
+            
+            pathUrl = [NSURL URLWithString:@"/Fetch/Choose"];
+            
 			break;
 		}
             
@@ -111,6 +117,9 @@ enum	// view controller choices
 				myCurrentViewController = editViewController;	// keep track of the current view controller
                 editViewController.delegate = self;
 			}
+            
+            pathUrl = [NSURL URLWithString:@"/Fetch/Choose/Edit"];
+            
 			break;
 		}
             
@@ -123,9 +132,14 @@ enum	// view controller choices
 				myCurrentViewController = generateViewController;	// keep track of the current view controller
                 generateViewController.delegate = self;
 			}
+            
+            pathUrl = [NSURL URLWithString:@"/Fetch/Choose/Edit/Generate"];
+            
 			break;
 		}
 	}
+    
+    [self.currentPlacementPathBar setURL:pathUrl];
 	
 	// embed the current view to our host view
 	[myTargetView addSubview: [myCurrentViewController view]];
