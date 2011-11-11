@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "JSONModeler.h"
+#import "MasterControllerDelegate.h"
 
 @interface FetchJSONViewController : NSViewController
 
@@ -18,6 +19,8 @@
 @property (unsafe_unretained) IBOutlet NSTextView *JSONTextView;
 @property (weak) IBOutlet NSProgressIndicator *progressView;
 @property (weak) IBOutlet NSButton *chooseLanguageButton;
+@property (assign) id<MasterControllerDelegate> delegate;
+
 
 - (IBAction)getUrlPressed:(id)sender;
 - (IBAction)chooseLanguagePressed:(id)sender;

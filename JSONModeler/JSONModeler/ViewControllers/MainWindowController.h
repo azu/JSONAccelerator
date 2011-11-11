@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MasterControllerDelegate.h"
 
-@interface MainWindowController : NSWindowController {
+@interface MainWindowController : NSWindowController <MasterControllerDelegate> {
     IBOutlet NSView*	myTargetView;				// the host view
 	NSViewController*	myCurrentViewController;	// the current view controller
 }

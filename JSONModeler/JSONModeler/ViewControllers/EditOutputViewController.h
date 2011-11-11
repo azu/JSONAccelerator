@@ -7,7 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MasterControllerDelegate.h"
 
 @interface EditOutputViewController : NSViewController
+
+@property (assign) id<MasterControllerDelegate> delegate;
 
 @end

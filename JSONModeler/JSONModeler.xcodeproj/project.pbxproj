@@ -66,6 +66,7 @@
 		4415E4501462F39900953014 /* JSONModeler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONModeler.m; path = ModelController/JSONModeler.m; sourceTree = "<group>"; };
 		4419EB03146D7A73002605A0 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseView.h; path = Views/BaseView.h; sourceTree = "<group>"; };
 		4419EB04146D7A73002605A0 /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseView.m; path = Views/BaseView.m; sourceTree = "<group>"; };
+		4419EB19146DC740002605A0 /* MasterControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterControllerDelegate.h; path = JSONModeler/Protocols/MasterControllerDelegate.h; sourceTree = "<group>"; };
 		441FC4E21462D8E1007BF9DC /* JSONModeler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONModeler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		441FC4E61462D8E1007BF9DC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		441FC4E91462D8E1007BF9DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -143,6 +144,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4419EB1A146DC747002605A0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4419EB19146DC740002605A0 /* MasterControllerDelegate.h */,
+			);
+			name = Protocols;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		441FC4D71462D8E1007BF9DC = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +198,7 @@
 				441FC51D1462D942007BF9DC /* Categories */,
 				441FC51A1462D92B007BF9DC /* Models */,
 				441FC5231462D9A5007BF9DC /* Model Controllers */,
+				4419EB1A146DC747002605A0 /* Protocols */,
 				441FC5201462D979007BF9DC /* Resources */,
 				441FC51E1462D949007BF9DC /* Singletons */,
 				441FC51F1462D960007BF9DC /* Vendor */,

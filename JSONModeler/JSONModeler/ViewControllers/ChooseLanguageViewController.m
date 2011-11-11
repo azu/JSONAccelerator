@@ -9,6 +9,7 @@
 #import "ChooseLanguageViewController.h"
 
 @implementation ChooseLanguageViewController
+@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -9,6 +9,7 @@
 #import "GenerateFilesViewController.h"
 
 @implementation GenerateFilesViewController
+@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

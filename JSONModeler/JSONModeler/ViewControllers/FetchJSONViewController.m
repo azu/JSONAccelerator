@@ -16,6 +16,7 @@
 @synthesize JSONTextView = _JSONTextView;
 @synthesize progressView = _progressView;
 @synthesize chooseLanguageButton = _chooseLanguageButton;
+@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +37,7 @@
 	// load the default image from our bundle
     [self.urlTextFieldCell setPlaceholderString:NSLocalizedString(@"Enter URL...", nil)];
     [self.chooseLanguageButton setEnabled:NO];
+    [self.urlTextFieldCell setStringValue:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=fm34txf3v6vu9jph5fdqt529"];
 }
 
 
@@ -46,7 +48,11 @@
     [_modeler loadJSONWithURL:[_urlTextField stringValue]];
 }
 
-- (IBAction)chooseLanguagePressed:(id)sender {
+- (IBAction)chooseLanguagePressed:(id)sender 
+{
+    if([self.delegate conformsToProtocol:@protocol(MasterControllerDelegate)]) {
+        [self.delegate moveToNextViewController];
+    }
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

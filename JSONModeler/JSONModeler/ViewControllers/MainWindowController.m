@@ -83,8 +83,8 @@ enum	// view controller choices
             fetchViewController.modeler = self.modeler;
 			if (fetchViewController != nil)
 			{
-				
-				myCurrentViewController = fetchViewController;	// keep track of the current view controller
+				myCurrentViewController = fetchViewController;	// keep track of the current view controller        
+                fetchViewController.delegate = self;
 			}
 			break;
 		}
@@ -96,6 +96,7 @@ enum	// view controller choices
 			if (chooseViewController != nil)
 			{
 				myCurrentViewController = chooseViewController;	// keep track of the current view controller
+                chooseViewController.delegate = self;
 			}
 			break;
 		}
@@ -107,6 +108,7 @@ enum	// view controller choices
 			if (editViewController != nil)
 			{
 				myCurrentViewController = editViewController;	// keep track of the current view controller
+                editViewController.delegate = self;
 			}
 			break;
 		}
@@ -118,6 +120,7 @@ enum	// view controller choices
 			if (generateViewController != nil)
 			{
 				myCurrentViewController = generateViewController;	// keep track of the current view controller
+                generateViewController.delegate = self;
 			}
 			break;
 		}
@@ -144,6 +147,13 @@ enum	// view controller choices
 	return myCurrentViewController;
 }
 
+#pragma mark - MasterControllerDelegate Methods
 
+-(void)moveToNextViewController
+{
+    if([myCurrentViewController isKindOfClass:[FetchJSONViewController class]]) {
+        [self changeViewController: kChooseView];
+    }
+}
 
 @end

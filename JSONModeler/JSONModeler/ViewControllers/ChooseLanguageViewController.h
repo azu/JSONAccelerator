@@ -7,7 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MasterControllerDelegate.h"
 
 @interface ChooseLanguageViewController : NSViewController
+
+@property (assign) id<MasterControllerDelegate> delegate;
 
 @end
