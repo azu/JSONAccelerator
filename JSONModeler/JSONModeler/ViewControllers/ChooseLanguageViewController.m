@@ -21,4 +21,11 @@
     return self;
 }
 
+- (IBAction)typeChosen:(id)sender
+{
+    if([self.delegate conformsToProtocol:@protocol(MasterControllerDelegate)]) {
+        [self.delegate moveToNextViewController];
+    }
+}
+
 @end

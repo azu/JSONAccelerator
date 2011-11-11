@@ -21,4 +21,10 @@
     return self;
 }
 
+- (IBAction)generateFilesPressed:(id)sender
+{
+    if([self.delegate conformsToProtocol:@protocol(MasterControllerDelegate)]) {
+        [self.delegate moveToNextViewController];
+    }
+}
 @end

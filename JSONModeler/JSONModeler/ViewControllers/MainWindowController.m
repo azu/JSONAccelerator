@@ -49,6 +49,7 @@ enum	// view controller choices
 // -------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
+    
 	[self changeViewController: kFetchView];
 }
 
@@ -153,6 +154,10 @@ enum	// view controller choices
 {
     if([myCurrentViewController isKindOfClass:[FetchJSONViewController class]]) {
         [self changeViewController: kChooseView];
+    } else if ([myCurrentViewController isKindOfClass:[ChooseLanguageViewController class]]) {
+        [self changeViewController:kEditView];
+    } else if ([myCurrentViewController isKindOfClass:[EditOutputViewController class]]) {
+        [self changeViewController:kGenerateView];
     }
 }
 

@@ -13,4 +13,6 @@
 
 @property (assign) id<MasterControllerDelegate> delegate;
 
+- (IBAction)generateFilesPressed:(id)sender;
+
 @end
