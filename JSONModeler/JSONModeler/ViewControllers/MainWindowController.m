@@ -7,6 +7,7 @@
 //
 
 #import "MainWindowController.h"
+#import "JSONModeler.h"
 #import "FetchJSONViewController.h"
 #import "ChooseLanguageViewController.h"
 #import "EditOutputViewController.h"
@@ -14,11 +15,14 @@
 
 @interface MainWindowController ()
 
+@property (strong) JSONModeler *modeler;
+
 - (void)changeViewController:(NSInteger)whichViewTag;
 
 @end
 
 @implementation MainWindowController
+@synthesize modeler = _modeler;
 
 enum	// view controller choices
 {
@@ -33,6 +37,7 @@ enum	// view controller choices
     self = [super initWithWindow:window];
     if (self) {
         // Initialization code here.
+        self.modeler = [[JSONModeler alloc] init];
     }
     
     return self;
@@ -74,6 +79,7 @@ enum	// view controller choices
 		case kFetchView:	// swap in the "CustomImageViewController - NSImageView"
 		{
 			FetchJSONViewController *fetchViewController = [[FetchJSONViewController alloc] initWithNibName:@"FetchJSONViewController" bundle:nil];
+            fetchViewController.modeler = self.modeler;
 			if (fetchViewController != nil)
 			{
 				

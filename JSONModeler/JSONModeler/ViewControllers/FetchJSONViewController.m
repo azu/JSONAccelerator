@@ -9,6 +9,11 @@
 #import "FetchJSONViewController.h"
 
 @implementation FetchJSONViewController
+@synthesize modeler = _modeler;
+@synthesize urlTextField = _urlTextField;
+@synthesize getDataButton = _getDataButton;
+@synthesize JSONTextView = _JSONTextView;
+@synthesize progressView = _progressView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -18,6 +23,11 @@
     }
     
     return self;
+}
+
+- (IBAction)getUrlPressed:(id)sender 
+{
+    
 }
 
 @end

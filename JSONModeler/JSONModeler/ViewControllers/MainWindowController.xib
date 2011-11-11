@@ -39,11 +39,11 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSWindowTemplate" id="1005">
-				<int key="NSWindowStyleMask">15</int>
+				<int key="NSWindowStyleMask">263</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 240}, {616, 491}}</string>
-				<int key="NSWTFlags">544735232</int>
-				<string key="NSWindowTitle">Window</string>
+				<int key="NSWTFlags">1618477056</int>
+				<string key="NSWindowTitle">JSON Modeler</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
@@ -55,7 +55,7 @@
 						<object class="NSCustomView" id="938530614">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">282</int>
-							<string key="NSFrame">{{20, 60}, {576, 411}}</string>
+							<string key="NSFrame">{{0, 40}, {616, 451}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="462109549"/>
@@ -65,7 +65,7 @@
 						<object class="NSButton" id="408924435">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">289</int>
-							<string key="NSFrame">{{526, 12}, {70, 32}}</string>
+							<string key="NSFrame">{{526, 3}, {70, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
@@ -93,7 +93,7 @@
 						<object class="NSButton" id="462109549">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{14, 12}, {93, 32}}</string>
+							<string key="NSFrame">{{14, 3}, {93, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="408924435"/>
@@ -120,7 +120,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="938530614"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>

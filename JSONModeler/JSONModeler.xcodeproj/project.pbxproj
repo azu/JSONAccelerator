@@ -11,6 +11,7 @@
 		4414992914642AF4002B6969 /* ClassPropertiesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4414992814642AF4002B6969 /* ClassPropertiesObject.m */; };
 		441499351464619A002B6969 /* NSString+NSString_Nerdery.m in Sources */ = {isa = PBXBuildFile; fileRef = 441499341464619A002B6969 /* NSString+NSString_Nerdery.m */; };
 		4415E4511462F39900953014 /* JSONModeler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4415E4501462F39900953014 /* JSONModeler.m */; };
+		4419EB05146D7A73002605A0 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4419EB04146D7A73002605A0 /* BaseView.m */; };
 		441FC4E71462D8E1007BF9DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC4E61462D8E1007BF9DC /* Cocoa.framework */; };
 		441FC4F11462D8E1007BF9DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4EF1462D8E1007BF9DC /* InfoPlist.strings */; };
 		441FC4F31462D8E1007BF9DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F21462D8E1007BF9DC /* main.m */; };
@@ -63,6 +64,8 @@
 		441499341464619A002B6969 /* NSString+NSString_Nerdery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NSString_Nerdery.m"; path = "Category/NSString+NSString_Nerdery.m"; sourceTree = "<group>"; };
 		4415E44F1462F39900953014 /* JSONModeler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModeler.h; path = ModelController/JSONModeler.h; sourceTree = "<group>"; };
 		4415E4501462F39900953014 /* JSONModeler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONModeler.m; path = ModelController/JSONModeler.m; sourceTree = "<group>"; };
+		4419EB03146D7A73002605A0 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseView.h; path = Views/BaseView.h; sourceTree = "<group>"; };
+		4419EB04146D7A73002605A0 /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseView.m; path = Views/BaseView.m; sourceTree = "<group>"; };
 		441FC4E21462D8E1007BF9DC /* JSONModeler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONModeler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		441FC4E61462D8E1007BF9DC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		441FC4E91462D8E1007BF9DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -243,6 +246,8 @@
 		441FC51B1462D933007BF9DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4419EB03146D7A73002605A0 /* BaseView.h */,
+				4419EB04146D7A73002605A0 /* BaseView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -528,6 +533,7 @@
 				44FE6F56146C714200FA13F9 /* EditOutputViewController.m in Sources */,
 				44FE6F5B146C715200FA13F9 /* GenerateFilesViewController.m in Sources */,
 				44FE6F67146C736900FA13F9 /* MainWindowController.m in Sources */,
+				4419EB05146D7A73002605A0 /* BaseView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
