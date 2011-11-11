@@ -114,7 +114,7 @@
     for(ClassPropertiesObject *property in [_properties allValues]) {
         if([property isClass]) {
             //[FlickrPhotoCollectionPhotoset instanceFromDictionary:[aDictionary objectForKey:@"photoset"]];
-            settersString = [settersString stringByAppendingFormat:@"    self.%@ = [%@ instanceFromDictionary:[dict objectForKey:@\"%@\"]];\n", [property.name capitalizedString], property.name, property.jsonName];
+            settersString = [settersString stringByAppendingFormat:@"    self.%@ = [%@ instanceFromDictionary:[dict objectForKey:@\"%@\"]];\n", property.name, [property.name capitalizedString], property.jsonName];
         } else {
             settersString = [settersString stringByAppendingFormat:@"    self.%@ = [dict objectForKey:@\"%@\"];\n", property.name, property.jsonName];
         }

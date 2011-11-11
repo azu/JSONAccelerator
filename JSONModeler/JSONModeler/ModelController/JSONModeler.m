@@ -47,7 +47,7 @@
     id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     if([object isKindOfClass:[NSDictionary class]]) {
         self.rawJSONDictionary = object;
-        [self parseData:self.rawJSONDictionary intoObjectsWithBaseObjectName:@"Movie" andBaseObjectClass:@"NSObject"];
+        [self parseData:self.rawJSONDictionary intoObjectsWithBaseObjectName:@"MyClass" andBaseObjectClass:@"NSObject"];
     }
 }
 
