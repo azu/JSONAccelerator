@@ -36,7 +36,15 @@
 
 - (NSDictionary *)outputStringsWithType:(OutputType)type 
 {
-    return [NSDictionary dictionary];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    if(type == OutputTypeObjectiveC) {
+        [dict setObject:[self ObjC_HeaderFile] forKey:[NSString stringWithFormat:@"%@.h", _className]];
+        [dict setObject:[self ObjC_ImplementationFile] forKey:[NSString stringWithFormat:@"%@.m", _className]];        
+    } else if (type == OutputTypeJava) {
+        [dict setObject:[self Java_ImplementationFile] forKey:[NSString stringWithFormat:@"%@.java", _className]];
+    }
+    
+    return dict;
 }
 
 - (NSString *) ObjC_HeaderFile
@@ -118,7 +126,14 @@
 
 - (NSString *) Java_ImplementationFile
 {
-    return @"";
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    
+    NSString *interfaceTemplate = [mainBundle pathForResource:@"JavaTemplate" ofType:@"txt"];
+    NSString *templateString = [[NSString alloc] initWithContentsOfFile:interfaceTemplate encoding:NSUTF8StringEncoding error:nil];
+    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];
+    
+    return templateString;
 }
 
 @end

@@ -58,18 +58,14 @@
                 for(ClassBaseObject *base in files) {
                     NSDictionary *outputDictionary = [base outputStringsWithType:OutputTypeObjectiveC];
                     NSArray *keysArray = [outputDictionary allKeys];
+                    NSString *outputString = nil;
                     for(NSString *key in keysArray) {
-                        
-                    }
-                    
-//                    
-//                    [[base headerStringWithHeader:@""] writeToURL:[selectedDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.h", base.className]]
-//                                                       atomically:NO
-//                                                         encoding:NSUTF8StringEncoding error:&error];
-//                    
-//                    [[base implementationStringWithHeader:@""] writeToURL:[selectedDirectory URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.m", base.className]]
-//                                                       atomically:NO
-//                                                         encoding:NSUTF8StringEncoding error:&error];
+                        outputString = [outputDictionary objectForKey:key];
+                        [outputString writeToURL:[selectedDirectory URLByAppendingPathComponent:key]
+                                      atomically:NO
+                                        encoding:NSUTF8StringEncoding 
+                                           error:&error];
+                    }                    
                 }
             } 
         }
