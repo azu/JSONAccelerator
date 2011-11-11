@@ -27,7 +27,7 @@
 
 - (IBAction)getUrlPressed:(id)sender 
 {
-    
+    [_modeler loadJSONWithURL:[_urlTextField stringValue]];
 }
 
 @end
