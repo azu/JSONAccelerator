@@ -8,12 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum
-{
-    OutputTypeObjectiveC = 0,
-    OutputTypeJava
-} OutputType;
-
 @interface ClassBaseObject : NSObject
 
 @property (nonatomic, copy) NSString *className;

@@ -30,6 +30,8 @@
 		441FC5461462E1CF007BF9DC /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC53C1462E1CF007BF9DC /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		441FC5471462E1CF007BF9DC /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC53E1462E1CF007BF9DC /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		441FC5481462E1CF007BF9DC /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC5401462E1CF007BF9DC /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44BC25C614756AFD00777EB8 /* ClassNameTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */; };
+		44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
 		44FE6F14146C241300FA13F9 /* ImplementationTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546EA146C191F00D3860A /* ImplementationTemplate.txt */; };
 		44FE6F4B146C710300FA13F9 /* FetchJSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */; };
@@ -103,6 +105,11 @@
 		441FC53E1462E1CF007BF9DC /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = Vendor/AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
 		441FC53F1462E1CF007BF9DC /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFXMLRequestOperation.h; path = Vendor/AFNetworking/AFXMLRequestOperation.h; sourceTree = "<group>"; };
 		441FC5401462E1CF007BF9DC /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFXMLRequestOperation.m; path = Vendor/AFNetworking/AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		442C6F0E1475B676002BA77F /* TableSelectionChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableSelectionChangeDelegate.h; path = JSONModeler/Protocols/TableSelectionChangeDelegate.h; sourceTree = "<group>"; };
+		44BC25C414756AFD00777EB8 /* ClassNameTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassNameTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.h; sourceTree = "<group>"; };
+		44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassNameTableViewHelper.m; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.m; sourceTree = "<group>"; };
+		44BC25C914756B6100777EB8 /* ClassPropertiesTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassPropertiesTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassPropertiesTableViewHelper.h; sourceTree = "<group>"; };
+		44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassPropertiesTableViewHelper.m; path = ViewControllers/Edit/Helpers/ClassPropertiesTableViewHelper.m; sourceTree = "<group>"; };
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
 		44FE6F48146C710300FA13F9 /* FetchJSONViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FetchJSONViewController.h; path = ViewControllers/FetchJSONViewController.h; sourceTree = "<group>"; };
@@ -148,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				4419EB19146DC740002605A0 /* MasterControllerDelegate.h */,
+				442C6F0E1475B676002BA77F /* TableSelectionChangeDelegate.h */,
 			);
 			name = Protocols;
 			path = ..;
@@ -359,6 +367,17 @@
 			name = AFNetworking;
 			sourceTree = "<group>";
 		};
+		44BC25C814756B4200777EB8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				44BC25C414756AFD00777EB8 /* ClassNameTableViewHelper.h */,
+				44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */,
+				44BC25C914756B6100777EB8 /* ClassPropertiesTableViewHelper.h */,
+				44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		44C546E6146C189F00D3860A /* Templates */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +411,7 @@
 		44FE6F5F146C716F00FA13F9 /* Edit Output */ = {
 			isa = PBXGroup;
 			children = (
+				44BC25C814756B4200777EB8 /* Helpers */,
 				44FE6F53146C714200FA13F9 /* EditOutputViewController.h */,
 				44FE6F54146C714200FA13F9 /* EditOutputViewController.m */,
 				44FE6F55146C714200FA13F9 /* EditOutputViewController.xib */,
@@ -545,6 +565,8 @@
 				44FE6F5B146C715200FA13F9 /* GenerateFilesViewController.m in Sources */,
 				44FE6F67146C736900FA13F9 /* MainWindowController.m in Sources */,
 				4419EB05146D7A73002605A0 /* BaseView.m in Sources */,
+				44BC25C614756AFD00777EB8 /* ClassNameTableViewHelper.m in Sources */,
+				44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

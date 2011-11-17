@@ -27,4 +27,6 @@ typedef enum {
 @property (assign) BOOL isReadWrite;
 @property (assign) SetterSemantics semantics;
 
+- (NSString *)setterForType:(OutputType) type;
+
 @end

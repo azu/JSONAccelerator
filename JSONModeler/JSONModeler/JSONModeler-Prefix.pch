@@ -4,4 +4,11 @@
 
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
+
+typedef enum
+{
+    OutputTypeObjectiveC = 0,
+    OutputTypeJava
+} OutputType;
+
 #endif

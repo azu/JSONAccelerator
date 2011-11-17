@@ -55,4 +55,22 @@
     return returnString;
 }
 
+- (NSString *)setterForType:(OutputType) type
+{
+    NSString *setterString = @"";
+    
+    if(type == OutputTypeObjectiveC) {
+        if(self.isClass) {
+            //[FlickrPhotoCollectionPhotoset instanceFromDictionary:[aDictionary objectForKey:@"photoset"]];
+            setterString = [setterString stringByAppendingFormat:@"    self.%@ = [%@ instanceFromDictionary:[dict objectForKey:@\"%@\"]];\n", self.name, [self.name capitalizedString], self.jsonName];
+        } else {
+            setterString = [setterString stringByAppendingFormat:@"    self.%@ = [dict objectForKey:@\"%@\"];\n", self.name, self.jsonName];
+        }
+    } else if(type == OutputTypeJava) {
+        
+    }
+    
+    return setterString;
+}
+
 @end

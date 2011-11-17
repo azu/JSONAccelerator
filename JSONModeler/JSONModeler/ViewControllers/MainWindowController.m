@@ -110,8 +110,8 @@ enum	// view controller choices
             
 		case kEditView:	// swap in the "CustomVideoViewController - QTMovieView"
 		{
-			EditOutputViewController* editViewController =
-            [[EditOutputViewController alloc] initWithNibName:@"EditOutputViewController" bundle:nil];
+			EditOutputViewController* editViewController = [[EditOutputViewController alloc] initWithNibName:@"EditOutputViewController" bundle:nil];
+            editViewController.modeler = self.modeler;
 			if (editViewController != nil)
 			{
 				myCurrentViewController = editViewController;	// keep track of the current view controller

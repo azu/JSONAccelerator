@@ -31,9 +31,7 @@
     } 
    andFailure:^(NSHTTPURLResponse *response, NSError *error) {
 #warning Handle the error case gracefully
-       
    }];
-    
 }
 
 - (void) loadJSONWithString: (NSString *) string
@@ -44,7 +42,7 @@
 - (void) loadJSONWithData: (NSData *) data
 {
     NSError *error = nil;    
-    
+        
     // Just for testing
     id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     if([object isKindOfClass:[NSDictionary class]]) {

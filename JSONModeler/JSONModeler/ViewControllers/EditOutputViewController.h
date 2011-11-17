@@ -7,11 +7,20 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "JSONModeler.h"
 #import "MasterControllerDelegate.h"
+#import "TableSelectionChangeDelegate.h"
 
-@interface EditOutputViewController : NSViewController
+@class ClassNameTableViewHelper, ClassPropertiesTableViewHelper;
+
+@interface EditOutputViewController : NSViewController <TableSelectionChangeDelegate>
 
 @property (assign) id<MasterControllerDelegate> delegate;
+@property (retain) JSONModeler *modeler;
+@property (strong) IBOutlet ClassNameTableViewHelper *classNameHelper;
+@property (strong) IBOutlet ClassPropertiesTableViewHelper *classPropertyHelper;
+@property (weak) IBOutlet NSTableView *classTableView;
+@property (weak) IBOutlet NSTableView *propertiesTableView;
 
 - (IBAction)generateFilesPressed:(id)sender;
 
