@@ -43,8 +43,11 @@
 {
     NSError *error = nil;    
         
+    NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    
     // Just for testing
     id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    
     if([object isKindOfClass:[NSDictionary class]]) {
         self.rawJSONDictionary = object;
         self.parseComplete = NO;

@@ -42,7 +42,7 @@
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowStyleMask">263</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 240}, {616, 486}}</string>
+				<string key="NSWindowRect">{{196, 240}, {912, 602}}</string>
 				<int key="NSWTFlags">1618477056</int>
 				<string key="NSWindowTitle">JSON Modeler</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -56,7 +56,7 @@
 						<object class="NSCustomView" id="938530614">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">282</int>
-							<string key="NSFrame">{{0, 35}, {616, 451}}</string>
+							<string key="NSFrame">{{0, 42}, {912, 560}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="367185"/>
@@ -77,7 +77,6 @@
 							<string key="NSFrame">{{10, 9}, {402, 20}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:2102</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSPathCell" key="NSCell" id="676261228">
@@ -144,7 +143,7 @@
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{616, 486}</string>
+					<string key="NSFrameSize">{912, 602}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="938530614"/>
@@ -323,7 +322,7 @@
 						<reference key="object" ref="938530614"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBNSLayoutConstraint" id="282772176">
+							<object class="IBNSLayoutConstraint" id="1033437207">
 								<reference key="firstItem" ref="938530614"/>
 								<int key="firstAttribute">8</int>
 								<int key="relation">0</int>
@@ -331,7 +330,7 @@
 								<int key="secondAttribute">0</int>
 								<float key="multiplier">1</float>
 								<object class="IBLayoutConstant" key="constant">
-									<double key="value">451</double>
+									<double key="value">560</double>
 								</object>
 								<float key="priority">1000</float>
 								<int key="scoringType">3</int>
@@ -383,11 +382,6 @@
 						<reference key="parent" ref="1006"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">142</int>
-						<reference key="object" ref="282772176"/>
-						<reference key="parent" ref="938530614"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">143</int>
 						<reference key="object" ref="943365792"/>
 						<reference key="parent" ref="1006"/>
@@ -407,6 +401,11 @@
 						<reference key="object" ref="691905824"/>
 						<reference key="parent" ref="367185"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">152</int>
+						<reference key="object" ref="1033437207"/>
+						<reference key="parent" ref="938530614"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -421,11 +420,11 @@
 					<string>1.NSWindowTemplate.visibleAtLaunch</string>
 					<string>129.IBPluginDependency</string>
 					<string>130.IBPluginDependency</string>
-					<string>142.IBPluginDependency</string>
 					<string>143.IBPluginDependency</string>
 					<string>144.IBPluginDependency</string>
 					<string>145.IBPluginDependency</string>
 					<string>146.IBPluginDependency</string>
+					<string>152.IBPluginDependency</string>
 					<string>2.IBNSViewMetadataConstraints</string>
 					<string>2.IBPluginDependency</string>
 					<string>23.IBNSViewMetadataConstraints</string>
@@ -469,7 +468,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSMutableArray">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<reference ref="282772176"/>
+						<reference ref="1033437207"/>
 					</object>
 					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -487,7 +486,7 @@
 				<reference key="dict.values" ref="1002"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">151</int>
+			<int key="maxID">152</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
