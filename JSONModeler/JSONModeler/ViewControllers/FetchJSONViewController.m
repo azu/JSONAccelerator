@@ -71,7 +71,9 @@
 
 - (IBAction)chooseLanguagePressed:(id)sender 
 {
+    
     if([self.delegate conformsToProtocol:@protocol(MasterControllerDelegate)]) {
+        [self.modeler loadJSONWithString:[self.JSONTextView string]];
         [self.delegate moveToNextViewController];
     }
 }
