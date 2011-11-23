@@ -8,10 +8,18 @@
 
 #import "ClassPropertiesObject.h"
 
+@interface ClassPropertiesObject ()
+
+- (NSString *) propertyForObjectiveC;
+- (NSString *) propertyForJava;
+
+@end
+
 @implementation ClassPropertiesObject
 @synthesize name = _name;
 @synthesize jsonName = _mappedName;
 @synthesize  type = _type;
+@synthesize  otherType = _otherType;
 
 @synthesize isClass = _isClass;
 @synthesize isAtomic = _isAtomic;
@@ -21,11 +29,46 @@
 // Builds the header implementation and is convienient for debugging
 - (NSString *) description 
 {
+    return [self propertyForObjectiveC]; 
+}
+
+- (NSString *)propertyForLanguage:(OutputLanguage)language
+{
+    if(language == OutputLanguageJava) {
+        return [self propertyForObjectiveC];
+    } else if (language == OutputLanguageObjectiveC) {
+        return [self propertyForJava];
+    }
+    return @"";
+}
+
+- (NSString *)setterForLanguage:(OutputLanguage) language
+{
+    NSString *setterString = @"";
+    
+    if(language == OutputLanguageObjectiveC) {
+        if(self.isClass) {
+            //[FlickrPhotoCollectionPhotoset instanceFromDictionary:[aDictionary objectForKey:@"photoset"]];
+            setterString = [setterString stringByAppendingFormat:@"    self.%@ = [%@ instanceFromDictionary:[dict objectForKey:@\"%@\"]];\n", self.name, [self.name capitalizedString], self.jsonName];
+        } else {
+            setterString = [setterString stringByAppendingFormat:@"    self.%@ = [dict objectForKey:@\"%@\"];\n", self.name, self.jsonName];
+        }
+    } else if(language == OutputLanguageJava) {
+        setterString = [setterString stringByAppendingFormat:@"    this.%@ = {OBJECTNAME};\n", self.name, self.jsonName];
+    }
+    
+    return setterString;
+}
+
+#pragma mark - Properties Section
+
+- (NSString *) propertyForObjectiveC
+{
     NSString *returnString = @"@property (";
     if(_isAtomic == NO) {
         returnString = [returnString stringByAppendingString:@"nonatomic, "];
     }
-
+    
     if(_isReadWrite == NO) {
         returnString = [returnString stringByAppendingString:@"readonly, "];
     }
@@ -50,27 +93,76 @@
             break;
     }
     
-    returnString = [returnString stringByAppendingFormat:@") %@ %@%@;", _type, (_semantics != SetterSemanticAssign) ? @"*" : @"" , _name];
-        
+    returnString = [returnString stringByAppendingFormat:@") %@ %@%@;", [self typeStringForLanguage:OutputLanguageObjectiveC], (_semantics != SetterSemanticAssign) ? @"*" : @"" , _name];
+    
     return returnString;
 }
 
-- (NSString *)setterForType:(OutputType) type
+- (NSString *) propertyForJava
 {
-    NSString *setterString = @"";
+    NSString *returnString = [NSString stringWithFormat:@"public %@ %@;\n", [self typeStringForLanguage:OutputLanguageJava], self.name];
     
-    if(type == OutputTypeObjectiveC) {
-        if(self.isClass) {
-            //[FlickrPhotoCollectionPhotoset instanceFromDictionary:[aDictionary objectForKey:@"photoset"]];
-            setterString = [setterString stringByAppendingFormat:@"    self.%@ = [%@ instanceFromDictionary:[dict objectForKey:@\"%@\"]];\n", self.name, [self.name capitalizedString], self.jsonName];
-        } else {
-            setterString = [setterString stringByAppendingFormat:@"    self.%@ = [dict objectForKey:@\"%@\"];\n", self.name, self.jsonName];
+    return returnString;
+}
+
+- (NSString *)typeStringForLanguage:(OutputLanguage) language
+{
+    if(language == OutputLanguageObjectiveC) {
+        switch (self.type) {
+            case PropertyTypeString:
+                return @"NSString";
+                break;
+            case PropertyTypeArray:
+                return @"NSArray";
+                break;
+            case PropertyTypeDictionary:
+                return @"NSDictionary";
+                break;
+            case PropertyTypeInt:
+                return @"NSInteger";
+                break;
+            case PropertyTypeDouble:
+                return @"double";
+                break;
+            case PropertyTypeOther:
+                return self.otherType;
+                break;
+                
+            default:
+                break;
         }
-    } else if(type == OutputTypeJava) {
-        
+    } else if(language == OutputLanguageJava) {
+        switch (self.type) {
+            case PropertyTypeString:
+                return @"String";
+                break;
+            case PropertyTypeArray: {
+                if(self.isClass) {
+                    return [NSString stringWithFormat:@"%@[]", self.otherType];
+                } else {
+                    // It's not a class sub object
+                }
+                return @"";
+                break;
+            }
+            case PropertyTypeDictionary:
+                return @"Dictionary";
+                break;
+            case PropertyTypeInt:
+                return @"int";
+                break;
+            case PropertyTypeDouble:
+                return @"double";
+                break;
+            case PropertyTypeOther:
+                return self.otherType;
+                break;
+                
+            default:
+                break;
+        }
     }
-    
-    return setterString;
+    return @"";
 }
 
 @end

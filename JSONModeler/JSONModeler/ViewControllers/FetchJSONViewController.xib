@@ -165,7 +165,7 @@
 											<string>WebURLsWithTitlesPboardType</string>
 											<string>public.url</string>
 										</set>
-										<string key="NSFrameSize">{504, 105}</string>
+										<string key="NSFrameSize">{504, 38}</string>
 										<reference key="NSSuperview" ref="84804361"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="453630023"/>
@@ -592,7 +592,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">724</int>
+			<int key="maxID">727</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -631,6 +631,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<string key="chooseLanguageButton">NSButton</string>
 						<string key="getDataButton">NSButton</string>
 						<string key="progressView">NSProgressIndicator</string>
+						<string key="scrollView">NSScrollView</string>
 						<string key="urlTextField">NSTextField</string>
 						<string key="urlTextFieldCell">NSTextFieldCell</string>
 					</dictionary>
@@ -650,6 +651,10 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<object class="IBToOneOutletInfo" key="progressView">
 							<string key="name">progressView</string>
 							<string key="candidateClassName">NSProgressIndicator</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="scrollView">
+							<string key="name">scrollView</string>
+							<string key="candidateClassName">NSScrollView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="urlTextField">
 							<string key="name">urlTextField</string>

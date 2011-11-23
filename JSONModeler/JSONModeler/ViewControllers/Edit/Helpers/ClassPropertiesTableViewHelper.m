@@ -37,7 +37,7 @@
         return textField;
     } else if ([identifier isEqualToString:@"Type"]) {
         NSTextField *textField = [tableView makeViewWithIdentifier:identifier owner:self];
-        NSString *sizeString = object.type;
+        NSString *sizeString = [object typeStringForLanguage:OutputLanguageObjectiveC];
         textField.objectValue = sizeString;
         return textField;
     } else {

@@ -34,13 +34,13 @@
     return self;
 }
 
-- (NSDictionary *)outputStringsWithType:(OutputType)type 
+- (NSDictionary *)outputStringsWithType:(OutputLanguage)type 
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    if(type == OutputTypeObjectiveC) {
+    if(type == OutputLanguageObjectiveC) {
         [dict setObject:[self ObjC_HeaderFile] forKey:[NSString stringWithFormat:@"%@.h", _className]];
         [dict setObject:[self ObjC_ImplementationFile] forKey:[NSString stringWithFormat:@"%@.m", _className]];        
-    } else if (type == OutputTypeJava) {
+    } else if (type == OutputLanguageJava) {
         [dict setObject:[self Java_ImplementationFile] forKey:[NSString stringWithFormat:@"%@.java", _className]];
     }
     
@@ -112,7 +112,7 @@
     
     NSString *settersString = @"";
     for(ClassPropertiesObject *property in [_properties allValues]) {
-        settersString = [settersString stringByAppendingString:[property setterForType:OutputTypeObjectiveC]];
+        settersString = [settersString stringByAppendingString:[property setterForLanguage:OutputLanguageObjectiveC]];
     }
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];
@@ -128,6 +128,26 @@
     NSString *templateString = [[NSString alloc] initWithContentsOfFile:interfaceTemplate encoding:NSUTF8StringEncoding error:nil];
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];
+    
+    // Public Properties
+    NSString *propertiesString = @"";
+    for(ClassPropertiesObject *property in [_properties allValues]) {
+        propertiesString = [propertiesString stringByAppendingString:[property propertyForLanguage:OutputLanguageJava]];
+    }
+    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{PROPERTIES}" withString:propertiesString];
+    
+    
+    // Setters    
+    NSString *settersString = @"";
+    for(ClassPropertiesObject *property in [_properties allValues]) {
+        settersString = [settersString stringByAppendingString:[property setterForLanguage:OutputLanguageJava]];
+    }
+    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];    
+    
+    NSString *rawObject = @"rawObject";
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{OBJECTNAME}" withString:rawObject];
     
     return templateString;
 }

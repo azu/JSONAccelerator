@@ -14,6 +14,6 @@
 @property (nonatomic, copy) NSString *baseClass;
 @property (nonatomic, retain) NSMutableDictionary *properties;
 
-- (NSDictionary *)outputStringsWithType:(OutputType)type;
+- (NSDictionary *)outputStringsWithType:(OutputLanguage)type;
 
 @end

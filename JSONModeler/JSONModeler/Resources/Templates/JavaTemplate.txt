@@ -8,8 +8,8 @@ public class {CLASSNAME} extends {BASECLASS} {
 	public {CLASSNAME} () {
 		
 	}	
-    
-    public {CLASSNAME} ({PROPERTYLIST}) {
+        
+    public {CLASSNAME} (Object {OBJECTNAME}) {
 {SETTERS}
     }
     

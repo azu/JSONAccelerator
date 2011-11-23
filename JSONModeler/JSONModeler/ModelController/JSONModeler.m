@@ -117,7 +117,7 @@
                     }
                 }
                 
-                [tempPropertyObject setType:@"NSArray"];
+                [tempPropertyObject setType:PropertyTypeArray];
                 
                 // We now need to check to see if the first object in the array is a NSDictionary
                 // if it is, then we need to create a new class
@@ -130,23 +130,24 @@
                 
             } else if([tempObject isKindOfClass:[NSString class]]) {
                 // NSString Objects
-                [tempPropertyObject setType:@"NSString"];
+                [tempPropertyObject setType:PropertyTypeString];
                 
             } else if([tempObject isKindOfClass:[NSDictionary class]]) {
                 // NSDictionary Objects
                 
                 [tempPropertyObject setIsClass:YES];
-                [tempPropertyObject setType:[currentKey capitalizedString]];
+                [tempPropertyObject setType:PropertyTypeOther];
+                [tempPropertyObject setOtherType:[currentKey capitalizedString]];
                 [self parseData:(NSDictionary *)tempObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"];
                 
             } else {
                 // Miscellaneous
                 NSString *classDecription = [[tempObject class] description];
                 if([classDecription rangeOfString:@"NSCFNumber"].location != NSNotFound) {
-                    [tempPropertyObject setType:@"NSInteger"];
+                    [tempPropertyObject setType:PropertyTypeInt];
                     [tempPropertyObject setSemantics:SetterSemanticAssign];
                 } else if([classDecription rangeOfString:@"NSDecimalNumber"].location != NSNotFound) {
-                    [tempPropertyObject setType:@"double"];
+                    [tempPropertyObject setType:PropertyTypeOther];
                     [tempPropertyObject setSemantics:SetterSemanticAssign];
                 } 
                 else {

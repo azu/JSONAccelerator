@@ -7,8 +7,8 @@
 
 typedef enum
 {
-    OutputTypeObjectiveC = 0,
-    OutputTypeJava
-} OutputType;
+    OutputLanguageObjectiveC = 0,
+    OutputLanguageJava
+} OutputLanguage;
 
 #endif

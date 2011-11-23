@@ -47,6 +47,13 @@
     [panel setCanCreateDirectories:YES];
     [panel setResolvesAliases:YES];
     [panel setPrompt:NSLocalizedString(@"Choose", nil)];
+
+    OutputLanguage language;
+    if([sender tag] == 0) {
+        language = OutputLanguageObjectiveC;
+    } else {
+        language = OutputLanguageJava;
+    }
     
     [panel beginSheetModalForWindow:_window completionHandler:^(NSInteger result) {        
         if (result == NSOKButton)
@@ -56,7 +63,7 @@
                 NSURL *selectedDirectory = [panel URL];
                 NSArray *files = [[self.modeler parsedDictionary] allValues];
                 for(ClassBaseObject *base in files) {
-                    NSDictionary *outputDictionary = [base outputStringsWithType:OutputTypeObjectiveC];
+                    NSDictionary *outputDictionary = [base outputStringsWithType:language];
                     NSArray *keysArray = [outputDictionary allKeys];
                     NSString *outputString = nil;
                     for(NSString *key in keysArray) {
