@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class ClassBaseObject;
+
 typedef enum {
     SetterSemanticStrong = 0,
     SetterSemanticWeak,
@@ -22,6 +24,7 @@ typedef enum {
     PropertyTypeDictionary,
     PropertyTypeInt,
     PropertyTypeDouble,
+    PropertyTypeClass,
     PropertyTypeOther
 } PropertyType;
 
@@ -31,6 +34,8 @@ typedef enum {
 @property (nonatomic, copy) NSString *jsonName;
 @property (nonatomic, assign) PropertyType type;
 @property (nonatomic, copy) NSString *otherType;
+
+@property (weak) ClassBaseObject *referenceClass;
 
 @property (assign) BOOL isClass;
 @property (assign) BOOL isAtomic;

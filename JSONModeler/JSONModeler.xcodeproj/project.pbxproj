@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4414992514642ABC002B6969 /* ClassBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4414992414642ABC002B6969 /* ClassBaseObject.m */; };
 		4414992914642AF4002B6969 /* ClassPropertiesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4414992814642AF4002B6969 /* ClassPropertiesObject.m */; };
-		441499351464619A002B6969 /* NSString+NSString_Nerdery.m in Sources */ = {isa = PBXBuildFile; fileRef = 441499341464619A002B6969 /* NSString+NSString_Nerdery.m */; };
+		441499351464619A002B6969 /* NSString+Nerdery.m in Sources */ = {isa = PBXBuildFile; fileRef = 441499341464619A002B6969 /* NSString+Nerdery.m */; };
 		4415E4511462F39900953014 /* JSONModeler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4415E4501462F39900953014 /* JSONModeler.m */; };
 		4419EB05146D7A73002605A0 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4419EB04146D7A73002605A0 /* BaseView.m */; };
 		441FC4E71462D8E1007BF9DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC4E61462D8E1007BF9DC /* Cocoa.framework */; };
@@ -64,8 +64,8 @@
 		4414992414642ABC002B6969 /* ClassBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassBaseObject.m; path = Models/ClassBaseObject.m; sourceTree = "<group>"; };
 		4414992714642AF4002B6969 /* ClassPropertiesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassPropertiesObject.h; path = Models/ClassPropertiesObject.h; sourceTree = "<group>"; };
 		4414992814642AF4002B6969 /* ClassPropertiesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassPropertiesObject.m; path = Models/ClassPropertiesObject.m; sourceTree = "<group>"; };
-		441499331464619A002B6969 /* NSString+NSString_Nerdery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NSString_Nerdery.h"; path = "Category/NSString+NSString_Nerdery.h"; sourceTree = "<group>"; };
-		441499341464619A002B6969 /* NSString+NSString_Nerdery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NSString_Nerdery.m"; path = "Category/NSString+NSString_Nerdery.m"; sourceTree = "<group>"; };
+		441499331464619A002B6969 /* NSString+Nerdery.h */ = {isa = PBXFileReference; fileEncoding = 4; name = "NSString+Nerdery.h"; path = "Category/NSString+Nerdery.h"; sourceTree = "<group>"; };
+		441499341464619A002B6969 /* NSString+Nerdery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Nerdery.m"; path = "Category/NSString+Nerdery.m"; sourceTree = "<group>"; };
 		4415E44F1462F39900953014 /* JSONModeler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModeler.h; path = ModelController/JSONModeler.h; sourceTree = "<group>"; };
 		4415E4501462F39900953014 /* JSONModeler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONModeler.m; path = ModelController/JSONModeler.m; sourceTree = "<group>"; };
 		4419EB03146D7A73002605A0 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseView.h; path = Views/BaseView.h; sourceTree = "<group>"; };
@@ -294,8 +294,8 @@
 		441FC51D1462D942007BF9DC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				441499331464619A002B6969 /* NSString+NSString_Nerdery.h */,
-				441499341464619A002B6969 /* NSString+NSString_Nerdery.m */,
+				441499331464619A002B6969 /* NSString+Nerdery.h */,
+				441499341464619A002B6969 /* NSString+Nerdery.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -576,7 +576,7 @@
 				4415E4511462F39900953014 /* JSONModeler.m in Sources */,
 				4414992514642ABC002B6969 /* ClassBaseObject.m in Sources */,
 				4414992914642AF4002B6969 /* ClassPropertiesObject.m in Sources */,
-				441499351464619A002B6969 /* NSString+NSString_Nerdery.m in Sources */,
+				441499351464619A002B6969 /* NSString+Nerdery.m in Sources */,
 				44FE6F4B146C710300FA13F9 /* FetchJSONViewController.m in Sources */,
 				44FE6F51146C712600FA13F9 /* ChooseLanguageViewController.m in Sources */,
 				44FE6F56146C714200FA13F9 /* EditOutputViewController.m in Sources */,

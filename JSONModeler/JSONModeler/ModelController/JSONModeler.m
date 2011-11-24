@@ -10,11 +10,12 @@
 #import "JSONFetcher.h"
 #import "ClassBaseObject.h"
 #import "ClassPropertiesObject.h"
+#import "NSString+Nerdery.h"
 
 @interface JSONModeler ()
 
 - (void) loadJSONWithData: (NSData *) data;
-- (void) parseData: (NSDictionary *)dict intoObjectsWithBaseObjectName: (NSString *) baseObjectName andBaseObjectClass: (NSString *) baseObjectClass;
+- (ClassBaseObject *) parseData: (NSDictionary *)dict intoObjectsWithBaseObjectName: (NSString *) baseObjectName andBaseObjectClass: (NSString *) baseObjectClass;
 
 @end
 
@@ -58,7 +59,7 @@
 
 #pragma mark - Create the model objects
 
-- (void) parseData: (NSDictionary *)dict intoObjectsWithBaseObjectName: (NSString *) baseObjectName andBaseObjectClass: (NSString *) baseObjectClass
+- (ClassBaseObject *) parseData: (NSDictionary *)dict intoObjectsWithBaseObjectName: (NSString *) baseObjectName andBaseObjectClass: (NSString *) baseObjectClass
 {
     if(_parsedDictionary == nil) {
         self.parsedDictionary = [NSMutableDictionary dictionary];
@@ -71,7 +72,14 @@
     } else {
         tempClass = [ClassBaseObject new];
         [tempClass setBaseClass:baseObjectClass];
-        [tempClass setClassName:[baseObjectName capitalizedString]];
+        
+        // Massage the names of the application
+        NSMutableArray *components = [NSMutableArray arrayWithArray:[baseObjectName componentsSeparatedByString:@"_"]];
+        for(NSUInteger i = 0; i < [components count]; i++) {
+            [components replaceObjectAtIndex:i withObject:[[components objectAtIndex:i] capitalizeFirstCharacter]];
+        }
+        NSString *tempClassName = [components componentsJoinedByString:@""];
+        [tempClass setClassName:[tempClassName capitalizeFirstCharacter]];
     }
     
     NSArray *array = [dict allKeys];
@@ -83,7 +91,6 @@
         @autoreleasepool {
             tempPropertyObject = [ClassPropertiesObject new];
             [tempPropertyObject setJsonName:currentKey];
-            
             // Set the name
             if([currentKey isEqualToString:@"id"]) {
                 [tempPropertyObject setName:[baseObjectName stringByAppendingString:@"Identifier"]];
@@ -124,7 +131,7 @@
                 if([(NSArray *)tempObject count] > 0) {
                     tempArrayObject = [(NSArray *)tempObject objectAtIndex:0];
                     if([tempArrayObject isKindOfClass:[NSDictionary class]]) {
-                        [self parseData:(NSDictionary *)tempArrayObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"];
+                        [tempPropertyObject setReferenceClass:[self parseData:(NSDictionary *)tempArrayObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"]];
                     }
                 }
                 
@@ -134,11 +141,9 @@
                 
             } else if([tempObject isKindOfClass:[NSDictionary class]]) {
                 // NSDictionary Objects
-                
                 [tempPropertyObject setIsClass:YES];
-                [tempPropertyObject setType:PropertyTypeOther];
-                [tempPropertyObject setOtherType:[currentKey capitalizedString]];
-                [self parseData:(NSDictionary *)tempObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"];
+                [tempPropertyObject setType:PropertyTypeClass];
+                [tempPropertyObject setReferenceClass:[self parseData:(NSDictionary *)tempObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"]];
                 
             } else {
                 // Miscellaneous
@@ -147,7 +152,7 @@
                     [tempPropertyObject setType:PropertyTypeInt];
                     [tempPropertyObject setSemantics:SetterSemanticAssign];
                 } else if([classDecription rangeOfString:@"NSDecimalNumber"].location != NSNotFound) {
-                    [tempPropertyObject setType:PropertyTypeOther];
+                    [tempPropertyObject setType:PropertyTypeDouble];
                     [tempPropertyObject setSemantics:SetterSemanticAssign];
                 } 
                 else {
@@ -163,7 +168,7 @@
     }
     
     [self.parsedDictionary setObject:tempClass forKey:baseObjectName];
-    
+    return tempClass;
 }
 
 

@@ -96,6 +96,25 @@
     
 }
 
+- (IBAction)animateButtonPressed:(id)sender 
+{
+    NSShadow *shadow = [[NSShadow alloc] init];
+        
+    [shadow setShadowOffset:NSMakeSize(3, -3)];
+    [shadow setShadowBlurRadius:4.0];
+    [shadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.75]];
+    // Begin a grouping of animation target value settings.
+    [NSAnimationContext beginGrouping];
+    
+    // Request a default animation duration of 0.5 seconds.
+    [[NSAnimationContext currentContext] setDuration:2.5];
+    
+    [[(NSButton *)sender animator] setFrameOrigin:NSMakePoint(100, 100)];
+    // End the grouping of animation target value settings, causing the animations in the grouping to be started simultaneously.
+    [NSAnimationContext endGrouping];
+
+}
+
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if(_modeler.parseComplete) {

@@ -22,9 +22,9 @@
 @property (assign) id<MasterControllerDelegate> delegate;
 @property (weak) IBOutlet NSScrollView *scrollView;
 
-
 - (IBAction)getUrlPressed:(id)sender;
 - (IBAction)chooseLanguagePressed:(id)sender;
 - (IBAction)verifyPressed:(id)sender;
+- (IBAction)animateButtonPressed:(id)sender;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "ClassBaseObject.h"
 #import "ClassPropertiesObject.h"
+#import "NSString+Nerdery.h"
 
 @interface ClassBaseObject ()
 
@@ -68,9 +69,9 @@
     for(ClassPropertiesObject *property in [_properties allValues]) {
         if([property isClass]) {
             if([forwardDeclarationString isEqualToString:@""]) {
-                forwardDeclarationString = [NSString stringWithFormat:@"@class %@", [[property name] capitalizedString]]; 
+                forwardDeclarationString = [NSString stringWithFormat:@"@class %@", [[property name] capitalizeFirstCharacter]]; 
             } else {
-                forwardDeclarationString = [forwardDeclarationString stringByAppendingFormat:@", %@", [[property name] capitalizedString]];
+                forwardDeclarationString = [forwardDeclarationString stringByAppendingFormat:@", %@", [[property name] capitalizeFirstCharacter]];
             }
         }
     }

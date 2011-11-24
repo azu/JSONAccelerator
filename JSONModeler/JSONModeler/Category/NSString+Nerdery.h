@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (NSString_Nerdery)
+@interface NSString (Nerdery)
+
+- (NSString *)capitalizeFirstCharacter;
 
 @end

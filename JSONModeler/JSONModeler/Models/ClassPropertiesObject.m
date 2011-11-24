@@ -7,6 +7,7 @@
 //
 
 #import "ClassPropertiesObject.h"
+#import "ClassBaseObject.h"
 
 @interface ClassPropertiesObject ()
 
@@ -20,6 +21,8 @@
 @synthesize jsonName = _mappedName;
 @synthesize  type = _type;
 @synthesize  otherType = _otherType;
+
+@synthesize referenceClass = _referenceClass;
 
 @synthesize isClass = _isClass;
 @synthesize isAtomic = _isAtomic;
@@ -48,9 +51,24 @@
     
     if(language == OutputLanguageObjectiveC) {
         if(self.isClass) {
-            //[FlickrPhotoCollectionPhotoset instanceFromDictionary:[aDictionary objectForKey:@"photoset"]];
-            setterString = [setterString stringByAppendingFormat:@"    self.%@ = [%@ instanceFromDictionary:[dict objectForKey:@\"%@\"]];\n", self.name, [self.name capitalizedString], self.jsonName];
+#warning Need to do testing to make sure the set object is of type of dictionary
+            setterString = [setterString stringByAppendingFormat:@"    self.%@ = [%@ instanceFromDictionary:[dict objectForKey:@\"%@\"]];\n", self.name, self.referenceClass.className, self.jsonName];
         } else {
+#warning Need to do array testing and properly build the array.
+            /*
+             NSArray *receivedMovies = [aDictionary objectForKey:@"movies"];
+             if ([receivedMovies isKindOfClass:[NSArray class]]) {
+             
+             NSMutableArray *parsedMovies = [NSMutableArray arrayWithCapacity:[receivedMovies count]];
+             for (NSDictionary *item in receivedMovies) {
+             if ([item isKindOfClass:[NSDictionary class]]) {
+             [parsedMovies addObject:[movie instanceFromDictionary:item]];
+             }
+             }
+
+             */
+            
+#warning Do the check where if the type is an array but the JSON coming in is a dictionary to make the put the dictionary into an array with one element
             setterString = [setterString stringByAppendingFormat:@"    self.%@ = [dict objectForKey:@\"%@\"];\n", self.name, self.jsonName];
         }
     } else if(language == OutputLanguageJava) {
@@ -124,6 +142,9 @@
             case PropertyTypeDouble:
                 return @"double";
                 break;
+            case PropertyTypeClass:
+                return self.referenceClass.className;
+                break;
             case PropertyTypeOther:
                 return self.otherType;
                 break;
@@ -153,6 +174,9 @@
                 break;
             case PropertyTypeDouble:
                 return @"double";
+                break;
+            case PropertyTypeClass:
+                return self.referenceClass.className;
                 break;
             case PropertyTypeOther:
                 return self.otherType;
