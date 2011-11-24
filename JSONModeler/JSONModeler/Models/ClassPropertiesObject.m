@@ -56,15 +56,21 @@
         } else {
 #warning Need to do array testing and properly build the array.
             /*
-             NSArray *receivedMovies = [aDictionary objectForKey:@"movies"];
+             NSObject *receivedMovies = [aDictionary objectForKey:@"movies"];
              if ([receivedMovies isKindOfClass:[NSArray class]]) {
+                 
+                 NSMutableArray *parsedMovies = [NSMutableArray arrayWithCapacity:[receivedMovies count]];
+                 for (NSDictionary *item in receivedMovies) {
+                     if ([item isKindOfClass:[NSDictionary class]]) {
+                         [parsedMovies addObject:[movie instanceFromDictionary:item]];
+                     }
+                }
+             } else if ([receivedMovies isKindOfClass:[NSDictionary class]]) {
+                NSMutableArray *parsedMovies = [NSMutableArray arrayWithCapacity:1];
+                [parsedMovies addObject:[movie instanceFromDictionary:receiveMovies]];
+             }
              
-             NSMutableArray *parsedMovies = [NSMutableArray arrayWithCapacity:[receivedMovies count]];
-             for (NSDictionary *item in receivedMovies) {
-             if ([item isKindOfClass:[NSDictionary class]]) {
-             [parsedMovies addObject:[movie instanceFromDictionary:item]];
-             }
-             }
+             self.movies = parsedMovies;
 
              */
             
