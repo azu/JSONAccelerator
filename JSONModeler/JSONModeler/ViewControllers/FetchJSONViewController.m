@@ -64,7 +64,14 @@
         [self.JSONTextView setString:[parsedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
     } 
     andFailure:^(NSHTTPURLResponse *response, NSError *error) {
-        
+        if(response == nil) {
+            NSAlert *testAlert = [NSAlert alertWithMessageText:NSLocalizedString(@"An Error Occurred", nil)
+                                                 defaultButton:NSLocalizedString(@"Dismiss", @"")
+                                               alternateButton:nil
+                                                   otherButton:nil
+                                     informativeTextWithFormat:@"%@", [error localizedDescription]];
+            [testAlert runModal];
+        }
     }];
 
 }
@@ -86,7 +93,7 @@
     id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     
     if(error) {
-        NSLog(@"Error: %@", [error userInfo] );
+        DLog(@"Error: %@", [error userInfo] );
     } else {
         [self.chooseLanguageButton setEnabled:YES];
         id output = [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted error:&error];

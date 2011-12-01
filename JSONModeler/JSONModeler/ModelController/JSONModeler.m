@@ -31,7 +31,7 @@
         [self loadJSONWithData:object];
     } 
    andFailure:^(NSHTTPURLResponse *response, NSError *error) {
-#warning Handle the error case gracefully
+       DLog(@"An error occured here, but it's not too much trouble because this method is only used in debugging");
    }];
 }
 
@@ -44,7 +44,7 @@
 {
     NSError *error = nil;    
         
-    NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    //NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     
     // Just for testing
     id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
@@ -156,7 +156,7 @@
                     [tempPropertyObject setSemantics:SetterSemanticAssign];
                 } 
                 else {
-                    NSLog(@"UNDEFINED TYPE: %@", [tempObject class]);
+                    DLog(@"UNDEFINED TYPE: %@", [tempObject class]);
                 }
                 // This is undefined right now - add other if
             }

@@ -32,6 +32,11 @@
 		441FC5481462E1CF007BF9DC /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC5401462E1CF007BF9DC /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F71476E147009B59AE /* NoodleLineNumberMarker.m */; };
 		445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F91476E147009B59AE /* NoodleLineNumberView.m */; };
+		448B10901487EAF800BEE605 /* ArraySetterTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */; };
+		448B10AA148840DE00BEE605 /* EditClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10A8148840DD00BEE605 /* EditClassViewController.m */; };
+		448B10AB148840DE00BEE605 /* EditClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448B10A9148840DE00BEE605 /* EditClassViewController.xib */; };
+		448B10B11488410C00BEE605 /* EditPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10AF1488410C00BEE605 /* EditPropertyViewController.m */; };
+		448B10B21488410C00BEE605 /* EditPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448B10B01488410C00BEE605 /* EditPropertyViewController.xib */; };
 		44BC25C614756AFD00777EB8 /* ClassNameTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */; };
 		44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
@@ -64,7 +69,7 @@
 		4414992414642ABC002B6969 /* ClassBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassBaseObject.m; path = Models/ClassBaseObject.m; sourceTree = "<group>"; };
 		4414992714642AF4002B6969 /* ClassPropertiesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassPropertiesObject.h; path = Models/ClassPropertiesObject.h; sourceTree = "<group>"; };
 		4414992814642AF4002B6969 /* ClassPropertiesObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassPropertiesObject.m; path = Models/ClassPropertiesObject.m; sourceTree = "<group>"; };
-		441499331464619A002B6969 /* NSString+Nerdery.h */ = {isa = PBXFileReference; fileEncoding = 4; name = "NSString+Nerdery.h"; path = "Category/NSString+Nerdery.h"; sourceTree = "<group>"; };
+		441499331464619A002B6969 /* NSString+Nerdery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Nerdery.h"; path = "Category/NSString+Nerdery.h"; sourceTree = "<group>"; };
 		441499341464619A002B6969 /* NSString+Nerdery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Nerdery.m"; path = "Category/NSString+Nerdery.m"; sourceTree = "<group>"; };
 		4415E44F1462F39900953014 /* JSONModeler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONModeler.h; path = ModelController/JSONModeler.h; sourceTree = "<group>"; };
 		4415E4501462F39900953014 /* JSONModeler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONModeler.m; path = ModelController/JSONModeler.m; sourceTree = "<group>"; };
@@ -112,6 +117,13 @@
 		445409F71476E147009B59AE /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = Vendor/LineNumbers/NoodleLineNumberMarker.m; sourceTree = "<group>"; };
 		445409F81476E147009B59AE /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = Vendor/LineNumbers/NoodleLineNumberView.h; sourceTree = "<group>"; };
 		445409F91476E147009B59AE /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberView.m; path = Vendor/LineNumbers/NoodleLineNumberView.m; sourceTree = "<group>"; };
+		448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ArraySetterTemplate.txt; path = Resources/Templates/ArraySetterTemplate.txt; sourceTree = "<group>"; };
+		448B10A7148840DD00BEE605 /* EditClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditClassViewController.h; path = ViewControllers/Edit/EditClassViewController.h; sourceTree = "<group>"; };
+		448B10A8148840DD00BEE605 /* EditClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditClassViewController.m; path = ViewControllers/Edit/EditClassViewController.m; sourceTree = "<group>"; };
+		448B10A9148840DE00BEE605 /* EditClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditClassViewController.xib; path = ViewControllers/Edit/EditClassViewController.xib; sourceTree = "<group>"; };
+		448B10AE1488410C00BEE605 /* EditPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPropertyViewController.h; path = ViewControllers/Edit/EditPropertyViewController.h; sourceTree = "<group>"; };
+		448B10AF1488410C00BEE605 /* EditPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPropertyViewController.m; path = ViewControllers/Edit/EditPropertyViewController.m; sourceTree = "<group>"; };
+		448B10B01488410C00BEE605 /* EditPropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditPropertyViewController.xib; path = ViewControllers/Edit/EditPropertyViewController.xib; sourceTree = "<group>"; };
 		44BC25C414756AFD00777EB8 /* ClassNameTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassNameTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.h; sourceTree = "<group>"; };
 		44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassNameTableViewHelper.m; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.m; sourceTree = "<group>"; };
 		44BC25C914756B6100777EB8 /* ClassPropertiesTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassPropertiesTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassPropertiesTableViewHelper.h; sourceTree = "<group>"; };
@@ -385,6 +397,19 @@
 			name = Noodle;
 			sourceTree = "<group>";
 		};
+		448B10AD148840ED00BEE605 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				448B10A7148840DD00BEE605 /* EditClassViewController.h */,
+				448B10A8148840DD00BEE605 /* EditClassViewController.m */,
+				448B10A9148840DE00BEE605 /* EditClassViewController.xib */,
+				448B10AE1488410C00BEE605 /* EditPropertyViewController.h */,
+				448B10AF1488410C00BEE605 /* EditPropertyViewController.m */,
+				448B10B01488410C00BEE605 /* EditPropertyViewController.xib */,
+			);
+			name = Popover;
+			sourceTree = "<group>";
+		};
 		44BC25C814756B4200777EB8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +427,7 @@
 				44C546EA146C191F00D3860A /* ImplementationTemplate.txt */,
 				44C546E7146C18D700D3860A /* InterfaceTemplate.txt */,
 				44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */,
+				448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */,
 			);
 			name = Templates;
 			sourceTree = "<group>";
@@ -430,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				44BC25C814756B4200777EB8 /* Helpers */,
+				448B10AD148840ED00BEE605 /* Popover */,
 				44FE6F53146C714200FA13F9 /* EditOutputViewController.h */,
 				44FE6F54146C714200FA13F9 /* EditOutputViewController.m */,
 				44FE6F55146C714200FA13F9 /* EditOutputViewController.xib */,
@@ -529,6 +556,9 @@
 				44FE6F5C146C715200FA13F9 /* GenerateFilesViewController.xib in Resources */,
 				44FE6F69146C73A900FA13F9 /* MainWindowController.xib in Resources */,
 				44FE6F77146C8D5600FA13F9 /* JavaTemplate.txt in Resources */,
+				448B10901487EAF800BEE605 /* ArraySetterTemplate.txt in Resources */,
+				448B10AB148840DE00BEE605 /* EditClassViewController.xib in Resources */,
+				448B10B21488410C00BEE605 /* EditPropertyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +617,8 @@
 				44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */,
 				445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */,
 				445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */,
+				448B10AA148840DE00BEE605 /* EditClassViewController.m in Sources */,
+				448B10B11488410C00BEE605 /* EditPropertyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

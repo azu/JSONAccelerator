@@ -50,31 +50,19 @@
     NSString *setterString = @"";
     
     if(language == OutputLanguageObjectiveC) {
-        if(self.isClass) {
+        if(self.isClass && self.type == PropertyTypeDictionary) {
 #warning Need to do testing to make sure the set object is of type of dictionary
             setterString = [setterString stringByAppendingFormat:@"    self.%@ = [%@ instanceFromDictionary:[dict objectForKey:@\"%@\"]];\n", self.name, self.referenceClass.className, self.jsonName];
-        } else {
-#warning Need to do array testing and properly build the array.
-            /*
-             NSObject *receivedMovies = [aDictionary objectForKey:@"movies"];
-             if ([receivedMovies isKindOfClass:[NSArray class]]) {
-                 
-                 NSMutableArray *parsedMovies = [NSMutableArray arrayWithCapacity:[receivedMovies count]];
-                 for (NSDictionary *item in receivedMovies) {
-                     if ([item isKindOfClass:[NSDictionary class]]) {
-                         [parsedMovies addObject:[movie instanceFromDictionary:item]];
-                     }
-                }
-             } else if ([receivedMovies isKindOfClass:[NSDictionary class]]) {
-                NSMutableArray *parsedMovies = [NSMutableArray arrayWithCapacity:1];
-                [parsedMovies addObject:[movie instanceFromDictionary:receiveMovies]];
-             }
-             
-             self.movies = parsedMovies;
-
-             */
+        } else if(self.type == PropertyTypeArray && self.referenceClass != nil) {
+            NSBundle *mainBundle = [NSBundle mainBundle];
             
-#warning Do the check where if the type is an array but the JSON coming in is a dictionary to make the put the dictionary into an array with one element
+            NSString *interfaceTemplate = [mainBundle pathForResource:@"ArraySetterTemplate" ofType:@"txt"];
+            NSString *templateString = [[NSString alloc] initWithContentsOfFile:interfaceTemplate encoding:NSUTF8StringEncoding error:nil];
+            templateString = [templateString stringByReplacingOccurrencesOfString:@"{JSONNAME}" withString:self.jsonName];
+            templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERNAME}" withString:self.name];
+            setterString = [templateString stringByReplacingOccurrencesOfString:@"{REFERENCE_CLASS}" withString:self.referenceClass.className];
+            
+        } else {
             setterString = [setterString stringByAppendingFormat:@"    self.%@ = [dict objectForKey:@\"%@\"];\n", self.name, self.jsonName];
         }
     } else if(language == OutputLanguageJava) {

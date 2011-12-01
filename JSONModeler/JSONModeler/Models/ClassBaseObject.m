@@ -118,6 +118,20 @@
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];
     
+    // DEALLOC SECTION
+    NSString *deallocString = @"";
+    
+#warning Ideally, this should be a test from the preferences file
+    if(YES) {
+        for(ClassPropertiesObject *property in [_properties allValues]) {
+            deallocString = @"\n- (void)dealloc\n{\n";
+            deallocString = [deallocString stringByAppendingString:[NSString stringWithFormat:@"\t[_%@ release];\n", property.name]];
+            deallocString = @"\t[super dealloc];\n}\n";
+        }
+    } 
+    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DEALLOC}" withString:deallocString];
+    
     return templateString;
 }
 

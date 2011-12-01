@@ -5,6 +5,14 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
 
+    // Define DLog to log to NSLog when DEBUG is defined
+    // see http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file/
+    #ifdef DEBUG
+        #define DLog(...) NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+    #else
+        #define DLog(...) do {} while (NO);
+    #endif
+
 typedef enum
 {
     OutputLanguageObjectiveC = 0,

@@ -18,6 +18,10 @@
 @synthesize classPropertyHelper = _classPropertyHelper;
 @synthesize classTableView = _classTableView;
 @synthesize propertiesTableView = _propertiesTableView;
+@synthesize editClassWindow = _editClassWindow;
+@synthesize editPropertyWindow = _editPropertyWindow;
+@synthesize editClassVC = _editClassVC;
+@synthesize editPropertyVC = _editPropertyVC;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -34,6 +38,9 @@
 {
     self.classNameHelper.modeler = self.modeler;
     self.classNameHelper.delegate = self;
+    
+    _editClassWindow.contentView = _editClassVC.view;
+    _editPropertyWindow.contentView = _editPropertyVC.view;
 }
 
 - (IBAction)generateFilesPressed:(id)sender
@@ -41,6 +48,50 @@
     if([self.delegate conformsToProtocol:@protocol(MasterControllerDelegate)]) {
         [self.delegate moveToNextViewController];
     }
+}
+
+- (IBAction)editClassPressed:(id)sender
+{
+    NSPopover *myPopover = [[NSPopover alloc] init];
+    
+    myPopover.contentViewController = self.editClassVC;
+    
+    
+    // AppKit will close the popover when the user interacts with a user interface element outside the popover.
+    // note that interacting with menus or panels that become key only when needed will not cause a transient popover to close.
+    myPopover.behavior = NSPopoverBehaviorTransient;
+    
+    // so we can be notified when the popover appears or closes
+    myPopover.delegate = self;
+    
+    NSButton *targetButton = (NSButton *)sender;
+    
+    // configure the preferred position of the popover
+    NSRectEdge prefEdge =NSMinYEdge;
+    
+    [myPopover showRelativeToRect:[targetButton bounds] ofView:sender preferredEdge:prefEdge];
+}
+
+- (IBAction)editPropertyPressed:(id)sender
+{
+    NSPopover *myPopover = [[NSPopover alloc] init];
+    
+    myPopover.contentViewController = self.editPropertyVC;
+    
+    
+    // AppKit will close the popover when the user interacts with a user interface element outside the popover.
+    // note that interacting with menus or panels that become key only when needed will not cause a transient popover to close.
+    myPopover.behavior = NSPopoverBehaviorTransient;
+    
+    // so we can be notified when the popover appears or closes
+    myPopover.delegate = self;
+    
+    NSButton *targetButton = (NSButton *)sender;
+    
+    // configure the preferred position of the popover
+    NSRectEdge prefEdge =NSMinYEdge;
+    
+    [myPopover showRelativeToRect:[targetButton bounds] ofView:sender preferredEdge:prefEdge];
 }
 
 - (void)tableDidChangeSelection

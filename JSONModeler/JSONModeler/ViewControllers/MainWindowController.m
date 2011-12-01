@@ -132,7 +132,7 @@ enum	// view controller choices
 				myCurrentViewController = generateViewController;	// keep track of the current view controller
                 generateViewController.delegate = self;
 			}
-            
+            generateViewController.modeler = self.modeler;
             pathUrl = [NSURL URLWithString:@"/Fetch/Choose/Edit/Generate"];
             
 			break;
