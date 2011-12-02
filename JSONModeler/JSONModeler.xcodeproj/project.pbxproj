@@ -32,6 +32,7 @@
 		441FC5481462E1CF007BF9DC /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC5401462E1CF007BF9DC /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F71476E147009B59AE /* NoodleLineNumberMarker.m */; };
 		445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F91476E147009B59AE /* NoodleLineNumberView.m */; };
+		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
 		448B10901487EAF800BEE605 /* ArraySetterTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */; };
 		448B10AA148840DE00BEE605 /* EditClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10A8148840DD00BEE605 /* EditClassViewController.m */; };
 		448B10AB148840DE00BEE605 /* EditClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448B10A9148840DE00BEE605 /* EditClassViewController.xib */; };
@@ -117,6 +118,8 @@
 		445409F71476E147009B59AE /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = Vendor/LineNumbers/NoodleLineNumberMarker.m; sourceTree = "<group>"; };
 		445409F81476E147009B59AE /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = Vendor/LineNumbers/NoodleLineNumberView.h; sourceTree = "<group>"; };
 		445409F91476E147009B59AE /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberView.m; path = Vendor/LineNumbers/NoodleLineNumberView.m; sourceTree = "<group>"; };
+		44670A7F1489987E0042A444 /* appIcons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appIcons.icns; sourceTree = "<group>"; };
+		44670A821489988E0042A444 /* JSONModeler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = JSONModeler.entitlements; sourceTree = "<group>"; };
 		448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ArraySetterTemplate.txt; path = Resources/Templates/ArraySetterTemplate.txt; sourceTree = "<group>"; };
 		448B10A7148840DD00BEE605 /* EditClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditClassViewController.h; path = ViewControllers/Edit/EditClassViewController.h; sourceTree = "<group>"; };
 		448B10A8148840DD00BEE605 /* EditClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditClassViewController.m; path = ViewControllers/Edit/EditClassViewController.m; sourceTree = "<group>"; };
@@ -221,6 +224,7 @@
 		441FC4EC1462D8E1007BF9DC /* JSONModeler */ = {
 			isa = PBXGroup;
 			children = (
+				44670A821489988E0042A444 /* JSONModeler.entitlements */,
 				441FC51D1462D942007BF9DC /* Categories */,
 				441FC51A1462D92B007BF9DC /* Models */,
 				441FC5231462D9A5007BF9DC /* Model Controllers */,
@@ -342,6 +346,7 @@
 		441FC5211462D982007BF9DC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				44670A7F1489987E0042A444 /* appIcons.icns */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -559,6 +564,7 @@
 				448B10901487EAF800BEE605 /* ArraySetterTemplate.txt in Resources */,
 				448B10AB148840DE00BEE605 /* EditClassViewController.xib in Resources */,
 				448B10B21488410C00BEE605 /* EditPropertyViewController.xib in Resources */,
+				44670A801489987E0042A444 /* appIcons.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,10 +732,12 @@
 		441FC5151462D8E1007BF9DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer: Jonathan Rexeisen (NUYRHWR8MG)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "CE26365C-D529-492D-946F-53E589521CD0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -737,6 +745,7 @@
 		441FC5161462D8E1007BF9DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";
