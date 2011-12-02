@@ -22,6 +22,8 @@
 @synthesize editPropertyWindow = _editPropertyWindow;
 @synthesize editClassVC = _editClassVC;
 @synthesize editPropertyVC = _editPropertyVC;
+@synthesize editClassButton = _editClassButton;
+@synthesize editPropertyButton = _editPropertyButton;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,6 +41,9 @@
     self.classNameHelper.modeler = self.modeler;
     self.classNameHelper.delegate = self;
     
+    self.classPropertyHelper.modeler = self.modeler;
+    self.classPropertyHelper.delegate = self;
+    
     _editClassWindow.contentView = _editClassVC.view;
     _editPropertyWindow.contentView = _editPropertyVC.view;
 }
@@ -55,6 +60,14 @@
     NSPopover *myPopover = [[NSPopover alloc] init];
     
     myPopover.contentViewController = self.editClassVC;
+    
+    NSArray *keysArray = [[self.modeler parsedDictionary ] allKeys];
+    ClassBaseObject *object = (ClassBaseObject *)[[self.modeler parsedDictionary] objectForKey:[keysArray objectAtIndex:self.classTableView.selectedRow]];
+    
+    self.editClassVC.classObject = object;
+    
+    [[self.editClassVC superclassField] setStringValue:object.baseClass];
+    [[self.editClassVC classNameField] setStringValue:object.className];
     
     
     // AppKit will close the popover when the user interacts with a user interface element outside the popover.
@@ -94,13 +107,22 @@
     [myPopover showRelativeToRect:[targetButton bounds] ofView:sender preferredEdge:prefEdge];
 }
 
-- (void)tableDidChangeSelection
+- (void)tableDidChangeSelection: (NSTableView *)tableView
 {
-    if([self.classTableView selectedRow] != -1) {
-        NSArray *keysArray = [[self.modeler parsedDictionary ] allKeys];
-        ClassBaseObject *object = (ClassBaseObject *)[[self.modeler parsedDictionary] objectForKey:[keysArray objectAtIndex:[self.classTableView selectedRow]]];
-        [self.classPropertyHelper setProperties:object.properties];
-        [self.propertiesTableView reloadData];
+    if(tableView == self.classTableView) {
+        if([self.classTableView selectedRow] != -1) {
+            [_editClassButton setEnabled:YES];
+            NSArray *keysArray = [[self.modeler parsedDictionary ] allKeys];
+            ClassBaseObject *object = (ClassBaseObject *)[[self.modeler parsedDictionary] objectForKey:[keysArray objectAtIndex:[self.classTableView selectedRow]]];
+            [self.classPropertyHelper setProperties:object.properties];
+            [self.propertiesTableView reloadData];
+        } else {
+            [_editClassButton setEnabled:NO];
+            [_editPropertyButton setEnabled:NO];
+        }
+    }
+    if(tableView == self.propertiesTableView) {
+        
     }
 
 }

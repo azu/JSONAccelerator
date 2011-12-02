@@ -12,6 +12,9 @@
 
 @implementation ClassPropertiesTableViewHelper
 @synthesize properties = _properties;
+@synthesize modeler = _modeler;
+@synthesize delegate = _delegate;
+
 
 // The only essential/required tableview dataSource method
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -45,5 +48,13 @@
     }
     return nil;
 }
+
+- (void)tableViewSelectionDidChange:(NSNotification *)notification
+{
+    if([self.delegate conformsToProtocol:@protocol(TableSelectionChangeDelegate)]) {
+        [self.delegate tableDidChangeSelection:[notification object]];
+    }
+}
+
 
 @end

@@ -27,6 +27,8 @@
 @property (strong) IBOutlet NSWindow *editPropertyWindow;
 @property (strong) IBOutlet EditClassViewController *editClassVC;
 @property (strong) IBOutlet EditPropertyViewController *editPropertyVC;
+@property (weak) IBOutlet NSButton *editClassButton;
+@property (weak) IBOutlet NSButton *editPropertyButton;
 
 - (IBAction)generateFilesPressed:(id)sender;
 - (IBAction)editClassPressed:(id)sender;

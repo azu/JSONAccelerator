@@ -8,6 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class ClassPropertiesObject;
+
 @interface EditPropertyViewController : NSViewController
+
+@property (retain) ClassPropertiesObject *propertiesObject;
 
 @end

@@ -11,6 +11,6 @@
 @protocol TableSelectionChangeDelegate <NSObject>
 
 @required
-- (void)tableDidChangeSelection;
+- (void)tableDidChangeSelection: (NSTableView *)tableView;
 
 @end

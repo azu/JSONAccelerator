@@ -8,8 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
+#import "TableSelectionChangeDelegate.h"
+
+@class JSONModeler;
+
 
 @interface ClassPropertiesTableViewHelper : NSObject <NSTableViewDelegate, NSTableViewDataSource>
+
+@property (retain) JSONModeler *modeler;
+@property (retain) id<TableSelectionChangeDelegate> delegate;
 
 @property (weak) NSDictionary *properties;
 

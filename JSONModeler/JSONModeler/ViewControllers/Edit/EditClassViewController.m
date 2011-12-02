@@ -9,6 +9,9 @@
 #import "EditClassViewController.h"
 
 @implementation EditClassViewController
+@synthesize classObject = _classObject;
+@synthesize superclassField = _superclassField;
+@synthesize classNameField = _classNameField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -93,7 +93,19 @@
     id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     
     if(error) {
-        DLog(@"Error: %@", [error userInfo] );
+        NSDictionary *dict = [error userInfo];
+        NSString *informativeText = [[dict allValues] objectAtIndex:0];
+        if([informativeText isEqualToString:@"No value."]) {
+            informativeText = NSLocalizedString(@"There is no content to parse.", nil);
+        } else if ([informativeText isEqualToString:@"JSON text did not start with array or object and option to allow fragments not set."]) {
+            informativeText = NSLocalizedString(@"JSON text did not start with array or object.", nil);
+        }
+        NSAlert *testAlert = [NSAlert alertWithMessageText:NSLocalizedString(@"An error occurred while verifying the JSON", nil)
+                                             defaultButton:NSLocalizedString(@"Dismiss", @"")
+                                           alternateButton:nil
+                                               otherButton:nil
+                                 informativeTextWithFormat:@"%@", informativeText];
+        [testAlert beginSheetModalForWindow:self.view.window modalDelegate:self didEndSelector:nil contextInfo:nil]; 
     } else {
         [self.chooseLanguageButton setEnabled:YES];
         id output = [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted error:&error];

@@ -36,7 +36,7 @@
 - (void)tableViewSelectionDidChange:(NSNotification *)notification
 {
     if([self.delegate conformsToProtocol:@protocol(TableSelectionChangeDelegate)]) {
-        [self.delegate tableDidChangeSelection];
+        [self.delegate tableDidChangeSelection:[notification object]];
     }
 }
 

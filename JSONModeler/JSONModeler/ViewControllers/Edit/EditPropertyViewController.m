@@ -9,6 +9,7 @@
 #import "EditPropertyViewController.h"
 
 @implementation EditPropertyViewController
+@synthesize propertiesObject = _propertiesObject;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
