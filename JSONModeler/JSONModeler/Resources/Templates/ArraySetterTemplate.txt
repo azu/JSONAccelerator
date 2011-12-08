@@ -1,15 +1,13 @@
-    NSObject *received{JSONNAME} = [dict objectForKey:@"{JSONNAME}"];
-    NSMutableArray *parsed{JSONNAME}
-    if ([received{JSONNAME} isKindOfClass:[NSArray class]]) {
-        NSMutableArray *parsed{JSONNAME} = [NSMutableArray arrayWithCapacity:[received{JSONNAME} count]];
-        for (NSDictionary *item in received{JSONNAME}) {
+    NSObject *received{REFERENCE_CLASS} = [dict objectForKey:@"{JSONNAME}"];
+    NSMutableArray *parsed{REFERENCE_CLASS} = [NSMutableArray array];
+    if ([received{REFERENCE_CLASS} isKindOfClass:[NSArray class]]) {
+        for (NSDictionary *item in (NSArray *)received{REFERENCE_CLASS}) {
             if ([item isKindOfClass:[NSDictionary class]]) {
-                [parsed{JSONNAME} addObject:[{REFERENCE_CLASS} instanceFromDictionary:item]];
+                [parsed{REFERENCE_CLASS} addObject:[{REFERENCE_CLASS} initWithDictionary:item]];
             }
        }
-    } else if ([received{JSONNAME} isKindOfClass:[NSDictionary class]]) {
-       NSMutableArray *parsed{JSONNAME} = [NSMutableArray arrayWithCapacity:1];
-       [parsed{JSONNAME} addObject:[{REFERENCE_CLASS} instanceFromDictionary:receive{JSONNAME}]];
+    } else if ([received{REFERENCE_CLASS} isKindOfClass:[NSDictionary class]]) {
+       [parsed{REFERENCE_CLASS} addObject:[{REFERENCE_CLASS} initWithDictionary:(NSDictionary *)received{REFERENCE_CLASS}]];
     }
 
-    self.{SETTERNAME} = parsed{JSONNAME};
+    self.{SETTERNAME} = [NSArray arrayWithArray:parsed{REFERENCE_CLASS}];

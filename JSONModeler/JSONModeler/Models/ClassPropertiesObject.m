@@ -45,14 +45,28 @@
     return @"";
 }
 
+- (NSArray *)setterReferenceClassesForLanguage:(OutputLanguage) language
+{
+    NSMutableArray *array = [NSMutableArray array];
+    if(language == OutputLanguageObjectiveC) {
+        // Objective C
+        if(self.referenceClass != nil) {
+            [array addObject:self.referenceClass.className];
+        }
+    } else {
+        // Java
+    }
+    return [NSArray arrayWithArray:array];
+}
+
 - (NSString *)setterForLanguage:(OutputLanguage) language
 {
     NSString *setterString = @"";
     
     if(language == OutputLanguageObjectiveC) {
-        if(self.isClass && self.type == PropertyTypeDictionary) {
+        if(self.isClass && (self.type == PropertyTypeDictionary || self.type == PropertyTypeClass)) {
 #warning Need to do testing to make sure the set object is of type of dictionary
-            setterString = [setterString stringByAppendingFormat:@"    self.%@ = [%@ instanceFromDictionary:[dict objectForKey:@\"%@\"]];\n", self.name, self.referenceClass.className, self.jsonName];
+            setterString = [setterString stringByAppendingFormat:@"    self.%@ = [%@ initWithDictionary:[dict objectForKey:@\"%@\"]];\n", self.name, self.referenceClass.className, self.jsonName];
         } else if(self.type == PropertyTypeArray && self.referenceClass != nil) {
             NSBundle *mainBundle = [NSBundle mainBundle];
             
@@ -63,7 +77,14 @@
             setterString = [templateString stringByReplacingOccurrencesOfString:@"{REFERENCE_CLASS}" withString:self.referenceClass.className];
             
         } else {
-            setterString = [setterString stringByAppendingFormat:@"    self.%@ = [dict objectForKey:@\"%@\"];\n", self.name, self.jsonName];
+            setterString = [setterString stringByAppendingString:[NSString stringWithFormat:@"    self.%@ = ", self.name]];
+            if([self type] == PropertyTypeInt) {
+                setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] intValue];\n", self.jsonName];
+            } else if([self type] == PropertyTypeDouble) {
+                setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] doubleValue];\n", self.jsonName]; 
+            } else {
+                setterString = [setterString stringByAppendingFormat:@"[dict objectForKey:@\"%@\"];\n", self.jsonName];
+            }
         }
     } else if(language == OutputLanguageJava) {
         setterString = [setterString stringByAppendingFormat:@"    this.%@ = {OBJECTNAME};\n", self.name, self.jsonName];

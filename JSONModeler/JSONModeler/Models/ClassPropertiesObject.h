@@ -44,6 +44,7 @@ typedef enum {
 
 - (NSString *)propertyForLanguage:(OutputLanguage) language;
 - (NSString *)setterForLanguage:(OutputLanguage) language;
+- (NSArray *)setterReferenceClassesForLanguage:(OutputLanguage) language;
 - (NSString *)typeStringForLanguage:(OutputLanguage) language;
 
 @end

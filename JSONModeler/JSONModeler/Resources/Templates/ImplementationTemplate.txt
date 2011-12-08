@@ -6,6 +6,7 @@
 //
 
 #import "{CLASSNAME}.h"
+{IMPORT_BLOCK}
 
 @implementation {CLASSNAME}
 
@@ -27,5 +28,6 @@
 {SETTERS}
     
 }
+
 {DEALLOC}
 @end

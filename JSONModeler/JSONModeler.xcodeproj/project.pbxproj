@@ -732,6 +732,7 @@
 		441FC5151462D8E1007BF9DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JSONModeler/JSONModeler.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer: Jonathan Rexeisen (NUYRHWR8MG)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
@@ -745,6 +746,7 @@
 		441FC5161462D8E1007BF9DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JSONModeler/JSONModeler.entitlements;
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";

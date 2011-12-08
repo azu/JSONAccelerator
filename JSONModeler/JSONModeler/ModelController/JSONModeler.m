@@ -64,7 +64,7 @@
     if(_parsedDictionary == nil) {
         self.parsedDictionary = [NSMutableDictionary dictionary];
     }
-    
+
     ClassBaseObject *tempClass = nil;
     
     if([self.parsedDictionary objectForKey:baseObjectName]) {

@@ -69,11 +69,15 @@
     for(ClassPropertiesObject *property in [_properties allValues]) {
         if([property isClass]) {
             if([forwardDeclarationString isEqualToString:@""]) {
-                forwardDeclarationString = [NSString stringWithFormat:@"@class %@", [[property name] capitalizeFirstCharacter]]; 
+                forwardDeclarationString = [NSString stringWithFormat:@"@class %@", [[property referenceClass] className]]; 
             } else {
-                forwardDeclarationString = [forwardDeclarationString stringByAppendingFormat:@", %@", [[property name] capitalizeFirstCharacter]];
+                forwardDeclarationString = [forwardDeclarationString stringByAppendingFormat:@", %@", [[property referenceClass] className]];
             }
         }
+    }
+    
+    if([forwardDeclarationString isEqualToString:@""] == NO) {
+        forwardDeclarationString = [forwardDeclarationString stringByAppendingString:@";"];        
     }
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{FORWARD_DECLARATION}" withString:forwardDeclarationString];
@@ -96,40 +100,63 @@
     NSString *implementationTemplate = [mainBundle pathForResource:@"ImplementationTemplate" ofType:@"txt"];
     NSString *templateString = [[NSString alloc] initWithContentsOfFile:implementationTemplate encoding:NSUTF8StringEncoding error:nil];
     
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];
-    
     NSDate *currentDate = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DATE}" withString:[dateFormatter stringFromDate:currentDate]];
+
+    // IMPORTS
+    NSMutableArray *importArray = [NSMutableArray array];
+    NSString *importString = @"";
+    for(ClassPropertiesObject *property in [_properties allValues]) {
+        if([property isClass]) {
+            [importArray addObject:[[property referenceClass] className]];
+        }
+        // Check References
+        NSArray *referenceArray = [property setterReferenceClassesForLanguage:OutputLanguageObjectiveC];
+        for(NSString *referenceString in referenceArray) {
+            if(![importArray containsObject:referenceString]) {
+                [importArray addObject:referenceString];
+            }
+        }
+    }
+            
+    for(NSString *referenceImport in importArray) {
+        importString = [importString stringByAppendingFormat:@"#import \"%@.h\"\n", referenceImport];
+    }
     
+    
+    // SYNTHESIZE
     NSString *sythesizeString = @"";
     for(ClassPropertiesObject *property in [_properties allValues]) {
         sythesizeString = [sythesizeString stringByAppendingFormat:@"@synthesize %@ = _%@;\n", property.name, property.name];
     }
     
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SYNTHESIZE_BLOCK}" withString:sythesizeString];
-    
+    // SETTERS
     NSString *settersString = @"";
     for(ClassPropertiesObject *property in [_properties allValues]) {
         settersString = [settersString stringByAppendingString:[property setterForLanguage:OutputLanguageObjectiveC]];
     }
-    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];
     
     // DEALLOC SECTION
     NSString *deallocString = @"";
     
 #warning Ideally, this should be a test from the preferences file
     if(YES) {
+        deallocString = @"\n- (void)dealloc\n{\n";
         for(ClassPropertiesObject *property in [_properties allValues]) {
-            deallocString = @"\n- (void)dealloc\n{\n";
-            deallocString = [deallocString stringByAppendingString:[NSString stringWithFormat:@"\t[_%@ release];\n", property.name]];
-            deallocString = @"\t[super dealloc];\n}\n";
+            if([property type] != PropertyTypeInt && [property type] != PropertyTypeDouble){
+                deallocString = [deallocString stringByAppendingString:[NSString stringWithFormat:@"\t[_%@ release];\n", property.name]];
+            }
         }
+        deallocString = [deallocString stringByAppendingString:@"\t[super dealloc];\n}\n"];
     } 
     
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DATE}" withString:[dateFormatter stringFromDate:currentDate]];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORT_BLOCK}" withString:importString];    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SYNTHESIZE_BLOCK}" withString:sythesizeString];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{DEALLOC}" withString:deallocString];
     
     return templateString;
