@@ -15,6 +15,8 @@
     NoodleLineNumberView *lineNumberView;
 }
 
+- (BOOL) verifyJSONString;
+
 @end
 
 @implementation FetchJSONViewController
@@ -78,14 +80,20 @@
 
 - (IBAction)chooseLanguagePressed:(id)sender 
 {
-    
-    if([self.delegate conformsToProtocol:@protocol(MasterControllerDelegate)]) {
-        [self.modeler loadJSONWithString:[self.JSONTextView string]];
-        [self.delegate moveToNextViewController];
+    if([self verifyJSONString]) {
+        if([self.delegate conformsToProtocol:@protocol(MasterControllerDelegate)]) {
+            [self.modeler loadJSONWithString:[self.JSONTextView string]];
+            [self.delegate moveToNextViewController];
+        }
     }
 }
 
 - (IBAction)verifyPressed:(id)sender
+{
+    [self verifyJSONString];
+}
+
+- (BOOL)verifyJSONString
 {
     NSError *error = nil;    
     NSData *data = [[self.JSONTextView string] dataUsingEncoding:NSUTF8StringEncoding];
@@ -106,13 +114,15 @@
                                                otherButton:nil
                                  informativeTextWithFormat:@"%@", informativeText];
         [testAlert beginSheetModalForWindow:self.view.window modalDelegate:self didEndSelector:nil contextInfo:nil]; 
+        return NO;
     } else {
         [self.chooseLanguageButton setEnabled:YES];
         id output = [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted error:&error];
         NSString *outputString = [[NSString alloc] initWithData:output encoding:NSUTF8StringEncoding];
         [self.JSONTextView setString:outputString];
+        return YES;
     }
-    
+    return YES;
 }
 
 - (IBAction)animateButtonPressed:(id)sender 
