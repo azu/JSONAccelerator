@@ -146,10 +146,10 @@
         deallocString = @"\n- (void)dealloc\n{\n";
         for(ClassPropertiesObject *property in [_properties allValues]) {
             if([property type] != PropertyTypeInt && [property type] != PropertyTypeDouble){
-                deallocString = [deallocString stringByAppendingString:[NSString stringWithFormat:@"\t[_%@ release];\n", property.name]];
+                deallocString = [deallocString stringByAppendingString:[NSString stringWithFormat:@"    [_%@ release];\n", property.name]];
             }
         }
-        deallocString = [deallocString stringByAppendingString:@"\t[super dealloc];\n}\n"];
+        deallocString = [deallocString stringByAppendingString:@"    [super dealloc];\n}\n"];
     } 
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];

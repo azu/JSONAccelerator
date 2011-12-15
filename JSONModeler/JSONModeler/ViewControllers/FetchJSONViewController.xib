@@ -49,7 +49,7 @@
 						<string key="NSFrame">{{319, 6}, {77, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="177842119"/>
+						<reference key="NSNextKeyView"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<string key="NSReuseIdentifierKey">_NS:687</string>
 						<bool key="NSEnabled">YES</bool>
@@ -72,22 +72,23 @@
 							<int key="NSPeriodicInterval">25</int>
 						</object>
 					</object>
-					<object class="NSButton" id="177842119">
+					<object class="NSButton" id="201777824">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{396, 6}, {152, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<string key="NSReuseIdentifierKey">_NS:687</string>
 						<bool key="NSEnabled">YES</bool>
-						<object class="NSButtonCell" key="NSCell" id="675450962">
+						<object class="NSButtonCell" key="NSCell" id="363661706">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">134217728</int>
-							<string key="NSContents">Choose Language</string>
+							<string key="NSContents">Generate Files</string>
 							<reference key="NSSupport" ref="645301139"/>
 							<string key="NSCellIdentifier">_NS:687</string>
-							<reference key="NSControlView" ref="177842119"/>
+							<reference key="NSControlView" ref="201777824"/>
 							<int key="NSButtonFlags">-2038284033</int>
 							<int key="NSButtonFlags2">129</int>
 							<string key="NSAlternateContents"/>
@@ -103,6 +104,7 @@
 						<string key="NSFrame">{{526, 528}, {16, 16}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="202201567"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<string key="NSReuseIdentifierKey">_NS:3891</string>
 						<int key="NSpiFlags">28938</int>
@@ -166,7 +168,7 @@
 										<string key="NSFrameSize">{519, 38}</string>
 										<reference key="NSSuperview" ref="84804361"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="573100464"/>
+										<reference key="NSNextKeyView" ref="453630023"/>
 										<int key="NSViewLayerContentsRedrawPolicy">2</int>
 										<string key="NSReuseIdentifierKey">_NS:1480</string>
 										<object class="NSTextContainer" key="NSTextContainer" id="285893246">
@@ -277,6 +279,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 								<string key="NSFrame">{{505, 1}, {15, 462}}</string>
 								<reference key="NSSuperview" ref="202201567"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="781305481"/>
 								<string key="NSReuseIdentifierKey">_NS:1494</string>
 								<reference key="NSTarget" ref="202201567"/>
 								<string key="NSAction">_doScroller:</string>
@@ -301,7 +304,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<string key="NSFrame">{{20, 52}, {521, 464}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="84804361"/>
+						<reference key="NSNextKeyView" ref="573100464"/>
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<string key="NSReuseIdentifierKey">_NS:940</string>
 						<string key="NSHuggingPriority">{250, 750}</string>
@@ -396,27 +399,11 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">chooseLanguageButton</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="177842119"/>
-					</object>
-					<int key="connectionID">354</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">urlTextFieldCell</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="387716410"/>
 					</object>
 					<int key="connectionID">356</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">chooseLanguagePressed:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="177842119"/>
-					</object>
-					<int key="connectionID">357</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -441,6 +428,22 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<reference key="destination" ref="202201567"/>
 					</object>
 					<int key="connectionID">724</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">generateFilesButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="201777824"/>
+					</object>
+					<int key="connectionID">739</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">chooseLanguagePressed:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="363661706"/>
+					</object>
+					<int key="connectionID">740</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -475,10 +478,10 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<array class="NSMutableArray" key="children">
 							<reference ref="777841452"/>
 							<reference ref="1036721223"/>
-							<reference ref="177842119"/>
 							<reference ref="1038460993"/>
 							<reference ref="781305481"/>
 							<reference ref="202201567"/>
+							<reference ref="201777824"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -512,19 +515,6 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<int key="objectID">27</int>
 						<reference key="object" ref="1038460993"/>
 						<reference key="parent" ref="1005"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">56</int>
-						<reference key="object" ref="177842119"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="675450962"/>
-						</array>
-						<reference key="parent" ref="1005"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">57</int>
-						<reference key="object" ref="675450962"/>
-						<reference key="parent" ref="177842119"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">358</int>
@@ -564,6 +554,19 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<reference key="object" ref="453630023"/>
 						<reference key="parent" ref="202201567"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">735</int>
+						<reference key="object" ref="201777824"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="363661706"/>
+						</array>
+						<reference key="parent" ref="1005"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">736</int>
+						<reference key="object" ref="363661706"/>
+						<reference key="parent" ref="201777824"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -579,17 +582,17 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 				<string key="359.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="735.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="736.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">734</int>
+			<int key="maxID">740</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -631,6 +634,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="JSONTextView">NSTextView</string>
 						<string key="chooseLanguageButton">NSButton</string>
+						<string key="generateFilesButton">NSButton</string>
 						<string key="getDataButton">NSButton</string>
 						<string key="progressView">NSProgressIndicator</string>
 						<string key="scrollView">NSScrollView</string>
@@ -644,6 +648,10 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						</object>
 						<object class="IBToOneOutletInfo" key="chooseLanguageButton">
 							<string key="name">chooseLanguageButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="generateFilesButton">
+							<string key="name">generateFilesButton</string>
 							<string key="candidateClassName">NSButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="getDataButton">

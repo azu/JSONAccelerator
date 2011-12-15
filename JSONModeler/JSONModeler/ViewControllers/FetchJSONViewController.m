@@ -9,6 +9,7 @@
 #import "FetchJSONViewController.h"
 #import "JSONFetcher.h"
 #import "NoodleLineNumberView.h"
+#import "ClassBaseObject.h"
 
 @interface FetchJSONViewController() {
 @private
@@ -16,6 +17,7 @@
 }
 
 - (BOOL) verifyJSONString;
+- (void) generateFiles;
 
 @end
 
@@ -27,6 +29,7 @@
 @synthesize JSONTextView = _JSONTextView;
 @synthesize progressView = _progressView;
 @synthesize chooseLanguageButton = _chooseLanguageButton;
+@synthesize generateFilesButton = _generateFilesButton;
 @synthesize delegate = _delegate;
 @synthesize scrollView = _scrollView;
 
@@ -81,10 +84,12 @@
 - (IBAction)chooseLanguagePressed:(id)sender 
 {
     if([self verifyJSONString]) {
-        if([self.delegate conformsToProtocol:@protocol(MasterControllerDelegate)]) {
-            [self.modeler loadJSONWithString:[self.JSONTextView string]];
-            [self.delegate moveToNextViewController];
-        }
+        [self.modeler loadJSONWithString:[self.JSONTextView string]];
+        [self generateFiles];
+//        if([self.delegate conformsToProtocol:@protocol(MasterControllerDelegate)]) {
+//            [self.modeler loadJSONWithString:[self.JSONTextView string]];
+//            [self.delegate moveToNextViewController];
+//        }
     }
 }
 
@@ -142,6 +147,47 @@
     // End the grouping of animation target value settings, causing the animations in the grouping to be started simultaneously.
     [NSAnimationContext endGrouping];
 
+}
+
+- (void)generateFiles
+{
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setAllowsMultipleSelection:NO];
+    [panel setCanChooseDirectories:YES];
+    [panel setCanChooseFiles:NO];
+    [panel setCanCreateDirectories:YES];
+    [panel setResolvesAliases:YES];
+    [panel setPrompt:NSLocalizedString(@"Choose", nil)];
+    
+    OutputLanguage language = OutputLanguageObjectiveC;
+    
+    [panel beginSheetModalForWindow:self.view.window completionHandler:^(NSInteger result) {        
+        if (result == NSOKButton)
+        {
+            if(self.modeler) {
+                NSError *error = nil;
+                NSURL *selectedDirectory = [panel URL];
+                NSArray *files = [[self.modeler parsedDictionary] allValues];
+                for(ClassBaseObject *base in files) {
+                    NSDictionary *outputDictionary = [base outputStringsWithType:language];
+                    NSArray *keysArray = [outputDictionary allKeys];
+                    NSString *outputString = nil;
+                    for(NSString *key in keysArray) {
+                        error = nil;
+                        outputString = [outputDictionary objectForKey:key];
+                        [outputString writeToURL:[selectedDirectory URLByAppendingPathComponent:key]
+                                      atomically:NO
+                                        encoding:NSUTF8StringEncoding 
+                                           error:&error];
+                        if(error) {
+                            DLog(@"%@", [error localizedDescription]);
+                        }
+                    }                    
+                }
+            } 
+        }
+    }];
+    
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

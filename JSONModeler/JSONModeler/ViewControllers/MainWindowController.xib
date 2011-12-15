@@ -40,7 +40,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSWindowTemplate" id="1005">
-				<int key="NSWindowStyleMask">263</int>
+				<int key="NSWindowStyleMask">261</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 240}, {912, 602}}</string>
 				<int key="NSWTFlags">1618477056</int>
@@ -65,7 +65,7 @@
 						</object>
 						<object class="NSPathControl" id="367185">
 							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">268</int>
+							<int key="NSvFlags">-2147483380</int>
 							<object class="NSMutableSet" key="NSDragTypes">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSArray" key="set.sortedObjects">

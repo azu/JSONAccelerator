@@ -1050,7 +1050,7 @@
 				</object>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="361450245">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSTabView" id="81514891">
@@ -1058,6 +1058,8 @@
 							<int key="NSvFlags">12</int>
 							<string key="NSFrameSize">{524, 378}</string>
 							<reference key="NSSuperview" ref="361450245"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="426361752"/>
 							<string key="NSReuseIdentifierKey">_NS:608</string>
 							<array class="NSMutableArray" key="NSTabViewItems">
 								<object class="NSTabViewItem" id="22443965">
@@ -1067,6 +1069,8 @@
 										<int key="NSvFlags">256</int>
 										<string key="NSFrameSize">{524, 378}</string>
 										<reference key="NSSuperview" ref="81514891"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:610</string>
 									</object>
 									<string key="NSLabel">Tab</string>
@@ -1105,6 +1109,8 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{524, 378}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="81514891"/>
 					<string key="NSReuseIdentifierKey">_NS:207</string>
 				</object>
@@ -2487,7 +2493,7 @@
 				<string key="354.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="371.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="371.IBWindowTemplateEditedContentRect">{{380, 496}, {480, 360}}</string>
-				<integer value="1" key="371.NSWindowTemplate.visibleAtLaunch"/>
+				<boolean value="NO" key="371.NSWindowTemplate.visibleAtLaunch"/>
 				<array class="NSMutableArray" key="372.IBNSViewMetadataConstraints">
 					<reference ref="236961285"/>
 					<reference ref="29918795"/>

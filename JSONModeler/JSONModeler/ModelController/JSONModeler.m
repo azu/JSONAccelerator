@@ -96,7 +96,9 @@
                 [tempPropertyObject setName:[baseObjectName stringByAppendingString:@"Identifier"]];
             } else if ([currentKey isEqualToString:@"description"]) {
                 [tempPropertyObject setName:[baseObjectName stringByAppendingString:@"Description"]];
-            } else {
+            } else if ([currentKey isEqualToString:@"self"]) {
+                [tempPropertyObject setName:[baseObjectName stringByAppendingString:@"Self"]];
+            }else {
                 [tempPropertyObject setName:currentKey];
             }
             
