@@ -20,7 +20,7 @@
 @end
 
 @implementation JSONModeler
-@synthesize rawJSONDictionary = _rawJSONDictionary;
+@synthesize rawJSONObject = _rawJSONDictionary;
 @synthesize parsedDictionary = _parsedDictionary;
 @synthesize parseComplete = _parseComplete;
 
@@ -50,9 +50,20 @@
     id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     
     if([object isKindOfClass:[NSDictionary class]]) {
-        self.rawJSONDictionary = object;
+        self.rawJSONObject = object;
         self.parseComplete = NO;
-        [self parseData:self.rawJSONDictionary intoObjectsWithBaseObjectName:@"MyClass" andBaseObjectClass:@"NSObject"];
+        [self parseData:(NSDictionary *)self.rawJSONObject intoObjectsWithBaseObjectName:@"MyClass" andBaseObjectClass:@"NSObject"];
+        self.parseComplete = YES;
+    }
+    
+    if([object isKindOfClass:[NSArray class]]) {
+        self.parseComplete = NO;
+        self.rawJSONObject = object;        
+        for(NSObject *arrayObject in (NSArray *)object) {
+            if([arrayObject isKindOfClass:[NSDictionary class]]) {
+                [self parseData:(NSDictionary *)arrayObject intoObjectsWithBaseObjectName:@"MyClass" andBaseObjectClass:@"NSObject"];
+            }
+        }
         self.parseComplete = YES;
     }
 }

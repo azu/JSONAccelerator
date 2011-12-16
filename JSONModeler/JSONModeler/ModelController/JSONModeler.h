@@ -14,7 +14,7 @@
 - (void) loadJSONWithString: (NSString *) string;
 
 @property (assign) BOOL parseComplete;
-@property (strong) NSDictionary *rawJSONDictionary;
+@property (strong) NSObject *rawJSONObject;
 @property (strong) NSMutableDictionary *parsedDictionary;
 
 @end

@@ -17,7 +17,6 @@
 		441FC4F31462D8E1007BF9DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F21462D8E1007BF9DC /* main.m */; };
 		441FC4F71462D8E1007BF9DC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4F51462D8E1007BF9DC /* Credits.rtf */; };
 		441FC4FA1462D8E1007BF9DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F91462D8E1007BF9DC /* AppDelegate.m */; };
-		441FC4FD1462D8E1007BF9DC /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4FB1462D8E1007BF9DC /* MainMenu.xib */; };
 		441FC5051462D8E1007BF9DC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC5041462D8E1007BF9DC /* SenTestingKit.framework */; };
 		441FC5061462D8E1007BF9DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC4E61462D8E1007BF9DC /* Cocoa.framework */; };
 		441FC50E1462D8E1007BF9DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 441FC50C1462D8E1007BF9DC /* InfoPlist.strings */; };
@@ -62,7 +61,6 @@
 		44233128149B9E290071978D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC4E61462D8E1007BF9DC /* Cocoa.framework */; };
 		4423312A149B9E290071978D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4EF1462D8E1007BF9DC /* InfoPlist.strings */; };
 		4423312B149B9E290071978D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4F51462D8E1007BF9DC /* Credits.rtf */; };
-		4423312C149B9E290071978D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4FB1462D8E1007BF9DC /* MainMenu.xib */; };
 		4423312D149B9E290071978D /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
 		4423312E149B9E290071978D /* ImplementationTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546EA146C191F00D3860A /* ImplementationTemplate.txt */; };
 		4423312F149B9E290071978D /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F4A146C710300FA13F9 /* FetchJSONViewController.xib */; };
@@ -79,6 +77,7 @@
 		44233141149B9F380071978D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44233140149B9F380071978D /* Sparkle.framework */; };
 		44233144149BA0760071978D /* MainMenu-Internal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44233142149BA0760071978D /* MainMenu-Internal.xib */; };
 		4423314A149BA95B0071978D /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44233140149B9F380071978D /* Sparkle.framework */; };
+		44233150149BD4C40071978D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4FB1462D8E1007BF9DC /* MainMenu.xib */; };
 		445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F71476E147009B59AE /* NoodleLineNumberMarker.m */; };
 		445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F91476E147009B59AE /* NoodleLineNumberView.m */; };
 		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
@@ -666,7 +665,6 @@
 			files = (
 				441FC4F11462D8E1007BF9DC /* InfoPlist.strings in Resources */,
 				441FC4F71462D8E1007BF9DC /* Credits.rtf in Resources */,
-				441FC4FD1462D8E1007BF9DC /* MainMenu.xib in Resources */,
 				44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */,
 				44FE6F14146C241300FA13F9 /* ImplementationTemplate.txt in Resources */,
 				44FE6F4C146C710300FA13F9 /* FetchJSONViewController.xib in Resources */,
@@ -680,6 +678,7 @@
 				448B10B21488410C00BEE605 /* EditPropertyViewController.xib in Resources */,
 				44670A801489987E0042A444 /* appIcons.icns in Resources */,
 				44233108149B9DFC0071978D /* MASPreferencesWindow.xib in Resources */,
+				44233150149BD4C40071978D /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,7 +696,6 @@
 			files = (
 				4423312A149B9E290071978D /* InfoPlist.strings in Resources */,
 				4423312B149B9E290071978D /* Credits.rtf in Resources */,
-				4423312C149B9E290071978D /* MainMenu.xib in Resources */,
 				4423312D149B9E290071978D /* InterfaceTemplate.txt in Resources */,
 				4423312E149B9E290071978D /* ImplementationTemplate.txt in Resources */,
 				4423312F149B9E290071978D /* FetchJSONViewController.xib in Resources */,

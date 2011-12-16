@@ -172,6 +172,8 @@
     [panel beginSheetModalForWindow:self.view.window completionHandler:^(NSInteger result) {        
         if (result == NSOKButton)
         {
+            BOOL filesHaveBeenWritten = NO;
+            BOOL filesHaveHadError = NO;
             if(self.modeler) {
                 NSError *error = nil;
                 NSURL *selectedDirectory = [panel URL];
@@ -189,10 +191,28 @@
                                            error:&error];
                         if(error) {
                             DLog(@"%@", [error localizedDescription]);
+                            filesHaveHadError = YES;
+                        } else {
+                            filesHaveBeenWritten = YES;
                         }
-                    }                    
+                    }
                 }
-            } 
+            }
+            NSString *statusString = @"";
+            if(filesHaveBeenWritten) {
+                statusString = NSLocalizedString(@"Your files have successfully been generated.", @"");
+                if(filesHaveHadError) {
+                    statusString = [statusString stringByAppendingString:NSLocalizedString(@" However, there was an error writing one or more of the files", @"")];
+                }
+            } else {
+                statusString = NSLocalizedString(@"An error has occurred and no files have been generated.", @"");
+            }
+            NSAlert *statusAlert = [NSAlert alertWithMessageText:NSLocalizedString((filesHaveBeenWritten) ? @"Success!" : @"How about that - nothing happened", nil)
+                                                 defaultButton:NSLocalizedString(@"Dismiss", @"")
+                                               alternateButton:nil
+                                                   otherButton:nil
+                                     informativeTextWithFormat:@"%@", statusString];
+            [statusAlert runModal];
         }
     }];
     
