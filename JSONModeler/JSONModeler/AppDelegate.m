@@ -10,8 +10,14 @@
 #import "JSONModeler.h"
 #import "ClassBaseObject.h"
 #import "MainWindowController.h"
+#import "MASPreferencesWindowController.h"
+#import "GeneralPreferencesViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () {
+    
+    MASPreferencesWindowController *_preferencesWindowController;
+    
+}
 
 @property (strong) JSONModeler *modeler;
 
@@ -29,6 +35,8 @@
 		myWindowController = [[MainWindowController alloc] initWithWindowNibName:@"MainWindowController"];
 	
 	[myWindowController showWindow:self];
+    
+    _preferencesWindowController = nil;
     
 }
 
@@ -77,6 +85,18 @@
             } 
         }
     }];
+    
+}
+
+- (IBAction)openPreferences:(id)sender {
+    
+    if (nil == _preferencesWindowController) {
+        GeneralPreferencesViewController *generalPreferencesViewController = [[GeneralPreferencesViewController alloc] init];
+        NSArray *preferencesViewControllers = [NSArray arrayWithObject:generalPreferencesViewController];
+        _preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:preferencesViewControllers];
+    }
+    
+    [_preferencesWindowController showWindow:nil];
     
 }
 

@@ -141,8 +141,8 @@
     // DEALLOC SECTION
     NSString *deallocString = @"";
     
-#warning Ideally, this should be a test from the preferences file
-    if(YES) {
+    /* Add dealloc method only if not building for ARC */
+    if( ![[[NSUserDefaultsController sharedUserDefaultsController] defaults] boolForKey:@"buildForARC"] ) {
         deallocString = @"\n- (void)dealloc\n{\n";
         for(ClassPropertiesObject *property in [_properties allValues]) {
             if([property type] != PropertyTypeInt && [property type] != PropertyTypeDouble){

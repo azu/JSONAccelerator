@@ -18,5 +18,6 @@
 
 - (IBAction)downloadJSON:(id)sender;
 - (IBAction) saveButtonPressed: (id) sender;
+- (IBAction)openPreferences:(id)sender;
 
 @end

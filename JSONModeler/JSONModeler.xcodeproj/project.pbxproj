@@ -101,6 +101,10 @@
 		44FE6F67146C736900FA13F9 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F66146C736900FA13F9 /* MainWindowController.m */; };
 		44FE6F69146C73A900FA13F9 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F68146C73A900FA13F9 /* MainWindowController.xib */; };
 		44FE6F77146C8D5600FA13F9 /* JavaTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */; };
+		7D00F419149BEE5800235189 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD23D15149BE74500F8719D /* GeneralPreferencesViewController.xib */; };
+		7DD23D16149BE74500F8719D /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */; };
+		7DD23D17149BE74500F8719D /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD23D15149BE74500F8719D /* GeneralPreferencesViewController.xib */; };
+		7DD23D19149BE9B300F8719D /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +222,9 @@
 		44FE6F66146C736900FA13F9 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = ViewControllers/MainWindowController.m; sourceTree = "<group>"; };
 		44FE6F68146C73A900FA13F9 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowController.xib; path = ViewControllers/MainWindowController.xib; sourceTree = "<group>"; };
 		44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JavaTemplate.txt; path = Resources/Templates/JavaTemplate.txt; sourceTree = "<group>"; };
+		7DD23D13149BE74500F8719D /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
+		7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
+		7DD23D15149BE74500F8719D /* GeneralPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +385,7 @@
 		441FC51C1462D93B007BF9DC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7DD23D12149BE74500F8719D /* Preferences */,
 				44FE6F5D146C715700FA13F9 /* Fetch */,
 				44FE6F5E146C716400FA13F9 /* Choose Language */,
 				44FE6F5F146C716F00FA13F9 /* Edit Output */,
@@ -573,6 +581,17 @@
 			name = GenerateFiles;
 			sourceTree = "<group>";
 		};
+		7DD23D12149BE74500F8719D /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				7DD23D13149BE74500F8719D /* GeneralPreferencesViewController.h */,
+				7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */,
+				7DD23D15149BE74500F8719D /* GeneralPreferencesViewController.xib */,
+			);
+			name = Preferences;
+			path = ViewControllers/Preferences;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -679,6 +698,7 @@
 				44670A801489987E0042A444 /* appIcons.icns in Resources */,
 				44233108149B9DFC0071978D /* MASPreferencesWindow.xib in Resources */,
 				44233150149BD4C40071978D /* MainMenu.xib in Resources */,
+				7DD23D17149BE74500F8719D /* GeneralPreferencesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +730,7 @@
 				44233138149B9E290071978D /* appIcons.icns in Resources */,
 				44233139149B9E290071978D /* MASPreferencesWindow.xib in Resources */,
 				44233144149BA0760071978D /* MainMenu-Internal.xib in Resources */,
+				7D00F419149BEE5800235189 /* GeneralPreferencesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,6 +784,7 @@
 				448B10AA148840DE00BEE605 /* EditClassViewController.m in Sources */,
 				448B10B11488410C00BEE605 /* EditPropertyViewController.m in Sources */,
 				44233109149B9DFC0071978D /* MASPreferencesWindowController.m in Sources */,
+				7DD23D16149BE74500F8719D /* GeneralPreferencesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,6 +827,7 @@
 				44233124149B9E290071978D /* EditClassViewController.m in Sources */,
 				44233125149B9E290071978D /* EditPropertyViewController.m in Sources */,
 				44233126149B9E290071978D /* MASPreferencesWindowController.m in Sources */,
+				7DD23D19149BE9B300F8719D /* GeneralPreferencesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -913,12 +936,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JSONModeler/JSONModeler.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer: Jonathan Rexeisen (NUYRHWR8MG)";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "CE26365C-D529-492D-946F-53E589521CD0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -927,7 +949,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JSONModeler/JSONModeler.entitlements;
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";
@@ -975,7 +997,6 @@
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler-Internal-Info.plist";
 				PRODUCT_NAME = JSONModeler;
-				PROVISIONING_PROFILE = "CE26365C-D529-492D-946F-53E589521CD0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
