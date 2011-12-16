@@ -35,6 +35,9 @@
 
 @interface NoodleLineNumberView ()
 
+@property (retain) NSScrollView *passedScrollView;
+@property (assign) NSRect lastDocumentVisibleRect;
+
 - (NSMutableArray *)lineIndices;
 - (void)invalidateLineIndices;
 - (void)calculateLines;
@@ -49,6 +52,8 @@
 @synthesize textColor;
 @synthesize alternateTextColor;
 @synthesize backgroundColor;
+@synthesize passedScrollView = _passedScrollView;
+@synthesize lastDocumentVisibleRect = _lastDocumentVisibleRect;
 
 - (id)initWithScrollView:(NSScrollView *)aScrollView
 {
@@ -59,6 +64,7 @@
 		self.font = [NSFont labelFontOfSize:[NSFont systemFontSizeForControlSize:NSMiniControlSize]];
         self.textColor = [NSColor colorWithCalibratedWhite:0.42 alpha:1.0];
         self.alternateTextColor = [NSColor whiteColor];
+        self.passedScrollView = aScrollView;
         
         [self setClientView:[aScrollView documentView]];
     }
@@ -294,14 +300,14 @@
     id			view;
 	NSRect		bounds;
 
-	bounds = [self bounds];
-
+	bounds = [self bounds];        
+    
 	if (backgroundColor != nil)
 	{
 		[backgroundColor set];
 		NSRectFill(bounds);
 		
-		[[NSColor colorWithCalibratedWhite:0.58 alpha:1.0] set];
+		[[NSColor colorWithCalibratedWhite:0.58 alpha:0.0] set];
 		[NSBezierPath strokeLineFromPoint:NSMakePoint(NSMaxX(bounds) - 0/5, NSMinY(bounds)) toPoint:NSMakePoint(NSMaxX(bounds) - 0.5, NSMaxY(bounds))];
 	}
 	

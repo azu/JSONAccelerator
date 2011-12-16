@@ -55,7 +55,15 @@
     [self.JSONTextView setRichText:NO];
     [self.JSONTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
     
+    
+//    [self.scrollView setVerticalRulerView:[[NoodleLineNumberView alloc] initWithScrollView:self.scrollView]];
+//    [self.scrollView setHasHorizontalRuler:NO];
+//    [self.scrollView setHasVerticalRuler:YES];
+//    [self.scrollView setRulersVisible:YES];
+    
+#ifdef DEBUG
     [self.urlTextFieldCell setStringValue:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=fm34txf3v6vu9jph5fdqt529"];
+#endif
 }
 
 
