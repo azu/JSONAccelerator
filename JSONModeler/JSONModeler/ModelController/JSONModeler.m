@@ -104,13 +104,13 @@
             [tempPropertyObject setJsonName:currentKey];
             // Set the name
             if([currentKey isEqualToString:@"id"]) {
-                [tempPropertyObject setName:[baseObjectName stringByAppendingString:@"Identifier"]];
+                [tempPropertyObject setName:[[baseObjectName stringByAppendingString:@"Identifier"] uncapitalizeFirstCharacter]];
             } else if ([currentKey isEqualToString:@"description"]) {
-                [tempPropertyObject setName:[baseObjectName stringByAppendingString:@"Description"]];
+                [tempPropertyObject setName:[[baseObjectName stringByAppendingString:@"Description"] uncapitalizeFirstCharacter]];
             } else if ([currentKey isEqualToString:@"self"]) {
-                [tempPropertyObject setName:[baseObjectName stringByAppendingString:@"Self"]];
+                [tempPropertyObject setName:[[baseObjectName stringByAppendingString:@"Self"] uncapitalizeFirstCharacter]];
             }else {
-                [tempPropertyObject setName:currentKey];
+                [tempPropertyObject setName:[currentKey uncapitalizeFirstCharacter]];
             }
             
             [tempPropertyObject setIsAtomic:NO];

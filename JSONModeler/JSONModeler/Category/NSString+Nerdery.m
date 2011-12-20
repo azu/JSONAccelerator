@@ -24,4 +24,20 @@
     return [NSString stringWithFormat:@"%@%@", firstLetter, restOfString];
 }
 
+- (NSString *)uncapitalizeFirstCharacter {
+    
+    if ([self length] == 0) {
+        return @"";
+    }
+    else if ([self length] == 1) {
+        return [self lowercaseString];
+    }
+    
+    NSString *lowercase = [self lowercaseString];
+    NSString *firstLetter = [lowercase substringToIndex:1];
+    NSString *restOfString = [self substringFromIndex:1];
+    return [NSString stringWithFormat:@"%@%@", firstLetter, restOfString];
+    
+}
+
 @end
