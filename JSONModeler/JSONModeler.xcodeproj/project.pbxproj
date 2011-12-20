@@ -102,6 +102,9 @@
 		44FE6F69146C73A900FA13F9 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F68146C73A900FA13F9 /* MainWindowController.xib */; };
 		44FE6F77146C8D5600FA13F9 /* JavaTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */; };
 		7D00F419149BEE5800235189 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD23D15149BE74500F8719D /* GeneralPreferencesViewController.xib */; };
+		7D00F426149FF30C00235189 /* JSONTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D00F425149FF30C00235189 /* JSONTextView.m */; };
+		7D00F427149FF99600235189 /* JSONTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D00F425149FF30C00235189 /* JSONTextView.m */; };
+		7D00F42914A11BAF00235189 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
 		7DD23D16149BE74500F8719D /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */; };
 		7DD23D17149BE74500F8719D /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD23D15149BE74500F8719D /* GeneralPreferencesViewController.xib */; };
 		7DD23D19149BE9B300F8719D /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */; };
@@ -183,7 +186,6 @@
 		44233106149B9DFC0071978D /* MASPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MASPreferencesWindowController.h; path = Vendor/MASPreferences/MASPreferencesWindowController.h; sourceTree = "<group>"; };
 		44233107149B9DFC0071978D /* MASPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MASPreferencesWindowController.m; path = Vendor/MASPreferences/MASPreferencesWindowController.m; sourceTree = "<group>"; };
 		4423313D149B9E290071978D /* JSONModeler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONModeler.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4423313F149B9E2A0071978D /* JSONModeler-Internal-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.mxml; name = "JSONModeler-Internal-Info.plist"; path = "/Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler-Internal-Info.plist"; sourceTree = "<absolute>"; };
 		44233140149B9F380071978D /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = JSONModeler/Vendor/Sparkle/Sparkle.framework; sourceTree = "<group>"; };
 		44233143149BA0760071978D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		442C6F0E1475B676002BA77F /* TableSelectionChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableSelectionChangeDelegate.h; path = JSONModeler/Protocols/TableSelectionChangeDelegate.h; sourceTree = "<group>"; };
@@ -222,6 +224,9 @@
 		44FE6F66146C736900FA13F9 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = ViewControllers/MainWindowController.m; sourceTree = "<group>"; };
 		44FE6F68146C73A900FA13F9 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowController.xib; path = ViewControllers/MainWindowController.xib; sourceTree = "<group>"; };
 		44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JavaTemplate.txt; path = Resources/Templates/JavaTemplate.txt; sourceTree = "<group>"; };
+		7D00F424149FF30C00235189 /* JSONTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONTextView.h; path = Views/JSONTextView.h; sourceTree = "<group>"; };
+		7D00F425149FF30C00235189 /* JSONTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONTextView.m; path = Views/JSONTextView.m; sourceTree = "<group>"; };
+		7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JSONModeler-Internal-Info.plist"; sourceTree = "<group>"; };
 		7DD23D13149BE74500F8719D /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
 		7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
 		7DD23D15149BE74500F8719D /* GeneralPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
@@ -333,7 +338,7 @@
 		441FC4ED1462D8E1007BF9DC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4423313F149B9E2A0071978D /* JSONModeler-Internal-Info.plist */,
+				7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */,
 				441FC4EE1462D8E1007BF9DC /* JSONModeler-Info.plist */,
 				441FC4EF1462D8E1007BF9DC /* InfoPlist.strings */,
 				441FC4F21462D8E1007BF9DC /* main.m */,
@@ -378,6 +383,8 @@
 			children = (
 				4419EB03146D7A73002605A0 /* BaseView.h */,
 				4419EB04146D7A73002605A0 /* BaseView.m */,
+				7D00F424149FF30C00235189 /* JSONTextView.h */,
+				7D00F425149FF30C00235189 /* JSONTextView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -731,6 +738,7 @@
 				44233139149B9E290071978D /* MASPreferencesWindow.xib in Resources */,
 				44233144149BA0760071978D /* MainMenu-Internal.xib in Resources */,
 				7D00F419149BEE5800235189 /* GeneralPreferencesViewController.xib in Resources */,
+				7D00F42914A11BAF00235189 /* JSONModeler-Internal-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,6 +793,7 @@
 				448B10B11488410C00BEE605 /* EditPropertyViewController.m in Sources */,
 				44233109149B9DFC0071978D /* MASPreferencesWindowController.m in Sources */,
 				7DD23D16149BE74500F8719D /* GeneralPreferencesViewController.m in Sources */,
+				7D00F426149FF30C00235189 /* JSONTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -828,6 +837,7 @@
 				44233125149B9E290071978D /* EditPropertyViewController.m in Sources */,
 				44233126149B9E290071978D /* MASPreferencesWindowController.m in Sources */,
 				7DD23D19149BE9B300F8719D /* GeneralPreferencesViewController.m in Sources */,
+				7D00F427149FF99600235189 /* JSONTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

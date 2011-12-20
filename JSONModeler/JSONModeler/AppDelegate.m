@@ -40,6 +40,17 @@
     
 }
 
+-(BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
+    
+    if ([[filename pathExtension] isEqualToString:@"json"]) {
+        [myWindowController openFile:filename];
+        return YES;
+    }
+    
+    return NO;
+    
+}
+
 - (IBAction)downloadJSON:(id)sender {
     // http://developer.rottentomatoes.com/docs/json/v10/Top_Rentals
     // http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=fm34txf3v6vu9jph5fdqt529

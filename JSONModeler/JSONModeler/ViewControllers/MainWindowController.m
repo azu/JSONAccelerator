@@ -162,6 +162,21 @@ enum	// view controller choices
 	return myCurrentViewController;
 }
 
+-(void)openFile:(NSString *)filepath {
+    
+    if ([myCurrentViewController isKindOfClass:[FetchJSONViewController class]]) {
+        FetchJSONViewController *currentController = (FetchJSONViewController *)myCurrentViewController;
+        
+        NSStringEncoding encoding;
+        NSError *error;
+        [currentController.JSONTextView setString:[NSString stringWithContentsOfFile:filepath usedEncoding:&encoding error:&error]];
+        if (error) {
+            DLog(@"Something went way wrong.");
+        }
+    }
+    
+}
+
 #pragma mark - MasterControllerDelegate Methods
 
 -(void)moveToNextViewController

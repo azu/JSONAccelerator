@@ -17,5 +17,6 @@
 @property (weak) IBOutlet NSPathControl *currentPlacementPathBar;
 
 - (NSViewController*)viewController;
+-(void)openFile:(NSString *)filepath;
 
 @end
