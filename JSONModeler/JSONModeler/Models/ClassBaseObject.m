@@ -9,6 +9,7 @@
 #import "ClassBaseObject.h"
 #import "ClassPropertiesObject.h"
 #import "NSString+Nerdery.h"
+#import <AddressBook/AddressBook.h>
 
 @interface ClassBaseObject ()
 
@@ -57,11 +58,22 @@
 
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];
     
+    /* Set the date */
     NSDate *currentDate = [NSDate date];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{DATE}" withString:[dateFormatter stringFromDate:currentDate]];
+    
+    /* Set the name and company values in the template from the current logged in user's address book information */
+    ABAddressBook *addressBook = [ABAddressBook sharedAddressBook];
+    ABPerson *me = [addressBook me];
+    NSString *meFirstName = [me valueForProperty:kABFirstNameProperty];
+    NSString *meLastName = [me valueForProperty:kABLastNameProperty];
+    NSString *meCompany = [me valueForProperty:kABOrganizationProperty];
+    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"__NAME__" withString:[NSString stringWithFormat:@"%@ %@", meFirstName, meLastName]];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"__company_name__" withString:[NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany]];
         
     // First we need to find if there are any class properties, if so do the @Class business
     NSString *forwardDeclarationString = @"";
@@ -150,8 +162,19 @@
             }
         }
         deallocString = [deallocString stringByAppendingString:@"    [super dealloc];\n}\n"];
-    } 
+    }
     
+    /* Set the name and company values in the template from the current logged in user's address book information */
+    ABAddressBook *addressBook = [ABAddressBook sharedAddressBook];
+    ABPerson *me = [addressBook me];
+    NSString *meFirstName = [me valueForProperty:kABFirstNameProperty];
+    NSString *meLastName = [me valueForProperty:kABLastNameProperty];
+    NSString *meCompany = [me valueForProperty:kABOrganizationProperty];
+    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"__NAME__" withString:[NSString stringWithFormat:@"%@ %@", meFirstName, meLastName]];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"__company_name__" withString:[NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany]];
+    
+    /* Set other template strings */
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{DATE}" withString:[dateFormatter stringFromDate:currentDate]];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORT_BLOCK}" withString:importString];    
