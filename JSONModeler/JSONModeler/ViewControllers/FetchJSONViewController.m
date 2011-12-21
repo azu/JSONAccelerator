@@ -11,7 +11,7 @@
 #import "NoodleLineNumberView.h"
 #import "ClassBaseObject.h"
 
-@interface FetchJSONViewController() {
+@interface FetchJSONViewController() <NSTextViewDelegate> {
 @private
     NoodleLineNumberView *lineNumberView;
 }
@@ -227,6 +227,19 @@
         
         [self.chooseLanguageButton setEnabled:YES];
     }
+}
+
+#pragma mark - NSTextViewDelegate methods
+
+-(NSMenu *)textView:(NSTextView *)view menu:(NSMenu *)menu forEvent:(NSEvent *)event atIndex:(NSUInteger)charIndex {
+    
+    NSInteger layoutOrientationIdx =  [menu indexOfItemWithTitle:@"Layout Orientation"];
+    if ( layoutOrientationIdx != -1 ) {
+        [menu removeItemAtIndex:layoutOrientationIdx];
+    }
+    
+    return menu;
+    
 }
 
 @end
