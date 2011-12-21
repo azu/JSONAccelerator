@@ -12,7 +12,9 @@
 #import "ClassPropertiesObject.h"
 #import "NSString+Nerdery.h"
 
-@interface JSONModeler ()
+@interface JSONModeler () {
+    NSUInteger _numUnnamedClasses;
+}
 
 - (void) loadJSONWithData: (NSData *) data;
 - (ClassBaseObject *) parseData: (NSDictionary *)dict intoObjectsWithBaseObjectName: (NSString *) baseObjectName andBaseObjectClass: (NSString *) baseObjectClass;
@@ -23,6 +25,14 @@
 @synthesize rawJSONObject = _rawJSONDictionary;
 @synthesize parsedDictionary = _parsedDictionary;
 @synthesize parseComplete = _parseComplete;
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        _numUnnamedClasses = 0;
+    }
+    return self;
+}
 
 - (void) loadJSONWithURL: (NSString *) url
 {
@@ -84,13 +94,12 @@
         tempClass = [ClassBaseObject new];
         [tempClass setBaseClass:baseObjectClass];
         
-        // Massage the names of the application
-        NSMutableArray *components = [NSMutableArray arrayWithArray:[baseObjectName componentsSeparatedByString:@"_"]];
-        for(NSUInteger i = 0; i < [components count]; i++) {
-            [components replaceObjectAtIndex:i withObject:[[components objectAtIndex:i] capitalizeFirstCharacter]];
+        // Set the name of the class
+        NSString *tempClassName = [baseObjectName objectiveCClassString];
+        if ([tempClassName isEqualToString:@""]) {
+            tempClassName = [NSString stringWithFormat:@"MyClass%u", ++_numUnnamedClasses];
         }
-        NSString *tempClassName = [components componentsJoinedByString:@""];
-        [tempClass setClassName:[tempClassName capitalizeFirstCharacter]];
+        [tempClass setClassName:tempClassName];
     }
     
     NSArray *array = [dict allKeys];
@@ -98,19 +107,24 @@
     NSObject *tempObject = nil;
     NSObject *tempArrayObject = nil;
     
+    NSUInteger numUnnamedProperties = 0;
     for(NSString *currentKey in array) {
         @autoreleasepool {
             tempPropertyObject = [ClassPropertiesObject new];
             [tempPropertyObject setJsonName:currentKey];
-            // Set the name
+            // Set the name of the property
             if([currentKey isEqualToString:@"id"]) {
-                [tempPropertyObject setName:[[baseObjectName stringByAppendingString:@"Identifier"] uncapitalizeFirstCharacter]];
+                [tempPropertyObject setName:[[tempClass.className stringByAppendingString:@"Identifier"] uncapitalizeFirstCharacter]];
             } else if ([currentKey isEqualToString:@"description"]) {
-                [tempPropertyObject setName:[[baseObjectName stringByAppendingString:@"Description"] uncapitalizeFirstCharacter]];
+                [tempPropertyObject setName:[[tempClass.className stringByAppendingString:@"Description"] uncapitalizeFirstCharacter]];
             } else if ([currentKey isEqualToString:@"self"]) {
-                [tempPropertyObject setName:[[baseObjectName stringByAppendingString:@"Self"] uncapitalizeFirstCharacter]];
+                [tempPropertyObject setName:[[tempClass.className stringByAppendingString:@"Self"] uncapitalizeFirstCharacter]];
             }else {
-                [tempPropertyObject setName:[currentKey uncapitalizeFirstCharacter]];
+                NSString *tempPropertyName = [currentKey objectiveCPropertyString];
+                if ([tempPropertyName isEqualToString:@""]) {
+                    tempPropertyName = [NSString stringWithFormat:@"myProperty%u", ++numUnnamedProperties];
+                }
+                [tempPropertyObject setName:tempPropertyName];
             }
             
             [tempPropertyObject setIsAtomic:NO];
