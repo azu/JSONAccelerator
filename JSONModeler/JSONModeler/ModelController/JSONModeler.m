@@ -53,6 +53,7 @@
 - (void) loadJSONWithData: (NSData *) data
 {
     NSError *error = nil;    
+    self.parsedDictionary = nil;
         
     //NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     
