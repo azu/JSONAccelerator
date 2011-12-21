@@ -70,6 +70,9 @@
 
 - (IBAction)getUrlPressed:(id)sender 
 {
+    if (nil == [_urlTextField stringValue] || [[_urlTextField stringValue] isEqualToString:@""]) {
+        return;
+    }
     [self.modeler addObserver:self forKeyPath:@"parseComplete" options:NSKeyValueObservingOptionNew context:NULL];
     JSONFetcher *fetcher = [[JSONFetcher alloc] init];
     [fetcher downloadJSONFromLocation:[_urlTextField stringValue] withSuccess:^(id object) {
