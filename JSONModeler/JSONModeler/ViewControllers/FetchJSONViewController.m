@@ -61,6 +61,12 @@
 //    [self.scrollView setHasVerticalRuler:YES];
 //    [self.scrollView setRulersVisible:YES];
     
+    if (nil != _modeler) {
+        if (nil != _modeler.rawJSONObject) {
+            [_JSONTextView setString:[_modeler.rawJSONObject description]];
+        }
+    }
+    
 #ifdef DEBUG
     [self.urlTextFieldCell setStringValue:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=fm34txf3v6vu9jph5fdqt529"];
 #endif
@@ -223,9 +229,11 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if(_modeler.parseComplete) {
-        
-        [self.chooseLanguageButton setEnabled:YES];
+    if ([keyPath isEqualToString:@"parseComplete"]) {
+        if(_modeler.parseComplete) {
+            
+            [self.chooseLanguageButton setEnabled:YES];
+        }
     }
 }
 

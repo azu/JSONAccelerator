@@ -9,12 +9,30 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>jmd</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>appIcons</string>
+			<key>CFBundleTypeName</key>
+			<string>JSONModelerType</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>NSDocumentClass</key>
+			<string>ModelerDocument</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
 				<string>json</string>
 			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>appIcons</string>
 			<key>CFBundleTypeName</key>
 			<string>jsontext</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>NSDocumentClass</key>
+			<string>ModelerDocument</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

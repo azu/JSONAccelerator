@@ -107,6 +107,8 @@
 		7D00F426149FF30C00235189 /* JSONTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D00F425149FF30C00235189 /* JSONTextView.m */; };
 		7D00F427149FF99600235189 /* JSONTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D00F425149FF30C00235189 /* JSONTextView.m */; };
 		7D00F42914A11BAF00235189 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
+		7DC99D2014A26D8900314AA5 /* ModelerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */; };
+		7DC99D2114A26D8900314AA5 /* ModelerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */; };
 		7DD23D16149BE74500F8719D /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */; };
 		7DD23D17149BE74500F8719D /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD23D15149BE74500F8719D /* GeneralPreferencesViewController.xib */; };
 		7DD23D19149BE9B300F8719D /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */; };
@@ -230,6 +232,8 @@
 		7D00F424149FF30C00235189 /* JSONTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONTextView.h; path = Views/JSONTextView.h; sourceTree = "<group>"; };
 		7D00F425149FF30C00235189 /* JSONTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONTextView.m; path = Views/JSONTextView.m; sourceTree = "<group>"; };
 		7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JSONModeler-Internal-Info.plist"; sourceTree = "<group>"; };
+		7DC99D1D14A26D8900314AA5 /* ModelerDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelerDocument.h; path = Documents/ModelerDocument.h; sourceTree = "<group>"; };
+		7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelerDocument.m; path = Documents/ModelerDocument.m; sourceTree = "<group>"; };
 		7DD23D13149BE74500F8719D /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
 		7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralPreferencesViewController.m; sourceTree = "<group>"; };
 		7DD23D15149BE74500F8719D /* GeneralPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 			children = (
 				44670A821489988E0042A444 /* JSONModeler.entitlements */,
 				441FC51D1462D942007BF9DC /* Categories */,
+				7DC99D1B14A26D6000314AA5 /* Documents */,
 				441FC51A1462D92B007BF9DC /* Models */,
 				441FC5231462D9A5007BF9DC /* Model Controllers */,
 				4419EB1A146DC747002605A0 /* Protocols */,
@@ -594,6 +599,15 @@
 			name = GenerateFiles;
 			sourceTree = "<group>";
 		};
+		7DC99D1B14A26D6000314AA5 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				7DC99D1D14A26D8900314AA5 /* ModelerDocument.h */,
+				7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */,
+			);
+			name = Documents;
+			sourceTree = "<group>";
+		};
 		7DD23D12149BE74500F8719D /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
@@ -800,6 +814,7 @@
 				44233109149B9DFC0071978D /* MASPreferencesWindowController.m in Sources */,
 				7DD23D16149BE74500F8719D /* GeneralPreferencesViewController.m in Sources */,
 				7D00F426149FF30C00235189 /* JSONTextView.m in Sources */,
+				7DC99D2014A26D8900314AA5 /* ModelerDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +859,7 @@
 				44233126149B9E290071978D /* MASPreferencesWindowController.m in Sources */,
 				7DD23D19149BE9B300F8719D /* GeneralPreferencesViewController.m in Sources */,
 				7D00F427149FF99600235189 /* JSONTextView.m in Sources */,
+				7DC99D2114A26D8900314AA5 /* ModelerDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,7 +968,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JSONModeler/JSONModeler.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";
@@ -965,7 +981,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JSONModeler/JSONModeler.entitlements;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";

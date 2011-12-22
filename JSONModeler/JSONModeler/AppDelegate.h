@@ -10,14 +10,8 @@
 
 @class MainWindowController;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
-    MainWindowController* myWindowController;
-}
+@interface AppDelegate : NSObject <NSApplicationDelegate>
 
-@property (assign) IBOutlet NSWindow *window;
-
-- (IBAction)downloadJSON:(id)sender;
-- (IBAction) saveButtonPressed: (id) sender;
 - (IBAction)openPreferences:(id)sender;
 
 @end

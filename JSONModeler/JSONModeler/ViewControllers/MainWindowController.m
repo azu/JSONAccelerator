@@ -12,6 +12,7 @@
 #import "ChooseLanguageViewController.h"
 #import "EditOutputViewController.h"
 #import "GenerateFilesViewController.h"
+#import "ModelerDocument.h"
 
 @interface MainWindowController ()
 
@@ -38,7 +39,6 @@ enum	// view controller choices
     self = [super initWithWindow:window];
     if (self) {
         // Initialization code here.
-        self.modeler = [[JSONModeler alloc] init];
     }
     
     return self;
@@ -49,7 +49,8 @@ enum	// view controller choices
 // -------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
-    
+    ModelerDocument *document = self.document;
+    self.modeler = document.modeler;
 	[self changeViewController: kFetchView];
 }
 
