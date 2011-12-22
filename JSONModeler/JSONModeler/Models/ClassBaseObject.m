@@ -217,4 +217,22 @@
     return templateString;
 }
 
+#pragma mark - NSCoding methods
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self init];
+    self.className = [aDecoder decodeObjectForKey:@"className"];
+    self.baseClass = [aDecoder decodeObjectForKey:@"baseClass"];
+    self.properties = [aDecoder decodeObjectForKey:@"properties"];
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_className forKey:@"className"];
+    [aCoder encodeObject:_baseClass forKey:@"baseClass"];
+    [aCoder encodeObject:_properties forKey:@"properties"];    
+}
+
 @end

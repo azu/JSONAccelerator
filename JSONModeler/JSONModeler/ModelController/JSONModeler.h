@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JSONModeler : NSObject
+@interface JSONModeler : NSObject <NSCoding>
 
 - (void) loadJSONWithURL: (NSString *) url;
 - (void) loadJSONWithString: (NSString *) string;

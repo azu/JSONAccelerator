@@ -204,4 +204,41 @@
     return @"";
 }
 
+#pragma mark - NSCoding methods
+
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self init];
+    
+    self.name = [aDecoder decodeObjectForKey:@"name"];
+    self.jsonName = [aDecoder decodeObjectForKey:@"jsonName"];
+    self.type = [aDecoder decodeIntForKey:@"type"];
+    self.otherType = [aDecoder decodeObjectForKey:@"otherType"];
+    
+    self.referenceClass = [aDecoder decodeObjectForKey:@"referenceClass"];
+    
+    self.isClass = [aDecoder decodeBoolForKey:@"isClass"];
+    self.isAtomic = [aDecoder decodeBoolForKey:@"isAtomic"];
+    self.isReadWrite = [aDecoder decodeBoolForKey:@"isReadWrite"];
+    self.semantics = [aDecoder decodeIntForKey:@"semantics"];
+    
+    return self;
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_name forKey:@"name"];
+    [aCoder encodeObject:_mappedName forKey:@"jsonName"];
+    [aCoder encodeInt:_type forKey:@"type"];
+    [aCoder encodeObject:_otherType forKey:@"otherType"];
+    
+    [aCoder encodeObject:_referenceClass forKey:@"referenceClass"];
+    
+    [aCoder encodeBool:_isClass forKey:@"isClass"];
+    [aCoder encodeBool:_isAtomic forKey:@"isAtomic"];
+    [aCoder encodeBool:_isReadWrite forKey:@"isReadWrite"];
+    [aCoder encodeInt:_semantics forKey:@"semantics"];
+    
+}
+
 @end

@@ -28,7 +28,7 @@ typedef enum {
     PropertyTypeOther
 } PropertyType;
 
-@interface ClassPropertiesObject : NSObject
+@interface ClassPropertiesObject : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *jsonName;

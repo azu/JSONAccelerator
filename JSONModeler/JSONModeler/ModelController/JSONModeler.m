@@ -200,4 +200,24 @@
 }
 
 
+#pragma mark - NSCoding methods
+
+-(id)initWithCoder:(NSCoder *)aDecoder {
+    
+    self = [self init];
+    self.rawJSONObject = [aDecoder decodeObjectForKey:@"rawJSONObject"];
+    self.parsedDictionary = [aDecoder decodeObjectForKey:@"parsedDictionary"];
+    self.parseComplete = [aDecoder decodeBoolForKey:@"parseComplete"];
+    return self;
+    
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {
+    
+    [aCoder encodeObject:_rawJSONDictionary forKey:@"rawJSONObject"];
+    [aCoder encodeObject:_parsedDictionary forKey:@"parsedDictionary"];
+    [aCoder encodeBool:_parseComplete forKey:@"parseComplete"];
+    
+}
+
 @end

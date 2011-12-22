@@ -19,6 +19,7 @@
     if (self) {
         // Add your subclass-specific initialization here.
         // If an error occurs here, return nil.
+        _modeler = [[JSONModeler alloc] init];
     }
     return self;
 }
@@ -27,16 +28,16 @@
     // TODO Implement this. It's used for opening .json files.
     self = [self init];
     if (self) {
-        _modeler = [[JSONModeler alloc] init];
-        
-        NSError * error;
-        NSData *jsonData = [NSData dataWithContentsOfURL:url];
-        id object = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
-        
-        if (nil != object) {
-            _modeler.rawJSONObject = object;
+//        if ([typeName isEqualToString:@"JSONModelerType"]) {
+//            NSData *fileData = [NSData dataWithContentsOfURL:url];
+//            NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:fileData];
+//            _modeler = [unarchiver decodeObjectForKey:@"modeler"];
+//            
+//        }
+//        else
+        if ([typeName isEqualToString:@"JSONTextType"]) {
+            _modeler = [[JSONModeler alloc] init];
         }
-        
     }
     return self;
 }
@@ -59,10 +60,12 @@
      Insert code here to write your document to data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning nil.
     You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
     */
+    NSData *outData = [NSKeyedArchiver archivedDataWithRootObject:_modeler];
+    
     if (outError) {
         *outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
     }
-    return nil;
+    return outData;
 }
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
@@ -72,6 +75,9 @@
     You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
     If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
     */
+    
+    _modeler = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
     if (outError) {
         *outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
     }

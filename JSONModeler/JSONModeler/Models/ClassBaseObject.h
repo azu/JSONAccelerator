@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ClassBaseObject : NSObject
+@interface ClassBaseObject : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *className;
 @property (nonatomic, copy) NSString *baseClass;

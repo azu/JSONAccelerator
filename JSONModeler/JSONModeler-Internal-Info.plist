@@ -28,7 +28,7 @@
 			<key>CFBundleTypeIconFile</key>
 			<string>appIcons</string>
 			<key>CFBundleTypeName</key>
-			<string>jsontext</string>
+			<string>JSONTextType</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSTypeIsPackage</key>
