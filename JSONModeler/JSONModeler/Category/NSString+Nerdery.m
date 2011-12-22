@@ -82,7 +82,7 @@
         alphanumeric = [[alphanumeric stringByAppendingString:@"Class"] capitalizeFirstCharacter];
     }
     NSRange startsWithNumeral = [[alphanumeric substringToIndex:1] rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]];
-    if ( startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0 ) {
+    if ( !(startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0) ) {
         alphanumeric = [@"Num" stringByAppendingString:alphanumeric];
     }
     return [alphanumeric capitalizeFirstCharacter];
@@ -96,7 +96,7 @@
         alphanumeric = [[alphanumeric stringByAppendingString:@"Property"] uncapitalizeFirstCharacter];
     }
     NSRange startsWithNumeral = [[alphanumeric substringToIndex:1] rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]];
-    if ( startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0 ) {
+    if ( !(startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0) ) {
         alphanumeric = [@"num" stringByAppendingString:alphanumeric];
     }
     return [alphanumeric uncapitalizeFirstCharacter];
