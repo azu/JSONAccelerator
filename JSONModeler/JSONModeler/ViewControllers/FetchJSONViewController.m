@@ -176,6 +176,10 @@
                 NSError *error = nil;
                 NSURL *selectedDirectory = [panel URL];
                 NSArray *files = [[self.modeler parsedDictionary] allValues];
+                NSFileManager *filemgr;
+                
+                filemgr = [NSFileManager defaultManager];
+                
                 for(ClassBaseObject *base in files) {
                     NSDictionary *outputDictionary = [base outputStringsWithType:language];
                     NSArray *keysArray = [outputDictionary allKeys];
@@ -205,12 +209,14 @@
             } else {
                 statusString = NSLocalizedString(@"An error has occurred and no files have been generated.", @"");
             }
-            NSAlert *statusAlert = [NSAlert alertWithMessageText:NSLocalizedString((filesHaveBeenWritten) ? @"Success!" : @"How about that - nothing happened", nil)
+            
+            NSAlert *statusAlert = [NSAlert alertWithMessageText:NSLocalizedString((filesHaveBeenWritten) ? @"Success!" : @"How about that - nothing happened. Refresh harder this time", nil)
                                                  defaultButton:NSLocalizedString(@"Dismiss", @"")
                                                alternateButton:nil
                                                    otherButton:nil
                                      informativeTextWithFormat:@"%@", statusString];
             [statusAlert runModal];
+            //[statusAlert beginSheetModalForWindow:self.view.window modalDelegate:self didEndSelector:nil contextInfo:nil]; 
         }
     }];
     
