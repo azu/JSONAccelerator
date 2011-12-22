@@ -47,7 +47,7 @@
      * This uses a custom (very strict) character set instead of +alphanumericCharacterSet
      * so that characters like é don't appear in class/property names.
      */
-    NSCharacterSet *nonAlphanumericCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"] invertedSet];
+    NSCharacterSet *nonAlphanumericCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"] invertedSet];
     NSMutableArray *components = [NSMutableArray arrayWithArray:[self componentsSeparatedByCharactersInSet:nonAlphanumericCharacterSet]];
     NSUInteger componentCount = components.count;
     for (NSUInteger i = 0; i < componentCount; ++i) {
@@ -79,7 +79,11 @@
     BOOL isReservedWord;
     NSString *alphanumeric = [self alphanumericStringIsObjectiveCReservedWord:&isReservedWord];
     if (isReservedWord) {
-        return [[alphanumeric stringByAppendingString:@"Class"] capitalizeFirstCharacter];
+        alphanumeric = [[alphanumeric stringByAppendingString:@"Class"] capitalizeFirstCharacter];
+    }
+    NSRange startsWithNumeral = [[alphanumeric substringToIndex:1] rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]];
+    if ( startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0 ) {
+        alphanumeric = [@"Num" stringByAppendingString:alphanumeric];
     }
     return [alphanumeric capitalizeFirstCharacter];
 }
@@ -89,7 +93,11 @@
     BOOL isReservedWord;
     NSString *alphanumeric = [self alphanumericStringIsObjectiveCReservedWord:&isReservedWord];
     if (isReservedWord) {
-        return [[alphanumeric stringByAppendingString:@"Property"] uncapitalizeFirstCharacter];
+        alphanumeric = [[alphanumeric stringByAppendingString:@"Property"] uncapitalizeFirstCharacter];
+    }
+    NSRange startsWithNumeral = [[alphanumeric substringToIndex:1] rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]];
+    if ( startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0 ) {
+        alphanumeric = [@"num" stringByAppendingString:alphanumeric];
     }
     return [alphanumeric uncapitalizeFirstCharacter];
 }
