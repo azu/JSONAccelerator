@@ -16,5 +16,6 @@
 @property (assign) BOOL parseComplete;
 @property (strong) NSObject *rawJSONObject;
 @property (strong) NSMutableDictionary *parsedDictionary;
+@property (strong) NSString *JSONString;
 
 @end

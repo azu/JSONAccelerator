@@ -25,18 +25,17 @@
 }
 
 -(id)initWithContentsOfURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
-    // TODO Implement this. It's used for opening .json files.
+    
+    if ([typeName isEqualToString:@"JSONModelerType"]) {
+        return [super initWithContentsOfURL:url ofType:typeName error:outError];
+    }
+    
+    // Open a .json file
     self = [self init];
     if (self) {
-//        if ([typeName isEqualToString:@"JSONModelerType"]) {
-//            NSData *fileData = [NSData dataWithContentsOfURL:url];
-//            NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:fileData];
-//            _modeler = [unarchiver decodeObjectForKey:@"modeler"];
-//            
-//        }
-//        else
         if ([typeName isEqualToString:@"JSONTextType"]) {
             _modeler = [[JSONModeler alloc] init];
+            _modeler.JSONString = [[NSString alloc] initWithData:[NSData dataWithContentsOfURL:url] encoding:NSUTF8StringEncoding];
         }
     }
     return self;

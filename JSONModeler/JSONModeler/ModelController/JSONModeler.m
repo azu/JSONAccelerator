@@ -25,6 +25,7 @@
 @synthesize rawJSONObject = _rawJSONDictionary;
 @synthesize parsedDictionary = _parsedDictionary;
 @synthesize parseComplete = _parseComplete;
+@synthesize JSONString = _JSONString;
 
 - (id)init {
     self = [super init];
@@ -208,6 +209,7 @@
     self.rawJSONObject = [aDecoder decodeObjectForKey:@"rawJSONObject"];
     self.parsedDictionary = [aDecoder decodeObjectForKey:@"parsedDictionary"];
     self.parseComplete = [aDecoder decodeBoolForKey:@"parseComplete"];
+    self.JSONString = [aDecoder decodeObjectForKey:@"JSONString"];
     return self;
     
 }
@@ -217,6 +219,7 @@
     [aCoder encodeObject:_rawJSONDictionary forKey:@"rawJSONObject"];
     [aCoder encodeObject:_parsedDictionary forKey:@"parsedDictionary"];
     [aCoder encodeBool:_parseComplete forKey:@"parseComplete"];
+    [aCoder encodeObject:_JSONString forKey:@"JSONString"];
     
 }
 
