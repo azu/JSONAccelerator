@@ -24,6 +24,7 @@
 
 @implementation MainWindowController
 @synthesize currentPlacementPathBar;
+@synthesize mainWindow;
 @synthesize modeler = _modeler;
 
 enum	// view controller choices
@@ -39,6 +40,7 @@ enum	// view controller choices
     self = [super initWithWindow:window];
     if (self) {
         // Initialization code here.
+        
     }
     
     return self;
@@ -52,6 +54,7 @@ enum	// view controller choices
     ModelerDocument *document = self.document;
     self.modeler = document.modeler;
 	[self changeViewController: kFetchView];
+    [self.mainWindow setMinSize:NSMakeSize(500, 300)];
 }
 
 

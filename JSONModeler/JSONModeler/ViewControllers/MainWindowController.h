@@ -15,6 +15,7 @@
 }
 
 @property (weak) IBOutlet NSPathControl *currentPlacementPathBar;
+@property (strong) IBOutlet NSWindow *mainWindow;
 
 - (NSViewController*)viewController;
 

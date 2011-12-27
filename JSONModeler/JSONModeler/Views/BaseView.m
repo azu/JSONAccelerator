@@ -29,11 +29,17 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
+    NSColor *plainColor = [NSColor colorWithDeviceRed:237.0 / 255.0 green:237.0 / 255.0 blue:237.0 / 255.0 alpha:1.0];
     // Drawing code here.
+    [[NSColor blackColor] setFill];
+    NSRectFill(dirtyRect);
     if (backgroundGradient == nil) {
-        backgroundGradient = [[NSGradient alloc] initWithStartingColor:[NSColor colorWithCalibratedWhite:0.27 alpha:1.0] endingColor:[NSColor colorWithCalibratedWhite:0.08 alpha:1.0]];
+        backgroundGradient = [[NSGradient alloc] initWithStartingColor:plainColor endingColor:plainColor];
     }
-    [backgroundGradient drawInRect:[self bounds] angle:90.0];
+    
+    NSRect tempBounds = [self bounds];
+    tempBounds.size.height--;
+    [backgroundGradient drawInRect:tempBounds angle:90.0];
 }
 
 @end
