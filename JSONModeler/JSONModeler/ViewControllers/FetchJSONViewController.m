@@ -68,13 +68,20 @@
     if (nil == [_urlTextField stringValue] || [[_urlTextField stringValue] isEqualToString:@""]) {
         return;
     }
+    [self.getDataButton setHidden:YES];
+    [self.progressView startAnimation:nil];
+    
     [self.modeler addObserver:self forKeyPath:@"parseComplete" options:NSKeyValueObservingOptionNew context:NULL];
     JSONFetcher *fetcher = [[JSONFetcher alloc] init];
     [fetcher downloadJSONFromLocation:[_urlTextField stringValue] withSuccess:^(id object) {
+        [self.getDataButton setHidden:NO];
+        [self.progressView stopAnimation:nil];
         NSString *parsedString  = [[NSString alloc] initWithData:object encoding:NSUTF8StringEncoding];
         self.modeler.JSONString = [parsedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     } 
     andFailure:^(NSHTTPURLResponse *response, NSError *error) {
+        [self.getDataButton setHidden:YES];
+        [self.progressView stopAnimation:nil];
         if(response == nil) {
             NSAlert *testAlert = [NSAlert alertWithMessageText:NSLocalizedString(@"An Error Occurred", nil)
                                                  defaultButton:NSLocalizedString(@"Dismiss", @"")

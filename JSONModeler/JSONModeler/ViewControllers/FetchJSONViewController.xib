@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">11C74</string>
+		<string key="IBDocument.SystemVersion">11C73</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
 		<string key="IBDocument.AppKitVersion">1138.23</string>
 		<string key="IBDocument.HIToolboxVersion">567.00</string>
@@ -47,7 +47,7 @@
 					<object class="NSButton" id="781305481">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{319, 6}, {77, 32}}</string>
+						<string key="NSFrame">{{669, 6}, {77, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="201777824"/>
@@ -76,7 +76,7 @@
 					<object class="NSButton" id="201777824">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{396, 6}, {152, 32}}</string>
+						<string key="NSFrame">{{746, 6}, {152, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -100,9 +100,9 @@
 					</object>
 					<object class="NSProgressIndicator" id="1038460993">
 						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">1292</int>
+						<int key="NSvFlags">1321</int>
 						<object class="NSPSMatrix" key="NSDrawMatrix"/>
-						<string key="NSFrame">{{526, 528}, {16, 16}}</string>
+						<string key="NSFrame">{{829, 562}, {16, 16}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="202201567"/>
@@ -114,7 +114,7 @@
 					<object class="NSButton" id="1036721223">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">265</int>
-						<string key="NSFrame">{{428, 520}, {120, 32}}</string>
+						<string key="NSFrame">{{778, 554}, {120, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1038460993"/>
@@ -166,7 +166,7 @@
 											<string>WebURLsWithTitlesPboardType</string>
 											<string>public.url</string>
 										</set>
-										<string key="NSFrameSize">{519, 38}</string>
+										<string key="NSFrameSize">{869, 72}</string>
 										<reference key="NSSuperview" ref="84804361"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="453630023"/>
@@ -187,7 +187,7 @@
 												<nil key="NSDelegate"/>
 											</object>
 											<reference key="NSTextView" ref="1070360410"/>
-											<double key="NSWidth">519</double>
+											<double key="NSWidth">869</double>
 											<int key="NSTCFlags">1</int>
 										</object>
 										<object class="NSTextViewSharedData" key="NSSharedData">
@@ -235,12 +235,12 @@
 											<int key="NSPreferredTextFinderStyle">1</int>
 										</object>
 										<int key="NSTVFlags">6</int>
-										<string key="NSMaxSize">{573, 10000000}</string>
+										<string key="NSMaxSize">{869, 10000000}</string>
 										<string key="NSMinize">{238, 38}</string>
 										<nil key="NSDelegate"/>
 									</object>
 								</array>
-								<string key="NSFrame">{{1, 1}, {519, 462}}</string>
+								<string key="NSFrame">{{1, 1}, {869, 496}}</string>
 								<reference key="NSSuperview" ref="202201567"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1070360410"/>
@@ -277,7 +277,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 							<object class="NSScroller" id="453630023">
 								<reference key="NSNextResponder" ref="202201567"/>
 								<int key="NSvFlags">256</int>
-								<string key="NSFrame">{{505, 1}, {15, 462}}</string>
+								<string key="NSFrame">{{855, 1}, {15, 496}}</string>
 								<reference key="NSSuperview" ref="202201567"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="781305481"/>
@@ -302,7 +302,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 								<double key="NSPercent">0.94565218687057495</double>
 							</object>
 						</array>
-						<string key="NSFrame">{{20, 52}, {521, 464}}</string>
+						<string key="NSFrame">{{20, 52}, {871, 498}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="573100464"/>
@@ -317,7 +317,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<object class="NSTextField" id="777841452">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">266</int>
-						<string key="NSFrame">{{20, 526}, {406, 22}}</string>
+						<string key="NSFrame">{{20, 560}, {756, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1036721223"/>
@@ -347,7 +347,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						</object>
 					</object>
 				</array>
-				<string key="NSFrameSize">{562, 568}</string>
+				<string key="NSFrameSize">{912, 602}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="777841452"/>
@@ -543,6 +543,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<int key="objectID">27</int>
 						<reference key="object" ref="1038460993"/>
 						<reference key="parent" ref="1005"/>
+						<string key="objectName">Progress</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">358</int>

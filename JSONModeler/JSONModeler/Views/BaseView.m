@@ -31,7 +31,7 @@
 {
     NSColor *plainColor = [NSColor colorWithDeviceRed:237.0 / 255.0 green:237.0 / 255.0 blue:237.0 / 255.0 alpha:1.0];
     // Drawing code here.
-    [[NSColor blackColor] setFill];
+    [[NSColor darkGrayColor] setFill];
     NSRectFill(dirtyRect);
     if (backgroundGradient == nil) {
         backgroundGradient = [[NSGradient alloc] initWithStartingColor:plainColor endingColor:plainColor];
