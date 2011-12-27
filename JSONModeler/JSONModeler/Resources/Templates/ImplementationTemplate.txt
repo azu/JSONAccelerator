@@ -14,7 +14,7 @@
 
 + ({CLASSNAME} *)initWithDictionary:(NSDictionary *)dict
 {
-    {CLASSNAME} *instance = [[[{CLASSNAME} alloc] init] autorelease];
+    {CLASSNAME} *instance = {CLASSNAME_INIT};
     [instance importDictionary:dict];
     return instance;
 }

@@ -116,6 +116,15 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     
+    // Need to check for ARC to tell whether or not to use autorelease or not
+    if( [[[NSUserDefaultsController sharedUserDefaultsController] defaults] boolForKey:@"buildForARC"] ) {
+        // Uses ARC
+        templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME_INIT}" withString:@"[[{CLASSNAME} alloc] init]"];
+    } else {
+        // Doesn't use ARC
+        templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME_INIT}" withString:@"[[[{CLASSNAME} alloc] init] autorelease]"];
+    }
+    
 
     // IMPORTS
     NSMutableArray *importArray = [NSMutableArray array];
