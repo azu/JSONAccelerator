@@ -77,8 +77,6 @@
 		4430047A14AB6F5300F7C8DE /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
 		4430047C14AB6F6200F7C8DE /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
 		4430047D14AB6F6200F7C8DE /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
-		4430048014AB70A800F7C8DE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4430047E14AB70A800F7C8DE /* Credits.rtf */; };
-		4430048114AB70A800F7C8DE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4430047E14AB70A800F7C8DE /* Credits.rtf */; };
 		4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		4439F07F14AABB2F005AA280 /* FetchJSONViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07D14AABB2E005AA280 /* FetchJSONViewController.xib.strings */; };
@@ -87,9 +85,14 @@
 		4439F08414AABB36005AA280 /* MainWindowController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08114AABB36005AA280 /* MainWindowController.xib.strings */; };
 		4439F08D14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08B14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings */; };
 		4439F08E14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08B14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings */; };
+		443EF41314ABCD21006216BE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
 		445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F71476E147009B59AE /* NoodleLineNumberMarker.m */; };
 		445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F91476E147009B59AE /* NoodleLineNumberView.m */; };
 		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
+		446B282614ABCC0600FBE699 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
+		446B282814ABCC1000FBE699 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
+		446B282A14ABCC1800FBE699 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
+		446B282C14ABCC1F00FBE699 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
 		446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447E8A7314AAA93E00A3345A /* Localizable.strings */; };
 		446F098614AABE7100E37C0C /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098514AABE7100E37C0C /* MainWindowController.xib */; };
 		446F098914AABEDD00E37C0C /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098B14AABEDD00E37C0C /* FetchJSONViewController.xib */; };
@@ -210,16 +213,29 @@
 		4430047514AB6F4500F7C8DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4430047814AB6F5300F7C8DE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4430047B14AB6F6200F7C8DE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4430047F14AB70A800F7C8DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		4439F07A14AABA9C005AA280 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = ViewControllers/MainWindowController.m; sourceTree = "<group>"; };
+		443EF41214ABCD19006216BE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		443EF41414ABCD3A006216BE /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
+		443EF41514ABCD3B006216BE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
+		443EF41614ABCD51006216BE /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
+		443EF41714ABCD52006216BE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
+		443EF41814ABCD6C006216BE /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		443EF41914ABCD6D006216BE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		443EF41A14ABCD7C006216BE /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = "es.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
+		443EF41B14ABCD80006216BE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = "de.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
+		443EF41C14ABCDA6006216BE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		443EF41D14ABCDA7006216BE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		445409F61476E147009B59AE /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberMarker.h; path = Vendor/LineNumbers/NoodleLineNumberMarker.h; sourceTree = "<group>"; };
 		445409F71476E147009B59AE /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = Vendor/LineNumbers/NoodleLineNumberMarker.m; sourceTree = "<group>"; };
 		445409F81476E147009B59AE /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = Vendor/LineNumbers/NoodleLineNumberView.h; sourceTree = "<group>"; };
 		445409F91476E147009B59AE /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberView.m; path = Vendor/LineNumbers/NoodleLineNumberView.m; sourceTree = "<group>"; };
 		44670A7F1489987E0042A444 /* appIcons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appIcons.icns; sourceTree = "<group>"; };
 		44670A821489988E0042A444 /* JSONModeler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = JSONModeler.entitlements; sourceTree = "<group>"; };
-		446B279D14AB711000FBE699 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ru; path = ru.lproj/Credits.rtf; sourceTree = "<group>"; };
-		446B279E14AB711800FBE699 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Credits.rtf; sourceTree = "<group>"; };
+		446B281B14ABCBD400FBE699 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		446B282514ABCC0600FBE699 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		446B282714ABCC1000FBE699 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
+		446B282914ABCC1800FBE699 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ru; path = ru.lproj/Credits.rtf; sourceTree = "<group>"; };
+		446B282B14ABCC1F00FBE699 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Credits.rtf; sourceTree = "<group>"; };
 		446F098514AABE7100E37C0C /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowController.xib; path = ViewControllers/MainWindowController.xib; sourceTree = "<group>"; };
 		446F098A14AABEDD00E37C0C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
 		446F098C14AABEE300E37C0C /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
@@ -244,11 +260,6 @@
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
 		44C6F4E714AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModelerTests/de.lproj/InfoPlist.strings; sourceTree = "<absolute>"; };
-		44C6F4E914AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/de.lproj/FetchJSONViewController.xib; sourceTree = "<absolute>"; };
-		44C6F4EB14AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/de.lproj/GeneralPreferencesViewController.xib; sourceTree = "<absolute>"; };
-		44C6F4ED14AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = "/Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/de.lproj/MainMenu-Internal.xib"; sourceTree = "<absolute>"; };
-		44C6F4EE14AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/de.lproj/MainMenu.xib; sourceTree = "<absolute>"; };
-		44C6F4EF14AB37FB006B53F3 /* de */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = de; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/de.lproj/Localizable.strings; sourceTree = "<absolute>"; };
 		44FE6F48146C710300FA13F9 /* FetchJSONViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FetchJSONViewController.h; path = ViewControllers/FetchJSONViewController.h; sourceTree = "<group>"; };
 		44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FetchJSONViewController.m; path = ViewControllers/FetchJSONViewController.m; sourceTree = "<group>"; };
 		44FE6F4E146C712600FA13F9 /* ChooseLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLanguageViewController.h; path = ViewControllers/ChooseLanguageViewController.h; sourceTree = "<group>"; };
@@ -383,10 +394,10 @@
 			isa = PBXGroup;
 			children = (
 				4430047414AB6F4500F7C8DE /* InfoPlist.strings */,
+				446B282414ABCC0600FBE699 /* Credits.rtf */,
 				7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */,
 				441FC4EE1462D8E1007BF9DC /* JSONModeler-Info.plist */,
 				441FC4F21462D8E1007BF9DC /* main.m */,
-				4430047E14AB70A800F7C8DE /* Credits.rtf */,
 				441FC4F41462D8E1007BF9DC /* JSONModeler-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -735,6 +746,7 @@
 				en,
 				ru,
 				de,
+				es,
 			);
 			mainGroup = 441FC4D71462D8E1007BF9DC;
 			productRefGroup = 441FC4E31462D8E1007BF9DC /* Products */;
@@ -777,7 +789,10 @@
 				4430047614AB6F4500F7C8DE /* InfoPlist.strings in Resources */,
 				4430047914AB6F5300F7C8DE /* JSONModeler-Internal-Info.plist in Resources */,
 				4430047C14AB6F6200F7C8DE /* JSONModeler-Internal-Info.plist in Resources */,
-				4430048014AB70A800F7C8DE /* Credits.rtf in Resources */,
+				446B282614ABCC0600FBE699 /* Credits.rtf in Resources */,
+				446B282814ABCC1000FBE699 /* JSONModeler-Internal-Info.plist in Resources */,
+				446B282A14ABCC1800FBE699 /* JSONModeler-Internal-Info.plist in Resources */,
+				446B282C14ABCC1F00FBE699 /* JSONModeler-Internal-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,7 +833,7 @@
 				4430047714AB6F4A00F7C8DE /* InfoPlist.strings in Resources */,
 				4430047A14AB6F5300F7C8DE /* JSONModeler-Internal-Info.plist in Resources */,
 				4430047D14AB6F6200F7C8DE /* JSONModeler-Internal-Info.plist in Resources */,
-				4430048114AB70A800F7C8DE /* Credits.rtf in Resources */,
+				443EF41314ABCD21006216BE /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -939,7 +954,8 @@
 			children = (
 				441FC4FC1462D8E1007BF9DC /* en */,
 				447E8A7214AAA7D900A3345A /* ru */,
-				44C6F4EE14AB37FB006B53F3 /* de */,
+				443EF41814ABCD6C006216BE /* es */,
+				443EF41914ABCD6D006216BE /* de */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -950,6 +966,7 @@
 				441FC50D1462D8E1007BF9DC /* en */,
 				447E8A6D14AAA7D900A3345A /* ru */,
 				44C6F4E714AB37FB006B53F3 /* de */,
+				446B281B14ABCBD400FBE699 /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -959,7 +976,8 @@
 			children = (
 				44233143149BA0760071978D /* en */,
 				447E8A7114AAA7D900A3345A /* ru */,
-				44C6F4ED14AB37FB006B53F3 /* de */,
+				443EF41A14ABCD7C006216BE /* es */,
+				443EF41B14ABCD80006216BE /* de */,
 			);
 			name = "MainMenu-Internal.xib";
 			sourceTree = "<group>";
@@ -970,18 +988,9 @@
 				4430047514AB6F4500F7C8DE /* en */,
 				4430047814AB6F5300F7C8DE /* de */,
 				4430047B14AB6F6200F7C8DE /* ru */,
+				443EF41214ABCD19006216BE /* es */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		4430047E14AB70A800F7C8DE /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4430047F14AB70A800F7C8DE /* en */,
-				446B279D14AB711000FBE699 /* ru */,
-				446B279E14AB711800FBE699 /* de */,
-			);
-			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 		4439F07D14AABB2E005AA280 /* FetchJSONViewController.xib.strings */ = {
@@ -1008,12 +1017,24 @@
 			path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler;
 			sourceTree = "<absolute>";
 		};
+		446B282414ABCC0600FBE699 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				446B282514ABCC0600FBE699 /* en */,
+				446B282714ABCC1000FBE699 /* es */,
+				446B282914ABCC1800FBE699 /* ru */,
+				446B282B14ABCC1F00FBE699 /* de */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
 		446F098B14AABEDD00E37C0C /* FetchJSONViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				446F098A14AABEDD00E37C0C /* en */,
 				446F098C14AABEE300E37C0C /* ru */,
-				44C6F4E914AB37FB006B53F3 /* de */,
+				443EF41614ABCD51006216BE /* es */,
+				443EF41714ABCD52006216BE /* de */,
 			);
 			name = FetchJSONViewController.xib;
 			sourceTree = "<group>";
@@ -1023,7 +1044,8 @@
 			children = (
 				446F099414AABF8400E37C0C /* en */,
 				446F099614AABF8C00E37C0C /* ru */,
-				44C6F4EB14AB37FB006B53F3 /* de */,
+				443EF41414ABCD3A006216BE /* es */,
+				443EF41514ABCD3B006216BE /* de */,
 			);
 			name = GeneralPreferencesViewController.xib;
 			path = JSONModeler;
@@ -1034,7 +1056,8 @@
 			children = (
 				447E8A7414AAA93E00A3345A /* en */,
 				447E8A7614AAA94800A3345A /* ru */,
-				44C6F4EF14AB37FB006B53F3 /* de */,
+				443EF41C14ABCDA6006216BE /* es */,
+				443EF41D14ABCDA7006216BE /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
