@@ -75,10 +75,6 @@
 		44233144149BA0760071978D /* MainMenu-Internal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44233142149BA0760071978D /* MainMenu-Internal.xib */; };
 		4423314A149BA95B0071978D /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44233140149B9F380071978D /* Sparkle.framework */; };
 		44233150149BD4C40071978D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4FB1462D8E1007BF9DC /* MainMenu.xib */; };
-		4439F07014AAB8C3005AA280 /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07314AAB8C3005AA280 /* FetchJSONViewController.xib */; };
-		4439F07114AAB8C3005AA280 /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07314AAB8C3005AA280 /* FetchJSONViewController.xib */; };
-		4439F07514AAB8CD005AA280 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07814AAB8CD005AA280 /* GeneralPreferencesViewController.xib */; };
-		4439F07614AAB8CD005AA280 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07814AAB8CD005AA280 /* GeneralPreferencesViewController.xib */; };
 		4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		4439F07F14AABB2F005AA280 /* FetchJSONViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07D14AABB2E005AA280 /* FetchJSONViewController.xib.strings */; };
@@ -87,12 +83,16 @@
 		4439F08414AABB36005AA280 /* MainWindowController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08114AABB36005AA280 /* MainWindowController.xib.strings */; };
 		4439F08D14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08B14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings */; };
 		4439F08E14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08B14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings */; };
-		4439F09714AABBCA005AA280 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4439F09514AABBCA005AA280 /* MainWindowController.xib */; };
-		4439F09814AABBCA005AA280 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4439F09514AABBCA005AA280 /* MainWindowController.xib */; };
 		445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F71476E147009B59AE /* NoodleLineNumberMarker.m */; };
 		445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F91476E147009B59AE /* NoodleLineNumberView.m */; };
 		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
 		446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447E8A7314AAA93E00A3345A /* Localizable.strings */; };
+		446F098614AABE7100E37C0C /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098514AABE7100E37C0C /* MainWindowController.xib */; };
+		446F098914AABEDD00E37C0C /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098B14AABEDD00E37C0C /* FetchJSONViewController.xib */; };
+		446F098D14AABF0400E37C0C /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098514AABE7100E37C0C /* MainWindowController.xib */; };
+		446F098E14AABF0D00E37C0C /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098B14AABEDD00E37C0C /* FetchJSONViewController.xib */; };
+		446F099214AABF8400E37C0C /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F099514AABF8400E37C0C /* GeneralPreferencesViewController.xib */; };
+		446F099314AABF8400E37C0C /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F099514AABF8400E37C0C /* GeneralPreferencesViewController.xib */; };
 		447E8A7514AAA93E00A3345A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447E8A7314AAA93E00A3345A /* Localizable.strings */; };
 		448B10901487EAF800BEE605 /* ArraySetterTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */; };
 		448B10AA148840DE00BEE605 /* EditClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10A8148840DD00BEE605 /* EditClassViewController.m */; };
@@ -205,18 +205,18 @@
 		44233140149B9F380071978D /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = JSONModeler/Vendor/Sparkle/Sparkle.framework; sourceTree = "<group>"; };
 		44233143149BA0760071978D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		442C6F0E1475B676002BA77F /* TableSelectionChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableSelectionChangeDelegate.h; path = JSONModeler/Protocols/TableSelectionChangeDelegate.h; sourceTree = "<group>"; };
-		4439F07214AAB8C3005AA280 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
-		4439F07414AAB8C8005AA280 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
-		4439F07714AAB8CD005AA280 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
-		4439F07914AAB8D1005AA280 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
 		4439F07A14AABA9C005AA280 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = ViewControllers/MainWindowController.m; sourceTree = "<group>"; };
-		4439F09614AABBCA005AA280 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = ViewControllers/en.lproj/MainWindowController.xib; sourceTree = "<group>"; };
 		445409F61476E147009B59AE /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberMarker.h; path = Vendor/LineNumbers/NoodleLineNumberMarker.h; sourceTree = "<group>"; };
 		445409F71476E147009B59AE /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = Vendor/LineNumbers/NoodleLineNumberMarker.m; sourceTree = "<group>"; };
 		445409F81476E147009B59AE /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = Vendor/LineNumbers/NoodleLineNumberView.h; sourceTree = "<group>"; };
 		445409F91476E147009B59AE /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberView.m; path = Vendor/LineNumbers/NoodleLineNumberView.m; sourceTree = "<group>"; };
 		44670A7F1489987E0042A444 /* appIcons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appIcons.icns; sourceTree = "<group>"; };
 		44670A821489988E0042A444 /* JSONModeler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = JSONModeler.entitlements; sourceTree = "<group>"; };
+		446F098514AABE7100E37C0C /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowController.xib; path = ViewControllers/MainWindowController.xib; sourceTree = "<group>"; };
+		446F098A14AABEDD00E37C0C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
+		446F098C14AABEE300E37C0C /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
+		446F099414AABF8400E37C0C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
+		446F099614AABF8C00E37C0C /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
 		447E8A6D14AAA7D900A3345A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModelerTests/ru.lproj/InfoPlist.strings; sourceTree = "<absolute>"; };
 		447E8A6F14AAA7D900A3345A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ru; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/ru.lproj/Credits.rtf; sourceTree = "<absolute>"; };
 		447E8A7014AAA7D900A3345A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/ru.lproj/InfoPlist.strings; sourceTree = "<absolute>"; };
@@ -237,7 +237,6 @@
 		44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassPropertiesTableViewHelper.m; path = ViewControllers/Edit/Helpers/ClassPropertiesTableViewHelper.m; sourceTree = "<group>"; };
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
-		44C9AD8414AABC9000A2B0AF /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/MainWindowController.xib; sourceTree = "<group>"; };
 		44FE6F48146C710300FA13F9 /* FetchJSONViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FetchJSONViewController.h; path = ViewControllers/FetchJSONViewController.h; sourceTree = "<group>"; };
 		44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FetchJSONViewController.m; path = ViewControllers/FetchJSONViewController.m; sourceTree = "<group>"; };
 		44FE6F4E146C712600FA13F9 /* ChooseLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLanguageViewController.h; path = ViewControllers/ChooseLanguageViewController.h; sourceTree = "<group>"; };
@@ -432,7 +431,7 @@
 				44FE6F60146C718800FA13F9 /* GenerateFiles */,
 				44FE6F65146C736900FA13F9 /* MainWindowController.h */,
 				4439F07A14AABA9C005AA280 /* MainWindowController.m */,
-				4439F09514AABBCA005AA280 /* MainWindowController.xib */,
+				446F098514AABE7100E37C0C /* MainWindowController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -591,9 +590,9 @@
 		44FE6F5D146C715700FA13F9 /* Fetch */ = {
 			isa = PBXGroup;
 			children = (
+				446F098B14AABEDD00E37C0C /* FetchJSONViewController.xib */,
 				44FE6F48146C710300FA13F9 /* FetchJSONViewController.h */,
 				44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */,
-				4439F07314AAB8C3005AA280 /* FetchJSONViewController.xib */,
 			);
 			name = Fetch;
 			sourceTree = "<group>";
@@ -644,7 +643,7 @@
 			children = (
 				7DD23D13149BE74500F8719D /* GeneralPreferencesViewController.h */,
 				7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */,
-				4439F07814AAB8CD005AA280 /* GeneralPreferencesViewController.xib */,
+				446F099514AABF8400E37C0C /* GeneralPreferencesViewController.xib */,
 			);
 			name = Preferences;
 			path = ViewControllers/Preferences;
@@ -758,12 +757,12 @@
 				447E8A7514AAA93E00A3345A /* Localizable.strings in Resources */,
 				44B9476D14AAAE6D00D7A658 /* MainMenu-Internal.xib in Resources */,
 				44B9477814AAB4FF00D7A658 /* GeneralPreferencesViewController.xib in Resources */,
-				4439F07014AAB8C3005AA280 /* FetchJSONViewController.xib in Resources */,
-				4439F07514AAB8CD005AA280 /* GeneralPreferencesViewController.xib in Resources */,
 				4439F07F14AABB2F005AA280 /* FetchJSONViewController.xib.strings in Resources */,
 				4439F08314AABB36005AA280 /* MainWindowController.xib.strings in Resources */,
 				4439F08D14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */,
-				4439F09714AABBCA005AA280 /* MainWindowController.xib in Resources */,
+				446F098614AABE7100E37C0C /* MainWindowController.xib in Resources */,
+				446F098914AABEDD00E37C0C /* FetchJSONViewController.xib in Resources */,
+				446F099214AABF8400E37C0C /* GeneralPreferencesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,12 +796,12 @@
 				446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */,
 				44B9476F14AAAE7100D7A658 /* MainMenu.xib in Resources */,
 				44B9479314AAB53400D7A658 /* GeneralPreferencesViewController.xib in Resources */,
-				4439F07114AAB8C3005AA280 /* FetchJSONViewController.xib in Resources */,
-				4439F07614AAB8CD005AA280 /* GeneralPreferencesViewController.xib in Resources */,
 				4439F08014AABB2F005AA280 /* FetchJSONViewController.xib.strings in Resources */,
 				4439F08414AABB36005AA280 /* MainWindowController.xib.strings in Resources */,
 				4439F08E14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */,
-				4439F09814AABBCA005AA280 /* MainWindowController.xib in Resources */,
+				446F098D14AABF0400E37C0C /* MainWindowController.xib in Resources */,
+				446F098E14AABF0D00E37C0C /* FetchJSONViewController.xib in Resources */,
+				446F099314AABF8400E37C0C /* GeneralPreferencesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -963,25 +962,6 @@
 			name = "MainMenu-Internal.xib";
 			sourceTree = "<group>";
 		};
-		4439F07314AAB8C3005AA280 /* FetchJSONViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4439F07214AAB8C3005AA280 /* en */,
-				4439F07414AAB8C8005AA280 /* ru */,
-			);
-			name = FetchJSONViewController.xib;
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		4439F07814AAB8CD005AA280 /* GeneralPreferencesViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4439F07714AAB8CD005AA280 /* en */,
-				4439F07914AAB8D1005AA280 /* ru */,
-			);
-			name = GeneralPreferencesViewController.xib;
-			sourceTree = "<group>";
-		};
 		4439F07D14AABB2E005AA280 /* FetchJSONViewController.xib.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1006,14 +986,24 @@
 			path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler;
 			sourceTree = "<absolute>";
 		};
-		4439F09514AABBCA005AA280 /* MainWindowController.xib */ = {
+		446F098B14AABEDD00E37C0C /* FetchJSONViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4439F09614AABBCA005AA280 /* en */,
-				44C9AD8414AABC9000A2B0AF /* ru */,
+				446F098A14AABEDD00E37C0C /* en */,
+				446F098C14AABEE300E37C0C /* ru */,
 			);
-			name = MainWindowController.xib;
+			name = FetchJSONViewController.xib;
 			sourceTree = "<group>";
+		};
+		446F099514AABF8400E37C0C /* GeneralPreferencesViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				446F099414AABF8400E37C0C /* en */,
+				446F099614AABF8C00E37C0C /* ru */,
+			);
+			name = GeneralPreferencesViewController.xib;
+			path = JSONModeler;
+			sourceTree = SOURCE_ROOT;
 		};
 		447E8A7314AAA93E00A3345A /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
