@@ -50,7 +50,7 @@
 - (void)awakeFromNib
 {
 	// load the default image from our bundle
-    [self.urlTextFieldCell setPlaceholderString:NSLocalizedString(@"Enter URL...", nil)];
+    [self.urlTextFieldCell setPlaceholderString:NSLocalizedString(@"Enter URL...", @"Prompt user gets to enter a URL")];
     [self.chooseLanguageButton setEnabled:NO];
     [self.JSONTextView setRichText:NO];
     [self.JSONTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
@@ -68,26 +68,33 @@
     if (nil == [_urlTextField stringValue] || [[_urlTextField stringValue] isEqualToString:@""]) {
         return;
     }
+    
+    [self.urlTextField setStringValue:[self.urlTextField.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
     [self.getDataButton setHidden:YES];
     [self.progressView startAnimation:nil];
-    
+    NSString *escapedString = [[self.urlTextField stringValue] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
+    DLog(@"%@", escapedString );
     [self.modeler addObserver:self forKeyPath:@"parseComplete" options:NSKeyValueObservingOptionNew context:NULL];
     JSONFetcher *fetcher = [[JSONFetcher alloc] init];
-    [fetcher downloadJSONFromLocation:[_urlTextField stringValue] withSuccess:^(id object) {
+    [fetcher downloadJSONFromLocation:escapedString withSuccess:^(id object) {
         [self.getDataButton setHidden:NO];
         [self.progressView stopAnimation:nil];
         NSString *parsedString  = [[NSString alloc] initWithData:object encoding:NSUTF8StringEncoding];
         self.modeler.JSONString = [parsedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     } 
     andFailure:^(NSHTTPURLResponse *response, NSError *error) {
-        [self.getDataButton setHidden:YES];
+        [self.getDataButton setHidden:NO];
         [self.progressView stopAnimation:nil];
         if(response == nil) {
-            NSAlert *testAlert = [NSAlert alertWithMessageText:NSLocalizedString(@"An Error Occurred", nil)
-                                                 defaultButton:NSLocalizedString(@"Dismiss", @"")
+            NSString *informativeText = [error localizedDescription];
+            if(informativeText == nil) {
+                informativeText = @"";
+            }
+            NSAlert *testAlert = [NSAlert alertWithMessageText:NSLocalizedString(@"An Error Occurred", @"Title of an alert if there is an error getting content of a url")
+                                                 defaultButton:NSLocalizedString(@"Dismiss", @"Button to dismiss an action sheet")
                                                alternateButton:nil
                                                    otherButton:nil
-                                     informativeTextWithFormat:@"%@", [error localizedDescription]];
+                                     informativeTextWithFormat:@"%@", informativeText];
             [testAlert runModal];
         }
     }];
@@ -122,12 +129,12 @@
         NSDictionary *dict = [error userInfo];
         NSString *informativeText = [[dict allValues] objectAtIndex:0];
         if([informativeText isEqualToString:@"No value."]) {
-            informativeText = NSLocalizedString(@"There is no content to parse.", nil);
+            informativeText = NSLocalizedString(@"There is no content to parse.", @"If there is nothing in the JSON field, state that there is nothing there");
         } else if ([informativeText isEqualToString:@"JSON text did not start with array or object and option to allow fragments not set."]) {
-            informativeText = NSLocalizedString(@"JSON text did not start with array or object.", nil);
+            informativeText = NSLocalizedString(@"JSON text did not start with array or object.", @"Error message to state the JSON didn't start with a {} or []");
         }
-        NSAlert *testAlert = [NSAlert alertWithMessageText:NSLocalizedString(@"An error occurred while verifying the JSON", nil)
-                                             defaultButton:NSLocalizedString(@"Dismiss", @"")
+        NSAlert *testAlert = [NSAlert alertWithMessageText:NSLocalizedString(@"An error occurred while verifying the JSON", @"The title for the action sheet saying something went wrong")
+                                             defaultButton:NSLocalizedString(@"Dismiss", @"Button to dismiss an action sheet")
                                            alternateButton:nil
                                                otherButton:nil
                                  informativeTextWithFormat:@"%@", informativeText];
@@ -170,7 +177,7 @@
     [panel setCanChooseFiles:NO];
     [panel setCanCreateDirectories:YES];
     [panel setResolvesAliases:YES];
-    [panel setPrompt:NSLocalizedString(@"Choose", nil)];
+    [panel setPrompt:NSLocalizedString(@"Choose", @"Label to have the user select which folder to choose")];
     
     OutputLanguage language = OutputLanguageObjectiveC;
     
@@ -209,16 +216,23 @@
             }
             NSString *statusString = @"";
             if(filesHaveBeenWritten) {
-                statusString = NSLocalizedString(@"Your files have successfully been generated.", @"");
+                statusString = NSLocalizedString(@"Your files have successfully been generated.", @"Success message in an action sheet");
                 if(filesHaveHadError) {
-                    statusString = [statusString stringByAppendingString:NSLocalizedString(@" However, there was an error writing one or more of the files", @"")];
+                    statusString = [statusString stringByAppendingString:NSLocalizedString(@" However, there was an error writing one or more of the files", @"If something went wrong, but the writing was generally successful")];
                 }
             } else {
-                statusString = NSLocalizedString(@"An error has occurred and no files have been generated.", @"");
+                statusString = NSLocalizedString(@"An error has occurred and no files have been generated.", @"Actionsheet message for stating that nothing was generated ");
             }
             
-            NSAlert *statusAlert = [NSAlert alertWithMessageText:NSLocalizedString((filesHaveBeenWritten) ? @"Success!" : @"How about that - nothing happened. Refresh harder this time", nil)
-                                                 defaultButton:NSLocalizedString(@"Dismiss", @"")
+            NSString *titleMessage = nil;
+            if(filesHaveBeenWritten) {
+                titleMessage = NSLocalizedString(@"Success!", @"Message in an actionsheet stating that the write is successful");
+            } else {
+                titleMessage = NSLocalizedString(@"How about that - nothing happened. Refresh harder this time.", @"Message when writing the files, nothing was written");
+            }
+            
+            NSAlert *statusAlert = [NSAlert alertWithMessageText:titleMessage
+                                                 defaultButton:NSLocalizedString(@"Dismiss", @"Button to dismiss an action sheet")
                                                alternateButton:nil
                                                    otherButton:nil
                                      informativeTextWithFormat:@"%@", statusString];
