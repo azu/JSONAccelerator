@@ -12,8 +12,6 @@
 		441499351464619A002B6969 /* NSString+Nerdery.m in Sources */ = {isa = PBXBuildFile; fileRef = 441499341464619A002B6969 /* NSString+Nerdery.m */; };
 		4415E4511462F39900953014 /* JSONModeler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4415E4501462F39900953014 /* JSONModeler.m */; };
 		4419EB05146D7A73002605A0 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4419EB04146D7A73002605A0 /* BaseView.m */; };
-		441D200B14AAB78A00570C58 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441D200E14AAB78A00570C58 /* MainWindowController.xib */; };
-		441D200C14AAB78A00570C58 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441D200E14AAB78A00570C58 /* MainWindowController.xib */; };
 		441FC4E71462D8E1007BF9DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC4E61462D8E1007BF9DC /* Cocoa.framework */; };
 		441FC4F11462D8E1007BF9DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4EF1462D8E1007BF9DC /* InfoPlist.strings */; };
 		441FC4F31462D8E1007BF9DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F21462D8E1007BF9DC /* main.m */; };
@@ -81,6 +79,16 @@
 		4439F07114AAB8C3005AA280 /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07314AAB8C3005AA280 /* FetchJSONViewController.xib */; };
 		4439F07514AAB8CD005AA280 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07814AAB8CD005AA280 /* GeneralPreferencesViewController.xib */; };
 		4439F07614AAB8CD005AA280 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07814AAB8CD005AA280 /* GeneralPreferencesViewController.xib */; };
+		4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
+		4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
+		4439F07F14AABB2F005AA280 /* FetchJSONViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07D14AABB2E005AA280 /* FetchJSONViewController.xib.strings */; };
+		4439F08014AABB2F005AA280 /* FetchJSONViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07D14AABB2E005AA280 /* FetchJSONViewController.xib.strings */; };
+		4439F08314AABB36005AA280 /* MainWindowController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08114AABB36005AA280 /* MainWindowController.xib.strings */; };
+		4439F08414AABB36005AA280 /* MainWindowController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08114AABB36005AA280 /* MainWindowController.xib.strings */; };
+		4439F08D14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08B14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings */; };
+		4439F08E14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08B14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings */; };
+		4439F09714AABBCA005AA280 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4439F09514AABBCA005AA280 /* MainWindowController.xib */; };
+		4439F09814AABBCA005AA280 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4439F09514AABBCA005AA280 /* MainWindowController.xib */; };
 		445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F71476E147009B59AE /* NoodleLineNumberMarker.m */; };
 		445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F91476E147009B59AE /* NoodleLineNumberView.m */; };
 		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
@@ -95,8 +103,6 @@
 		44B9476F14AAAE7100D7A658 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4FB1462D8E1007BF9DC /* MainMenu.xib */; };
 		44B9477814AAB4FF00D7A658 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B9477514AAB4FF00D7A658 /* GeneralPreferencesViewController.xib */; };
 		44B9479314AAB53400D7A658 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B9477514AAB4FF00D7A658 /* GeneralPreferencesViewController.xib */; };
-		44BB548B14AAB72D003D9C4F /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BB548E14AAB72D003D9C4F /* MainWindowController.m */; };
-		44BB548C14AAB72D003D9C4F /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BB548E14AAB72D003D9C4F /* MainWindowController.m */; };
 		44BC25C614756AFD00777EB8 /* ClassNameTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */; };
 		44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
@@ -155,7 +161,6 @@
 		4419EB03146D7A73002605A0 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseView.h; path = Views/BaseView.h; sourceTree = "<group>"; };
 		4419EB04146D7A73002605A0 /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseView.m; path = Views/BaseView.m; sourceTree = "<group>"; };
 		4419EB19146DC740002605A0 /* MasterControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterControllerDelegate.h; path = JSONModeler/Protocols/MasterControllerDelegate.h; sourceTree = "<group>"; };
-		441D200D14AAB78A00570C58 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindowController.xib; sourceTree = "<group>"; };
 		441FC4E21462D8E1007BF9DC /* JSONModeler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONModeler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		441FC4E61462D8E1007BF9DC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		441FC4E91462D8E1007BF9DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -200,11 +205,12 @@
 		44233140149B9F380071978D /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = JSONModeler/Vendor/Sparkle/Sparkle.framework; sourceTree = "<group>"; };
 		44233143149BA0760071978D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		442C6F0E1475B676002BA77F /* TableSelectionChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableSelectionChangeDelegate.h; path = JSONModeler/Protocols/TableSelectionChangeDelegate.h; sourceTree = "<group>"; };
-		4439F06E14AAB8BA005AA280 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/MainWindowController.xib; sourceTree = "<group>"; };
 		4439F07214AAB8C3005AA280 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
 		4439F07414AAB8C8005AA280 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
 		4439F07714AAB8CD005AA280 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
 		4439F07914AAB8D1005AA280 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
+		4439F07A14AABA9C005AA280 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = ViewControllers/MainWindowController.m; sourceTree = "<group>"; };
+		4439F09614AABBCA005AA280 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = ViewControllers/en.lproj/MainWindowController.xib; sourceTree = "<group>"; };
 		445409F61476E147009B59AE /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberMarker.h; path = Vendor/LineNumbers/NoodleLineNumberMarker.h; sourceTree = "<group>"; };
 		445409F71476E147009B59AE /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = Vendor/LineNumbers/NoodleLineNumberMarker.m; sourceTree = "<group>"; };
 		445409F81476E147009B59AE /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = Vendor/LineNumbers/NoodleLineNumberView.h; sourceTree = "<group>"; };
@@ -225,13 +231,13 @@
 		448B10AE1488410C00BEE605 /* EditPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPropertyViewController.h; path = ViewControllers/Edit/EditPropertyViewController.h; sourceTree = "<group>"; };
 		448B10AF1488410C00BEE605 /* EditPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPropertyViewController.m; path = ViewControllers/Edit/EditPropertyViewController.m; sourceTree = "<group>"; };
 		448B10B01488410C00BEE605 /* EditPropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditPropertyViewController.xib; path = ViewControllers/Edit/EditPropertyViewController.xib; sourceTree = "<group>"; };
-		44BB548D14AAB72D003D9C4F /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = en; path = en.lproj/MainWindowController.m; sourceTree = "<group>"; };
 		44BC25C414756AFD00777EB8 /* ClassNameTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassNameTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.h; sourceTree = "<group>"; };
 		44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassNameTableViewHelper.m; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.m; sourceTree = "<group>"; };
 		44BC25C914756B6100777EB8 /* ClassPropertiesTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassPropertiesTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassPropertiesTableViewHelper.h; sourceTree = "<group>"; };
 		44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassPropertiesTableViewHelper.m; path = ViewControllers/Edit/Helpers/ClassPropertiesTableViewHelper.m; sourceTree = "<group>"; };
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
+		44C9AD8414AABC9000A2B0AF /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/MainWindowController.xib; sourceTree = "<group>"; };
 		44FE6F48146C710300FA13F9 /* FetchJSONViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FetchJSONViewController.h; path = ViewControllers/FetchJSONViewController.h; sourceTree = "<group>"; };
 		44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FetchJSONViewController.m; path = ViewControllers/FetchJSONViewController.m; sourceTree = "<group>"; };
 		44FE6F4E146C712600FA13F9 /* ChooseLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLanguageViewController.h; path = ViewControllers/ChooseLanguageViewController.h; sourceTree = "<group>"; };
@@ -425,8 +431,8 @@
 				44FE6F5F146C716F00FA13F9 /* Edit Output */,
 				44FE6F60146C718800FA13F9 /* GenerateFiles */,
 				44FE6F65146C736900FA13F9 /* MainWindowController.h */,
-				44BB548E14AAB72D003D9C4F /* MainWindowController.m */,
-				441D200E14AAB78A00570C58 /* MainWindowController.xib */,
+				4439F07A14AABA9C005AA280 /* MainWindowController.m */,
+				4439F09514AABBCA005AA280 /* MainWindowController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -752,9 +758,12 @@
 				447E8A7514AAA93E00A3345A /* Localizable.strings in Resources */,
 				44B9476D14AAAE6D00D7A658 /* MainMenu-Internal.xib in Resources */,
 				44B9477814AAB4FF00D7A658 /* GeneralPreferencesViewController.xib in Resources */,
-				441D200B14AAB78A00570C58 /* MainWindowController.xib in Resources */,
 				4439F07014AAB8C3005AA280 /* FetchJSONViewController.xib in Resources */,
 				4439F07514AAB8CD005AA280 /* GeneralPreferencesViewController.xib in Resources */,
+				4439F07F14AABB2F005AA280 /* FetchJSONViewController.xib.strings in Resources */,
+				4439F08314AABB36005AA280 /* MainWindowController.xib.strings in Resources */,
+				4439F08D14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */,
+				4439F09714AABBCA005AA280 /* MainWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,9 +797,12 @@
 				446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */,
 				44B9476F14AAAE7100D7A658 /* MainMenu.xib in Resources */,
 				44B9479314AAB53400D7A658 /* GeneralPreferencesViewController.xib in Resources */,
-				441D200C14AAB78A00570C58 /* MainWindowController.xib in Resources */,
 				4439F07114AAB8C3005AA280 /* FetchJSONViewController.xib in Resources */,
 				4439F07614AAB8CD005AA280 /* GeneralPreferencesViewController.xib in Resources */,
+				4439F08014AABB2F005AA280 /* FetchJSONViewController.xib.strings in Resources */,
+				4439F08414AABB36005AA280 /* MainWindowController.xib.strings in Resources */,
+				4439F08E14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */,
+				4439F09814AABBCA005AA280 /* MainWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,7 +847,6 @@
 				44FE6F51146C712600FA13F9 /* ChooseLanguageViewController.m in Sources */,
 				44FE6F56146C714200FA13F9 /* EditOutputViewController.m in Sources */,
 				44FE6F5B146C715200FA13F9 /* GenerateFilesViewController.m in Sources */,
-				44BB548B14AAB72D003D9C4F /* MainWindowController.m in Sources */,
 				4419EB05146D7A73002605A0 /* BaseView.m in Sources */,
 				44BC25C614756AFD00777EB8 /* ClassNameTableViewHelper.m in Sources */,
 				44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */,
@@ -847,6 +858,7 @@
 				7DD23D16149BE74500F8719D /* GeneralPreferencesViewController.m in Sources */,
 				7D00F426149FF30C00235189 /* JSONTextView.m in Sources */,
 				7DC99D2014A26D8900314AA5 /* ModelerDocument.m in Sources */,
+				4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,7 +892,6 @@
 				4423311B149B9E290071978D /* ChooseLanguageViewController.m in Sources */,
 				4423311C149B9E290071978D /* EditOutputViewController.m in Sources */,
 				4423311D149B9E290071978D /* GenerateFilesViewController.m in Sources */,
-				44BB548C14AAB72D003D9C4F /* MainWindowController.m in Sources */,
 				4423311F149B9E290071978D /* BaseView.m in Sources */,
 				44233120149B9E290071978D /* ClassNameTableViewHelper.m in Sources */,
 				44233121149B9E290071978D /* ClassPropertiesTableViewHelper.m in Sources */,
@@ -892,6 +903,7 @@
 				7DD23D19149BE9B300F8719D /* GeneralPreferencesViewController.m in Sources */,
 				7D00F427149FF99600235189 /* JSONTextView.m in Sources */,
 				7DC99D2114A26D8900314AA5 /* ModelerDocument.m in Sources */,
+				4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -906,16 +918,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		441D200E14AAB78A00570C58 /* MainWindowController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				441D200D14AAB78A00570C58 /* en */,
-				4439F06E14AAB8BA005AA280 /* ru */,
-			);
-			name = MainWindowController.xib;
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		441FC4EF1462D8E1007BF9DC /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -980,6 +982,39 @@
 			name = GeneralPreferencesViewController.xib;
 			sourceTree = "<group>";
 		};
+		4439F07D14AABB2E005AA280 /* FetchJSONViewController.xib.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+			);
+			name = FetchJSONViewController.xib.strings;
+			path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler;
+			sourceTree = "<absolute>";
+		};
+		4439F08114AABB36005AA280 /* MainWindowController.xib.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+			);
+			name = MainWindowController.xib.strings;
+			path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler;
+			sourceTree = "<absolute>";
+		};
+		4439F08B14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+			);
+			name = GeneralPreferencesViewController.xib.strings;
+			path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler;
+			sourceTree = "<absolute>";
+		};
+		4439F09514AABBCA005AA280 /* MainWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4439F09614AABBCA005AA280 /* en */,
+				44C9AD8414AABC9000A2B0AF /* ru */,
+			);
+			name = MainWindowController.xib;
+			sourceTree = "<group>";
+		};
 		447E8A7314AAA93E00A3345A /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -996,15 +1031,6 @@
 			name = GeneralPreferencesViewController.xib;
 			path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/ViewControllers/Preferences;
 			sourceTree = "<absolute>";
-		};
-		44BB548E14AAB72D003D9C4F /* MainWindowController.m */ = {
-			isa = PBXVariantGroup;
-			children = (
-				44BB548D14AAB72D003D9C4F /* en */,
-			);
-			name = MainWindowController.m;
-			path = ViewControllers;
-			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
