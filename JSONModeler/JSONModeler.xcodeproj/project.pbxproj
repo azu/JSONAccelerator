@@ -237,6 +237,14 @@
 		44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassPropertiesTableViewHelper.m; path = ViewControllers/Edit/Helpers/ClassPropertiesTableViewHelper.m; sourceTree = "<group>"; };
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
+		44C6F4E714AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModelerTests/de.lproj/InfoPlist.strings; sourceTree = "<absolute>"; };
+		44C6F4E914AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/de.lproj/FetchJSONViewController.xib; sourceTree = "<absolute>"; };
+		44C6F4EA14AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/de.lproj/Credits.rtf; sourceTree = "<absolute>"; };
+		44C6F4EB14AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/de.lproj/GeneralPreferencesViewController.xib; sourceTree = "<absolute>"; };
+		44C6F4EC14AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/de.lproj/InfoPlist.strings; sourceTree = "<absolute>"; };
+		44C6F4ED14AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = "/Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/de.lproj/MainMenu-Internal.xib"; sourceTree = "<absolute>"; };
+		44C6F4EE14AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/de.lproj/MainMenu.xib; sourceTree = "<absolute>"; };
+		44C6F4EF14AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = /Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/de.lproj/Localizable.strings; sourceTree = "<absolute>"; };
 		44FE6F48146C710300FA13F9 /* FetchJSONViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FetchJSONViewController.h; path = ViewControllers/FetchJSONViewController.h; sourceTree = "<group>"; };
 		44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FetchJSONViewController.m; path = ViewControllers/FetchJSONViewController.m; sourceTree = "<group>"; };
 		44FE6F4E146C712600FA13F9 /* ChooseLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLanguageViewController.h; path = ViewControllers/ChooseLanguageViewController.h; sourceTree = "<group>"; };
@@ -922,6 +930,7 @@
 			children = (
 				441FC4F01462D8E1007BF9DC /* en */,
 				447E8A7014AAA7D900A3345A /* ru */,
+				44C6F4EC14AB37FB006B53F3 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -931,6 +940,7 @@
 			children = (
 				441FC4F61462D8E1007BF9DC /* en */,
 				447E8A6F14AAA7D900A3345A /* ru */,
+				44C6F4EA14AB37FB006B53F3 /* de */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -940,6 +950,7 @@
 			children = (
 				441FC4FC1462D8E1007BF9DC /* en */,
 				447E8A7214AAA7D900A3345A /* ru */,
+				44C6F4EE14AB37FB006B53F3 /* de */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -949,6 +960,7 @@
 			children = (
 				441FC50D1462D8E1007BF9DC /* en */,
 				447E8A6D14AAA7D900A3345A /* ru */,
+				44C6F4E714AB37FB006B53F3 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -958,6 +970,7 @@
 			children = (
 				44233143149BA0760071978D /* en */,
 				447E8A7114AAA7D900A3345A /* ru */,
+				44C6F4ED14AB37FB006B53F3 /* de */,
 			);
 			name = "MainMenu-Internal.xib";
 			sourceTree = "<group>";
@@ -991,6 +1004,7 @@
 			children = (
 				446F098A14AABEDD00E37C0C /* en */,
 				446F098C14AABEE300E37C0C /* ru */,
+				44C6F4E914AB37FB006B53F3 /* de */,
 			);
 			name = FetchJSONViewController.xib;
 			sourceTree = "<group>";
@@ -1000,6 +1014,7 @@
 			children = (
 				446F099414AABF8400E37C0C /* en */,
 				446F099614AABF8C00E37C0C /* ru */,
+				44C6F4EB14AB37FB006B53F3 /* de */,
 			);
 			name = GeneralPreferencesViewController.xib;
 			path = JSONModeler;
@@ -1010,6 +1025,7 @@
 			children = (
 				447E8A7414AAA93E00A3345A /* en */,
 				447E8A7614AAA94800A3345A /* ru */,
+				44C6F4EF14AB37FB006B53F3 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
