@@ -127,6 +127,10 @@
 		7D00F426149FF30C00235189 /* JSONTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D00F425149FF30C00235189 /* JSONTextView.m */; };
 		7D00F427149FF99600235189 /* JSONTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D00F425149FF30C00235189 /* JSONTextView.m */; };
 		7D00F42914A11BAF00235189 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
+		7D384DBD14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */; };
+		7D384DBE14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D384DBC14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib */; };
+		7D384DBF14ACFB210073EA2C /* SavePanelLanguageChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */; };
+		7D384DC014ACFB240073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D384DBC14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib */; };
 		7DC99D2014A26D8900314AA5 /* ModelerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */; };
 		7DC99D2114A26D8900314AA5 /* ModelerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */; };
 		7DD23D16149BE74500F8719D /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */; };
@@ -274,6 +278,9 @@
 		7D00F425149FF30C00235189 /* JSONTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONTextView.m; path = Views/JSONTextView.m; sourceTree = "<group>"; };
 		7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JSONModeler-Internal-Info.plist"; sourceTree = "<group>"; };
 		7D384DB214ACE7FC0073EA2C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
+		7D384DBA14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavePanelLanguageChooserViewController.h; path = ViewControllers/SavePanelLanguageChooserViewController.h; sourceTree = "<group>"; };
+		7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavePanelLanguageChooserViewController.m; path = ViewControllers/SavePanelLanguageChooserViewController.m; sourceTree = "<group>"; };
+		7D384DBC14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SavePanelLanguageChooserViewController.xib; path = ViewControllers/SavePanelLanguageChooserViewController.xib; sourceTree = "<group>"; };
 		7DC99D1D14A26D8900314AA5 /* ModelerDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelerDocument.h; path = Documents/ModelerDocument.h; sourceTree = "<group>"; };
 		7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelerDocument.m; path = Documents/ModelerDocument.m; sourceTree = "<group>"; };
 		7DD23D13149BE74500F8719D /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
@@ -444,6 +451,7 @@
 		441FC51C1462D93B007BF9DC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7D384DB814ACF86E0073EA2C /* Save Panel Accessory View */,
 				7DD23D12149BE74500F8719D /* Preferences */,
 				44FE6F5D146C715700FA13F9 /* Fetch */,
 				44FE6F5E146C716400FA13F9 /* Choose Language */,
@@ -649,6 +657,16 @@
 			name = GenerateFiles;
 			sourceTree = "<group>";
 		};
+		7D384DB814ACF86E0073EA2C /* Save Panel Accessory View */ = {
+			isa = PBXGroup;
+			children = (
+				7D384DBA14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.h */,
+				7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */,
+				7D384DBC14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib */,
+			);
+			name = "Save Panel Accessory View";
+			sourceTree = "<group>";
+		};
 		7DC99D1B14A26D6000314AA5 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
@@ -790,6 +808,7 @@
 				446B282814ABCC1000FBE699 /* JSONModeler-Internal-Info.plist in Resources */,
 				446B282A14ABCC1800FBE699 /* JSONModeler-Internal-Info.plist in Resources */,
 				446B282C14ABCC1F00FBE699 /* JSONModeler-Internal-Info.plist in Resources */,
+				7D384DBE14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,6 +850,7 @@
 				4430047A14AB6F5300F7C8DE /* JSONModeler-Internal-Info.plist in Resources */,
 				4430047D14AB6F6200F7C8DE /* JSONModeler-Internal-Info.plist in Resources */,
 				443EF41314ABCD21006216BE /* Credits.rtf in Resources */,
+				7D384DC014ACFB240073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -887,6 +907,7 @@
 				7D00F426149FF30C00235189 /* JSONTextView.m in Sources */,
 				7DC99D2014A26D8900314AA5 /* ModelerDocument.m in Sources */,
 				4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */,
+				7D384DBD14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -932,6 +953,7 @@
 				7D00F427149FF99600235189 /* JSONTextView.m in Sources */,
 				7DC99D2114A26D8900314AA5 /* ModelerDocument.m in Sources */,
 				4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */,
+				7D384DBF14ACFB210073EA2C /* SavePanelLanguageChooserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

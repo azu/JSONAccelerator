@@ -10,10 +10,12 @@
 #import "JSONFetcher.h"
 #import "NoodleLineNumberView.h"
 #import "ClassBaseObject.h"
+#import "SavePanelLanguageChooserViewController.h"
 
-@interface FetchJSONViewController() <NSTextViewDelegate> {
+@interface FetchJSONViewController() <NSTextViewDelegate, NSOpenSavePanelDelegate> {
 @private
     NoodleLineNumberView *lineNumberView;
+    SavePanelLanguageChooserViewController *_languageChooserViewController;
 }
 
 - (BOOL) verifyJSONString;
@@ -183,12 +185,16 @@
     [panel setCanCreateDirectories:YES];
     [panel setResolvesAliases:YES];
     [panel setPrompt:NSLocalizedString(@"Choose", @"Label to have the user select which folder to choose")];
+    [panel setDelegate:self];
     
-    OutputLanguage language = OutputLanguageObjectiveC;
+    _languageChooserViewController = [[SavePanelLanguageChooserViewController alloc] initWithNibName:@"SavePanelLanguageChooserViewController" bundle:nil];
+    [panel setAccessoryView:_languageChooserViewController.view];
     
     [panel beginSheetModalForWindow:self.view.window completionHandler:^(NSInteger result) {        
         if (result == NSOKButton)
         {
+            OutputLanguage language = [_languageChooserViewController chosenLanguage];
+            
             BOOL filesHaveBeenWritten = NO;
             BOOL filesHaveHadError = NO;
             if(self.modeler) {
@@ -206,6 +212,12 @@
                     for(NSString *key in keysArray) {
                         error = nil;
                         outputString = [outputDictionary objectForKey:key];
+                        
+                        /* If we're creating Java files, we need to put the package name in */
+                        if (language == OutputLanguageJava) {
+                            outputString = [outputString stringByReplacingOccurrencesOfString:@"{PACKAGENAME}" withString:_languageChooserViewController.packageName];
+                        }
+                        
                         [outputString writeToURL:[selectedDirectory URLByAppendingPathComponent:key]
                                       atomically:NO
                                         encoding:NSUTF8StringEncoding 
@@ -246,6 +258,18 @@
         }
     }];
     
+}
+
+-(BOOL)panel:(id)sender validateURL:(NSURL *)url error:(NSError *__autoreleasing *)outError {
+    // If we're creating java files, and there's no package name, reject
+    if ([_languageChooserViewController chosenLanguage] == OutputLanguageJava && (_languageChooserViewController.packageName == nil || _languageChooserViewController.packageName == @"") ) {
+        NSAlert *alert = [NSAlert alertWithMessageText:@"No Package Name" defaultButton:@"Close" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Please enter a package name for the java class files"];
+        [alert runModal];
+        return NO;
+    }
+    else {
+        return YES;
+    }
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
