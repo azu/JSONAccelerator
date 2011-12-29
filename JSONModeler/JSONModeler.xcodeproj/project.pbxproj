@@ -217,8 +217,6 @@
 		443EF41214ABCD19006216BE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		443EF41414ABCD3A006216BE /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
 		443EF41514ABCD3B006216BE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
-		443EF41614ABCD51006216BE /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
-		443EF41714ABCD52006216BE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
 		443EF41814ABCD6C006216BE /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		443EF41914ABCD6D006216BE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		443EF41A14ABCD7C006216BE /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = "es.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 		446B282B14ABCC1F00FBE699 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Credits.rtf; sourceTree = "<group>"; };
 		446F098514AABE7100E37C0C /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowController.xib; path = ViewControllers/MainWindowController.xib; sourceTree = "<group>"; };
 		446F098A14AABEDD00E37C0C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
-		446F098C14AABEE300E37C0C /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
 		446F099414AABF8400E37C0C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
 		446F099614AABF8C00E37C0C /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
 		447E8A6D14AAA7D900A3345A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1032,9 +1029,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				446F098A14AABEDD00E37C0C /* en */,
-				446F098C14AABEE300E37C0C /* ru */,
-				443EF41614ABCD51006216BE /* es */,
-				443EF41714ABCD52006216BE /* de */,
 			);
 			name = FetchJSONViewController.xib;
 			sourceTree = "<group>";
