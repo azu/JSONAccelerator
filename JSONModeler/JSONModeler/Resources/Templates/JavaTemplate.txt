@@ -1,16 +1,20 @@
 package {PACKAGENAME};
 
-public class {CLASSNAME} extends {BASECLASS} {
+{IMPORTBLOCK}
+
+public class {CLASSNAME} {
 	
     {PROPERTIES}
     
-    // int, float, String, ArrayList<{TYPE}
 	public {CLASSNAME} () {
 		
 	}	
         
-    public {CLASSNAME} (Object {OBJECTNAME}) {
+    public {CLASSNAME} ({CONSTRUCTOR_ARGS}) {
+    
 {SETTERS}
     }
+    
+{GETTER_SETTER_METHODS}
     
 }

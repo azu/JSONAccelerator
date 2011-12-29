@@ -160,7 +160,9 @@
                 if([(NSArray *)tempObject count] > 0) {
                     tempArrayObject = [(NSArray *)tempObject objectAtIndex:0];
                     if([tempArrayObject isKindOfClass:[NSDictionary class]]) {
-                        [tempPropertyObject setReferenceClass:[self parseData:(NSDictionary *)tempArrayObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"]];
+                        ClassBaseObject *newClass = [self parseData:(NSDictionary *)tempArrayObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"];
+                        [tempPropertyObject setReferenceClass:newClass];
+                        [tempPropertyObject setOtherType:newClass.className];
                     }
                 }
                 

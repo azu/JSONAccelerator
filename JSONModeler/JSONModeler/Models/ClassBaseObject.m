@@ -203,16 +203,48 @@
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];
     
+    // Flag if class has an ArrayList type property (used for generating the import block)
+    BOOL containsArrayList = NO;
+    
     // Public Properties
     NSString *propertiesString = @"";
     for(ClassPropertiesObject *property in [_properties allValues]) {
         propertiesString = [propertiesString stringByAppendingString:[property propertyForLanguage:OutputLanguageJava]];
+        if (property.type == PropertyTypeArray) {
+            containsArrayList = YES;
+        }
     }
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{PROPERTIES}" withString:propertiesString];
     
+    // Import Block
+    if (containsArrayList) {
+        templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORTBLOCK}" withString:@"import java.util.ArrayList;"];
+    }
+    else {
+        templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORTBLOCK}" withString:@""];
+    }
     
-    // Setters    
+    // Constructor arguments
+    NSString *constructorArgs = @"";
+    for (ClassPropertiesObject *property in [_properties allValues]) {
+        //Append a comma if not the first argument added to the string
+        if ( ![constructorArgs isEqualToString:@""] ) {
+            constructorArgs = [constructorArgs stringByAppendingString:@", "];
+        }
+        //Append the argument (special case for arrays)
+        if (property.type == PropertyTypeArray) {
+           constructorArgs = [constructorArgs stringByAppendingString:[NSString stringWithFormat:@"ArrayList<%@> %@", property.otherType, property.name]];
+        }
+        else {
+            constructorArgs = [constructorArgs stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [property typeStringForLanguage:OutputLanguageJava], property.name]];
+        }
+    }
+    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CONSTRUCTOR_ARGS}" withString:constructorArgs];
+    
+    
+    // Setters strings   
     NSString *settersString = @"";
     for(ClassPropertiesObject *property in [_properties allValues]) {
         settersString = [settersString stringByAppendingString:[property setterForLanguage:OutputLanguageJava]];
@@ -222,6 +254,15 @@
     
     NSString *rawObject = @"rawObject";
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{OBJECTNAME}" withString:rawObject];
+    
+    
+    // Getter/Setter Methods
+    NSString *getterSetterMethodsString = @"";
+    for (ClassPropertiesObject *property in [_properties allValues]) {
+        getterSetterMethodsString = [getterSetterMethodsString stringByAppendingString:[property getterMethodForLanguage:OutputLanguageJava]];
+        getterSetterMethodsString = [getterSetterMethodsString stringByAppendingString:[property setterMethodForLanguage:OutputLanguageJava]];
+    }
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{GETTER_SETTER_METHODS}" withString:getterSetterMethodsString];
     
     return templateString;
 }

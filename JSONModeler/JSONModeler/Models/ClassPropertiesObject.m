@@ -8,11 +8,14 @@
 
 #import "ClassPropertiesObject.h"
 #import "ClassBaseObject.h"
+#import "NSString+Nerdery.h"
 
 @interface ClassPropertiesObject ()
 
 - (NSString *) propertyForObjectiveC;
 - (NSString *) propertyForJava;
+- (NSString *)getterMethodForJava;
+- (NSString *)setterMethodForJava;
 
 @end
 
@@ -38,9 +41,9 @@
 - (NSString *)propertyForLanguage:(OutputLanguage)language
 {
     if(language == OutputLanguageJava) {
-        return [self propertyForObjectiveC];
+        return [self propertyForJava]; 
     } else if (language == OutputLanguageObjectiveC) {
-        return [self propertyForJava];
+        return [self propertyForObjectiveC];
     }
     return @"";
 }
@@ -87,7 +90,8 @@
             }
         }
     } else if(language == OutputLanguageJava) {
-        setterString = [setterString stringByAppendingFormat:@"    this.%@ = {OBJECTNAME};\n", self.name, self.jsonName];
+        
+        setterString = [setterString stringByAppendingFormat:@"        this.%@ = %@;\n", self.name, self.name];
     }
     
     return setterString;
@@ -133,7 +137,8 @@
 
 - (NSString *) propertyForJava
 {
-    NSString *returnString = [NSString stringWithFormat:@"public %@ %@;\n", [self typeStringForLanguage:OutputLanguageJava], self.name];
+
+    NSString *returnString = [NSString stringWithFormat:@"private %@ %@;\n    ", [self typeStringForLanguage:OutputLanguageJava], self.name];
     
     return returnString;
 }
@@ -173,12 +178,12 @@
                 return @"String";
                 break;
             case PropertyTypeArray: {
-                if(self.isClass) {
-                    return [NSString stringWithFormat:@"%@[]", self.otherType];
-                } else {
-                    // It's not a class sub object
-                }
-                return @"";
+//                if(self.isClass) {
+//                    return [NSString stringWithFormat:@"%@[]", self.otherType];
+//                } else {
+//                    // It's not a class sub object
+//                }
+                return [NSString stringWithFormat:@"ArrayList<%@>", self.otherType];
                 break;
             }
             case PropertyTypeDictionary:
@@ -202,6 +207,42 @@
         }
     }
     return @"";
+}
+
+#pragma mark - Getter/Setter Method Generators
+
+- (NSString *)getterMethodForLanguage:(OutputLanguage)language
+{
+    if (language == OutputLanguageJava) {
+        return [self getterMethodForJava];
+    }
+    else {
+        // TODO : update this for other languages
+        return nil;
+    }
+}
+
+-(NSString *)setterMethodForLanguage:(OutputLanguage)language
+{
+    if (language == OutputLanguageJava) {
+        return [self setterMethodForJava];
+    }
+    else {
+        // TODO : update this for other languages
+        return nil;
+    }
+}
+
+- (NSString *)getterMethodForJava
+{
+    NSString *getterMethod = [NSString stringWithFormat:@"    public %@ get%@() {\n        return this.%@;\n    }\n\n", [self typeStringForLanguage:OutputLanguageJava], [self.name capitalizeFirstCharacter], self.name];
+    return getterMethod;
+}
+
+- (NSString *)setterMethodForJava
+{
+    NSString *setterMethod = [NSString stringWithFormat:@"    public void set%@(%@ %@) {\n        this.%@ = %@;\n    }\n\n", [self.name capitalizeFirstCharacter], [self typeStringForLanguage:OutputLanguageJava], self.name, self.name, self.name];
+    return setterMethod;
 }
 
 #pragma mark - NSCoding methods
