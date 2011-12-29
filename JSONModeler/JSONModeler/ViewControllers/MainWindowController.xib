@@ -58,7 +58,6 @@
 							<string key="NSFrameSize">{912, 602}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:1192</string>
 							<string key="NSAntiCompressionPriority">{750, 750}</string>
 							<string key="NSClassName">NSView</string>
@@ -72,26 +71,6 @@
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<int key="NSWindowCollectionBehavior">128</int>
-				<bool key="NSWindowIsRestorable">YES</bool>
-			</object>
-			<object class="NSWindowTemplate" id="305676268">
-				<int key="NSWindowStyleMask">31</int>
-				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 132}, {276, 378}}</string>
-				<int key="NSWTFlags">-1535638528</int>
-				<string key="NSWindowTitle">Window</string>
-				<string key="NSWindowClass">NSPanel</string>
-				<nil key="NSViewClass"/>
-				<nil key="NSUserInterfaceItemIdentifier"/>
-				<object class="NSView" key="NSWindowView" id="664071964">
-					<reference key="NSNextResponder"/>
-					<int key="NSvFlags">256</int>
-					<string key="NSFrameSize">{276, 378}</string>
-					<reference key="NSSuperview"/>
-					<string key="NSReuseIdentifierKey">_NS:207</string>
-				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
-				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSToolbar" id="435433171">
@@ -272,7 +251,7 @@
 						</object>
 					</object>
 				</dictionary>
-				<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
+				<array key="NSToolbarIBAllowedItems">
 					<reference ref="212572120"/>
 					<reference ref="1008878897"/>
 					<reference ref="894464762"/>
@@ -281,7 +260,7 @@
 					<reference ref="961629970"/>
 					<reference ref="1027623394"/>
 				</array>
-				<array class="NSMutableArray" key="NSToolbarIBDefaultItems">
+				<array key="NSToolbarIBDefaultItems">
 					<reference ref="212572120"/>
 					<reference ref="1008878897"/>
 					<reference ref="961629970"/>
@@ -461,19 +440,6 @@
 						<reference key="parent" ref="1006"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">288</int>
-						<reference key="object" ref="305676268"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="664071964"/>
-						</array>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">289</int>
-						<reference key="object" ref="664071964"/>
-						<reference key="parent" ref="305676268"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">312</int>
 						<reference key="object" ref="435433171"/>
 						<array class="NSMutableArray" key="children">
@@ -544,9 +510,6 @@
 				<string key="283.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="284.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="285.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="288.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<boolean value="YES" key="288.NSWindowTemplate.visibleAtLaunch"/>
-				<string key="289.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="312.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="313.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="314.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
