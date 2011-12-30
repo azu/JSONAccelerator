@@ -63,7 +63,14 @@
      Insert code here to write your document to data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning nil.
     You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
     */
-    NSData *outData = [NSKeyedArchiver archivedDataWithRootObject:_modeler];
+    NSMutableData *outData = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:outData];
+    
+    [archiver encodeObject:_modeler forKey:@"modeler"];
+    [archiver encodeInt:_httpMethod forKey:@"httpMethod"];
+    [archiver encodeObject:_httpHeaders forKey:@"httpHeaders"];
+    
+    [archiver finishEncoding];
     
     if (outError) {
         *outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];
@@ -79,7 +86,11 @@
     If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
     */
     
-    _modeler = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    
+    self.modeler = [unarchiver decodeObjectForKey:@"modeler"];
+    self.httpMethod = [unarchiver decodeIntForKey:@"httpMethod"];
+    self.httpHeaders = [unarchiver decodeObjectForKey:@"httpHeaders"];
     
     if (outError) {
         *outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:NULL];

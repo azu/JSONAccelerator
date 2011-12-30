@@ -88,7 +88,6 @@ NSString * const headerValue = @"headerValue";
 {    
     NSMutableArray * matches = [NSMutableArray array];
     NSString *partialString = [[textView string] substringWithRange:charRange];
-    NSLog(@"%@", partialString);
     
     for (NSString *headerString in _httpHeaderStrings) {
         if ([headerString rangeOfString:partialString options:NSAnchoredSearch | NSCaseInsensitiveSearch range:NSMakeRange(0, [headerString length])].location != NSNotFound) {
