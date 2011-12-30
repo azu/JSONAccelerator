@@ -88,6 +88,7 @@ enum	// view controller choices
 		{
 			FetchJSONViewController *fetchViewController = [[FetchJSONViewController alloc] initWithNibName:@"FetchJSONViewController" bundle:nil];
             fetchViewController.modeler = self.modeler;
+            fetchViewController.document = self.document;
 			if (fetchViewController != nil)
 			{
 				myCurrentViewController = fetchViewController;	// keep track of the current view controller        

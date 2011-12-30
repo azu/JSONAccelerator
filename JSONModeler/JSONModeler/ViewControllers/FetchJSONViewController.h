@@ -9,8 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "JSONModeler.h"
 #import "MasterControllerDelegate.h"
+#import "ModelerDocument.h"
 
 @interface FetchJSONViewController : NSViewController
+
+@property (weak) ModelerDocument *document;
 
 @property (retain) JSONModeler *modeler;
 @property (weak) IBOutlet NSTextField *urlTextField;
@@ -28,5 +31,6 @@
 - (IBAction)chooseLanguagePressed:(id)sender;
 - (IBAction)verifyPressed:(id)sender;
 - (IBAction)animateButtonPressed:(id)sender;
+- (IBAction)optionsButtonPressed:(id)sender;
 
 @end

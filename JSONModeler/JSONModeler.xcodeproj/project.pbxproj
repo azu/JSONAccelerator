@@ -131,6 +131,10 @@
 		7D384DBE14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D384DBC14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib */; };
 		7D384DBF14ACFB210073EA2C /* SavePanelLanguageChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */; };
 		7D384DC014ACFB240073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D384DBC14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib */; };
+		7D5FE4D114AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D014AD11F900330C2F /* HTTPOptionsWindowController.m */; };
+		7D5FE4D214AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D014AD11F900330C2F /* HTTPOptionsWindowController.m */; };
+		7D5FE4D414AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D314AD128800330C2F /* HTTPOptionsWindowController.xib */; };
+		7D5FE4D514AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D314AD128800330C2F /* HTTPOptionsWindowController.xib */; };
 		7DC99D2014A26D8900314AA5 /* ModelerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */; };
 		7DC99D2114A26D8900314AA5 /* ModelerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */; };
 		7DD23D16149BE74500F8719D /* GeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD23D14149BE74500F8719D /* GeneralPreferencesViewController.m */; };
@@ -281,6 +285,9 @@
 		7D384DBA14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavePanelLanguageChooserViewController.h; path = ViewControllers/SavePanelLanguageChooserViewController.h; sourceTree = "<group>"; };
 		7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavePanelLanguageChooserViewController.m; path = ViewControllers/SavePanelLanguageChooserViewController.m; sourceTree = "<group>"; };
 		7D384DBC14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SavePanelLanguageChooserViewController.xib; path = ViewControllers/SavePanelLanguageChooserViewController.xib; sourceTree = "<group>"; };
+		7D5FE4CF14AD11F900330C2F /* HTTPOptionsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPOptionsWindowController.h; path = ViewControllers/HTTPOptionsWindow/HTTPOptionsWindowController.h; sourceTree = "<group>"; };
+		7D5FE4D014AD11F900330C2F /* HTTPOptionsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPOptionsWindowController.m; path = ViewControllers/HTTPOptionsWindow/HTTPOptionsWindowController.m; sourceTree = "<group>"; };
+		7D5FE4D314AD128800330C2F /* HTTPOptionsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HTTPOptionsWindowController.xib; path = ViewControllers/HTTPOptionsWindow/HTTPOptionsWindowController.xib; sourceTree = "<group>"; };
 		7DC99D1D14A26D8900314AA5 /* ModelerDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelerDocument.h; path = Documents/ModelerDocument.h; sourceTree = "<group>"; };
 		7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelerDocument.m; path = Documents/ModelerDocument.m; sourceTree = "<group>"; };
 		7DD23D13149BE74500F8719D /* GeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralPreferencesViewController.h; sourceTree = "<group>"; };
@@ -451,6 +458,7 @@
 		441FC51C1462D93B007BF9DC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7D5FE4CD14AD11CD00330C2F /* HTTP Options Window */,
 				7D384DB814ACF86E0073EA2C /* Save Panel Accessory View */,
 				7DD23D12149BE74500F8719D /* Preferences */,
 				44FE6F5D146C715700FA13F9 /* Fetch */,
@@ -667,6 +675,16 @@
 			name = "Save Panel Accessory View";
 			sourceTree = "<group>";
 		};
+		7D5FE4CD14AD11CD00330C2F /* HTTP Options Window */ = {
+			isa = PBXGroup;
+			children = (
+				7D5FE4CF14AD11F900330C2F /* HTTPOptionsWindowController.h */,
+				7D5FE4D014AD11F900330C2F /* HTTPOptionsWindowController.m */,
+				7D5FE4D314AD128800330C2F /* HTTPOptionsWindowController.xib */,
+			);
+			name = "HTTP Options Window";
+			sourceTree = "<group>";
+		};
 		7DC99D1B14A26D6000314AA5 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
@@ -809,6 +827,7 @@
 				446B282A14ABCC1800FBE699 /* JSONModeler-Internal-Info.plist in Resources */,
 				446B282C14ABCC1F00FBE699 /* JSONModeler-Internal-Info.plist in Resources */,
 				7D384DBE14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */,
+				7D5FE4D414AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,6 +870,7 @@
 				4430047D14AB6F6200F7C8DE /* JSONModeler-Internal-Info.plist in Resources */,
 				443EF41314ABCD21006216BE /* Credits.rtf in Resources */,
 				7D384DC014ACFB240073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */,
+				7D5FE4D514AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,6 +928,7 @@
 				7DC99D2014A26D8900314AA5 /* ModelerDocument.m in Sources */,
 				4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */,
 				7D384DBD14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m in Sources */,
+				7D5FE4D114AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,6 +975,7 @@
 				7DC99D2114A26D8900314AA5 /* ModelerDocument.m in Sources */,
 				4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */,
 				7D384DBF14ACFB210073EA2C /* SavePanelLanguageChooserViewController.m in Sources */,
+				7D5FE4D214AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1146,6 +1168,7 @@
 				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "CE26365C-D529-492D-946F-53E589521CD0";
+				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1159,6 +1182,7 @@
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1202,6 +1226,7 @@
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler-Internal-Info.plist";
 				PRODUCT_NAME = JSONModeler;
+				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1217,6 +1242,7 @@
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler-Internal-Info.plist";
 				PRODUCT_NAME = JSONModeler;
+				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

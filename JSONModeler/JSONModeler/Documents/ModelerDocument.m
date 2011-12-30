@@ -11,6 +11,8 @@
 
 @implementation ModelerDocument
 
+@synthesize httpMethod = _httpMethod;
+@synthesize httpHeaders = _httpHeaders;
 @synthesize modeler = _modeler;
 
 - (id)init
@@ -19,6 +21,8 @@
     if (self) {
         // Add your subclass-specific initialization here.
         // If an error occurs here, return nil.
+        _httpMethod = HTTPMethodGet;
+        _httpHeaders = [NSArray array];
         _modeler = [[JSONModeler alloc] init];
     }
     return self;

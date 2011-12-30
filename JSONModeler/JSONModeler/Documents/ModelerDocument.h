@@ -11,6 +11,8 @@
 
 @interface ModelerDocument : NSDocument
 
+@property HTTPMethod httpMethod;
+@property (strong) NSArray *httpHeaders;
 @property (strong) JSONModeler *modeler;
 
 @end

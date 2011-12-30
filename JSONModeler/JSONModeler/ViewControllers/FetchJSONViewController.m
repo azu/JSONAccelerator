@@ -11,6 +11,7 @@
 #import "NoodleLineNumberView.h"
 #import "ClassBaseObject.h"
 #import "SavePanelLanguageChooserViewController.h"
+#import "HTTPOptionsWindowController.h"
 
 @interface FetchJSONViewController() <NSTextViewDelegate, NSOpenSavePanelDelegate> {
 @private
@@ -24,6 +25,7 @@
 @end
 
 @implementation FetchJSONViewController
+@synthesize document = _document;
 @synthesize modeler = _modeler;
 @synthesize urlTextField = _urlTextField;
 @synthesize urlTextFieldCell = _urlTextFieldCell;
@@ -83,6 +85,7 @@
     DLog(@"%@", escapedString );
     [self.modeler addObserver:self forKeyPath:@"parseComplete" options:NSKeyValueObservingOptionNew context:NULL];
     JSONFetcher *fetcher = [[JSONFetcher alloc] init];
+    fetcher.document = self.document;
     [fetcher downloadJSONFromLocation:escapedString withSuccess:^(id object) {
         [self.getDataButton setHidden:NO];
         [self.progressView stopAnimation:nil];
@@ -174,6 +177,12 @@
     // End the grouping of animation target value settings, causing the animations in the grouping to be started simultaneously.
     [NSAnimationContext endGrouping];
 
+}
+
+- (IBAction)optionsButtonPressed:(id)sender {
+    HTTPOptionsWindowController *wc = [[HTTPOptionsWindowController alloc] initWithWindowNibName:@"HTTPOptionsWindowController"];
+    [self.document addWindowController:wc];
+    [wc.window makeKeyAndOrderFront:self.document];
 }
 
 - (void)generateFiles

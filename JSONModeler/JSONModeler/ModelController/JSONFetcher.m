@@ -16,6 +16,7 @@
 @end
 
 @implementation JSONFetcher
+@synthesize document = _document;
 @synthesize jsonOperationQueue = _jsonOperationQueue;
 
 - (id)init {
@@ -33,7 +34,29 @@
 - (void) downloadJSONFromLocation: (NSString *) location withSuccess: (void (^)(id object))success 
                           andFailure:(void (^)(NSHTTPURLResponse *response, NSError *error))failure
 {    
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:location]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:location]];
+    NSString *method;
+    switch (self.document.httpMethod) {
+        case HTTPMethodGet:
+            method = @"GET";
+            break;
+        case HTTPMethodPut:
+            method = @"PUT";
+            break;
+        case HTTPMethodPost:
+            method = @"POST";
+            break;
+        case HTTPMethodHead:
+            method = @"HEAD";
+            break;
+        default:
+            method = @"GET";
+            break;
+    }
+    [request setHTTPMethod:method];
+    for (NSDictionary *header in self.document.httpHeaders) {
+        [request addValue:[header objectForKey:@"headerValue"] forHTTPHeaderField:[header objectForKey:@"headerKey"]];
+    }
     AFHTTPRequestOperation *operation = [AFHTTPRequestOperation HTTPRequestOperationWithRequest:request success:success failure:failure];    
     
     [self.jsonOperationQueue addOperation:operation];
