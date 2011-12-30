@@ -270,15 +270,51 @@
 }
 
 -(BOOL)panel:(id)sender validateURL:(NSURL *)url error:(NSError *__autoreleasing *)outError {
+    
+    OutputLanguage language = [_languageChooserViewController chosenLanguage];
     // If we're creating java files, and there's no package name, reject
-    if ([_languageChooserViewController chosenLanguage] == OutputLanguageJava && (_languageChooserViewController.packageName == nil || _languageChooserViewController.packageName == @"") ) {
+    if (language == OutputLanguageJava && (_languageChooserViewController.packageName == nil || _languageChooserViewController.packageName == @"") ) {
         NSAlert *alert = [NSAlert alertWithMessageText:@"No Package Name" defaultButton:@"Close" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Please enter a package name."];
         [alert runModal];
         return NO;
     }
-    else {
-        return YES;
+    
+    // Check to see if we're going to overwrite files
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSString *filePath = [url path];
+    
+    BOOL willOverwriteFiles = NO;
+    NSArray *outputObjects = [[self.modeler parsedDictionary] allValues];
+    if (language == OutputLanguageObjectiveC) {
+        for (ClassBaseObject *outputObject in outputObjects) {
+            if ( [fileManager fileExistsAtPath:[[filePath stringByAppendingPathComponent:outputObject.className] stringByAppendingPathExtension:@"m"]]
+                || [fileManager fileExistsAtPath:[[filePath stringByAppendingPathComponent:outputObject.className] stringByAppendingPathExtension:@"h"]] ) {
+                willOverwriteFiles = YES;
+            }
+        }
     }
+    else if (language == OutputLanguageJava) {
+        for (ClassBaseObject *outputObject in outputObjects) {
+            if ( [fileManager fileExistsAtPath:[[filePath stringByAppendingPathComponent:outputObject.className] stringByAppendingPathExtension:@"java"]] ) {
+                willOverwriteFiles = YES;
+            }
+        }
+    }
+    
+    if (willOverwriteFiles) {
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Overwrite files?" defaultButton:@"Yes" alternateButton:@"No" otherButton:nil informativeTextWithFormat:@"This operation will overwrite files in this directory. Are you sure you want to continue?"];
+        NSInteger alertReturn = [alert runModal];
+        if (alertReturn == NSAlertDefaultReturn) {
+            return YES;
+        }
+        else if (alertReturn == NSAlertAlternateReturn) {
+            return NO;
+        }
+        
+    }
+    
+    return YES;
+    
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
