@@ -183,6 +183,7 @@
     HTTPOptionsWindowController *wc = [[HTTPOptionsWindowController alloc] initWithWindowNibName:@"HTTPOptionsWindowController"];
     [self.document addWindowController:wc];
     [wc.window makeKeyAndOrderFront:self.document];
+    [wc.window setTitle:@"Options"];
 }
 
 - (void)generateFiles
