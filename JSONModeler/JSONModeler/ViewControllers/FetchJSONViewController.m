@@ -257,7 +257,7 @@
             if(filesHaveBeenWritten) {
                 titleMessage = NSLocalizedString(@"Success!", @"Message in an actionsheet stating that the write is successful");
             } else {
-                titleMessage = NSLocalizedString(@"How about that - nothing happened. Refresh harder this time.", @"Message when writing the files, nothing was written");
+                titleMessage = NSLocalizedString(@"No file were written to the disk", @"Message when writing the files, nothing was written");
             }
             
             NSAlert *statusAlert = [NSAlert alertWithMessageText:titleMessage
