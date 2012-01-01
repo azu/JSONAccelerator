@@ -22,6 +22,7 @@
 @property (unsafe_unretained) IBOutlet NSTextView *JSONTextView;
 @property (weak) IBOutlet NSProgressIndicator *progressView;
 @property (weak) IBOutlet NSButton *verifyButton;
+@property (weak) IBOutlet NSButton *optionsButton;
 @property (weak) IBOutlet NSButton *chooseLanguageButton;
 @property (weak) IBOutlet NSButton *generateFilesButton;
 @property (assign) id<MasterControllerDelegate> delegate;

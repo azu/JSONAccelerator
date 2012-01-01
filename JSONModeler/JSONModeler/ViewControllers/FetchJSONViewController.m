@@ -33,6 +33,7 @@
 @synthesize JSONTextView = _JSONTextView;
 @synthesize progressView = _progressView;
 @synthesize verifyButton = _verifyButton;
+@synthesize optionsButton = _optionsButton;
 @synthesize chooseLanguageButton = _chooseLanguageButton;
 @synthesize generateFilesButton = _generateFilesButton;
 @synthesize delegate = _delegate;
@@ -64,6 +65,7 @@
     [self.verifyButton setTitle:NSLocalizedString(@"Verify", @"In the main screen, this is the verify button that formats the JSON")];
     [self.getDataButton setTitle:NSLocalizedString(@"Get Data", @"In the main screen, this is the button that fetches data from a URL")];
     [self.generateFilesButton setTitle:NSLocalizedString(@"Generate Files", @"In the main screen, this is the button that writes out files")];
+    [self.optionsButton setTitle:NSLocalizedString(@"Options", @"This is the current title of http options window that gets written")];
     
 #ifdef DEBUG
     [self.urlTextFieldCell setStringValue:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=fm34txf3v6vu9jph5fdqt529"];
@@ -82,7 +84,7 @@
     [self.getDataButton setHidden:YES];
     [self.progressView startAnimation:nil];
     NSString *escapedString = [[self.urlTextField stringValue] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
-    DLog(@"%@", escapedString );
+
     [self.modeler addObserver:self forKeyPath:@"parseComplete" options:NSKeyValueObservingOptionNew context:NULL];
     JSONFetcher *fetcher = [[JSONFetcher alloc] init];
     fetcher.document = self.document;
@@ -183,7 +185,7 @@
     HTTPOptionsWindowController *wc = [[HTTPOptionsWindowController alloc] initWithWindowNibName:@"HTTPOptionsWindowController"];
     [self.document addWindowController:wc];
     [wc.window makeKeyAndOrderFront:self.document];
-    [wc.window setTitle:@"Options"];
+    [wc.window setTitle:NSLocalizedString(@"Options", @"This is the current title of http options window that gets written")];
 }
 
 - (void)generateFiles
