@@ -13,6 +13,7 @@
 @synthesize packageName = _packageName;
 
 @synthesize languageDropDown = _languageDropDown;
+@synthesize outputLanguageLabel = _outputLanguageLabel;
 @synthesize packageNameLabel = _packageNameLabel;
 @synthesize packageNameField = _packageNameField;
 
@@ -27,7 +28,8 @@
 }
 
 -(void)awakeFromNib {
-    
+    self.outputLanguageLabel.stringValue = NSLocalizedString(@"Output Language", "In the save portion, the label to choose what language");
+    self.packageNameLabel.stringValue = NSLocalizedString(@"Package Name", "In the save portion, the label to choose what the package is");
     self.packageNameLabel.hidden = YES;
     self.packageNameField.hidden = YES;
     

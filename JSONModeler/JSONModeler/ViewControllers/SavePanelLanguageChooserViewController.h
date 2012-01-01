@@ -14,6 +14,7 @@
 @property (strong) NSString *packageName;
 
 @property (weak) IBOutlet NSPopUpButton *languageDropDown;
+@property (weak) IBOutlet NSTextField *outputLanguageLabel;
 @property (weak) IBOutlet NSTextField *packageNameLabel;
 @property (weak) IBOutlet NSTextField *packageNameField;
 

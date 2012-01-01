@@ -88,7 +88,6 @@
 						<string key="NSFrame">{{136, 20}, {233, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:903</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="500113268">
@@ -254,6 +253,14 @@
 						<reference key="destination" ref="245192339"/>
 					</object>
 					<int key="connectionID">46</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">outputLanguageLabel</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="1019727104"/>
+					</object>
+					<int key="connectionID">71</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -432,7 +439,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">70</int>
+			<int key="maxID">71</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -452,6 +459,7 @@
 					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="languageDropDown">NSPopUpButton</string>
+						<string key="outputLanguageLabel">NSTextField</string>
 						<string key="packageNameField">NSTextField</string>
 						<string key="packageNameLabel">NSTextField</string>
 					</dictionary>
@@ -459,6 +467,10 @@
 						<object class="IBToOneOutletInfo" key="languageDropDown">
 							<string key="name">languageDropDown</string>
 							<string key="candidateClassName">NSPopUpButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="outputLanguageLabel">
+							<string key="name">outputLanguageLabel</string>
+							<string key="candidateClassName">NSTextField</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="packageNameField">
 							<string key="name">packageNameField</string>
