@@ -83,6 +83,12 @@
 		4439F08D14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08B14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings */; };
 		4439F08E14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08B14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings */; };
 		443EF41314ABCD21006216BE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
+		444522F914B4AE8700288ED6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
+		444522FA14B4AE8700288ED6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
+		444522FB14B4AE8700288ED6 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
+		444522FC14B4AE8700288ED6 /* JSONModeler-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4EE1462D8E1007BF9DC /* JSONModeler-Info.plist */; };
+		444522FD14B4AE8700288ED6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F21462D8E1007BF9DC /* main.m */; };
+		444522FF14B4AEAB00288ED6 /* MainMenu-Internal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44233142149BA0760071978D /* MainMenu-Internal.xib */; };
 		445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F71476E147009B59AE /* NoodleLineNumberMarker.m */; };
 		445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F91476E147009B59AE /* NoodleLineNumberView.m */; };
 		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
@@ -175,8 +181,8 @@
 		441FC4E91462D8E1007BF9DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		441FC4EA1462D8E1007BF9DC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		441FC4EB1462D8E1007BF9DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		441FC4EE1462D8E1007BF9DC /* JSONModeler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JSONModeler-Info.plist"; sourceTree = "<group>"; };
-		441FC4F21462D8E1007BF9DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		441FC4EE1462D8E1007BF9DC /* JSONModeler-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JSONModeler-Info.plist"; sourceTree = "<group>"; };
+		441FC4F21462D8E1007BF9DC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		441FC4F41462D8E1007BF9DC /* JSONModeler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModeler-Prefix.pch"; sourceTree = "<group>"; };
 		441FC4F81462D8E1007BF9DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		441FC4F91462D8E1007BF9DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -226,6 +232,8 @@
 		443EF41C14ABCDA6006216BE /* es */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		443EF41D14ABCDA7006216BE /* de */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		444522F614B4ACA800288ED6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		444522F814B4AE8700288ED6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = "ja.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
+		444522FE14B4AEAB00288ED6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		445409F61476E147009B59AE /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberMarker.h; path = Vendor/LineNumbers/NoodleLineNumberMarker.h; sourceTree = "<group>"; };
 		445409F71476E147009B59AE /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = Vendor/LineNumbers/NoodleLineNumberMarker.m; sourceTree = "<group>"; };
 		445409F81476E147009B59AE /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = Vendor/LineNumbers/NoodleLineNumberView.h; sourceTree = "<group>"; };
@@ -820,6 +828,11 @@
 				446B282614ABCC0600FBE699 /* Credits.rtf in Resources */,
 				7D384DBE14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */,
 				7D5FE4D414AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */,
+				444522F914B4AE8700288ED6 /* InfoPlist.strings in Resources */,
+				444522FA14B4AE8700288ED6 /* Credits.rtf in Resources */,
+				444522FB14B4AE8700288ED6 /* JSONModeler-Internal-Info.plist in Resources */,
+				444522FC14B4AE8700288ED6 /* JSONModeler-Info.plist in Resources */,
+				444522FF14B4AEAB00288ED6 /* MainMenu-Internal.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -919,6 +932,7 @@
 				4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */,
 				7D384DBD14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m in Sources */,
 				7D5FE4D114AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */,
+				444522FD14B4AE8700288ED6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -987,6 +1001,7 @@
 				447E8A7214AAA7D900A3345A /* ru */,
 				443EF41814ABCD6C006216BE /* es */,
 				443EF41914ABCD6D006216BE /* de */,
+				444522FE14B4AEAB00288ED6 /* ja */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1009,6 +1024,7 @@
 				447E8A7114AAA7D900A3345A /* ru */,
 				443EF41A14ABCD7C006216BE /* es */,
 				443EF41B14ABCD80006216BE /* de */,
+				444522F814B4AE8700288ED6 /* ja */,
 			);
 			name = "MainMenu-Internal.xib";
 			sourceTree = "<group>";
