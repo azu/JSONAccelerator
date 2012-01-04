@@ -25,6 +25,9 @@
 @synthesize  type = _type;
 @synthesize  otherType = _otherType;
 
+@synthesize collectionType = _collectionType;
+@synthesize collectionTypeString = _collectionTypeString;
+
 @synthesize referenceClass = _referenceClass;
 
 @synthesize isClass = _isClass;
@@ -178,12 +181,25 @@
                 return @"String";
                 break;
             case PropertyTypeArray: {
-//                if(self.isClass) {
-//                    return [NSString stringWithFormat:@"%@[]", self.otherType];
-//                } else {
-//                    // It's not a class sub object
-//                }
-                return [NSString stringWithFormat:@"ArrayList<%@>", self.otherType];
+                
+                //Special case, switch over the collection type
+                switch (self.collectionType) {
+                    case PropertyTypeClass:
+                        return [NSString stringWithFormat:@"ArrayList<%@>", self.collectionTypeString];
+                        break;
+                    case PropertyTypeString:
+                        return @"ArrayList<String>";
+                        break;
+                    case PropertyTypeInt:
+                        return @"ArrayList<int>";
+                        break;
+                    case PropertyTypeDouble:
+                        return @"ArrayList<double>";
+                        break;
+                    default:
+                        break;
+                }
+                
                 break;
             }
             case PropertyTypeDictionary:
@@ -256,6 +272,9 @@
     self.type = [aDecoder decodeIntForKey:@"type"];
     self.otherType = [aDecoder decodeObjectForKey:@"otherType"];
     
+    self.collectionType = [aDecoder decodeIntForKey:@"collectionType"];
+    self.collectionTypeString = [aDecoder decodeObjectForKey:@"collectionTypeString"];
+    
     self.referenceClass = [aDecoder decodeObjectForKey:@"referenceClass"];
     
     self.isClass = [aDecoder decodeBoolForKey:@"isClass"];
@@ -272,6 +291,9 @@
     [aCoder encodeObject:_mappedName forKey:@"jsonName"];
     [aCoder encodeInt:_type forKey:@"type"];
     [aCoder encodeObject:_otherType forKey:@"otherType"];
+    
+    [aCoder encodeInt:_collectionType forKey:@"collectionType"];
+    [aCoder encodeObject:_collectionTypeString forKey:@"collectionTypeString"];
     
     [aCoder encodeObject:_referenceClass forKey:@"referenceClass"];
     

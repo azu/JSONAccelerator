@@ -232,13 +232,7 @@
         if ( ![constructorArgs isEqualToString:@""] ) {
             constructorArgs = [constructorArgs stringByAppendingString:@", "];
         }
-        //Append the argument (special case for arrays)
-        if (property.type == PropertyTypeArray) {
-           constructorArgs = [constructorArgs stringByAppendingString:[NSString stringWithFormat:@"ArrayList<%@> %@", property.otherType, property.name]];
-        }
-        else {
-            constructorArgs = [constructorArgs stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [property typeStringForLanguage:OutputLanguageJava], property.name]];
-        }
+        constructorArgs = [constructorArgs stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [property typeStringForLanguage:OutputLanguageJava], property.name]];
     }
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{CONSTRUCTOR_ARGS}" withString:constructorArgs];

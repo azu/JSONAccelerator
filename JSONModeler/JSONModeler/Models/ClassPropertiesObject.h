@@ -35,6 +35,10 @@ typedef enum {
 @property (nonatomic, assign) PropertyType type;
 @property (nonatomic, copy) NSString *otherType;
 
+/* The following 2 properties are used when the instance represents a collection (e.g., ArrayList in java) and needs a secondary class type (e.g. ArrayList<String>) */
+@property (nonatomic, assign) PropertyType collectionType;
+@property (nonatomic, copy) NSString *collectionTypeString;
+
 @property (weak) ClassBaseObject *referenceClass;
 
 @property (assign) BOOL isClass;
