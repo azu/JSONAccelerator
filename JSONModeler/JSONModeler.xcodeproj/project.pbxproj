@@ -13,7 +13,6 @@
 		4415E4511462F39900953014 /* JSONModeler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4415E4501462F39900953014 /* JSONModeler.m */; };
 		4419EB05146D7A73002605A0 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4419EB04146D7A73002605A0 /* BaseView.m */; };
 		441FC4E71462D8E1007BF9DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC4E61462D8E1007BF9DC /* Cocoa.framework */; };
-		441FC4F31462D8E1007BF9DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F21462D8E1007BF9DC /* main.m */; };
 		441FC4FA1462D8E1007BF9DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F91462D8E1007BF9DC /* AppDelegate.m */; };
 		441FC5051462D8E1007BF9DC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC5041462D8E1007BF9DC /* SenTestingKit.framework */; };
 		441FC5061462D8E1007BF9DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC4E61462D8E1007BF9DC /* Cocoa.framework */; };
@@ -73,22 +72,10 @@
 		44233150149BD4C40071978D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4FB1462D8E1007BF9DC /* MainMenu.xib */; };
 		4430047614AB6F4500F7C8DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
 		4430047714AB6F4A00F7C8DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
-		4430047914AB6F5300F7C8DE /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
 		4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
-		4439F07F14AABB2F005AA280 /* FetchJSONViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07D14AABB2E005AA280 /* FetchJSONViewController.xib.strings */; };
-		4439F08014AABB2F005AA280 /* FetchJSONViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F07D14AABB2E005AA280 /* FetchJSONViewController.xib.strings */; };
-		4439F08314AABB36005AA280 /* MainWindowController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08114AABB36005AA280 /* MainWindowController.xib.strings */; };
-		4439F08414AABB36005AA280 /* MainWindowController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08114AABB36005AA280 /* MainWindowController.xib.strings */; };
-		4439F08D14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08B14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings */; };
-		4439F08E14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4439F08B14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings */; };
 		443EF41314ABCD21006216BE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
-		444522F914B4AE8700288ED6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
-		444522FA14B4AE8700288ED6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
-		444522FB14B4AE8700288ED6 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
 		444522FC14B4AE8700288ED6 /* JSONModeler-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4EE1462D8E1007BF9DC /* JSONModeler-Info.plist */; };
-		444522FD14B4AE8700288ED6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F21462D8E1007BF9DC /* main.m */; };
-		444522FF14B4AEAB00288ED6 /* MainMenu-Internal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44233142149BA0760071978D /* MainMenu-Internal.xib */; };
 		445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F71476E147009B59AE /* NoodleLineNumberMarker.m */; };
 		445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F91476E147009B59AE /* NoodleLineNumberView.m */; };
 		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
@@ -106,16 +93,7 @@
 		448B10AB148840DE00BEE605 /* EditClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448B10A9148840DE00BEE605 /* EditClassViewController.xib */; };
 		448B10B11488410C00BEE605 /* EditPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10AF1488410C00BEE605 /* EditPropertyViewController.m */; };
 		448B10B21488410C00BEE605 /* EditPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448B10B01488410C00BEE605 /* EditPropertyViewController.xib */; };
-		44B6BD8C14B61CAB000AEC28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
-		44B6BD8D14B61CAB000AEC28 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
-		44B6BD8E14B61CAB000AEC28 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
-		44B6BD8F14B61CAB000AEC28 /* JSONModeler-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4EE1462D8E1007BF9DC /* JSONModeler-Info.plist */; };
-		44B6BD9014B61CAB000AEC28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F21462D8E1007BF9DC /* main.m */; };
-		44B6BD9314B61CB6000AEC28 /* MainMenu-Internal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44233142149BA0760071978D /* MainMenu-Internal.xib */; };
-		44B9476D14AAAE6D00D7A658 /* MainMenu-Internal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44233142149BA0760071978D /* MainMenu-Internal.xib */; };
-		44B9476F14AAAE7100D7A658 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4FB1462D8E1007BF9DC /* MainMenu.xib */; };
-		44B9477814AAB4FF00D7A658 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B9477514AAB4FF00D7A658 /* GeneralPreferencesViewController.xib */; };
-		44B9479314AAB53400D7A658 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B9477514AAB4FF00D7A658 /* GeneralPreferencesViewController.xib */; };
+		44B6BD9C14B62073000AEC28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F21462D8E1007BF9DC /* main.m */; };
 		44BC25C614756AFD00777EB8 /* ClassNameTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */; };
 		44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
@@ -833,29 +811,14 @@
 				44233108149B9DFC0071978D /* MASPreferencesWindow.xib in Resources */,
 				44233150149BD4C40071978D /* MainMenu.xib in Resources */,
 				447E8A7514AAA93E00A3345A /* Localizable.strings in Resources */,
-				44B9476D14AAAE6D00D7A658 /* MainMenu-Internal.xib in Resources */,
-				44B9477814AAB4FF00D7A658 /* GeneralPreferencesViewController.xib in Resources */,
-				4439F07F14AABB2F005AA280 /* FetchJSONViewController.xib.strings in Resources */,
-				4439F08314AABB36005AA280 /* MainWindowController.xib.strings in Resources */,
-				4439F08D14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */,
 				446F098614AABE7100E37C0C /* MainWindowController.xib in Resources */,
 				446F098914AABEDD00E37C0C /* FetchJSONViewController.xib in Resources */,
 				446F099214AABF8400E37C0C /* GeneralPreferencesViewController.xib in Resources */,
 				4430047614AB6F4500F7C8DE /* InfoPlist.strings in Resources */,
-				4430047914AB6F5300F7C8DE /* JSONModeler-Internal-Info.plist in Resources */,
 				446B282614ABCC0600FBE699 /* Credits.rtf in Resources */,
 				7D384DBE14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */,
 				7D5FE4D414AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */,
-				444522F914B4AE8700288ED6 /* InfoPlist.strings in Resources */,
-				444522FA14B4AE8700288ED6 /* Credits.rtf in Resources */,
-				444522FB14B4AE8700288ED6 /* JSONModeler-Internal-Info.plist in Resources */,
 				444522FC14B4AE8700288ED6 /* JSONModeler-Info.plist in Resources */,
-				444522FF14B4AEAB00288ED6 /* MainMenu-Internal.xib in Resources */,
-				44B6BD8C14B61CAB000AEC28 /* InfoPlist.strings in Resources */,
-				44B6BD8D14B61CAB000AEC28 /* Credits.rtf in Resources */,
-				44B6BD8E14B61CAB000AEC28 /* JSONModeler-Internal-Info.plist in Resources */,
-				44B6BD8F14B61CAB000AEC28 /* JSONModeler-Info.plist in Resources */,
-				44B6BD9314B61CB6000AEC28 /* MainMenu-Internal.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -885,11 +848,6 @@
 				44233144149BA0760071978D /* MainMenu-Internal.xib in Resources */,
 				7D00F42914A11BAF00235189 /* JSONModeler-Internal-Info.plist in Resources */,
 				446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */,
-				44B9476F14AAAE7100D7A658 /* MainMenu.xib in Resources */,
-				44B9479314AAB53400D7A658 /* GeneralPreferencesViewController.xib in Resources */,
-				4439F08014AABB2F005AA280 /* FetchJSONViewController.xib.strings in Resources */,
-				4439F08414AABB36005AA280 /* MainWindowController.xib.strings in Resources */,
-				4439F08E14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings in Resources */,
 				446F098D14AABF0400E37C0C /* MainWindowController.xib in Resources */,
 				446F098E14AABF0D00E37C0C /* FetchJSONViewController.xib in Resources */,
 				446F099314AABF8400E37C0C /* GeneralPreferencesViewController.xib in Resources */,
@@ -923,7 +881,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				441FC4F31462D8E1007BF9DC /* main.m in Sources */,
+				44B6BD9C14B62073000AEC28 /* main.m in Sources */,
 				441FC4FA1462D8E1007BF9DC /* AppDelegate.m in Sources */,
 				441FC5261462DBF6007BF9DC /* JSONFetcher.m in Sources */,
 				441FC5411462E1CF007BF9DC /* AFHTTPClient.m in Sources */,
@@ -955,8 +913,6 @@
 				4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */,
 				7D384DBD14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m in Sources */,
 				7D5FE4D114AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */,
-				444522FD14B4AE8700288ED6 /* main.m in Sources */,
-				44B6BD9014B61CAB000AEC28 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1070,30 +1026,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		4439F07D14AABB2E005AA280 /* FetchJSONViewController.xib.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-			);
-			name = FetchJSONViewController.xib.strings;
-			path = JSONModeler;
-			sourceTree = "<group>";
-		};
-		4439F08114AABB36005AA280 /* MainWindowController.xib.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-			);
-			name = MainWindowController.xib.strings;
-			path = JSONModeler;
-			sourceTree = "<group>";
-		};
-		4439F08B14AABB6E005AA280 /* GeneralPreferencesViewController.xib.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-			);
-			name = GeneralPreferencesViewController.xib.strings;
-			path = JSONModeler;
-			sourceTree = "<group>";
-		};
 		446B282414ABCC0600FBE699 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1140,14 +1072,6 @@
 				44B6BD8514B61A90000AEC28 /* fr */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		44B9477514AAB4FF00D7A658 /* GeneralPreferencesViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-			);
-			name = GeneralPreferencesViewController.xib;
-			path = JSONModeler/ViewControllers/Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
