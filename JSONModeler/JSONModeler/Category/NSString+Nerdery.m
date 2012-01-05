@@ -85,7 +85,14 @@
     if ( !(startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0) ) {
         alphanumeric = [@"Num" stringByAppendingString:alphanumeric];
     }
-    return [alphanumeric capitalizeFirstCharacter];
+    
+    NSMutableArray *components = [[alphanumeric componentsSeparatedByString:@"_"] mutableCopy];
+    
+    NSInteger numComponents = [components count];
+    for (int i = 0; i < numComponents; ++i) {
+        [components replaceObjectAtIndex:i withObject:[(NSString *)[components objectAtIndex:i] capitalizeFirstCharacter]];
+    }
+    return [components componentsJoinedByString:@""];
 }
 
 - (NSString *)objectiveCPropertyString
