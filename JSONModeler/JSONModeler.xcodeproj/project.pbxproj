@@ -269,6 +269,8 @@
 		44B6BD8514B61A90000AEC28 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; lineEnding = 0; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		44B6BD8B14B61CAB000AEC28 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = "fr.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		44B6BD9214B61CB6000AEC28 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		44B6BD9414B61E8E000AEC28 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = fr; path = fr.lproj/Credits.rtf; sourceTree = "<group>"; };
+		44B6BD9514B61E8F000AEC28 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ja; path = ja.lproj/Credits.rtf; sourceTree = "<group>"; };
 		44BC25C414756AFD00777EB8 /* ClassNameTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassNameTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.h; sourceTree = "<group>"; };
 		44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassNameTableViewHelper.m; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.m; sourceTree = "<group>"; };
 		44BC25C914756B6100777EB8 /* ClassPropertiesTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassPropertiesTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassPropertiesTableViewHelper.h; sourceTree = "<group>"; };
@@ -1089,6 +1091,8 @@
 				446B282914ABCC1800FBE699 /* ru */,
 				446B282B14ABCC1F00FBE699 /* de */,
 				7D384DB214ACE7FC0073EA2C /* es */,
+				44B6BD9414B61E8E000AEC28 /* fr */,
+				44B6BD9514B61E8F000AEC28 /* ja */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
