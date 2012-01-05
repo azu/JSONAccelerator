@@ -164,13 +164,13 @@
     for (ClassPropertiesObject *property in [_properties allValues]) {
         switch (property.type) {
             case PropertyTypeInt:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeIntegerForKey@\"%@\"];", property.name, property.name]];
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeIntegerForKey:@\"%@\"];", property.name, property.name]];
                 break;
             case PropertyTypeDouble:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeDoubleForKey@\"%@\"];", property.name, property.name]];
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeDoubleForKey:@\"%@\"];", property.name, property.name]];
                 break;
             default:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeObjectForKey@\"%@\"];", property.name, property.name]];
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeObjectForKey:@\"%@\"];", property.name, property.name]];
                 break;
         }
     }
