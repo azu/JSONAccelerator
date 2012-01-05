@@ -20,9 +20,16 @@
 @property (weak) IBOutlet NSTextField *headerValueField;
 @property (weak) IBOutlet NSTableView *headerTableView;
 
+@property (weak) IBOutlet NSTableColumn *headerTableKeyColumn;
+
+/* This button exists purely as a graphic element. It has no functionality */
+@property (weak) IBOutlet NSButtonCell *dummyButton;
 
 - (IBAction)addHeaderClicked:(id)sender;
 - (IBAction)cancelClicked:(id)sender;
 - (IBAction)saveClicked:(id)sender;
+
+- (IBAction)plusClicked:(id)sender;
+- (IBAction)minusClicked:(id)sender;
 
 @end

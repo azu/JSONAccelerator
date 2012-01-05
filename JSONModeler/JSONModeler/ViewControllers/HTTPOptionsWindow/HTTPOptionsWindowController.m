@@ -29,6 +29,8 @@ NSString * const headerValue = @"headerValue";
 @synthesize headerKeyField = _headerKeyField;
 @synthesize headerValueField = _headerValueField;
 @synthesize headerTableView = _headerTableView;
+@synthesize headerTableKeyColumn = _headerTableKeyColumn;
+@synthesize dummyButton = _dummyButton;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -53,11 +55,15 @@ NSString * const headerValue = @"headerValue";
     
     _fieldIsCompleting = NO;
     _handlingCommand = NO;
+    
+    /* Disable the dummy button */
+    [_dummyButton setImageDimsWhenDisabled:NO];
+    [_dummyButton setEnabled:NO];
 }
 
 - (IBAction)addHeaderClicked:(id)sender {
     if (_headerKeyField.stringValue != nil && ![_headerKeyField.stringValue isEqualToString:@""] && _headerValueField.stringValue != nil && ![_headerValueField.stringValue isEqualToString:@""]) {
-        [self.headerArrayController addObject:[NSDictionary dictionaryWithObjectsAndKeys:_headerKeyField.stringValue, headerKey, _headerValueField.stringValue, headerValue, nil]];
+        [self.headerArrayController addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:_headerKeyField.stringValue, headerKey, _headerValueField.stringValue, headerValue, nil]];
         
     }
 }
@@ -67,20 +73,40 @@ NSString * const headerValue = @"headerValue";
 }
 
 - (IBAction)saveClicked:(id)sender {
+    
+    [_headerTableView deselectAll:self];
+    
     ModelerDocument *document = self.document;
     document.httpMethod = _httpMethod;
     document.httpHeaders = [[_headerArrayController arrangedObjects] copy];
     [self.window close];
 }
 
+- (IBAction)plusClicked:(id)sender {
+    [self.headerArrayController addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:@"", headerKey, @"", headerValue, nil]];
+    
+    [_headerTableView editColumn:0 row:([_headerTableView numberOfRows] - 1) withEvent:nil select:YES];
+}
+
+- (IBAction)minusClicked:(id)sender {
+    NSInteger row = [_headerTableView selectedRow];
+    if (row != -1) {
+        [_headerArrayController removeObjectAtArrangedObjectIndex:row];
+    }
+}
+
 #pragma mark - NSControl Delegate Methods (for Header Key Text Field)
 -(void)controlTextDidChange:(NSNotification *)obj
 {    
-    NSTextView *fieldEditor = [[obj userInfo] objectForKey:@"NSFieldEditor"];
-    if (!_fieldIsCompleting && !_handlingCommand) {
-        _fieldIsCompleting = YES;
-        [fieldEditor complete:nil];
-        _fieldIsCompleting = NO;
+    if ( [obj object] == _headerKeyField    // If the key field was edited...
+        || ([obj object] == _headerTableView && [_headerTableView editedColumn] == 0) ) { // ...or if a cell in the key column was edited...
+        // ...autocomplete with a http header key
+        NSTextView *fieldEditor = [[obj userInfo] objectForKey:@"NSFieldEditor"];
+        if (!_fieldIsCompleting && !_handlingCommand) {
+            _fieldIsCompleting = YES;
+            [fieldEditor complete:nil];
+            _fieldIsCompleting = NO;
+        }
     }
 }
 
