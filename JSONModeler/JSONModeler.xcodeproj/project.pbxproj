@@ -237,7 +237,7 @@
 		443EF41B14ABCD80006216BE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = "de.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		443EF41C14ABCDA6006216BE /* es */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		443EF41D14ABCDA7006216BE /* de */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		444522F614B4ACA800288ED6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		444522F614B4ACA800288ED6 /* ja */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		444522F814B4AE8700288ED6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = "ja.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		444522FE14B4AEAB00288ED6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		445409F61476E147009B59AE /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberMarker.h; path = Vendor/LineNumbers/NoodleLineNumberMarker.h; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 		448B10AE1488410C00BEE605 /* EditPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPropertyViewController.h; path = ViewControllers/Edit/EditPropertyViewController.h; sourceTree = "<group>"; };
 		448B10AF1488410C00BEE605 /* EditPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPropertyViewController.m; path = ViewControllers/Edit/EditPropertyViewController.m; sourceTree = "<group>"; };
 		448B10B01488410C00BEE605 /* EditPropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditPropertyViewController.xib; path = ViewControllers/Edit/EditPropertyViewController.xib; sourceTree = "<group>"; };
-		44B6BD8514B61A90000AEC28 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		44B6BD8514B61A90000AEC28 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; lineEnding = 0; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		44B6BD8B14B61CAB000AEC28 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = "fr.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		44B6BD9214B61CB6000AEC28 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		44BC25C414756AFD00777EB8 /* ClassNameTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassNameTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.h; sourceTree = "<group>"; };
