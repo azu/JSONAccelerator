@@ -305,7 +305,7 @@
     }
     
     if (willOverwriteFiles) {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"Overwrite files?" defaultButton:@"Yes" alternateButton:@"No" otherButton:nil informativeTextWithFormat:@"This operation will overwrite files in this directory. Are you sure you want to continue?"];
+        NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Overwrite files?", @"The title of the prompt to tell the user they are about to overwrite the files in the existing application") defaultButton:NSLocalizedString(@"Overwrite Files", @"Button text to overwrite files") alternateButton:NSLocalizedString(@"Cancel", @"Cancel button in the overwrite files prompt") otherButton:nil informativeTextWithFormat:NSLocalizedString(@"This operation will overwrite files in this directory. Are you sure you want to continue?", @"The prompt to tell the user they are about to overwrite the files in the existing application")];
         NSInteger alertReturn = [alert runModal];
         if (alertReturn == NSAlertDefaultReturn) {
             return YES;
