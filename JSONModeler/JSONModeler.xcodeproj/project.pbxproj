@@ -106,6 +106,12 @@
 		448B10AB148840DE00BEE605 /* EditClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448B10A9148840DE00BEE605 /* EditClassViewController.xib */; };
 		448B10B11488410C00BEE605 /* EditPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10AF1488410C00BEE605 /* EditPropertyViewController.m */; };
 		448B10B21488410C00BEE605 /* EditPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448B10B01488410C00BEE605 /* EditPropertyViewController.xib */; };
+		44B6BD8C14B61CAB000AEC28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
+		44B6BD8D14B61CAB000AEC28 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
+		44B6BD8E14B61CAB000AEC28 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
+		44B6BD8F14B61CAB000AEC28 /* JSONModeler-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4EE1462D8E1007BF9DC /* JSONModeler-Info.plist */; };
+		44B6BD9014B61CAB000AEC28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F21462D8E1007BF9DC /* main.m */; };
+		44B6BD9314B61CB6000AEC28 /* MainMenu-Internal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44233142149BA0760071978D /* MainMenu-Internal.xib */; };
 		44B9476D14AAAE6D00D7A658 /* MainMenu-Internal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44233142149BA0760071978D /* MainMenu-Internal.xib */; };
 		44B9476F14AAAE7100D7A658 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4FB1462D8E1007BF9DC /* MainMenu.xib */; };
 		44B9477814AAB4FF00D7A658 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B9477514AAB4FF00D7A658 /* GeneralPreferencesViewController.xib */; };
@@ -261,6 +267,8 @@
 		448B10AF1488410C00BEE605 /* EditPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPropertyViewController.m; path = ViewControllers/Edit/EditPropertyViewController.m; sourceTree = "<group>"; };
 		448B10B01488410C00BEE605 /* EditPropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditPropertyViewController.xib; path = ViewControllers/Edit/EditPropertyViewController.xib; sourceTree = "<group>"; };
 		44B6BD8514B61A90000AEC28 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		44B6BD8B14B61CAB000AEC28 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = "fr.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
+		44B6BD9214B61CB6000AEC28 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		44BC25C414756AFD00777EB8 /* ClassNameTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassNameTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.h; sourceTree = "<group>"; };
 		44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassNameTableViewHelper.m; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.m; sourceTree = "<group>"; };
 		44BC25C914756B6100777EB8 /* ClassPropertiesTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassPropertiesTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassPropertiesTableViewHelper.h; sourceTree = "<group>"; };
@@ -835,6 +843,11 @@
 				444522FB14B4AE8700288ED6 /* JSONModeler-Internal-Info.plist in Resources */,
 				444522FC14B4AE8700288ED6 /* JSONModeler-Info.plist in Resources */,
 				444522FF14B4AEAB00288ED6 /* MainMenu-Internal.xib in Resources */,
+				44B6BD8C14B61CAB000AEC28 /* InfoPlist.strings in Resources */,
+				44B6BD8D14B61CAB000AEC28 /* Credits.rtf in Resources */,
+				44B6BD8E14B61CAB000AEC28 /* JSONModeler-Internal-Info.plist in Resources */,
+				44B6BD8F14B61CAB000AEC28 /* JSONModeler-Info.plist in Resources */,
+				44B6BD9314B61CB6000AEC28 /* MainMenu-Internal.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,6 +948,7 @@
 				7D384DBD14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m in Sources */,
 				7D5FE4D114AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */,
 				444522FD14B4AE8700288ED6 /* main.m in Sources */,
+				44B6BD9014B61CAB000AEC28 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1004,6 +1018,7 @@
 				443EF41814ABCD6C006216BE /* es */,
 				443EF41914ABCD6D006216BE /* de */,
 				444522FE14B4AEAB00288ED6 /* ja */,
+				44B6BD9214B61CB6000AEC28 /* fr */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1027,6 +1042,7 @@
 				443EF41A14ABCD7C006216BE /* es */,
 				443EF41B14ABCD80006216BE /* de */,
 				444522F814B4AE8700288ED6 /* ja */,
+				44B6BD8B14B61CAB000AEC28 /* fr */,
 			);
 			name = "MainMenu-Internal.xib";
 			sourceTree = "<group>";
