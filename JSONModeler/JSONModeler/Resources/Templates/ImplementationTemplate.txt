@@ -29,5 +29,19 @@
     
 }
 
+#pragma mark - NSCoding Methods
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+{INITWITHCODER}
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+{ENCODEWITHCODER}
+}
+
 {DEALLOC}
 @end

@@ -159,6 +159,37 @@
         settersString = [settersString stringByAppendingString:[property setterForLanguage:OutputLanguageObjectiveC]];
     }
     
+    // NSCODING SECTION
+    NSString *initWithCoderString = @"";
+    for (ClassPropertiesObject *property in [_properties allValues]) {
+        switch (property.type) {
+            case PropertyTypeInt:
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeIntegerForKey@\"%@\"];", property.name, property.name]];
+                break;
+            case PropertyTypeDouble:
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeDoubleForKey@\"%@\"];", property.name, property.name]];
+                break;
+            default:
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeObjectForKey@\"%@\"];", property.name, property.name]];
+                break;
+        }
+    }
+    
+    NSString *encodeWithCoderString = @"";
+    for (ClassPropertiesObject *property in [_properties allValues]) {
+        switch (property.type) {
+            case PropertyTypeInt:
+                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeInteger:_%@ forKey:@\"%@\"];", property.name, property.name]];
+                break;
+            case PropertyTypeDouble:
+                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeDouble:_%@ forKey:@\"%@\"];", property.name, property.name]];
+                break;
+            default:
+                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeObject:_%@ forKey:@\"%@\"];", property.name, property.name]];
+                break;
+        }
+    }
+    
     // DEALLOC SECTION
     NSString *deallocString = @"";
     
@@ -189,6 +220,8 @@
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORT_BLOCK}" withString:importString];    
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{SYNTHESIZE_BLOCK}" withString:sythesizeString];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{INITWITHCODER}" withString:initWithCoderString];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{ENCODEWITHCODER}" withString:encodeWithCoderString];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{DEALLOC}" withString:deallocString];
     
     return templateString;

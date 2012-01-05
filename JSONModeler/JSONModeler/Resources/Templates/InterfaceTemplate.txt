@@ -9,7 +9,7 @@
 
 {FORWARD_DECLARATION}
 
-@interface {CLASSNAME} : {BASEOBJECT}
+@interface {CLASSNAME} : {BASEOBJECT} <NSCoding>
 
 {PROPERTIES}
 + ({CLASSNAME} *)initWithDictionary:(NSDictionary *)dict;
