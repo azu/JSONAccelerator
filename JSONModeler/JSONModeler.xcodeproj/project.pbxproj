@@ -87,6 +87,12 @@
 		446F098E14AABF0D00E37C0C /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098B14AABEDD00E37C0C /* FetchJSONViewController.xib */; };
 		446F099214AABF8400E37C0C /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F099514AABF8400E37C0C /* GeneralPreferencesViewController.xib */; };
 		446F099314AABF8400E37C0C /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F099514AABF8400E37C0C /* GeneralPreferencesViewController.xib */; };
+		44731FB414B78BDC009FC27D /* 57-download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44731FB314B78BDC009FC27D /* 57-download@2x.png */; };
+		44731FB614B78C1B009FC27D /* 57-download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44731FB314B78BDC009FC27D /* 57-download@2x.png */; };
+		44731FB814B78CA8009FC27D /* 19-gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44731FB714B78CA8009FC27D /* 19-gear@2x.png */; };
+		44731FB914B78D41009FC27D /* 19-gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44731FB714B78CA8009FC27D /* 19-gear@2x.png */; };
+		44731FBB14B78E91009FC27D /* 117-todo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44731FBA14B78E91009FC27D /* 117-todo@2x.png */; };
+		44731FBC14B78E91009FC27D /* 117-todo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44731FBA14B78E91009FC27D /* 117-todo@2x.png */; };
 		447E8A7514AAA93E00A3345A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447E8A7314AAA93E00A3345A /* Localizable.strings */; };
 		448B10901487EAF800BEE605 /* ArraySetterTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */; };
 		448B10AA148840DE00BEE605 /* EditClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10A8148840DD00BEE605 /* EditClassViewController.m */; };
@@ -232,6 +238,9 @@
 		446F098A14AABEDD00E37C0C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
 		446F099414AABF8400E37C0C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
 		446F099614AABF8C00E37C0C /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
+		44731FB314B78BDC009FC27D /* 57-download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "57-download@2x.png"; path = "Resources/Images/57-download@2x.png"; sourceTree = "<group>"; };
+		44731FB714B78CA8009FC27D /* 19-gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "19-gear@2x.png"; path = "Resources/Images/19-gear@2x.png"; sourceTree = "<group>"; };
+		44731FBA14B78E91009FC27D /* 117-todo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "117-todo@2x.png"; path = "Resources/Images/117-todo@2x.png"; sourceTree = "<group>"; };
 		447E8A6D14AAA7D900A3345A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		447E8A7114AAA7D900A3345A /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = "ru.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		447E8A7214AAA7D900A3345A /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -511,6 +520,9 @@
 		441FC5211462D982007BF9DC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				44731FBA14B78E91009FC27D /* 117-todo@2x.png */,
+				44731FB714B78CA8009FC27D /* 19-gear@2x.png */,
+				44731FB314B78BDC009FC27D /* 57-download@2x.png */,
 				44670A7F1489987E0042A444 /* appIcons.icns */,
 			);
 			name = Images;
@@ -819,6 +831,9 @@
 				7D384DBE14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */,
 				7D5FE4D414AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */,
 				444522FC14B4AE8700288ED6 /* JSONModeler-Info.plist in Resources */,
+				44731FB414B78BDC009FC27D /* 57-download@2x.png in Resources */,
+				44731FB814B78CA8009FC27D /* 19-gear@2x.png in Resources */,
+				44731FBB14B78E91009FC27D /* 117-todo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,6 +870,9 @@
 				443EF41314ABCD21006216BE /* Credits.rtf in Resources */,
 				7D384DC014ACFB240073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */,
 				7D5FE4D514AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */,
+				44731FB614B78C1B009FC27D /* 57-download@2x.png in Resources */,
+				44731FB914B78D41009FC27D /* 19-gear@2x.png in Resources */,
+				44731FBC14B78E91009FC27D /* 117-todo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

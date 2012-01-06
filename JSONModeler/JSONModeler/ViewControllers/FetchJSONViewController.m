@@ -65,7 +65,7 @@
     [self.verifyButton setTitle:NSLocalizedString(@"Verify", @"In the main screen, this is the verify button that formats the JSON")];
     [self.getDataButton setTitle:NSLocalizedString(@"Get Data", @"In the main screen, this is the button that fetches data from a URL")];
     [self.generateFilesButton setTitle:NSLocalizedString(@"Generate Files", @"In the main screen, this is the button that writes out files")];
-    [self.optionsButton setTitle:NSLocalizedString(@"Options", @"This is the current title of http options window that gets written")];
+    //[self.optionsButton setTitle:NSLocalizedString(@"Options", @"This is the current title of http options window that gets written")];
     
 #ifdef DEBUG
     [self.urlTextFieldCell setStringValue:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=fm34txf3v6vu9jph5fdqt529"];

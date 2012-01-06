@@ -16,7 +16,11 @@
 
 @property (weak) IBOutlet NSPathControl *currentPlacementPathBar;
 @property (strong) IBOutlet NSWindow *mainWindow;
+@property (weak) IBOutlet NSToolbarItem *generateFilesButton;
+@property (weak) IBOutlet NSToolbarItem *verifyJSONButton;
 
 - (NSViewController*)viewController;
+- (IBAction)generateFilesPressed:(id)sender;
+- (IBAction)verifyJSONPressed:(id)sender;
 
 @end

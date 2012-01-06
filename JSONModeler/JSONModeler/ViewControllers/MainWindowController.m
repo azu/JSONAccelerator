@@ -25,6 +25,8 @@
 @implementation MainWindowController
 @synthesize currentPlacementPathBar;
 @synthesize mainWindow;
+@synthesize generateFilesButton = _generateFilesButton;
+@synthesize verifyJSONButton;
 @synthesize modeler = _modeler;
 
 enum	// view controller choices
@@ -55,6 +57,9 @@ enum	// view controller choices
     self.modeler = document.modeler;
 	[self changeViewController: kFetchView];
     [self.mainWindow setMinSize:NSMakeSize(500, 300)];
+    
+    [self.generateFilesButton setLabel:NSLocalizedString(@"Generate Files", @"In the main screen, this is the button that writes out files")];
+    [self.verifyJSONButton setLabel:NSLocalizedString(@"Verify", @"In the main screen, this is the verify button that formats the JSON")];
 }
 
 
@@ -165,6 +170,14 @@ enum	// view controller choices
 - (NSViewController*)viewController
 {
 	return myCurrentViewController;
+}
+
+- (IBAction)generateFilesPressed:(id)sender {
+    [(FetchJSONViewController *)myCurrentViewController chooseLanguagePressed:sender];
+}
+
+- (IBAction)verifyJSONPressed:(id)sender {
+    [(FetchJSONViewController *)myCurrentViewController verifyPressed:sender];
 }
 
 #pragma mark - MasterControllerDelegate Methods
