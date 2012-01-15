@@ -31,25 +31,39 @@ NSString * const headerValue = @"headerValue";
 @synthesize headerTableView = _headerTableView;
 @synthesize headerTableKeyColumn = _headerTableKeyColumn;
 @synthesize dummyButton = _dummyButton;
+@synthesize document = _document;
+@synthesize popover = _popover;
 
-- (id)initWithWindow:(NSWindow *)window
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithWindow:window];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
         _httpHeaderStrings = [NSArray arrayWithObjects:@"Accept", @"Accept-Charset", @"Accept-Encoding", @"Accept-Language", @"Authorization", @"Cache-Control", @"Connection", @"Cookie", @"Content-Length", @"Content-MD5", @"Content-Type", @"Date", @"Expect", @"From", @"Host", @"If-Match", @"If-Modified-Since", @"If-None-Match", @"If-Range", @"If-Unmodified-Since", @"Max-Forwards", @"Pragma", @"Proxy-Authorization", @"Range", @"Referer", @"TE", @"Upgrade", @"User-Agent", @"Via", @"Warning", nil];
+        
     }
     
     return self;
 }
 
-- (void)windowDidLoad
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil document:(ModelerDocument *)doc
 {
-    [super windowDidLoad];
+    self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Initialization code here.
+        self.document = doc;
+        
+    }
     
-    ModelerDocument *document = self.document;
-    self.httpMethod = document.httpMethod;
-    for (NSDictionary *header in document.httpHeaders) {
+    return self;    
+}
+
+- (void)awakeFromNib 
+{
+    [super awakeFromNib];
+    
+    self.httpMethod = self.document.httpMethod;
+    for (NSDictionary *header in self.document.httpHeaders) {
         [self.headerArrayController addObject:header];
     }
     
@@ -59,6 +73,7 @@ NSString * const headerValue = @"headerValue";
     /* Disable the dummy button */
     [_dummyButton setImageDimsWhenDisabled:NO];
     [_dummyButton setEnabled:NO];
+
 }
 
 - (IBAction)addHeaderClicked:(id)sender {
@@ -68,18 +83,11 @@ NSString * const headerValue = @"headerValue";
     }
 }
 
-- (IBAction)cancelClicked:(id)sender {
-    [self.window close];
-}
-
-- (IBAction)saveClicked:(id)sender {
-    
-    [_headerTableView deselectAll:self];
-    
+- (void)popoverWillClose:(NSNotification *)notification
+{
     ModelerDocument *document = self.document;
     document.httpMethod = _httpMethod;
     document.httpHeaders = [[_headerArrayController arrangedObjects] copy];
-    [self.window close];
 }
 
 - (IBAction)plusClicked:(id)sender {

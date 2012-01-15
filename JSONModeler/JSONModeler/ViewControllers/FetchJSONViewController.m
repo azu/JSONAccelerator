@@ -190,10 +190,30 @@
 }
 
 - (IBAction)optionsButtonPressed:(id)sender {
-    HTTPOptionsWindowController *wc = [[HTTPOptionsWindowController alloc] initWithWindowNibName:@"HTTPOptionsWindowController"];
-    [self.document addWindowController:wc];
-    [wc.window makeKeyAndOrderFront:self.document];
-    [wc.window setTitle:NSLocalizedString(@"Options", @"This is the current title of http options window that gets written")];
+    NSPopover *myPopover = [[NSPopover alloc] init];
+    
+    HTTPOptionsWindowController *wc = [[HTTPOptionsWindowController alloc] initWithNibName:@"HTTPOptionsWindowController" bundle:nil document:self.document];
+    wc.popover = myPopover;
+    myPopover.delegate = wc;
+    myPopover.contentViewController = wc;
+    
+    // AppKit will close the popover when the user interacts with a user interface element outside the popover.
+    // note that interacting with menus or panels that become key only when needed will not cause a transient popover to close.
+    myPopover.behavior = NSPopoverBehaviorSemitransient;
+        
+    NSButton *targetButton = (NSButton *)sender;
+    
+    // configure the preferred position of the popover
+    NSRectEdge prefEdge =NSMinYEdge;
+    
+    
+    [myPopover showRelativeToRect:[targetButton bounds] ofView:sender preferredEdge:prefEdge];
+
+    return;
+//    HTTPOptionsWindowController *wc = [[HTTPOptionsWindowController alloc] initWithWindowNibName:@"HTTPOptionsWindowController"];
+//    [self.document addWindowController:wc];
+//    [wc.window makeKeyAndOrderFront:self.document];
+//    [wc.window setTitle:NSLocalizedString(@"Options", @"This is the current title of http options window that gets written")];
 }
 
 - (void)generateFiles

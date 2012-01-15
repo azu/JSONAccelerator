@@ -831,14 +831,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">performClose:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="914774081"/>
-					</object>
-					<int key="connectionID">622</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">newDocument:</string>
 						<reference key="source" ref="1014"/>
 						<reference key="destination" ref="293448761"/>
@@ -884,6 +876,14 @@
 						<reference key="destination" ref="439601406"/>
 					</object>
 					<int key="connectionID">628</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">performClose:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="914774081"/>
+					</object>
+					<int key="connectionID">646</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1267,13 +1267,13 @@
 							<reference ref="60716486"/>
 							<reference ref="913484727"/>
 							<reference ref="794956117"/>
-							<reference ref="914774081"/>
 							<reference ref="110639293"/>
 							<reference ref="737600745"/>
 							<reference ref="439601406"/>
 							<reference ref="613062668"/>
 							<reference ref="939706202"/>
 							<reference ref="48679799"/>
+							<reference ref="914774081"/>
 						</array>
 						<reference key="parent" ref="342042884"/>
 					</object>
@@ -1298,11 +1298,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">610</int>
 						<reference key="object" ref="794956117"/>
-						<reference key="parent" ref="484372305"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">611</int>
-						<reference key="object" ref="914774081"/>
 						<reference key="parent" ref="484372305"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1347,6 +1342,11 @@
 						<int key="objectID">619</int>
 						<reference key="object" ref="619691813"/>
 						<reference key="parent" ref="1060506260"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">645</int>
+						<reference key="object" ref="914774081"/>
+						<reference key="parent" ref="484372305"/>
 					</object>
 				</array>
 			</object>
@@ -1410,7 +1410,6 @@
 				<string key="608.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="609.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="610.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="611.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="612.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="613.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="614.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1419,13 +1418,14 @@
 				<string key="617.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="618.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="619.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="645.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">643</int>
+			<int key="maxID">646</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

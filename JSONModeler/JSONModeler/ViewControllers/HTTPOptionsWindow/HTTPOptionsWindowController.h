@@ -8,13 +8,18 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface HTTPOptionsWindowController : NSWindowController
+@class ModelerDocument;
+
+@interface HTTPOptionsWindowController : NSViewController <NSPopoverDelegate>
 
 
 @property (weak) IBOutlet NSMatrix *httpMethodRadioButtons;
 @property HTTPMethod httpMethod;
+@property (weak) NSPopover *popover;
 
 @property (strong) IBOutlet NSArrayController *headerArrayController;
+
+@property (weak) ModelerDocument *document;
 
 @property (weak) IBOutlet NSTextField *headerKeyField;
 @property (weak) IBOutlet NSTextField *headerValueField;
@@ -24,6 +29,8 @@
 
 /* This button exists purely as a graphic element. It has no functionality */
 @property (weak) IBOutlet NSButtonCell *dummyButton;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil document:(ModelerDocument *)doc;
 
 - (IBAction)addHeaderClicked:(id)sender;
 - (IBAction)cancelClicked:(id)sender;
