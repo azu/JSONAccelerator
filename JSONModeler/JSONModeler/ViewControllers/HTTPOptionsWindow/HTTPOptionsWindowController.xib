@@ -1564,7 +1564,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<reference ref="727410643"/>
 							<reference ref="905826309"/>
 							<reference ref="676584895"/>
-							<object class="IBNSLayoutConstraint" id="391723773">
+							<object class="IBNSLayoutConstraint" id="693477036">
 								<reference key="firstItem" ref="214435624"/>
 								<int key="firstAttribute">8</int>
 								<int key="relation">0</int>
@@ -2035,7 +2035,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">183</int>
-						<reference key="object" ref="391723773"/>
+						<reference key="object" ref="693477036"/>
 						<reference key="parent" ref="214435624"/>
 					</object>
 				</object>
@@ -2279,7 +2279,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSArray">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<reference ref="391723773"/>
+						<reference ref="693477036"/>
 					</object>
 					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
