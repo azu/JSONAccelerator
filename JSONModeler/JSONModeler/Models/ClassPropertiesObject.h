@@ -24,6 +24,7 @@ typedef enum {
     PropertyTypeDictionary,
     PropertyTypeInt,
     PropertyTypeDouble,
+    PropertyTypeBool,
     PropertyTypeClass,
     PropertyTypeOther
 } PropertyType;

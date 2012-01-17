@@ -88,6 +88,8 @@
                 setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] intValue];\n", self.jsonName];
             } else if([self type] == PropertyTypeDouble) {
                 setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] doubleValue];\n", self.jsonName]; 
+            } else if([self type] == PropertyTypeBool) {
+                setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] boolValue];\n", self.jsonName]; 
             } else {
                 setterString = [setterString stringByAppendingFormat:@"[dict objectForKey:@\"%@\"];\n", self.jsonName];
             }
@@ -162,6 +164,9 @@
             case PropertyTypeInt:
                 return @"NSInteger";
                 break;
+            case PropertyTypeBool:
+                return @"BOOL";
+                break;
             case PropertyTypeDouble:
                 return @"double";
                 break;
@@ -193,6 +198,9 @@
                     case PropertyTypeInt:
                         return @"ArrayList<int>";
                         break;
+                    case PropertyTypeBool:
+                        return @"ArrayList<boolean>";
+                        break;
                     case PropertyTypeDouble:
                         return @"ArrayList<double>";
                         break;
@@ -207,6 +215,9 @@
                 break;
             case PropertyTypeInt:
                 return @"int";
+                break;
+            case PropertyTypeBool:
+                return @"boolean";
                 break;
             case PropertyTypeDouble:
                 return @"double";

@@ -169,11 +169,15 @@
             case PropertyTypeDouble:
                 initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeDoubleForKey:@\"%@\"];", property.name, property.name]];
                 break;
+            case PropertyTypeBool:
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeBoolForKey:@\"%@\"];", property.name, property.name]];
+                break;
             default:
                 initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeObjectForKey:@\"%@\"];", property.name, property.name]];
                 break;
         }
     }
+    
     
     NSString *encodeWithCoderString = @"";
     for (ClassPropertiesObject *property in [_properties allValues]) {
@@ -183,6 +187,9 @@
                 break;
             case PropertyTypeDouble:
                 encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeDouble:_%@ forKey:@\"%@\"];", property.name, property.name]];
+                break;
+            case PropertyTypeBool:
+                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeBool:_%@ forKey:@\"%@\"];", property.name, property.name]];
                 break;
             default:
                 encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeObject:_%@ forKey:@\"%@\"];", property.name, property.name]];
@@ -197,7 +204,7 @@
     if( ![[[NSUserDefaultsController sharedUserDefaultsController] defaults] boolForKey:@"buildForARC"] ) {
         deallocString = @"\n- (void)dealloc\n{\n";
         for(ClassPropertiesObject *property in [_properties allValues]) {
-            if([property type] != PropertyTypeInt && [property type] != PropertyTypeDouble){
+            if([property type] != PropertyTypeInt && [property type] != PropertyTypeDouble && [property type] != PropertyTypeBool){
                 deallocString = [deallocString stringByAppendingString:[NSString stringWithFormat:@"    [_%@ release];\n", property.name]];
             }
         }

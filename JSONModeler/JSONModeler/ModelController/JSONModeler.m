@@ -158,8 +158,9 @@
                 // We now need to check to see if the first object in the array is a NSDictionary
                 // if it is, then we need to create a new class. Also, set the collection type for
                 // the array (used by java)
-                if([(NSArray *)tempObject count] > 0) {
-                    tempArrayObject = [(NSArray *)tempObject objectAtIndex:0];
+                for(tempArrayObject in (NSArray *)tempObject) {
+//                if([(NSArray *)tempObject count] > 0) {
+//                    tempArrayObject = [(NSArray *)tempObject objectAtIndex:0];
                     if([tempArrayObject isKindOfClass:[NSDictionary class]]) {
                         ClassBaseObject *newClass = [self parseData:(NSDictionary *)tempArrayObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"];
                         [tempPropertyObject setReferenceClass:newClass];
@@ -176,6 +177,8 @@
                             [tempPropertyObject setCollectionType:PropertyTypeInt];
                         } else if([classDecription rangeOfString:@"NSDecimalNumber"].location != NSNotFound) {
                             [tempPropertyObject setCollectionType:PropertyTypeDouble];
+                        }  else if([classDecription rangeOfString:@"NSCFBoolean"].location != NSNotFound) {
+                            [tempPropertyObject setCollectionType:PropertyTypeBool];
                         } 
                         else {
                             DLog(@"UNDEFINED TYPE: %@", [tempArrayObject class]);
@@ -201,6 +204,9 @@
                     [tempPropertyObject setSemantics:SetterSemanticAssign];
                 } else if([classDecription rangeOfString:@"NSDecimalNumber"].location != NSNotFound) {
                     [tempPropertyObject setType:PropertyTypeDouble];
+                    [tempPropertyObject setSemantics:SetterSemanticAssign];
+                } else if([classDecription rangeOfString:@"NSCFBoolean"].location != NSNotFound) {
+                    [tempPropertyObject setType:PropertyTypeBool];
                     [tempPropertyObject setSemantics:SetterSemanticAssign];
                 } 
                 else {
