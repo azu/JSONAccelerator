@@ -64,7 +64,7 @@
     if([object isKindOfClass:[NSDictionary class]]) {
         self.rawJSONObject = object;
         self.parseComplete = NO;
-        [self parseData:(NSDictionary *)self.rawJSONObject intoObjectsWithBaseObjectName:@"MyClass" andBaseObjectClass:@"NSObject"];
+        [self parseData:(NSDictionary *)self.rawJSONObject intoObjectsWithBaseObjectName:@"InternalBaseClass" andBaseObjectClass:@"NSObject"];
         self.parseComplete = YES;
     }
     
@@ -73,7 +73,7 @@
         self.rawJSONObject = object;        
         for(NSObject *arrayObject in (NSArray *)object) {
             if([arrayObject isKindOfClass:[NSDictionary class]]) {
-                [self parseData:(NSDictionary *)arrayObject intoObjectsWithBaseObjectName:@"MyClass" andBaseObjectClass:@"NSObject"];
+                [self parseData:(NSDictionary *)arrayObject intoObjectsWithBaseObjectName:@"InternalBaseClass" andBaseObjectClass:@"NSObject"];
             }
         }
         self.parseComplete = YES;
@@ -99,7 +99,7 @@
         // Set the name of the class
         NSString *tempClassName = [baseObjectName objectiveCClassString];
         if ([tempClassName isEqualToString:@""]) {
-            tempClassName = [NSString stringWithFormat:@"MyClass%u", ++_numUnnamedClasses];
+            tempClassName = [NSString stringWithFormat:@"InternalBaseClass%u", ++_numUnnamedClasses];
         }
         [tempClass setClassName:tempClassName];
     }

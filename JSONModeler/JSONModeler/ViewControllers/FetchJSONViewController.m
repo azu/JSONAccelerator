@@ -246,6 +246,34 @@
                 filemgr = [NSFileManager defaultManager];
                 
                 for(ClassBaseObject *base in files) {
+                    
+                    // This section is to guard against people going through and renaming the class
+                    // to something that has already been named.
+                    // This will check the class name and keep appending an additional number until something has been found
+                    
+                    if([[base className] isEqualToString:@"InternalBaseClass"]) {
+                        NSString *newBaseClassName = _languageChooserViewController.baseClassName;
+                        if(newBaseClassName == nil) {
+                            newBaseClassName = @"BaseClass";
+                        }
+                        BOOL hasUniqueFileNameBeenFound = NO;
+                        NSUInteger classCheckInteger = 2;
+                        while (hasUniqueFileNameBeenFound == NO) {
+                            hasUniqueFileNameBeenFound = YES;
+                            for(ClassBaseObject *collisionBaseObject in files) {
+                                if([[collisionBaseObject className] isEqualToString:newBaseClassName]) {
+                                    hasUniqueFileNameBeenFound = NO; 
+                                }
+                            }
+                            if(hasUniqueFileNameBeenFound == NO) {
+                                newBaseClassName = [NSString stringWithFormat:@"%@%i", _languageChooserViewController.baseClassName, classCheckInteger];
+                                classCheckInteger++;
+                            }
+                        }
+                        
+                        [base setClassName:newBaseClassName];
+                    }
+                    
                     NSDictionary *outputDictionary = [base outputStringsWithType:language];
                     NSArray *keysArray = [outputDictionary allKeys];
                     NSString *outputString = nil;

@@ -12,11 +12,14 @@
 
 @property (nonatomic) NSInteger languageDropDownIndex;
 @property (strong) NSString *packageName;
+@property (strong) NSString *baseClassName;
 
 @property (weak) IBOutlet NSPopUpButton *languageDropDown;
 @property (weak) IBOutlet NSTextField *outputLanguageLabel;
 @property (weak) IBOutlet NSTextField *packageNameLabel;
 @property (weak) IBOutlet NSTextField *packageNameField;
+@property (weak) IBOutlet NSTextField *baseClassLabel;
+@property (weak) IBOutlet NSTextField *baseClassField;
 
 
 - (IBAction)languagePopUpChanged:(id)sender;

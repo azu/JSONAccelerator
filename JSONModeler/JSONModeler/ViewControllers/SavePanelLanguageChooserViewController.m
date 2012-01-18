@@ -11,11 +11,14 @@
 @implementation SavePanelLanguageChooserViewController
 @synthesize languageDropDownIndex = _languageDropDownIndex;
 @synthesize packageName = _packageName;
+@synthesize baseClassName = _baseClassName;
 
 @synthesize languageDropDown = _languageDropDown;
 @synthesize outputLanguageLabel = _outputLanguageLabel;
 @synthesize packageNameLabel = _packageNameLabel;
 @synthesize packageNameField = _packageNameField;
+@synthesize baseClassLabel = _baseClassLabel;
+@synthesize baseClassField = _baseClassField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +33,7 @@
 -(void)awakeFromNib {
     self.outputLanguageLabel.stringValue = NSLocalizedString(@"Output Language", "In the save portion, the label to choose what language");
     self.packageNameLabel.stringValue = NSLocalizedString(@"Package Name", "In the save portion, the label to choose what the package is");
+    self.baseClassLabel.stringValue = NSLocalizedString(@"Base Class", "In the save portion, the prompt to specify what the base class is");
     self.packageNameLabel.hidden = YES;
     self.packageNameField.hidden = YES;
     
