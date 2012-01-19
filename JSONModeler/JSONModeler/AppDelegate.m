@@ -11,7 +11,6 @@
 #import "ClassBaseObject.h"
 #import "MainWindowController.h"
 #import "MASPreferencesWindowController.h"
-#import "GeneralPreferencesViewController.h"
 
 @interface AppDelegate () {
     
@@ -48,15 +47,6 @@
 }
 
 - (IBAction)openPreferences:(id)sender {
-    
-    if (nil == _preferencesWindowController) {
-        GeneralPreferencesViewController *generalPreferencesViewController = [[GeneralPreferencesViewController alloc] init];
-        NSArray *preferencesViewControllers = [NSArray arrayWithObject:generalPreferencesViewController];
-        _preferencesWindowController = [[MASPreferencesWindowController alloc] initWithViewControllers:preferencesViewControllers];
-    }
-    
-    [_preferencesWindowController showWindow:nil];
-    
 }
 
 @end

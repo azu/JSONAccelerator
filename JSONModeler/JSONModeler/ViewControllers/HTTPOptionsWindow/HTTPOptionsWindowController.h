@@ -33,8 +33,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil document:(ModelerDocument *)doc;
 
 - (IBAction)addHeaderClicked:(id)sender;
-- (IBAction)cancelClicked:(id)sender;
-- (IBAction)saveClicked:(id)sender;
 
 - (IBAction)plusClicked:(id)sender;
 - (IBAction)minusClicked:(id)sender;
