@@ -100,6 +100,10 @@
 		44BC25C614756AFD00777EB8 /* ClassNameTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */; };
 		44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
+		44F037CE14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
+		44F037CF14C8B57700FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
+		44F037D314C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */; };
+		44F037D414C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */; };
 		44FE6F14146C241300FA13F9 /* ImplementationTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546EA146C191F00D3860A /* ImplementationTemplate.txt */; };
 		44FE6F4B146C710300FA13F9 /* FetchJSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */; };
 		44FE6F51146C712600FA13F9 /* ChooseLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F4F146C712600FA13F9 /* ChooseLanguageViewController.m */; };
@@ -260,6 +264,11 @@
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
 		44C6F4E714AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44F037CC14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterObjectiveC.h; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.h; sourceTree = "<group>"; };
+		44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterObjectiveC.m; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.m; sourceTree = "<group>"; };
+		44F037D014C8B63600FECF86 /* OutputLanguageWriterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterProtocol.h; path = Models/OutputLanguageWriters/OutputLanguageWriterProtocol.h; sourceTree = "<group>"; };
+		44F037D114C8C43A00FECF86 /* OutputLanguageWriterJava.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterJava.h; path = Models/OutputLanguageWriters/OutputLanguageWriterJava.h; sourceTree = "<group>"; };
+		44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterJava.m; path = Models/OutputLanguageWriters/OutputLanguageWriterJava.m; sourceTree = "<group>"; };
 		44FE6F48146C710300FA13F9 /* FetchJSONViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FetchJSONViewController.h; path = ViewControllers/FetchJSONViewController.h; sourceTree = "<group>"; };
 		44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FetchJSONViewController.m; path = ViewControllers/FetchJSONViewController.m; sourceTree = "<group>"; };
 		44FE6F4E146C712600FA13F9 /* ChooseLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLanguageViewController.h; path = ViewControllers/ChooseLanguageViewController.h; sourceTree = "<group>"; };
@@ -430,6 +439,7 @@
 		441FC51A1462D92B007BF9DC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				44F037CB14C8B52E00FECF86 /* OutputLanguageWriters */,
 				4414992314642ABC002B6969 /* ClassBaseObject.h */,
 				4414992414642ABC002B6969 /* ClassBaseObject.m */,
 				4414992714642AF4002B6969 /* ClassPropertiesObject.h */,
@@ -618,6 +628,18 @@
 				448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */,
 			);
 			name = Templates;
+			sourceTree = "<group>";
+		};
+		44F037CB14C8B52E00FECF86 /* OutputLanguageWriters */ = {
+			isa = PBXGroup;
+			children = (
+				44F037D014C8B63600FECF86 /* OutputLanguageWriterProtocol.h */,
+				44F037CC14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.h */,
+				44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */,
+				44F037D114C8C43A00FECF86 /* OutputLanguageWriterJava.h */,
+				44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */,
+			);
+			name = OutputLanguageWriters;
 			sourceTree = "<group>";
 		};
 		44FE6F5D146C715700FA13F9 /* Fetch */ = {
@@ -911,6 +933,8 @@
 				4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */,
 				7D384DBD14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m in Sources */,
 				7D5FE4D114AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */,
+				44F037CE14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */,
+				44F037D314C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -957,6 +981,8 @@
 				4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */,
 				7D384DBF14ACFB210073EA2C /* SavePanelLanguageChooserViewController.m in Sources */,
 				7D5FE4D214AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */,
+				44F037CF14C8B57700FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */,
+				44F037D414C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

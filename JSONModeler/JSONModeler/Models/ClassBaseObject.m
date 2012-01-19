@@ -10,6 +10,8 @@
 #import "ClassPropertiesObject.h"
 #import "NSString+Nerdery.h"
 #import <AddressBook/AddressBook.h>
+#import "OutputLanguageWriterObjectiveC.h"
+#import "OutputLanguageWriterJava.h"
 
 @interface ClassBaseObject ()
 
@@ -133,8 +135,9 @@
         if([property isClass]) {
             [importArray addObject:[[property referenceClass] className]];
         }
+        
         // Check References
-        NSArray *referenceArray = [property setterReferenceClassesForLanguage:OutputLanguageObjectiveC];
+        NSArray *referenceArray = [OutputLanguageWriterObjectiveC setterReferenceClassesForProperty:property];
         for(NSString *referenceString in referenceArray) {
             if(![importArray containsObject:referenceString]) {
                 [importArray addObject:referenceString];
@@ -156,7 +159,8 @@
     // SETTERS
     NSString *settersString = @"";
     for(ClassPropertiesObject *property in [_properties allValues]) {
-        settersString = [settersString stringByAppendingString:[property setterForLanguage:OutputLanguageObjectiveC]];
+        
+        settersString = [settersString stringByAppendingString:[OutputLanguageWriterObjectiveC setterForProperty:property]];
     }
     
     // NSCODING SECTION
@@ -249,7 +253,8 @@
     // Public Properties
     NSString *propertiesString = @"";
     for(ClassPropertiesObject *property in [_properties allValues]) {
-        propertiesString = [propertiesString stringByAppendingString:[property propertyForLanguage:OutputLanguageJava]];
+        
+        propertiesString = [propertiesString stringByAppendingString:[OutputLanguageWriterJava propertyForProperty:property]];
         if (property.type == PropertyTypeArray) {
             containsArrayList = YES;
         }
@@ -272,7 +277,8 @@
         if ( ![constructorArgs isEqualToString:@""] ) {
             constructorArgs = [constructorArgs stringByAppendingString:@", "];
         }
-        constructorArgs = [constructorArgs stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [property typeStringForLanguage:OutputLanguageJava], property.name]];
+        
+        constructorArgs = [constructorArgs stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [OutputLanguageWriterJava typeStringForProperty:property], property.name]];
     }
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{CONSTRUCTOR_ARGS}" withString:constructorArgs];
@@ -281,7 +287,8 @@
     // Setters strings   
     NSString *settersString = @"";
     for(ClassPropertiesObject *property in [_properties allValues]) {
-        settersString = [settersString stringByAppendingString:[property setterForLanguage:OutputLanguageJava]];
+        
+        settersString = [settersString stringByAppendingString:[OutputLanguageWriterJava setterForProperty:property]];
     }
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];    
@@ -293,8 +300,8 @@
     // Getter/Setter Methods
     NSString *getterSetterMethodsString = @"";
     for (ClassPropertiesObject *property in [_properties allValues]) {
-        getterSetterMethodsString = [getterSetterMethodsString stringByAppendingString:[property getterMethodForLanguage:OutputLanguageJava]];
-        getterSetterMethodsString = [getterSetterMethodsString stringByAppendingString:[property setterMethodForLanguage:OutputLanguageJava]];
+        getterSetterMethodsString = [getterSetterMethodsString stringByAppendingString:[OutputLanguageWriterJava getterForProperty:property]];
+        getterSetterMethodsString = [getterSetterMethodsString stringByAppendingString:[OutputLanguageWriterJava setterMethodForProperty:property]];
     }
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{GETTER_SETTER_METHODS}" withString:getterSetterMethodsString];
     

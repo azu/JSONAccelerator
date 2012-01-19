@@ -9,7 +9,7 @@
 #import "ClassPropertiesTableViewHelper.h"
 #import "JSONModeler.h"
 #import "ClassPropertiesObject.h"
-
+#import "OutputLanguageWriterObjectiveC.h"
 @implementation ClassPropertiesTableViewHelper
 @synthesize properties = _properties;
 @synthesize modeler = _modeler;
@@ -40,7 +40,7 @@
         return textField;
     } else if ([identifier isEqualToString:@"Type"]) {
         NSTextField *textField = [tableView makeViewWithIdentifier:identifier owner:self];
-        NSString *sizeString = [object typeStringForLanguage:OutputLanguageObjectiveC];
+        NSString *sizeString = [OutputLanguageWriterObjectiveC typeStringForProperty:object];
         textField.objectValue = sizeString;
         return textField;
     } else {

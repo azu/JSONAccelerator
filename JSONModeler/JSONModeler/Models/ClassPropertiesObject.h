@@ -47,11 +47,4 @@ typedef enum {
 @property (assign) BOOL isReadWrite;
 @property (assign) SetterSemantics semantics;
 
-- (NSString *)propertyForLanguage:(OutputLanguage) language;
-- (NSString *)setterForLanguage:(OutputLanguage) language;
-- (NSArray *)setterReferenceClassesForLanguage:(OutputLanguage) language;
-- (NSString *)typeStringForLanguage:(OutputLanguage) language;
-- (NSString *)getterMethodForLanguage:(OutputLanguage)language;
-- (NSString *)setterMethodForLanguage:(OutputLanguage)language;
-
 @end
