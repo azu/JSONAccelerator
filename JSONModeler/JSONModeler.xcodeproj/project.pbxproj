@@ -75,7 +75,6 @@
 		4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		443EF41314ABCD21006216BE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
-		444522FC14B4AE8700288ED6 /* JSONModeler-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4EE1462D8E1007BF9DC /* JSONModeler-Info.plist */; };
 		445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F71476E147009B59AE /* NoodleLineNumberMarker.m */; };
 		445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F91476E147009B59AE /* NoodleLineNumberView.m */; };
 		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
@@ -814,7 +813,6 @@
 				446B282614ABCC0600FBE699 /* Credits.rtf in Resources */,
 				7D384DBE14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */,
 				7D5FE4D414AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */,
-				444522FC14B4AE8700288ED6 /* JSONModeler-Info.plist in Resources */,
 				44731FB414B78BDC009FC27D /* 57-download@2x.png in Resources */,
 				44731FB814B78CA8009FC27D /* 19-gear@2x.png in Resources */,
 				44731FBB14B78E91009FC27D /* 117-todo@2x.png in Resources */,
