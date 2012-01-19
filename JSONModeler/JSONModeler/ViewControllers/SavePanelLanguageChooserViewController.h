@@ -20,6 +20,7 @@
 @property (weak) IBOutlet NSTextField *packageNameField;
 @property (weak) IBOutlet NSTextField *baseClassLabel;
 @property (weak) IBOutlet NSTextField *baseClassField;
+@property (weak) IBOutlet NSButton *buildForArcButton;
 
 
 - (IBAction)languagePopUpChanged:(id)sender;
