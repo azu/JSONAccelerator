@@ -34,7 +34,8 @@
 // Builds the header implementation and is convienient for debugging
 - (NSString *) description 
 {
-    return [OutputLanguageWriterObjectiveC propertyForProperty:self];
+    OutputLanguageWriterObjectiveC *writer = [OutputLanguageWriterObjectiveC new];
+    return [writer propertyForProperty:self];
 }
 
 #pragma mark - NSCoding methods

@@ -9,16 +9,10 @@
 #import "ClassBaseObject.h"
 #import "ClassPropertiesObject.h"
 #import "NSString+Nerdery.h"
-#import <AddressBook/AddressBook.h>
 #import "OutputLanguageWriterObjectiveC.h"
 #import "OutputLanguageWriterJava.h"
 
 @interface ClassBaseObject ()
-
-- (NSString *) ObjC_HeaderFile;
-- (NSString *) ObjC_ImplementationFile;
-
-- (NSString *) Java_ImplementationFile;
 
 @end
 
@@ -40,273 +34,19 @@
 
 - (NSDictionary *)outputStringsWithType:(OutputLanguage)type 
 {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    id<OutputLanguageWriterProtocol> writer = nil;
+    
     if(type == OutputLanguageObjectiveC) {
-        [dict setObject:[self ObjC_HeaderFile] forKey:[NSString stringWithFormat:@"%@.h", _className]];
-        [dict setObject:[self ObjC_ImplementationFile] forKey:[NSString stringWithFormat:@"%@.m", _className]];        
+        writer = [OutputLanguageWriterObjectiveC new];
     } else if (type == OutputLanguageJava) {
-        [dict setObject:[self Java_ImplementationFile] forKey:[NSString stringWithFormat:@"%@.java", _className]];
+        writer = [OutputLanguageWriterJava new];
     }
+    [writer setClassObject:self];
     
-    return dict;
+    return [writer getOutputFiles];
 }
 
-- (NSString *) ObjC_HeaderFile
-{
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    
-    NSString *interfaceTemplate = [mainBundle pathForResource:@"InterfaceTemplate" ofType:@"txt"];
-    NSString *templateString = [[NSString alloc] initWithContentsOfFile:interfaceTemplate encoding:NSUTF8StringEncoding error:nil];
 
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];
-    
-    /* Set the date */
-    NSDate *currentDate = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DATE}" withString:[dateFormatter stringFromDate:currentDate]];
-    
-    /* Set the name and company values in the template from the current logged in user's address book information */
-    ABAddressBook *addressBook = [ABAddressBook sharedAddressBook];
-    ABPerson *me = [addressBook me];
-    NSString *meFirstName = [me valueForProperty:kABFirstNameProperty];
-    NSString *meLastName = [me valueForProperty:kABLastNameProperty];
-    NSString *meCompany = [me valueForProperty:kABOrganizationProperty];
-    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"__NAME__" withString:[NSString stringWithFormat:@"%@ %@", meFirstName, meLastName]];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"__company_name__" withString:[NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany]];
-        
-    // First we need to find if there are any class properties, if so do the @Class business
-    NSString *forwardDeclarationString = @"";
-        
-    for(ClassPropertiesObject *property in [_properties allValues]) {
-        if([property isClass]) {
-            if([forwardDeclarationString isEqualToString:@""]) {
-                forwardDeclarationString = [NSString stringWithFormat:@"@class %@", [[property referenceClass] className]]; 
-            } else {
-                forwardDeclarationString = [forwardDeclarationString stringByAppendingFormat:@", %@", [[property referenceClass] className]];
-            }
-        }
-    }
-    
-    if([forwardDeclarationString isEqualToString:@""] == NO) {
-        forwardDeclarationString = [forwardDeclarationString stringByAppendingString:@";"];        
-    }
-    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{FORWARD_DECLARATION}" withString:forwardDeclarationString];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{BASEOBJECT}" withString:_baseClass];
-    
-    NSString *propertyString = @"";
-    for(ClassPropertiesObject *property in [_properties allValues]) {
-        propertyString = [propertyString stringByAppendingFormat:@"%@\n", property];
-    }
-    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{PROPERTIES}" withString:propertyString];
-    
-    return templateString;
-}
-
-- (NSString *) ObjC_ImplementationFile
-{
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    
-    NSString *implementationTemplate = [mainBundle pathForResource:@"ImplementationTemplate" ofType:@"txt"];
-    NSString *templateString = [[NSString alloc] initWithContentsOfFile:implementationTemplate encoding:NSUTF8StringEncoding error:nil];
-    
-    NSDate *currentDate = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    
-    // Need to check for ARC to tell whether or not to use autorelease or not
-    if( [[[NSUserDefaultsController sharedUserDefaultsController] defaults] boolForKey:@"buildForARC"] ) {
-        // Uses ARC
-        templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME_INIT}" withString:@"[[{CLASSNAME} alloc] init]"];
-    } else {
-        // Doesn't use ARC
-        templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME_INIT}" withString:@"[[[{CLASSNAME} alloc] init] autorelease]"];
-    }
-    
-
-    // IMPORTS
-    NSMutableArray *importArray = [NSMutableArray array];
-    NSString *importString = @"";
-    for(ClassPropertiesObject *property in [_properties allValues]) {
-        if([property isClass]) {
-            [importArray addObject:[[property referenceClass] className]];
-        }
-        
-        // Check References
-        NSArray *referenceArray = [OutputLanguageWriterObjectiveC setterReferenceClassesForProperty:property];
-        for(NSString *referenceString in referenceArray) {
-            if(![importArray containsObject:referenceString]) {
-                [importArray addObject:referenceString];
-            }
-        }
-    }
-            
-    for(NSString *referenceImport in importArray) {
-        importString = [importString stringByAppendingFormat:@"#import \"%@.h\"\n", referenceImport];
-    }
-    
-    
-    // SYNTHESIZE
-    NSString *sythesizeString = @"";
-    for(ClassPropertiesObject *property in [_properties allValues]) {
-        sythesizeString = [sythesizeString stringByAppendingFormat:@"@synthesize %@ = _%@;\n", property.name, property.name];
-    }
-    
-    // SETTERS
-    NSString *settersString = @"";
-    for(ClassPropertiesObject *property in [_properties allValues]) {
-        
-        settersString = [settersString stringByAppendingString:[OutputLanguageWriterObjectiveC setterForProperty:property]];
-    }
-    
-    // NSCODING SECTION
-    NSString *initWithCoderString = @"";
-    for (ClassPropertiesObject *property in [_properties allValues]) {
-        switch (property.type) {
-            case PropertyTypeInt:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeIntegerForKey:@\"%@\"];", property.name, property.name]];
-                break;
-            case PropertyTypeDouble:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeDoubleForKey:@\"%@\"];", property.name, property.name]];
-                break;
-            case PropertyTypeBool:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeBoolForKey:@\"%@\"];", property.name, property.name]];
-                break;
-            default:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeObjectForKey:@\"%@\"];", property.name, property.name]];
-                break;
-        }
-    }
-    
-    
-    NSString *encodeWithCoderString = @"";
-    for (ClassPropertiesObject *property in [_properties allValues]) {
-        switch (property.type) {
-            case PropertyTypeInt:
-                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeInteger:_%@ forKey:@\"%@\"];", property.name, property.name]];
-                break;
-            case PropertyTypeDouble:
-                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeDouble:_%@ forKey:@\"%@\"];", property.name, property.name]];
-                break;
-            case PropertyTypeBool:
-                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeBool:_%@ forKey:@\"%@\"];", property.name, property.name]];
-                break;
-            default:
-                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeObject:_%@ forKey:@\"%@\"];", property.name, property.name]];
-                break;
-        }
-    }
-    
-    // DEALLOC SECTION
-    NSString *deallocString = @"";
-    
-    /* Add dealloc method only if not building for ARC */
-    if( ![[[NSUserDefaultsController sharedUserDefaultsController] defaults] boolForKey:@"buildForARC"] ) {
-        deallocString = @"\n- (void)dealloc\n{\n";
-        for(ClassPropertiesObject *property in [_properties allValues]) {
-            if([property type] != PropertyTypeInt && [property type] != PropertyTypeDouble && [property type] != PropertyTypeBool){
-                deallocString = [deallocString stringByAppendingString:[NSString stringWithFormat:@"    [_%@ release];\n", property.name]];
-            }
-        }
-        deallocString = [deallocString stringByAppendingString:@"    [super dealloc];\n}\n"];
-    }
-    
-    /* Set the name and company values in the template from the current logged in user's address book information */
-    ABAddressBook *addressBook = [ABAddressBook sharedAddressBook];
-    ABPerson *me = [addressBook me];
-    NSString *meFirstName = [me valueForProperty:kABFirstNameProperty];
-    NSString *meLastName = [me valueForProperty:kABLastNameProperty];
-    NSString *meCompany = [me valueForProperty:kABOrganizationProperty];
-    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"__NAME__" withString:[NSString stringWithFormat:@"%@ %@", meFirstName, meLastName]];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"__company_name__" withString:[NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany]];
-    
-    /* Set other template strings */
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DATE}" withString:[dateFormatter stringFromDate:currentDate]];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORT_BLOCK}" withString:importString];    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SYNTHESIZE_BLOCK}" withString:sythesizeString];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{INITWITHCODER}" withString:initWithCoderString];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{ENCODEWITHCODER}" withString:encodeWithCoderString];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DEALLOC}" withString:deallocString];
-    
-    return templateString;
-}
-
-- (NSString *) Java_ImplementationFile
-{
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    
-    NSString *interfaceTemplate = [mainBundle pathForResource:@"JavaTemplate" ofType:@"txt"];
-    NSString *templateString = [[NSString alloc] initWithContentsOfFile:interfaceTemplate encoding:NSUTF8StringEncoding error:nil];
-    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:_className];
-    
-    // Flag if class has an ArrayList type property (used for generating the import block)
-    BOOL containsArrayList = NO;
-    
-    // Public Properties
-    NSString *propertiesString = @"";
-    for(ClassPropertiesObject *property in [_properties allValues]) {
-        
-        propertiesString = [propertiesString stringByAppendingString:[OutputLanguageWriterJava propertyForProperty:property]];
-        if (property.type == PropertyTypeArray) {
-            containsArrayList = YES;
-        }
-    }
-    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{PROPERTIES}" withString:propertiesString];
-    
-    // Import Block
-    if (containsArrayList) {
-        templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORTBLOCK}" withString:@"import java.util.ArrayList;"];
-    }
-    else {
-        templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORTBLOCK}" withString:@""];
-    }
-    
-    // Constructor arguments
-    NSString *constructorArgs = @"";
-    for (ClassPropertiesObject *property in [_properties allValues]) {
-        //Append a comma if not the first argument added to the string
-        if ( ![constructorArgs isEqualToString:@""] ) {
-            constructorArgs = [constructorArgs stringByAppendingString:@", "];
-        }
-        
-        constructorArgs = [constructorArgs stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [OutputLanguageWriterJava typeStringForProperty:property], property.name]];
-    }
-    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CONSTRUCTOR_ARGS}" withString:constructorArgs];
-    
-    
-    // Setters strings   
-    NSString *settersString = @"";
-    for(ClassPropertiesObject *property in [_properties allValues]) {
-        
-        settersString = [settersString stringByAppendingString:[OutputLanguageWriterJava setterForProperty:property]];
-    }
-    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];    
-    
-    NSString *rawObject = @"rawObject";
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{OBJECTNAME}" withString:rawObject];
-    
-    
-    // Getter/Setter Methods
-    NSString *getterSetterMethodsString = @"";
-    for (ClassPropertiesObject *property in [_properties allValues]) {
-        getterSetterMethodsString = [getterSetterMethodsString stringByAppendingString:[OutputLanguageWriterJava getterForProperty:property]];
-        getterSetterMethodsString = [getterSetterMethodsString stringByAppendingString:[OutputLanguageWriterJava setterMethodForProperty:property]];
-    }
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{GETTER_SETTER_METHODS}" withString:getterSetterMethodsString];
-    
-    return templateString;
-}
 
 #pragma mark - NSCoding methods
 

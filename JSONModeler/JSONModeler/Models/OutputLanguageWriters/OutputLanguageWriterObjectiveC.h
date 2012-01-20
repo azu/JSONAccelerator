@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "ClassPropertiesObject.h"
 #import "OutputLanguageWriterProtocol.h"
+#import "ClassBaseObject.h"
 
 @interface OutputLanguageWriterObjectiveC : NSObject <OutputLanguageWriterProtocol>
 
-
+@property (retain) ClassBaseObject *classObject;
 
 @end

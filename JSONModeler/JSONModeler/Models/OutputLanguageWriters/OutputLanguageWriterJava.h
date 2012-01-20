@@ -12,6 +12,6 @@
 
 @interface OutputLanguageWriterJava : NSObject <OutputLanguageWriterProtocol>
 
-+ (NSString *)setterMethodForProperty:(ClassPropertiesObject *)  property;
+- (NSString *)setterMethodForProperty:(ClassPropertiesObject *)  property;
 
 @end

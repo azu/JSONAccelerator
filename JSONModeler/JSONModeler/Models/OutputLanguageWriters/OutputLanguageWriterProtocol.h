@@ -12,10 +12,14 @@
 @protocol OutputLanguageWriterProtocol <NSObject>
 
 @required
-+ (NSString *)propertyForProperty:(ClassPropertiesObject *) property;
-+ (NSString *)setterForProperty:(ClassPropertiesObject *) property;
-+ (NSArray *)setterReferenceClassesForProperty:(ClassPropertiesObject *) property;
-+ (NSString *)typeStringForProperty:(ClassPropertiesObject *) property;
-+ (NSString *)getterForProperty:(ClassPropertiesObject *)property;
+@property (retain) ClassBaseObject *classObject;
+
+- (NSDictionary *) getOutputFiles;
+
+- (NSString *)propertyForProperty:(ClassPropertiesObject *) property;
+- (NSString *)setterForProperty:(ClassPropertiesObject *) property;
+- (NSArray *)setterReferenceClassesForProperty:(ClassPropertiesObject *) property;
+- (NSString *)typeStringForProperty:(ClassPropertiesObject *) property;
+- (NSString *)getterForProperty:(ClassPropertiesObject *)property;
 
 @end
