@@ -46,6 +46,4 @@ typedef enum {
 		withInformativeText:(NSString *)text 
 			  andAlertStyle:(NSAlertStyle)alertStyle;
 
-- (void)showWindow:(id)sender;
-
 @end

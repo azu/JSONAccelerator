@@ -286,11 +286,4 @@ NSString *JRFeedbackType[JRFeedbackController_SectionCount] = {
     return [NSURL URLWithString:postURLString];
 }
 
-//// overloaded to center the window after display
-//- (void)showWindow:(id)sender
-//{
-//    [[self window] center];
-//    [super showWindow:sender];
-//}
-
 @end
