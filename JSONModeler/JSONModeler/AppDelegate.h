@@ -13,5 +13,6 @@
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 - (IBAction)openPreferences:(id)sender;
+- (IBAction)feedbackMenuSelected:(id)sender;
 
 @end

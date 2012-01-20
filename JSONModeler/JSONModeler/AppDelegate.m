@@ -11,6 +11,7 @@
 #import "ClassBaseObject.h"
 #import "MainWindowController.h"
 #import "MASPreferencesWindowController.h"
+#import "JRFeedbackController.h"
 
 @interface AppDelegate () {
     
@@ -46,7 +47,14 @@
     
 }
 
-- (IBAction)openPreferences:(id)sender {
+- (IBAction)openPreferences:(id)sender 
+{
+    
+}
+
+- (IBAction)feedbackMenuSelected:(id)sender
+{
+    [JRFeedbackController showFeedback];
 }
 
 @end

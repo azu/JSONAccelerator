@@ -65,5 +65,7 @@
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
 	<string>https://yankee.sierrabravo.net/~jrexeise/JSONModeler/updates.xml</string>
+	<key>JRFeedbackURL</key>
+	<string>http://www.jsonmodeler.com/feedback.php</string>
 </dict>
 </plist>

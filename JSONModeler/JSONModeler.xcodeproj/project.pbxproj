@@ -75,6 +75,8 @@
 		4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		443EF41314ABCD21006216BE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
+		444AAC1C14CA260E008FBD6F /* JRFeedbackProviderRevised.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444AAC1B14CA260E008FBD6F /* JRFeedbackProviderRevised.xib */; };
+		444AAC1D14CA260E008FBD6F /* JRFeedbackProviderRevised.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444AAC1B14CA260E008FBD6F /* JRFeedbackProviderRevised.xib */; };
 		445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F71476E147009B59AE /* NoodleLineNumberMarker.m */; };
 		445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F91476E147009B59AE /* NoodleLineNumberView.m */; };
 		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
@@ -104,6 +106,14 @@
 		44F037CF14C8B57700FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037D314C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */; };
 		44F037D414C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */; };
+		44F037E714CA18AE00FECF86 /* JRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037E414CA18AE00FECF86 /* JRFeedbackController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44F037E814CA18AE00FECF86 /* JRFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037E414CA18AE00FECF86 /* JRFeedbackController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44F037E914CA18AE00FECF86 /* NSURLRequest+postForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037E614CA18AE00FECF86 /* NSURLRequest+postForm.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44F037EA14CA18AE00FECF86 /* NSURLRequest+postForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037E614CA18AE00FECF86 /* NSURLRequest+postForm.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44F037EF14CA18B800FECF86 /* JRFeedbackProvider.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44F037EB14CA18B800FECF86 /* JRFeedbackProvider.strings */; };
+		44F037F014CA18B800FECF86 /* JRFeedbackProvider.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44F037EB14CA18B800FECF86 /* JRFeedbackProvider.strings */; };
+		44F7B43414CA1AF5004CEA55 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F7B43314CA1AF5004CEA55 /* SystemConfiguration.framework */; };
+		44F7B43614CA1B00004CEA55 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F7B43314CA1AF5004CEA55 /* SystemConfiguration.framework */; };
 		44FE6F14146C241300FA13F9 /* ImplementationTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546EA146C191F00D3860A /* ImplementationTemplate.txt */; };
 		44FE6F4B146C710300FA13F9 /* FetchJSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */; };
 		44FE6F51146C712600FA13F9 /* ChooseLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F4F146C712600FA13F9 /* ChooseLanguageViewController.m */; };
@@ -221,6 +231,7 @@
 		444522F614B4ACA800288ED6 /* ja */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		444522F814B4AE8700288ED6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = "ja.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		444522FE14B4AEAB00288ED6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		444AAC1B14CA260E008FBD6F /* JRFeedbackProviderRevised.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRFeedbackProviderRevised.xib; sourceTree = "<group>"; };
 		445409F61476E147009B59AE /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberMarker.h; path = Vendor/LineNumbers/NoodleLineNumberMarker.h; sourceTree = "<group>"; };
 		445409F71476E147009B59AE /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = Vendor/LineNumbers/NoodleLineNumberMarker.m; sourceTree = "<group>"; };
 		445409F81476E147009B59AE /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = Vendor/LineNumbers/NoodleLineNumberView.h; sourceTree = "<group>"; };
@@ -269,6 +280,13 @@
 		44F037D014C8B63600FECF86 /* OutputLanguageWriterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterProtocol.h; path = Models/OutputLanguageWriters/OutputLanguageWriterProtocol.h; sourceTree = "<group>"; };
 		44F037D114C8C43A00FECF86 /* OutputLanguageWriterJava.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterJava.h; path = Models/OutputLanguageWriters/OutputLanguageWriterJava.h; sourceTree = "<group>"; };
 		44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterJava.m; path = Models/OutputLanguageWriters/OutputLanguageWriterJava.m; sourceTree = "<group>"; };
+		44F037E314CA18AE00FECF86 /* JRFeedbackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRFeedbackController.h; path = Vendor/JRFeedback/JRFeedbackController.h; sourceTree = "<group>"; };
+		44F037E414CA18AE00FECF86 /* JRFeedbackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRFeedbackController.m; path = Vendor/JRFeedback/JRFeedbackController.m; sourceTree = "<group>"; };
+		44F037E514CA18AE00FECF86 /* NSURLRequest+postForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURLRequest+postForm.h"; path = "Vendor/JRFeedback/NSURLRequest+postForm.h"; sourceTree = "<group>"; };
+		44F037E614CA18AE00FECF86 /* NSURLRequest+postForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURLRequest+postForm.m"; path = "Vendor/JRFeedback/NSURLRequest+postForm.m"; sourceTree = "<group>"; };
+		44F037EC14CA18B800FECF86 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/JRFeedbackProvider.strings; sourceTree = "<group>"; };
+		44F037F314CA18BE00FECF86 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/JRFeedbackProvider.strings; sourceTree = "<group>"; };
+		44F7B43314CA1AF5004CEA55 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		44FE6F48146C710300FA13F9 /* FetchJSONViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FetchJSONViewController.h; path = ViewControllers/FetchJSONViewController.h; sourceTree = "<group>"; };
 		44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FetchJSONViewController.m; path = ViewControllers/FetchJSONViewController.m; sourceTree = "<group>"; };
 		44FE6F4E146C712600FA13F9 /* ChooseLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLanguageViewController.h; path = ViewControllers/ChooseLanguageViewController.h; sourceTree = "<group>"; };
@@ -302,6 +320,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44F7B43614CA1B00004CEA55 /* SystemConfiguration.framework in Frameworks */,
 				7D00408814A24F1C00235189 /* AddressBook.framework in Frameworks */,
 				441FC4E71462D8E1007BF9DC /* Cocoa.framework in Frameworks */,
 			);
@@ -320,6 +339,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44F7B43414CA1AF5004CEA55 /* SystemConfiguration.framework in Frameworks */,
 				7D00408714A24F1700235189 /* AddressBook.framework in Frameworks */,
 				44233128149B9E290071978D /* Cocoa.framework in Frameworks */,
 				44233141149B9F380071978D /* Sparkle.framework in Frameworks */,
@@ -362,6 +382,7 @@
 		441FC4E51462D8E1007BF9DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				44F7B43314CA1AF5004CEA55 /* SystemConfiguration.framework */,
 				7D00408614A24F1700235189 /* AddressBook.framework */,
 				44233140149B9F380071978D /* Sparkle.framework */,
 				441FC4E61462D8E1007BF9DC /* Cocoa.framework */,
@@ -496,6 +517,7 @@
 		441FC51F1462D960007BF9DC /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				44F037E214CA189F00FECF86 /* JRFeedback */,
 				44233102149B9DE70071978D /* MASPreferences */,
 				445409F41476E112009B59AE /* Noodle */,
 				441FC52F1462E1C4007BF9DC /* AFNetworking */,
@@ -640,6 +662,19 @@
 				44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */,
 			);
 			name = OutputLanguageWriters;
+			sourceTree = "<group>";
+		};
+		44F037E214CA189F00FECF86 /* JRFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				44F037EB14CA18B800FECF86 /* JRFeedbackProvider.strings */,
+				444AAC1B14CA260E008FBD6F /* JRFeedbackProviderRevised.xib */,
+				44F037E314CA18AE00FECF86 /* JRFeedbackController.h */,
+				44F037E414CA18AE00FECF86 /* JRFeedbackController.m */,
+				44F037E514CA18AE00FECF86 /* NSURLRequest+postForm.h */,
+				44F037E614CA18AE00FECF86 /* NSURLRequest+postForm.m */,
+			);
+			name = JRFeedback;
 			sourceTree = "<group>";
 		};
 		44FE6F5D146C715700FA13F9 /* Fetch */ = {
@@ -838,6 +873,8 @@
 				44731FB414B78BDC009FC27D /* 57-download@2x.png in Resources */,
 				44731FB814B78CA8009FC27D /* 19-gear@2x.png in Resources */,
 				44731FBB14B78E91009FC27D /* 117-todo@2x.png in Resources */,
+				44F037EF14CA18B800FECF86 /* JRFeedbackProvider.strings in Resources */,
+				444AAC1C14CA260E008FBD6F /* JRFeedbackProviderRevised.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,6 +913,8 @@
 				44731FB614B78C1B009FC27D /* 57-download@2x.png in Resources */,
 				44731FB914B78D41009FC27D /* 19-gear@2x.png in Resources */,
 				44731FBC14B78E91009FC27D /* 117-todo@2x.png in Resources */,
+				44F037F014CA18B800FECF86 /* JRFeedbackProvider.strings in Resources */,
+				444AAC1D14CA260E008FBD6F /* JRFeedbackProviderRevised.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,6 +974,8 @@
 				7D5FE4D114AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */,
 				44F037CE14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */,
 				44F037D314C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */,
+				44F037E714CA18AE00FECF86 /* JRFeedbackController.m in Sources */,
+				44F037E914CA18AE00FECF86 /* NSURLRequest+postForm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -983,6 +1024,8 @@
 				7D5FE4D214AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */,
 				44F037CF14C8B57700FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */,
 				44F037D414C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */,
+				44F037E814CA18AE00FECF86 /* JRFeedbackController.m in Sources */,
+				44F037EA14CA18AE00FECF86 /* NSURLRequest+postForm.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1081,6 +1124,15 @@
 				44B6BD8514B61A90000AEC28 /* fr */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		44F037EB14CA18B800FECF86 /* JRFeedbackProvider.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44F037EC14CA18B800FECF86 /* en */,
+				44F037F314CA18BE00FECF86 /* fr */,
+			);
+			name = JRFeedbackProvider.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

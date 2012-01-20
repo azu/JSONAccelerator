@@ -65,5 +65,7 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>JRFeedbackURL</key>
+	<string>http://www.jsonmodeler.com/feedback.php</string>
 </dict>
 </plist>

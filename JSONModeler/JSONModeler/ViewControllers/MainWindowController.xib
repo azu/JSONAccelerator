@@ -162,7 +162,7 @@
 							</object>
 						</object>
 					</dictionary>
-					<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
+					<array key="NSToolbarIBAllowedItems">
 						<reference ref="733832878"/>
 						<reference ref="83015138"/>
 						<reference ref="394434305"/>
@@ -186,7 +186,6 @@
 							<string key="NSFrame">{{0, 20}, {800, 480}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:1192</string>
 							<string key="NSAntiCompressionPriority">{750, 750}</string>
 							<string key="NSClassName">NSView</string>
@@ -538,10 +537,6 @@
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
 			<integer value="1070" key="NS.object.0"/>
-		</object>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.InterfaceBuilder3</string>
-			<real value="3200" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
