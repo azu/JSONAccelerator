@@ -253,7 +253,6 @@
 		446B282914ABCC1800FBE699 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ru; path = ru.lproj/Credits.rtf; sourceTree = "<group>"; };
 		446B282B14ABCC1F00FBE699 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Credits.rtf; sourceTree = "<group>"; };
 		446F098514AABE7100E37C0C /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowController.xib; path = ViewControllers/MainWindowController.xib; sourceTree = "<group>"; };
-		44703BDF14D05D4C00994234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "/Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/zh-Hans.lproj/JRFeedbackProvider.strings"; sourceTree = "<absolute>"; };
 		44703BE114D05D6600994234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		44703BE414D05D9400994234 /* FetchJSONViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FetchJSONViewController.xib; sourceTree = "<group>"; };
 		44703BE714D05DA300994234 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SavePanelLanguageChooserViewController.xib; sourceTree = "<group>"; };
@@ -1180,7 +1179,6 @@
 			children = (
 				44F037EC14CA18B800FECF86 /* en */,
 				44F037F314CA18BE00FECF86 /* fr */,
-				44703BDF14D05D4C00994234 /* zh-Hans */,
 			);
 			name = JRFeedbackProvider.strings;
 			sourceTree = "<group>";

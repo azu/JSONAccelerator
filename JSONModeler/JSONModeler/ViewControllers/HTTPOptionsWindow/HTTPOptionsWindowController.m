@@ -22,6 +22,11 @@ NSString * const headerValue = @"headerValue";
 @end
 
 @implementation HTTPOptionsWindowController
+@synthesize methodBox = _methodBox;
+@synthesize headersBox = _headersBox;
+@synthesize keyLabel = _keyLabel;
+@synthesize valueLabel = _valueLabel;
+@synthesize addButton = _addButton;
 
 @synthesize httpMethodRadioButtons = _httpMethodRadioButtons;
 @synthesize httpMethod = _httpMethod;
@@ -30,6 +35,7 @@ NSString * const headerValue = @"headerValue";
 @synthesize headerValueField = _headerValueField;
 @synthesize headerTableView = _headerTableView;
 @synthesize headerTableKeyColumn = _headerTableKeyColumn;
+@synthesize headerTableValueColumn = _headerTableValueColumn;
 @synthesize dummyButton = _dummyButton;
 @synthesize document = _document;
 @synthesize popover = _popover;
@@ -62,6 +68,16 @@ NSString * const headerValue = @"headerValue";
 {
     [super awakeFromNib];
     
+    /* Localize UI element strings */
+    _methodBox.title = NSLocalizedString(@"Method", @"Title for the Method box in the HTTP Options window");
+    _headersBox.title = NSLocalizedString(@"Headers", @"Title for the Headers box in the HTTP Options window");
+    _keyLabel.stringValue = NSLocalizedString(@"Key", @"Title for the field to enter a HTTP header key");
+    _valueLabel.stringValue = NSLocalizedString(@"Value", @"Title for the field to enter a HTTP header value");
+    _addButton.title = NSLocalizedString(@"Add", @"Title for the Add header button in the HTTP Options window");
+    [[_headerTableKeyColumn headerCell] setStringValue:NSLocalizedString(@"Key", @"Title for the column of HTTP header keys")];
+    [[_headerTableValueColumn headerCell] setStringValue:NSLocalizedString(@"Value", @"Title for the column of HTTP header values")];
+    
+    /* Set up http parameters */
     self.httpMethod = self.document.httpMethod;
     for (NSDictionary *header in self.document.httpHeaders) {
         [self.headerArrayController addObject:header];

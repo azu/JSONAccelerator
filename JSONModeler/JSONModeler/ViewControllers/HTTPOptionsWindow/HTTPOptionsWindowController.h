@@ -12,7 +12,6 @@
 
 @interface HTTPOptionsWindowController : NSViewController <NSPopoverDelegate>
 
-
 @property (weak) IBOutlet NSMatrix *httpMethodRadioButtons;
 @property HTTPMethod httpMethod;
 @property (weak) NSPopover *popover;
@@ -26,9 +25,18 @@
 @property (weak) IBOutlet NSTableView *headerTableView;
 
 @property (weak) IBOutlet NSTableColumn *headerTableKeyColumn;
+@property (weak) IBOutlet NSTableColumn *headerTableValueColumn;
 
 /* This button exists purely as a graphic element. It has no functionality */
 @property (weak) IBOutlet NSButtonCell *dummyButton;
+
+/* Other Localizable UI Elements */
+@property (weak) IBOutlet NSBox *methodBox;
+@property (weak) IBOutlet NSBox *headersBox;
+@property (weak) IBOutlet NSTextField *keyLabel;
+@property (weak) IBOutlet NSTextField *valueLabel;
+@property (weak) IBOutlet NSButton *addButton;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil document:(ModelerDocument *)doc;
 
