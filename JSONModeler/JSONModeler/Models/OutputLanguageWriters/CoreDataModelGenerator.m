@@ -28,12 +28,10 @@
 
 @implementation CoreDataModelGenerator
 
-- (NSXMLDocument *)coreDataModelXMLDocumentFromClassObjects:(NSDictionary *)dictionary
+- (NSXMLDocument *)coreDataModelXMLDocumentFromClassObjects:(NSArray *)classObjects
 {
     NSXMLElement *rootElement = [self modelRootElement];
     
-    
-    NSArray *classObjects = [dictionary allValues];
     for (ClassBaseObject *classObject in classObjects) {
         
         NSXMLElement *entity = [self entityElementForClassBaseObject:classObject];
@@ -72,13 +70,40 @@
     [rootElement addChild:uiInfo];
     
     NSXMLDocument *modelDoc = [[NSXMLDocument alloc] initWithRootElement:rootElement];
+    [modelDoc setDocumentContentKind:NSXMLDocumentXMLKind];
+    [modelDoc setVersion:@"1.0"];
+    [modelDoc setCharacterEncoding:@"UTF-8"];
+    [modelDoc setStandalone:YES];
     
     return modelDoc;
 }
 
 - (NSXMLElement *)modelRootElement
 {
-    return [[NSXMLElement alloc] initWithName:@"model"];
+    NSXMLElement *modelElement = [[NSXMLElement alloc] initWithName:@"model"];
+    
+    NSXMLNode *nameAttribute = [NSXMLNode attributeWithName:@"name" stringValue:@""];
+    [modelElement addAttribute:nameAttribute];
+    
+    NSXMLNode *userDefinedVersionAttribute = [NSXMLNode attributeWithName:@"userDefinedModelVersionIdentifier" stringValue:@""];
+    [modelElement addAttribute:userDefinedVersionAttribute];
+    
+    NSXMLNode *typeAttribute = [NSXMLNode attributeWithName:@"type" stringValue:@"com.apple.IDECoreDataModeler.DataModel"];
+    [modelElement addAttribute:typeAttribute];
+    
+    NSXMLNode *docVersionAttribute = [NSXMLNode attributeWithName:@"documentVersion" stringValue:@"1.0"];
+    [modelElement addAttribute:docVersionAttribute];
+    
+    NSXMLNode *minToolsAttribute = [NSXMLNode attributeWithName:@"minimumToolsVersion" stringValue:@"Automatic"];
+    [modelElement addAttribute:minToolsAttribute];
+    
+    NSXMLNode *macOSAttribute = [NSXMLNode attributeWithName:@"macOSVersion" stringValue:@"Automatic"];
+    [modelElement addAttribute:macOSAttribute];
+    
+    NSXMLNode *iOSAttribute = [NSXMLNode attributeWithName:@"iOSVersion" stringValue:@"Automatic"];
+    [modelElement addAttribute:iOSAttribute];
+    
+    return modelElement;
 }
 
 - (NSXMLElement *)entityElementForClassBaseObject:(ClassBaseObject *)classBaseObject
@@ -87,9 +112,11 @@
     
     NSXMLNode *nameAttribute = [NSXMLNode attributeWithName:@"name" stringValue:classBaseObject.className];
     NSXMLNode *syncableAttribute = [NSXMLNode attributeWithName:@"syncable" stringValue:@"YES"];
+    NSXMLNode *representedClassAttribute = [NSXMLNode attributeWithName:@"representedClassName" stringValue:classBaseObject.className];
     
     [entity addAttribute:nameAttribute];
     [entity addAttribute:syncableAttribute];
+    [entity addAttribute:representedClassAttribute];
     
     return entity;
 }
@@ -157,7 +184,6 @@
 
 - (NSXMLElement *)relationshipElementForClassPropertiesObject:(ClassPropertiesObject *)classPropertiesObject forEntityNamed:(NSString *)entityName
 {
-    NSLog(@"%@", [classPropertiesObject description]);
     /* Check to make sure we can actually create a relationship */
     PropertyType type = classPropertiesObject.type;
     if (type == PropertyTypeString || type == PropertyTypeInt || type == PropertyTypeDouble || type == PropertyTypeBool || type == PropertyTypeOther) {

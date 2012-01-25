@@ -16,6 +16,6 @@
  * @param dictionary Dictionary of class objects to be included in the data model. Key is the name of an entity to create, value is the `ClassBaseObject` that represents the entity.
  * @return An NSXMLDocument to be wrapped in a .xcdatamodel bundle.
  */
-- (NSXMLDocument *)coreDataModelXMLDocumentFromClassObjects:(NSDictionary *)dictionary;
+- (NSXMLDocument *)coreDataModelXMLDocumentFromClassObjects:(NSArray *)classObjects;
 
 @end

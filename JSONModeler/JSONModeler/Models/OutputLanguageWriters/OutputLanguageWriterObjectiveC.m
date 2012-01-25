@@ -104,7 +104,7 @@
     }
     
     /* Return the error flag (by reference) */
-    generatedErrorFlag = &filesHaveHadError;
+    *generatedErrorFlag = filesHaveHadError;
     
     
     return filesHaveBeenWritten;

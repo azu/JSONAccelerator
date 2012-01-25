@@ -1,0 +1,19 @@
+//
+//  {CLASSNAME}.h
+//
+//  Created by {NAME} on {DATE}
+//  Copyright (c) {COMPANY_NAME}. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
+{FORWARD_DECLARATION}
+
+@interface {CLASSNAME} : NSManagedObject
+
+{PROPERTIES}
+
+@end
+
+{GENERATEDACCESSORS_CATEGORY}

@@ -130,6 +130,12 @@
 		7D00F426149FF30C00235189 /* JSONTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D00F425149FF30C00235189 /* JSONTextView.m */; };
 		7D00F427149FF99600235189 /* JSONTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D00F425149FF30C00235189 /* JSONTextView.m */; };
 		7D00F42914A11BAF00235189 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
+		7D2AD95614D087A90035A4FE /* CoreDataInterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD95514D087A90035A4FE /* CoreDataInterfaceTemplate.txt */; };
+		7D2AD95714D087A90035A4FE /* CoreDataInterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD95514D087A90035A4FE /* CoreDataInterfaceTemplate.txt */; };
+		7D2AD95914D089440035A4FE /* CoreDataImplementationTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD95814D089440035A4FE /* CoreDataImplementationTemplate.txt */; };
+		7D2AD95A14D089440035A4FE /* CoreDataImplementationTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD95814D089440035A4FE /* CoreDataImplementationTemplate.txt */; };
+		7D2AD96514D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */; };
+		7D2AD96614D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */; };
 		7D384DBD14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */; };
 		7D384DBF14ACFB210073EA2C /* SavePanelLanguageChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */; };
 		7D5FE4D114AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D014AD11F900330C2F /* HTTPOptionsWindowController.m */; };
@@ -316,6 +322,9 @@
 		7D00F424149FF30C00235189 /* JSONTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONTextView.h; path = Views/JSONTextView.h; sourceTree = "<group>"; };
 		7D00F425149FF30C00235189 /* JSONTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONTextView.m; path = Views/JSONTextView.m; sourceTree = "<group>"; };
 		7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JSONModeler-Internal-Info.plist"; sourceTree = "<group>"; };
+		7D2AD95514D087A90035A4FE /* CoreDataInterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataInterfaceTemplate.txt; path = Resources/Templates/CoreDataInterfaceTemplate.txt; sourceTree = "<group>"; };
+		7D2AD95814D089440035A4FE /* CoreDataImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataImplementationTemplate.txt; path = Resources/Templates/CoreDataImplementationTemplate.txt; sourceTree = "<group>"; };
+		7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataAccessorsTemplate.txt; path = Resources/Templates/CoreDataAccessorsTemplate.txt; sourceTree = "<group>"; };
 		7D384DB214ACE7FC0073EA2C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
 		7D384DBA14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavePanelLanguageChooserViewController.h; path = ViewControllers/SavePanelLanguageChooserViewController.h; sourceTree = "<group>"; };
 		7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavePanelLanguageChooserViewController.m; path = ViewControllers/SavePanelLanguageChooserViewController.m; sourceTree = "<group>"; };
@@ -659,6 +668,9 @@
 		44C546E6146C189F00D3860A /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				7D2AD95514D087A90035A4FE /* CoreDataInterfaceTemplate.txt */,
+				7D2AD95814D089440035A4FE /* CoreDataImplementationTemplate.txt */,
+				7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */,
 				44C546EA146C191F00D3860A /* ImplementationTemplate.txt */,
 				44C546E7146C18D700D3860A /* InterfaceTemplate.txt */,
 				44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */,
@@ -895,6 +907,9 @@
 				44731FBB14B78E91009FC27D /* 117-todo@2x.png in Resources */,
 				44F037EF14CA18B800FECF86 /* JRFeedbackProvider.strings in Resources */,
 				444AAC1C14CA260E008FBD6F /* JRFeedbackProviderRevised.xib in Resources */,
+				7D2AD95614D087A90035A4FE /* CoreDataInterfaceTemplate.txt in Resources */,
+				7D2AD95914D089440035A4FE /* CoreDataImplementationTemplate.txt in Resources */,
+				7D2AD96514D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,6 +950,9 @@
 				44731FBC14B78E91009FC27D /* 117-todo@2x.png in Resources */,
 				44F037F014CA18B800FECF86 /* JRFeedbackProvider.strings in Resources */,
 				444AAC1D14CA260E008FBD6F /* JRFeedbackProviderRevised.xib in Resources */,
+				7D2AD95714D087A90035A4FE /* CoreDataInterfaceTemplate.txt in Resources */,
+				7D2AD95A14D089440035A4FE /* CoreDataImplementationTemplate.txt in Resources */,
+				7D2AD96614D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

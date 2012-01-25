@@ -1,0 +1,14 @@
+//
+//  {CLASSNAME}.m
+//
+//  Created by {NAME} on {DATE}
+//  Copyright (c) {COMPANY_NAME}. All rights reserved.
+//
+
+#import "{CLASSNAME}.h"
+{IMPORT_BLOCK}
+
+@implementation {CLASSNAME}
+
+{DYNAMIC_BLOCK}
+@end
