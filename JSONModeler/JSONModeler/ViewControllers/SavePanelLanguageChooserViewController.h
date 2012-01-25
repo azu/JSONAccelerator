@@ -13,6 +13,7 @@
 @property (nonatomic) NSInteger languageDropDownIndex;
 @property (strong) NSString *packageName;
 @property (strong) NSString *baseClassName;
+@property (nonatomic) BOOL buildForARC;
 
 @property (weak) IBOutlet NSPopUpButton *languageDropDown;
 @property (weak) IBOutlet NSTextField *outputLanguageLabel;

@@ -136,6 +136,10 @@
 		7D5FE4D214AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D014AD11F900330C2F /* HTTPOptionsWindowController.m */; };
 		7D5FE4D414AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D314AD128800330C2F /* HTTPOptionsWindowController.xib */; };
 		7D5FE4D514AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D314AD128800330C2F /* HTTPOptionsWindowController.xib */; };
+		7D78647D14CF1FBB00A0B173 /* CoreDataModelGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D78647C14CF1FBB00A0B173 /* CoreDataModelGenerator.m */; };
+		7D78647E14CF1FBB00A0B173 /* CoreDataModelGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D78647C14CF1FBB00A0B173 /* CoreDataModelGenerator.m */; };
+		7DBDAE5D14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBDAE5C14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m */; };
+		7DBDAE5E14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBDAE5C14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m */; };
 		7DC99D2014A26D8900314AA5 /* ModelerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */; };
 		7DC99D2114A26D8900314AA5 /* ModelerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */; };
 /* End PBXBuildFile section */
@@ -311,6 +315,10 @@
 		7D5FE4CF14AD11F900330C2F /* HTTPOptionsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPOptionsWindowController.h; path = ViewControllers/HTTPOptionsWindow/HTTPOptionsWindowController.h; sourceTree = "<group>"; };
 		7D5FE4D014AD11F900330C2F /* HTTPOptionsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPOptionsWindowController.m; path = ViewControllers/HTTPOptionsWindow/HTTPOptionsWindowController.m; sourceTree = "<group>"; };
 		7D5FE4D314AD128800330C2F /* HTTPOptionsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HTTPOptionsWindowController.xib; path = ViewControllers/HTTPOptionsWindow/HTTPOptionsWindowController.xib; sourceTree = "<group>"; };
+		7D78647B14CF1FBB00A0B173 /* CoreDataModelGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataModelGenerator.h; path = Models/OutputLanguageWriters/CoreDataModelGenerator.h; sourceTree = "<group>"; };
+		7D78647C14CF1FBB00A0B173 /* CoreDataModelGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataModelGenerator.m; path = Models/OutputLanguageWriters/CoreDataModelGenerator.m; sourceTree = "<group>"; };
+		7DBDAE5B14CF7C1B00D7349E /* OutputLanguageWriterCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterCoreData.h; path = Models/OutputLanguageWriters/OutputLanguageWriterCoreData.h; sourceTree = "<group>"; };
+		7DBDAE5C14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterCoreData.m; path = Models/OutputLanguageWriters/OutputLanguageWriterCoreData.m; sourceTree = "<group>"; };
 		7DC99D1D14A26D8900314AA5 /* ModelerDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelerDocument.h; path = Documents/ModelerDocument.h; sourceTree = "<group>"; };
 		7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelerDocument.m; path = Documents/ModelerDocument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -660,6 +668,10 @@
 				44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */,
 				44F037D114C8C43A00FECF86 /* OutputLanguageWriterJava.h */,
 				44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */,
+				7DBDAE5B14CF7C1B00D7349E /* OutputLanguageWriterCoreData.h */,
+				7DBDAE5C14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m */,
+				7D78647B14CF1FBB00A0B173 /* CoreDataModelGenerator.h */,
+				7D78647C14CF1FBB00A0B173 /* CoreDataModelGenerator.m */,
 			);
 			name = OutputLanguageWriters;
 			sourceTree = "<group>";
@@ -976,6 +988,8 @@
 				44F037D314C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */,
 				44F037E714CA18AE00FECF86 /* JRFeedbackController.m in Sources */,
 				44F037E914CA18AE00FECF86 /* NSURLRequest+postForm.m in Sources */,
+				7D78647D14CF1FBB00A0B173 /* CoreDataModelGenerator.m in Sources */,
+				7DBDAE5D14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1026,6 +1040,8 @@
 				44F037D414C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */,
 				44F037E814CA18AE00FECF86 /* JRFeedbackController.m in Sources */,
 				44F037EA14CA18AE00FECF86 /* NSURLRequest+postForm.m in Sources */,
+				7D78647E14CF1FBB00A0B173 /* CoreDataModelGenerator.m in Sources */,
+				7DBDAE5E14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

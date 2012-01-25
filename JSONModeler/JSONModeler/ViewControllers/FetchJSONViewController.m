@@ -13,6 +13,12 @@
 #import "SavePanelLanguageChooserViewController.h"
 #import "HTTPOptionsWindowController.h"
 
+#import "OutputLanguageWriterObjectiveC.h"
+#import "OutputLanguageWriterJava.h"
+#import "OutputLanguageWriterCoreData.h"
+
+#import "CoreDataModelGenerator.h"
+
 @interface FetchJSONViewController() <NSTextViewDelegate, NSOpenSavePanelDelegate> {
 @private
     NoodleLineNumberView *lineNumberView;
@@ -136,7 +142,7 @@
 - (IBAction)verifyPressed:(id)sender
 {
     [self verifyJSONString];
-}
+}  
 
 - (BOOL)verifyJSONString
 {
@@ -237,68 +243,34 @@
             
             BOOL filesHaveBeenWritten = NO;
             BOOL filesHaveHadError = NO;
+            
             if(self.modeler) {
-                NSError *error = nil;
+                
+//                CoreDataModelGenerator *generator = [[CoreDataModelGenerator alloc] init];
+//                NSXMLDocument *doc = [generator coreDataModelXMLDocumentFromClassObjects:[self.modeler parsedDictionary]];
+//                [[doc XMLData] writeToFile:@"/Users/shickey/Desktop/cd.xml" atomically:YES];
+                
                 NSURL *selectedDirectory = [panel URL];
-                NSArray *files = [[self.modeler parsedDictionary] allValues];
-                NSFileManager *filemgr;
+                id<OutputLanguageWriterProtocol> writer = nil;
+                NSDictionary *optionsDict = nil;
                 
-                filemgr = [NSFileManager defaultManager];
-                
-                for(ClassBaseObject *base in files) {
-                    
-                    // This section is to guard against people going through and renaming the class
-                    // to something that has already been named.
-                    // This will check the class name and keep appending an additional number until something has been found
-                    
-                    if([[base className] isEqualToString:@"InternalBaseClass"]) {
-                        NSString *newBaseClassName = _languageChooserViewController.baseClassName;
-                        if(newBaseClassName == nil) {
-                            newBaseClassName = @"BaseClass";
-                        }
-                        BOOL hasUniqueFileNameBeenFound = NO;
-                        NSUInteger classCheckInteger = 2;
-                        while (hasUniqueFileNameBeenFound == NO) {
-                            hasUniqueFileNameBeenFound = YES;
-                            for(ClassBaseObject *collisionBaseObject in files) {
-                                if([[collisionBaseObject className] isEqualToString:newBaseClassName]) {
-                                    hasUniqueFileNameBeenFound = NO; 
-                                }
-                            }
-                            if(hasUniqueFileNameBeenFound == NO) {
-                                newBaseClassName = [NSString stringWithFormat:@"%@%i", _languageChooserViewController.baseClassName, classCheckInteger];
-                                classCheckInteger++;
-                            }
-                        }
-                        
-                        [base setClassName:newBaseClassName];
-                    }
-                    
-                    NSDictionary *outputDictionary = [base outputStringsWithType:language];
-                    NSArray *keysArray = [outputDictionary allKeys];
-                    NSString *outputString = nil;
-                    for(NSString *key in keysArray) {
-                        error = nil;
-                        outputString = [outputDictionary objectForKey:key];
-                        
-                        /* If we're creating Java files, we need to put the package name in */
-                        if (language == OutputLanguageJava) {
-                            outputString = [outputString stringByReplacingOccurrencesOfString:@"{PACKAGENAME}" withString:_languageChooserViewController.packageName];
-                        }
-                        
-                        [outputString writeToURL:[selectedDirectory URLByAppendingPathComponent:key]
-                                      atomically:NO
-                                        encoding:NSUTF8StringEncoding 
-                                           error:&error];
-                        if(error) {
-                            DLog(@"%@", [error localizedDescription]);
-                            filesHaveHadError = YES;
-                        } else {
-                            filesHaveBeenWritten = YES;
-                        }
-                    }
+                if (language == OutputLanguageObjectiveC) {
+                    writer = [[OutputLanguageWriterObjectiveC alloc] init];
+                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:_languageChooserViewController.baseClassName, kObjectiveCWritingOptionBaseClassName, [NSNumber numberWithBool:_languageChooserViewController.buildForARC], kObjectiveCWritingOptionUseARC, nil];
                 }
+                else if (language == OutputLanguageJava) {
+                    writer = [[OutputLanguageWriterJava alloc] init];
+                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:_languageChooserViewController.baseClassName, kJavaWritingOptionBaseClassName, _languageChooserViewController.packageName, kJavaWritingOptionPackageName, nil];
+                }
+                else if (language == OutputLanguageCoreDataObjectiveC) {
+                    writer = [[OutputLanguageWriterCoreData alloc] init];
+                    optionsDict = nil;
+                }
+                
+                filesHaveBeenWritten = [writer writeClassObjects:[self.modeler parsedDictionary] toURL:selectedDirectory options:optionsDict generatedError:&filesHaveHadError];
+                
             }
+            
             NSString *statusString = @"";
             if(filesHaveBeenWritten) {
                 statusString = NSLocalizedString(@"Your files have successfully been generated.", @"Success message in an action sheet");

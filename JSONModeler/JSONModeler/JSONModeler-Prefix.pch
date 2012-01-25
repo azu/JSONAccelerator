@@ -16,7 +16,8 @@
 typedef enum
 {
     OutputLanguageObjectiveC = 0,
-    OutputLanguageJava
+    OutputLanguageJava,
+    OutputLanguageCoreDataObjectiveC
 } OutputLanguage;
 
 typedef enum {

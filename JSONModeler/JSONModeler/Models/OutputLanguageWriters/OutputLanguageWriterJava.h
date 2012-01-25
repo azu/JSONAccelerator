@@ -10,6 +10,10 @@
 #import "ClassPropertiesObject.h"
 #import "OutputLanguageWriterProtocol.h"
 
+static NSString *const kJavaWritingOptionBaseClassName = @"kJavaWritingOptionBaseClassName";
+static NSString *const kJavaWritingOptionPackageName = @"kJavaWritingOptionPackageName";
+
+
 @interface OutputLanguageWriterJava : NSObject <OutputLanguageWriterProtocol>
 
 - (NSString *)setterMethodForProperty:(ClassPropertiesObject *)  property;

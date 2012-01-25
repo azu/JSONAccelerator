@@ -41,9 +41,8 @@
     } else if (type == OutputLanguageJava) {
         writer = [OutputLanguageWriterJava new];
     }
-    [writer setClassObject:self];
     
-    return [writer getOutputFiles];
+    return [writer getOutputFilesForClassObject:self];
 }
 
 

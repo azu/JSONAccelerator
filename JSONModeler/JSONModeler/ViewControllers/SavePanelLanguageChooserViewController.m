@@ -12,6 +12,7 @@
 @synthesize languageDropDownIndex = _languageDropDownIndex;
 @synthesize packageName = _packageName;
 @synthesize baseClassName = _baseClassName;
+@synthesize buildForARC = _buildForARC;
 
 @synthesize languageDropDown = _languageDropDown;
 @synthesize outputLanguageLabel = _outputLanguageLabel;
@@ -47,10 +48,15 @@
         self.packageNameField.hidden = NO;
         self.buildForArcButton.hidden = YES;
     }
-    else {
+    else if (_languageDropDownIndex == 0) {
         self.packageNameLabel.hidden = YES;
         self.packageNameField.hidden = YES;
         self.buildForArcButton.hidden = NO;
+    }
+    else {
+        self.packageNameLabel.hidden = YES;
+        self.packageNameField.hidden = YES;
+        self.buildForArcButton.hidden = YES;
     }
 }
 
@@ -60,6 +66,9 @@
     }
     else if (_languageDropDownIndex == 1) {
         return OutputLanguageJava;
+    }
+    else if (_languageDropDownIndex == 2) {
+        return OutputLanguageCoreDataObjectiveC;
     }
     else {
         return -1;

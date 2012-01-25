@@ -11,8 +11,12 @@
 #import "OutputLanguageWriterProtocol.h"
 #import "ClassBaseObject.h"
 
+/* Writing options keys for OutputLanguageWriterProtocol methods */
+static NSString *const kObjectiveCWritingOptionBaseClassName = @"kObjectiveCWritingOptionBaseClassName";
+static NSString *const kObjectiveCWritingOptionUseARC = @"kObjectiveCWritingOptionUseARC";
+
+
 @interface OutputLanguageWriterObjectiveC : NSObject <OutputLanguageWriterProtocol>
 
-@property (retain) ClassBaseObject *classObject;
 
 @end
