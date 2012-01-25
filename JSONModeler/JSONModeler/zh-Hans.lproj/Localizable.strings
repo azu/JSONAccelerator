@@ -1,0 +1,81 @@
+/* If something went wrong, but the writing was generally successful */
+" However, there was an error writing one or more of the files" = " 抱歉，写入一个或多个文件时出现错误";
+
+/* Actionsheet message for stating that nothing was generated  */
+"An error has occurred and no files have been generated." = "出现错误，未生成文件。";
+
+/* Title of an alert if there is an error getting content of a url */
+"An Error Occurred" = "出现错误";
+
+/* The title for the action sheet saying something went wrong */
+"An error occurred while verifying the JSON" = "验证 JSON 时出现错误";
+
+/* In the save portion, the prompt to specify what the base class is */
+"Base Class" = "基类";
+
+/* Cancel button in the overwrite files prompt */
+"Cancel" = "取消";
+
+/* Label to have the user select which folder to choose */
+"Choose" = "选择";
+
+/* Button to dismiss an action sheet */
+"Dismiss" = "解除";
+
+/* Prompt user gets to enter a URL */
+"Enter URL..." = "请输入 URL...";
+
+/* No comment provided by engineer. */
+"Expected content type %@, got %@" = "预期内容类型 %1$@，实际获得 %2$@";
+
+/* No comment provided by engineer. */
+"Expected status code %@, got %d" = "预期状态代码 %1$@，实际获得 %2$d";
+
+/* Toolbar item name for General Preferences */
+"General" = "常规";
+
+/* In the main screen, this is the button that writes out files */
+"Generate Files" = "生成文件";
+
+/* In the main screen, this is the button that fetches data from a URL */
+"Get Data" = "获得数据";
+
+/* Error message to state the JSON didn't start with a {} or [] */
+"JSON text did not start with array or object." = "JSON 文本未以数组或对象开始";
+
+/* Message when writing the files, nothing was written */
+"No file were written to the disk" = "未向磁盘写入文件";
+
+/* This is the current title of http options window that gets written */
+"Options" = "选项";
+
+/* In the save portion, the label to choose what language */
+"Output Language" = "输出语言";
+
+/* Button text to overwrite files */
+"Overwrite Files" = "覆盖文件";
+
+/* The title of the prompt to tell the user they are about to overwrite the files in the existing application */
+"Overwrite files?" = "覆盖文件吗？";
+
+/* In the save portion, the label to choose what the package is */
+"Package Name" = "程序包名称";
+
+/* Message in an actionsheet stating that the write is successful */
+"Success!" = "成功！";
+
+/* If there is nothing in the JSON field, state that there is nothing there */
+"There is no content to parse." = "无可以分析的内容。";
+
+/* The prompt to tell the user they are about to overwrite the files in the existing application */
+"This operation will overwrite files in this directory. Are you sure you want to continue?" = "该操作将覆盖此目录的文件。您确定继续吗？";
+
+/* In the save portion, for objective C, determine whether or not to use ARC */
+"Use Automatic Reference Counting" = "使用自动引用计数";
+
+/* In the main screen, this is the verify button that formats the JSON */
+"Verify" = "验证";
+
+/* Success message in an action sheet */
+"Your files have successfully been generated." = "已成功生成您的文件。";
+

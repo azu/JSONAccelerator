@@ -83,9 +83,11 @@
 		446B282614ABCC0600FBE699 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
 		446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447E8A7314AAA93E00A3345A /* Localizable.strings */; };
 		446F098614AABE7100E37C0C /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098514AABE7100E37C0C /* MainWindowController.xib */; };
-		446F098914AABEDD00E37C0C /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098B14AABEDD00E37C0C /* FetchJSONViewController.xib */; };
 		446F098D14AABF0400E37C0C /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098514AABE7100E37C0C /* MainWindowController.xib */; };
-		446F098E14AABF0D00E37C0C /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098B14AABEDD00E37C0C /* FetchJSONViewController.xib */; };
+		44703BE214D05D9400994234 /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44703BE414D05D9400994234 /* FetchJSONViewController.xib */; };
+		44703BE314D05D9400994234 /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44703BE414D05D9400994234 /* FetchJSONViewController.xib */; };
+		44703BE514D05DA300994234 /* SavePanelLanguageChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44703BE814D05DA300994234 /* SavePanelLanguageChooserViewController.xib */; };
+		44703BE614D05DA300994234 /* SavePanelLanguageChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44703BE814D05DA300994234 /* SavePanelLanguageChooserViewController.xib */; };
 		44731FB414B78BDC009FC27D /* 57-download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44731FB314B78BDC009FC27D /* 57-download@2x.png */; };
 		44731FB614B78C1B009FC27D /* 57-download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44731FB314B78BDC009FC27D /* 57-download@2x.png */; };
 		44731FB814B78CA8009FC27D /* 19-gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44731FB714B78CA8009FC27D /* 19-gear@2x.png */; };
@@ -129,9 +131,7 @@
 		7D00F427149FF99600235189 /* JSONTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D00F425149FF30C00235189 /* JSONTextView.m */; };
 		7D00F42914A11BAF00235189 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
 		7D384DBD14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */; };
-		7D384DBE14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D384DBC14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib */; };
 		7D384DBF14ACFB210073EA2C /* SavePanelLanguageChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */; };
-		7D384DC014ACFB240073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D384DBC14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib */; };
 		7D5FE4D114AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D014AD11F900330C2F /* HTTPOptionsWindowController.m */; };
 		7D5FE4D214AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D014AD11F900330C2F /* HTTPOptionsWindowController.m */; };
 		7D5FE4D414AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D314AD128800330C2F /* HTTPOptionsWindowController.xib */; };
@@ -247,7 +247,15 @@
 		446B282914ABCC1800FBE699 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ru; path = ru.lproj/Credits.rtf; sourceTree = "<group>"; };
 		446B282B14ABCC1F00FBE699 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Credits.rtf; sourceTree = "<group>"; };
 		446F098514AABE7100E37C0C /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowController.xib; path = ViewControllers/MainWindowController.xib; sourceTree = "<group>"; };
-		446F098A14AABEDD00E37C0C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FetchJSONViewController.xib; sourceTree = "<group>"; };
+		44703BDF14D05D4C00994234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "/Users/jrexeise/svn/BRAVO.ProductDevelopment/JSONModeler/trunk/JSONModeler/JSONModeler/zh-Hans.lproj/JRFeedbackProvider.strings"; sourceTree = "<absolute>"; };
+		44703BE114D05D6600994234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		44703BE414D05D9400994234 /* FetchJSONViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FetchJSONViewController.xib; sourceTree = "<group>"; };
+		44703BE714D05DA300994234 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SavePanelLanguageChooserViewController.xib; sourceTree = "<group>"; };
+		44703BE914D05DAA00994234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
+		44703BEA14D05DC100994234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.xib"; sourceTree = "<group>"; };
+		44703BEB14D05DD300994234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		44703BEC14D05DE100994234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hans"; path = "zh-Hans.lproj/Credits.rtf"; sourceTree = "<group>"; };
+		44703BED14D05DF000994234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		44731FB314B78BDC009FC27D /* 57-download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "57-download@2x.png"; path = "Resources/Images/57-download@2x.png"; sourceTree = "<group>"; };
 		44731FB714B78CA8009FC27D /* 19-gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "19-gear@2x.png"; path = "Resources/Images/19-gear@2x.png"; sourceTree = "<group>"; };
 		44731FBA14B78E91009FC27D /* 117-todo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "117-todo@2x.png"; path = "Resources/Images/117-todo@2x.png"; sourceTree = "<group>"; };
@@ -311,7 +319,6 @@
 		7D384DB214ACE7FC0073EA2C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
 		7D384DBA14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavePanelLanguageChooserViewController.h; path = ViewControllers/SavePanelLanguageChooserViewController.h; sourceTree = "<group>"; };
 		7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavePanelLanguageChooserViewController.m; path = ViewControllers/SavePanelLanguageChooserViewController.m; sourceTree = "<group>"; };
-		7D384DBC14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SavePanelLanguageChooserViewController.xib; path = ViewControllers/SavePanelLanguageChooserViewController.xib; sourceTree = "<group>"; };
 		7D5FE4CF14AD11F900330C2F /* HTTPOptionsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPOptionsWindowController.h; path = ViewControllers/HTTPOptionsWindow/HTTPOptionsWindowController.h; sourceTree = "<group>"; };
 		7D5FE4D014AD11F900330C2F /* HTTPOptionsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPOptionsWindowController.m; path = ViewControllers/HTTPOptionsWindow/HTTPOptionsWindowController.m; sourceTree = "<group>"; };
 		7D5FE4D314AD128800330C2F /* HTTPOptionsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HTTPOptionsWindowController.xib; path = ViewControllers/HTTPOptionsWindow/HTTPOptionsWindowController.xib; sourceTree = "<group>"; };
@@ -692,7 +699,7 @@
 		44FE6F5D146C715700FA13F9 /* Fetch */ = {
 			isa = PBXGroup;
 			children = (
-				446F098B14AABEDD00E37C0C /* FetchJSONViewController.xib */,
+				44703BE414D05D9400994234 /* FetchJSONViewController.xib */,
 				44FE6F48146C710300FA13F9 /* FetchJSONViewController.h */,
 				44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */,
 			);
@@ -736,7 +743,7 @@
 			children = (
 				7D384DBA14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.h */,
 				7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */,
-				7D384DBC14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib */,
+				44703BE814D05DA300994234 /* SavePanelLanguageChooserViewController.xib */,
 			);
 			name = "Save Panel Accessory View";
 			sourceTree = "<group>";
@@ -845,6 +852,7 @@
 				es,
 				ja,
 				fr,
+				"zh-Hans",
 			);
 			mainGroup = 441FC4D71462D8E1007BF9DC;
 			productRefGroup = 441FC4E31462D8E1007BF9DC /* Products */;
@@ -877,10 +885,10 @@
 				44233150149BD4C40071978D /* MainMenu.xib in Resources */,
 				447E8A7514AAA93E00A3345A /* Localizable.strings in Resources */,
 				446F098614AABE7100E37C0C /* MainWindowController.xib in Resources */,
-				446F098914AABEDD00E37C0C /* FetchJSONViewController.xib in Resources */,
+				44703BE214D05D9400994234 /* FetchJSONViewController.xib in Resources */,
 				4430047614AB6F4500F7C8DE /* InfoPlist.strings in Resources */,
 				446B282614ABCC0600FBE699 /* Credits.rtf in Resources */,
-				7D384DBE14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */,
+				44703BE514D05DA300994234 /* SavePanelLanguageChooserViewController.xib in Resources */,
 				7D5FE4D414AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */,
 				44731FB414B78BDC009FC27D /* 57-download@2x.png in Resources */,
 				44731FB814B78CA8009FC27D /* 19-gear@2x.png in Resources */,
@@ -917,10 +925,10 @@
 				7D00F42914A11BAF00235189 /* JSONModeler-Internal-Info.plist in Resources */,
 				446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */,
 				446F098D14AABF0400E37C0C /* MainWindowController.xib in Resources */,
-				446F098E14AABF0D00E37C0C /* FetchJSONViewController.xib in Resources */,
+				44703BE314D05D9400994234 /* FetchJSONViewController.xib in Resources */,
 				4430047714AB6F4A00F7C8DE /* InfoPlist.strings in Resources */,
 				443EF41314ABCD21006216BE /* Credits.rtf in Resources */,
-				7D384DC014ACFB240073EA2C /* SavePanelLanguageChooserViewController.xib in Resources */,
+				44703BE614D05DA300994234 /* SavePanelLanguageChooserViewController.xib in Resources */,
 				7D5FE4D514AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */,
 				44731FB614B78C1B009FC27D /* 57-download@2x.png in Resources */,
 				44731FB914B78D41009FC27D /* 19-gear@2x.png in Resources */,
@@ -1065,6 +1073,7 @@
 				443EF41914ABCD6D006216BE /* de */,
 				444522FE14B4AEAB00288ED6 /* ja */,
 				44B6BD9214B61CB6000AEC28 /* fr */,
+				44703BEA14D05DC100994234 /* zh-Hans */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1078,6 +1087,7 @@
 				446B281B14ABCBD400FBE699 /* es */,
 				44B6BD9A14B61F30000AEC28 /* fr */,
 				44B6BD9B14B61F30000AEC28 /* ja */,
+				44703BED14D05DF000994234 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1091,6 +1101,7 @@
 				443EF41B14ABCD80006216BE /* de */,
 				444522F814B4AE8700288ED6 /* ja */,
 				44B6BD8B14B61CAB000AEC28 /* fr */,
+				44703BE914D05DAA00994234 /* zh-Hans */,
 			);
 			name = "MainMenu-Internal.xib";
 			sourceTree = "<group>";
@@ -1104,6 +1115,7 @@
 				443EF41214ABCD19006216BE /* es */,
 				44B6BD9614B61EE5000AEC28 /* fr */,
 				44B6BD9714B61EE6000AEC28 /* ja */,
+				44703BEB14D05DD300994234 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1117,16 +1129,18 @@
 				7D384DB214ACE7FC0073EA2C /* es */,
 				44B6BD9414B61E8E000AEC28 /* fr */,
 				44B6BD9514B61E8F000AEC28 /* ja */,
+				44703BEC14D05DE100994234 /* zh-Hans */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		446F098B14AABEDD00E37C0C /* FetchJSONViewController.xib */ = {
+		44703BE814D05DA300994234 /* SavePanelLanguageChooserViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				446F098A14AABEDD00E37C0C /* en */,
+				44703BE714D05DA300994234 /* en */,
 			);
-			name = FetchJSONViewController.xib;
+			name = SavePanelLanguageChooserViewController.xib;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		447E8A7314AAA93E00A3345A /* Localizable.strings */ = {
@@ -1138,6 +1152,7 @@
 				443EF41D14ABCDA7006216BE /* de */,
 				444522F614B4ACA800288ED6 /* ja */,
 				44B6BD8514B61A90000AEC28 /* fr */,
+				44703BE114D05D6600994234 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1147,6 +1162,7 @@
 			children = (
 				44F037EC14CA18B800FECF86 /* en */,
 				44F037F314CA18BE00FECF86 /* fr */,
+				44703BDF14D05D4C00994234 /* zh-Hans */,
 			);
 			name = JRFeedbackProvider.strings;
 			sourceTree = "<group>";
