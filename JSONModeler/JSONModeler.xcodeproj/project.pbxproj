@@ -49,8 +49,6 @@
 		4423311F149B9E290071978D /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4419EB04146D7A73002605A0 /* BaseView.m */; };
 		44233120149B9E290071978D /* ClassNameTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */; };
 		44233121149B9E290071978D /* ClassPropertiesTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */; };
-		44233122149B9E290071978D /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F71476E147009B59AE /* NoodleLineNumberMarker.m */; };
-		44233123149B9E290071978D /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F91476E147009B59AE /* NoodleLineNumberView.m */; };
 		44233124149B9E290071978D /* EditClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10A8148840DD00BEE605 /* EditClassViewController.m */; };
 		44233125149B9E290071978D /* EditPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10AF1488410C00BEE605 /* EditPropertyViewController.m */; };
 		44233126149B9E290071978D /* MASPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44233107149B9DFC0071978D /* MASPreferencesWindowController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -77,8 +75,6 @@
 		443EF41314ABCD21006216BE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
 		444AAC1C14CA260E008FBD6F /* JRFeedbackProviderRevised.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444AAC1B14CA260E008FBD6F /* JRFeedbackProviderRevised.xib */; };
 		444AAC1D14CA260E008FBD6F /* JRFeedbackProviderRevised.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444AAC1B14CA260E008FBD6F /* JRFeedbackProviderRevised.xib */; };
-		445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F71476E147009B59AE /* NoodleLineNumberMarker.m */; };
-		445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 445409F91476E147009B59AE /* NoodleLineNumberView.m */; };
 		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
 		446B282614ABCC0600FBE699 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
 		446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447E8A7314AAA93E00A3345A /* Localizable.strings */; };
@@ -136,6 +132,10 @@
 		7D2AD95A14D089440035A4FE /* CoreDataImplementationTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD95814D089440035A4FE /* CoreDataImplementationTemplate.txt */; };
 		7D2AD96514D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */; };
 		7D2AD96614D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */; };
+		7D2AD98014D0C3960035A4FE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2AD97D14D0C3960035A4FE /* NoodleLineNumberMarker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7D2AD98114D0C3960035A4FE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2AD97D14D0C3960035A4FE /* NoodleLineNumberMarker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7D2AD98214D0C3960035A4FE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2AD97F14D0C3960035A4FE /* NoodleLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7D2AD98314D0C3960035A4FE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2AD97F14D0C3960035A4FE /* NoodleLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7D384DBD14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */; };
 		7D384DBF14ACFB210073EA2C /* SavePanelLanguageChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */; };
 		7D5FE4D114AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D014AD11F900330C2F /* HTTPOptionsWindowController.m */; };
@@ -144,6 +144,8 @@
 		7D5FE4D514AD128800330C2F /* HTTPOptionsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D314AD128800330C2F /* HTTPOptionsWindowController.xib */; };
 		7D78647D14CF1FBB00A0B173 /* CoreDataModelGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D78647C14CF1FBB00A0B173 /* CoreDataModelGenerator.m */; };
 		7D78647E14CF1FBB00A0B173 /* CoreDataModelGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D78647C14CF1FBB00A0B173 /* CoreDataModelGenerator.m */; };
+		7D9FDFDC14D1E5CF00F135CC /* OutputLanguageWriterDjango.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FDFDB14D1E5CF00F135CC /* OutputLanguageWriterDjango.m */; };
+		7D9FDFDD14D1E5CF00F135CC /* OutputLanguageWriterDjango.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FDFDB14D1E5CF00F135CC /* OutputLanguageWriterDjango.m */; };
 		7DBDAE5D14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBDAE5C14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m */; };
 		7DBDAE5E14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBDAE5C14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m */; };
 		7DC99D2014A26D8900314AA5 /* ModelerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */; };
@@ -242,10 +244,6 @@
 		444522F814B4AE8700288ED6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = "ja.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		444522FE14B4AEAB00288ED6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		444AAC1B14CA260E008FBD6F /* JRFeedbackProviderRevised.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRFeedbackProviderRevised.xib; sourceTree = "<group>"; };
-		445409F61476E147009B59AE /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberMarker.h; path = Vendor/LineNumbers/NoodleLineNumberMarker.h; sourceTree = "<group>"; };
-		445409F71476E147009B59AE /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = Vendor/LineNumbers/NoodleLineNumberMarker.m; sourceTree = "<group>"; };
-		445409F81476E147009B59AE /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = Vendor/LineNumbers/NoodleLineNumberView.h; sourceTree = "<group>"; };
-		445409F91476E147009B59AE /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberView.m; path = Vendor/LineNumbers/NoodleLineNumberView.m; sourceTree = "<group>"; };
 		44670A7F1489987E0042A444 /* appIcons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appIcons.icns; sourceTree = "<group>"; };
 		44670A821489988E0042A444 /* JSONModeler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = JSONModeler.entitlements; sourceTree = "<group>"; };
 		446B281B14ABCBD400FBE699 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -324,6 +322,10 @@
 		7D2AD95514D087A90035A4FE /* CoreDataInterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataInterfaceTemplate.txt; path = Resources/Templates/CoreDataInterfaceTemplate.txt; sourceTree = "<group>"; };
 		7D2AD95814D089440035A4FE /* CoreDataImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataImplementationTemplate.txt; path = Resources/Templates/CoreDataImplementationTemplate.txt; sourceTree = "<group>"; };
 		7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataAccessorsTemplate.txt; path = Resources/Templates/CoreDataAccessorsTemplate.txt; sourceTree = "<group>"; };
+		7D2AD97C14D0C3960035A4FE /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberMarker.h; sourceTree = "<group>"; };
+		7D2AD97D14D0C3960035A4FE /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberMarker.m; sourceTree = "<group>"; };
+		7D2AD97E14D0C3960035A4FE /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberView.h; sourceTree = "<group>"; };
+		7D2AD97F14D0C3960035A4FE /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberView.m; sourceTree = "<group>"; };
 		7D384DB214ACE7FC0073EA2C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
 		7D384DBA14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavePanelLanguageChooserViewController.h; path = ViewControllers/SavePanelLanguageChooserViewController.h; sourceTree = "<group>"; };
 		7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavePanelLanguageChooserViewController.m; path = ViewControllers/SavePanelLanguageChooserViewController.m; sourceTree = "<group>"; };
@@ -332,6 +334,8 @@
 		7D5FE4D314AD128800330C2F /* HTTPOptionsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HTTPOptionsWindowController.xib; path = ViewControllers/HTTPOptionsWindow/HTTPOptionsWindowController.xib; sourceTree = "<group>"; };
 		7D78647B14CF1FBB00A0B173 /* CoreDataModelGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataModelGenerator.h; path = Models/OutputLanguageWriters/CoreDataModelGenerator.h; sourceTree = "<group>"; };
 		7D78647C14CF1FBB00A0B173 /* CoreDataModelGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataModelGenerator.m; path = Models/OutputLanguageWriters/CoreDataModelGenerator.m; sourceTree = "<group>"; };
+		7D9FDFDA14D1E5CF00F135CC /* OutputLanguageWriterDjango.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterDjango.h; path = Models/OutputLanguageWriters/OutputLanguageWriterDjango.h; sourceTree = "<group>"; };
+		7D9FDFDB14D1E5CF00F135CC /* OutputLanguageWriterDjango.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterDjango.m; path = Models/OutputLanguageWriters/OutputLanguageWriterDjango.m; sourceTree = "<group>"; };
 		7DBDAE5B14CF7C1B00D7349E /* OutputLanguageWriterCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterCoreData.h; path = Models/OutputLanguageWriters/OutputLanguageWriterCoreData.h; sourceTree = "<group>"; };
 		7DBDAE5C14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterCoreData.m; path = Models/OutputLanguageWriters/OutputLanguageWriterCoreData.m; sourceTree = "<group>"; };
 		7DC99D1D14A26D8900314AA5 /* ModelerDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelerDocument.h; path = Documents/ModelerDocument.h; sourceTree = "<group>"; };
@@ -624,10 +628,10 @@
 		445409F41476E112009B59AE /* Noodle */ = {
 			isa = PBXGroup;
 			children = (
-				445409F61476E147009B59AE /* NoodleLineNumberMarker.h */,
-				445409F71476E147009B59AE /* NoodleLineNumberMarker.m */,
-				445409F81476E147009B59AE /* NoodleLineNumberView.h */,
-				445409F91476E147009B59AE /* NoodleLineNumberView.m */,
+				7D2AD97C14D0C3960035A4FE /* NoodleLineNumberMarker.h */,
+				7D2AD97D14D0C3960035A4FE /* NoodleLineNumberMarker.m */,
+				7D2AD97E14D0C3960035A4FE /* NoodleLineNumberView.h */,
+				7D2AD97F14D0C3960035A4FE /* NoodleLineNumberView.m */,
 			);
 			name = Noodle;
 			sourceTree = "<group>";
@@ -688,6 +692,8 @@
 				44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */,
 				7DBDAE5B14CF7C1B00D7349E /* OutputLanguageWriterCoreData.h */,
 				7DBDAE5C14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m */,
+				7D9FDFDA14D1E5CF00F135CC /* OutputLanguageWriterDjango.h */,
+				7D9FDFDB14D1E5CF00F135CC /* OutputLanguageWriterDjango.m */,
 				7D78647B14CF1FBB00A0B173 /* CoreDataModelGenerator.h */,
 				7D78647C14CF1FBB00A0B173 /* CoreDataModelGenerator.m */,
 			);
@@ -999,8 +1005,6 @@
 				4419EB05146D7A73002605A0 /* BaseView.m in Sources */,
 				44BC25C614756AFD00777EB8 /* ClassNameTableViewHelper.m in Sources */,
 				44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */,
-				445409FA1476E147009B59AE /* NoodleLineNumberMarker.m in Sources */,
-				445409FB1476E147009B59AE /* NoodleLineNumberView.m in Sources */,
 				448B10AA148840DE00BEE605 /* EditClassViewController.m in Sources */,
 				448B10B11488410C00BEE605 /* EditPropertyViewController.m in Sources */,
 				44233109149B9DFC0071978D /* MASPreferencesWindowController.m in Sources */,
@@ -1015,6 +1019,9 @@
 				44F037E914CA18AE00FECF86 /* NSURLRequest+postForm.m in Sources */,
 				7D78647D14CF1FBB00A0B173 /* CoreDataModelGenerator.m in Sources */,
 				7DBDAE5D14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m in Sources */,
+				7D2AD98014D0C3960035A4FE /* NoodleLineNumberMarker.m in Sources */,
+				7D2AD98214D0C3960035A4FE /* NoodleLineNumberView.m in Sources */,
+				7D9FDFDC14D1E5CF00F135CC /* OutputLanguageWriterDjango.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,8 +1058,6 @@
 				4423311F149B9E290071978D /* BaseView.m in Sources */,
 				44233120149B9E290071978D /* ClassNameTableViewHelper.m in Sources */,
 				44233121149B9E290071978D /* ClassPropertiesTableViewHelper.m in Sources */,
-				44233122149B9E290071978D /* NoodleLineNumberMarker.m in Sources */,
-				44233123149B9E290071978D /* NoodleLineNumberView.m in Sources */,
 				44233124149B9E290071978D /* EditClassViewController.m in Sources */,
 				44233125149B9E290071978D /* EditPropertyViewController.m in Sources */,
 				44233126149B9E290071978D /* MASPreferencesWindowController.m in Sources */,
@@ -1067,6 +1072,9 @@
 				44F037EA14CA18AE00FECF86 /* NSURLRequest+postForm.m in Sources */,
 				7D78647E14CF1FBB00A0B173 /* CoreDataModelGenerator.m in Sources */,
 				7DBDAE5E14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m in Sources */,
+				7D2AD98114D0C3960035A4FE /* NoodleLineNumberMarker.m in Sources */,
+				7D2AD98314D0C3960035A4FE /* NoodleLineNumberView.m in Sources */,
+				7D9FDFDD14D1E5CF00F135CC /* OutputLanguageWriterDjango.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

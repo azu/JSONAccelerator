@@ -75,7 +75,8 @@
     return alphanumericString;
 }
 
-- (NSString *)objectiveCClassString {
+- (NSString *)objectiveCClassString
+{
     BOOL isReservedWord;
     NSString *alphanumeric = [self alphanumericStringIsObjectiveCReservedWord:&isReservedWord];
     if (isReservedWord) {
@@ -107,6 +108,23 @@
         alphanumeric = [@"num" stringByAppendingString:alphanumeric];
     }
     return [alphanumeric uncapitalizeFirstCharacter];
+}
+
+- (NSString *)underscoreDelimitedString
+{
+    NSMutableString *mutableSelf = [self mutableCopy];
+    while ([mutableSelf rangeOfCharacterFromSet:[NSCharacterSet uppercaseLetterCharacterSet]].location != NSNotFound) {
+        NSRange uppercaseRange = [mutableSelf rangeOfCharacterFromSet:[NSCharacterSet uppercaseLetterCharacterSet]];
+        NSString *lowercase = [[mutableSelf substringWithRange:uppercaseRange] lowercaseString];
+        if (uppercaseRange.location == 0) {
+            [mutableSelf replaceCharactersInRange:uppercaseRange withString:[NSString stringWithFormat:@"%@", lowercase]];
+        }
+        else {
+            [mutableSelf replaceCharactersInRange:uppercaseRange withString:[NSString stringWithFormat:@"_%@", lowercase]];
+        }
+    }
+    
+    return [NSString stringWithString:mutableSelf];
 }
 
 @end

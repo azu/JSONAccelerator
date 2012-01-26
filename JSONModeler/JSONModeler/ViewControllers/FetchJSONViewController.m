@@ -16,6 +16,7 @@
 #import "OutputLanguageWriterObjectiveC.h"
 #import "OutputLanguageWriterJava.h"
 #import "OutputLanguageWriterCoreData.h"
+#import "OutputLanguageWriterDjango.h"
 
 #import "CoreDataModelGenerator.h"
 
@@ -246,10 +247,6 @@
             
             if(self.modeler) {
                 
-//                CoreDataModelGenerator *generator = [[CoreDataModelGenerator alloc] init];
-//                NSXMLDocument *doc = [generator coreDataModelXMLDocumentFromClassObjects:[self.modeler parsedDictionary]];
-//                [[doc XMLData] writeToFile:@"/Users/shickey/Desktop/cd.xml" atomically:YES];
-                
                 NSURL *selectedDirectory = [panel URL];
                 id<OutputLanguageWriterProtocol> writer = nil;
                 NSDictionary *optionsDict = nil;
@@ -264,7 +261,11 @@
                 }
                 else if (language == OutputLanguageCoreDataObjectiveC) {
                     writer = [[OutputLanguageWriterCoreData alloc] init];
-                    optionsDict = nil;
+                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:_languageChooserViewController.baseClassName, kCoreDataWritingOptionBaseClassName, nil];
+                }
+                else if (language == OutputLanguageDjangoPython) {
+                    writer = [[OutputLanguageWriterDjango alloc] init];
+                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:_languageChooserViewController.baseClassName, kDjangoWritingOptionBaseClassName, nil];
                 }
                 
                 filesHaveBeenWritten = [writer writeClassObjects:[self.modeler parsedDictionary] toURL:selectedDirectory options:optionsDict generatedError:&filesHaveHadError];

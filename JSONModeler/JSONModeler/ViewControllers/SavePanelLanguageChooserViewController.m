@@ -70,6 +70,9 @@
     else if (_languageDropDownIndex == 2) {
         return OutputLanguageCoreDataObjectiveC;
     }
+    else if (_languageDropDownIndex == 3) {
+        return OutputLanguageDjangoPython;
+    }
     else {
         return -1;
     }

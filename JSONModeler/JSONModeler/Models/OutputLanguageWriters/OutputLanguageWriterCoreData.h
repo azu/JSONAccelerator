@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "OutputLanguageWriterProtocol.h"
 
+static NSString *const kCoreDataWritingOptionBaseClassName = @"kCoreDataWritingOptionBaseClassName";
+
 @interface OutputLanguageWriterCoreData : NSObject <OutputLanguageWriterProtocol>
 
 @end

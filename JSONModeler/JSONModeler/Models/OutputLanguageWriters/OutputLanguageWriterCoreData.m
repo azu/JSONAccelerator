@@ -33,6 +33,34 @@
     
     NSMutableArray *classObjects = [[classObjectsDict allValues] mutableCopy];
     
+    for (ClassBaseObject *base in classObjects) {
+        if([[base className] isEqualToString:@"InternalBaseClass"]) {
+            NSString *newBaseClassName;
+            if (nil != [options objectForKey:kCoreDataWritingOptionBaseClassName]) {
+                newBaseClassName = [options objectForKey:kCoreDataWritingOptionBaseClassName];
+            }
+            else {
+                newBaseClassName = @"BaseClass";
+            }
+            BOOL hasUniqueFileNameBeenFound = NO;
+            NSUInteger classCheckInteger = 2;
+            while (hasUniqueFileNameBeenFound == NO) {
+                hasUniqueFileNameBeenFound = YES;
+                for(ClassBaseObject *collisionBaseObject in classObjects) {
+                    if([[collisionBaseObject className] isEqualToString:newBaseClassName]) {
+                        hasUniqueFileNameBeenFound = NO; 
+                    }
+                }
+                if(hasUniqueFileNameBeenFound == NO) {
+                    newBaseClassName = [NSString stringWithFormat:@"%@%i", newBaseClassName, classCheckInteger];
+                    classCheckInteger++;
+                }
+            }
+            
+            [base setClassName:newBaseClassName];
+        }
+    }
+    
     NSArray *classObjectsCopy = [NSArray arrayWithArray:classObjects];  //Create an immutable copy so we can iterate over it while we mutate the original
     for (ClassBaseObject *classObject in classObjectsCopy) {
         NSArray *properties = [[classObject properties] allValues];
@@ -49,8 +77,6 @@
                 [newObject.properties setObject:newProperty forKey:newProperty.name];
                 
                 [classObjects addObject:newObject];
-                
-                NSLog(@"%@%@", newObject.className, [newObject properties]);
             }
         }
     }

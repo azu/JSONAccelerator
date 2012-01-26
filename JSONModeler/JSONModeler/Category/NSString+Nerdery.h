@@ -35,4 +35,6 @@
  */
 - (NSString *)objectiveCPropertyString;
 
+- (NSString *)underscoreDelimitedString;
+
 @end
