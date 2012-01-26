@@ -353,7 +353,6 @@
 {
     NSString *setterString = @"";
     if(property.isClass && (property.type == PropertyTypeDictionary || property.type == PropertyTypeClass)) {
-#warning Need to do testing to make sure the set object is of type of dictionary
         setterString = [setterString stringByAppendingFormat:@"    self.%@ = [%@ initWithDictionary:[dict objectForKey:@\"%@\"]];\n", property.name, property.referenceClass.className, property.jsonName];
     } else if(property.type == PropertyTypeArray && property.referenceClass != nil) {
         NSBundle *mainBundle = [NSBundle mainBundle];

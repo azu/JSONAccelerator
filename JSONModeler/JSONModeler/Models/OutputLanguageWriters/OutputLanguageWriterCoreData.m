@@ -106,33 +106,33 @@
 
 - (NSDictionary *)getOutputFilesForClassObject:(ClassBaseObject *)classObject
 {
-    
+    return [NSDictionary dictionary];
 }
 
 
 - (NSString *)propertyForProperty:(ClassPropertiesObject *)property
 {
-    
+    return @"";
 }
 
 - (NSString *)setterForProperty:(ClassPropertiesObject *)property
 {
-    
+    return @"";
 }
 
 - (NSArray *)setterReferenceClassesForProperty:(ClassPropertiesObject *)property
 {
-    
+    return [NSArray array];
 }
 
 - (NSString *)typeStringForProperty:(ClassPropertiesObject *)property
 {
-    
+    return @"";
 }
 
 - (NSString *)getterForProperty:(ClassPropertiesObject *)property
 {
-    
+    return @"";
 }
 
 #pragma mark - File Contents Generation Methods
