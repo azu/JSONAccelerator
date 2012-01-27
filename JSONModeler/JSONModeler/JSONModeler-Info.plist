@@ -67,5 +67,7 @@
 	<string>NSApplication</string>
 	<key>JRFeedbackURL</key>
 	<string>http://www.jsonmodeler.com/feedback.php</string>
+	<key>DMAppId</key>
+	<string>4f218fdaa14ad72c61000000</string>
 </dict>
 </plist>

@@ -12,6 +12,7 @@
 #import "MainWindowController.h"
 #import "MASPreferencesWindowController.h"
 #import "JRFeedbackController.h"
+#import <ObjectiveMetrics/ObjectiveMetrics.h>
 
 @interface AppDelegate () {
     
@@ -27,7 +28,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    
+    [[DMTracker defaultTracker] startApp];
     _preferencesWindowController = nil;
     
 }

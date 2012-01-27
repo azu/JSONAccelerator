@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440A182F14D3375000AA1894 /* ObjectiveMetrics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C942B314D3322400CE4765 /* ObjectiveMetrics.framework */; };
+		440A183014D3375000AA1894 /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C942B514D3323E00CE4765 /* SBJson.framework */; };
+		440A183114D3377A00AA1894 /* ObjectiveMetrics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C942B314D3322400CE4765 /* ObjectiveMetrics.framework */; };
+		440A183214D3377A00AA1894 /* SBJson.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C942B514D3323E00CE4765 /* SBJson.framework */; };
+		440A183B14D338D200AA1894 /* ObjectiveMetrics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 440A183914D338D100AA1894 /* ObjectiveMetrics.framework */; };
+		440A183C14D338D200AA1894 /* SBJson.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 440A183A14D338D100AA1894 /* SBJson.framework */; };
 		4414992514642ABC002B6969 /* ClassBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4414992414642ABC002B6969 /* ClassBaseObject.m */; };
 		4414992914642AF4002B6969 /* ClassPropertiesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4414992814642AF4002B6969 /* ClassPropertiesObject.m */; };
 		441499351464619A002B6969 /* NSString+Nerdery.m in Sources */ = {isa = PBXBuildFile; fileRef = 441499341464619A002B6969 /* NSString+Nerdery.m */; };
@@ -100,6 +106,8 @@
 		44BC25C614756AFD00777EB8 /* ClassNameTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */; };
 		44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
+		44C942B414D3322400CE4765 /* ObjectiveMetrics.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44C942B314D3322400CE4765 /* ObjectiveMetrics.framework */; };
+		44C942B614D3323E00CE4765 /* SBJson.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44C942B514D3323E00CE4765 /* SBJson.framework */; };
 		44F037CE14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037CF14C8B57700FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037D314C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */; };
@@ -167,12 +175,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		440A183314D337C000AA1894 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				440A183B14D338D200AA1894 /* ObjectiveMetrics.framework in CopyFiles */,
+				440A183C14D338D200AA1894 /* SBJson.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		44233149149BA92A0071978D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				44C942B614D3323E00CE4765 /* SBJson.framework in CopyFiles */,
+				44C942B414D3322400CE4765 /* ObjectiveMetrics.framework in CopyFiles */,
 				4423314A149BA95B0071978D /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +201,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		440A183914D338D100AA1894 /* ObjectiveMetrics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ObjectiveMetrics.framework; sourceTree = "<group>"; };
+		440A183A14D338D100AA1894 /* SBJson.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SBJson.framework; sourceTree = "<group>"; };
 		4414992314642ABC002B6969 /* ClassBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassBaseObject.h; path = Models/ClassBaseObject.h; sourceTree = "<group>"; };
 		4414992414642ABC002B6969 /* ClassBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassBaseObject.m; path = Models/ClassBaseObject.m; sourceTree = "<group>"; };
 		4414992714642AF4002B6969 /* ClassPropertiesObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassPropertiesObject.h; path = Models/ClassPropertiesObject.h; sourceTree = "<group>"; };
@@ -294,6 +317,8 @@
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
 		44C6F4E714AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44C942B314D3322400CE4765 /* ObjectiveMetrics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ObjectiveMetrics.framework; sourceTree = "<group>"; };
+		44C942B514D3323E00CE4765 /* SBJson.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SBJson.framework; sourceTree = "<group>"; };
 		44F037CC14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterObjectiveC.h; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.h; sourceTree = "<group>"; };
 		44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterObjectiveC.m; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.m; sourceTree = "<group>"; };
 		44F037D014C8B63600FECF86 /* OutputLanguageWriterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterProtocol.h; path = Models/OutputLanguageWriters/OutputLanguageWriterProtocol.h; sourceTree = "<group>"; };
@@ -322,7 +347,7 @@
 		7D00408614A24F1700235189 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		7D00F424149FF30C00235189 /* JSONTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONTextView.h; path = Views/JSONTextView.h; sourceTree = "<group>"; };
 		7D00F425149FF30C00235189 /* JSONTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONTextView.m; path = Views/JSONTextView.m; sourceTree = "<group>"; };
-		7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JSONModeler-Internal-Info.plist"; sourceTree = "<group>"; };
+		7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.mxml; name = "JSONModeler-Internal-Info.plist"; path = "../JSONModeler-Internal-Info.plist"; sourceTree = "<group>"; };
 		7D2AD95514D087A90035A4FE /* CoreDataInterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataInterfaceTemplate.txt; path = Resources/Templates/CoreDataInterfaceTemplate.txt; sourceTree = "<group>"; };
 		7D2AD95814D089440035A4FE /* CoreDataImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataImplementationTemplate.txt; path = Resources/Templates/CoreDataImplementationTemplate.txt; sourceTree = "<group>"; };
 		7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataAccessorsTemplate.txt; path = Resources/Templates/CoreDataAccessorsTemplate.txt; sourceTree = "<group>"; };
@@ -355,6 +380,8 @@
 			files = (
 				44F7B43614CA1B00004CEA55 /* SystemConfiguration.framework in Frameworks */,
 				7D00408814A24F1C00235189 /* AddressBook.framework in Frameworks */,
+				440A183114D3377A00AA1894 /* ObjectiveMetrics.framework in Frameworks */,
+				440A183214D3377A00AA1894 /* SBJson.framework in Frameworks */,
 				441FC4E71462D8E1007BF9DC /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +402,8 @@
 				44F7B43414CA1AF5004CEA55 /* SystemConfiguration.framework in Frameworks */,
 				7D00408714A24F1700235189 /* AddressBook.framework in Frameworks */,
 				44233128149B9E290071978D /* Cocoa.framework in Frameworks */,
+				440A182F14D3375000AA1894 /* ObjectiveMetrics.framework in Frameworks */,
+				440A183014D3375000AA1894 /* SBJson.framework in Frameworks */,
 				44233141149B9F380071978D /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +444,10 @@
 		441FC4E51462D8E1007BF9DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				440A183914D338D100AA1894 /* ObjectiveMetrics.framework */,
+				440A183A14D338D100AA1894 /* SBJson.framework */,
+				44C942B314D3322400CE4765 /* ObjectiveMetrics.framework */,
+				44C942B514D3323E00CE4765 /* SBJson.framework */,
 				44F7B43314CA1AF5004CEA55 /* SystemConfiguration.framework */,
 				7D00408614A24F1700235189 /* AddressBook.framework */,
 				44233140149B9F380071978D /* Sparkle.framework */,
@@ -810,6 +843,7 @@
 				441FC4DE1462D8E1007BF9DC /* Sources */,
 				441FC4DF1462D8E1007BF9DC /* Frameworks */,
 				441FC4E01462D8E1007BF9DC /* Resources */,
+				440A183314D337C000AA1894 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1258,9 +1292,14 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JSONModeler/JSONModeler.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer: Jonathan Rexeisen (NUYRHWR8MG)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "CE26365C-D529-492D-946F-53E589521CD0";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
@@ -1273,9 +1312,14 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JSONModeler/JSONModeler.entitlements;
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
@@ -1316,10 +1360,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/JSONModeler/Vendor/Sparkle\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler-Internal-Info.plist";
+				INFOPLIST_PREPROCESS = NO;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = JSONModeler;
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
@@ -1332,10 +1383,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/JSONModeler/Vendor/Sparkle\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler-Internal-Info.plist";
+				INFOPLIST_PREPROCESS = NO;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = JSONModeler;
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;

@@ -31,8 +31,6 @@
 			<string>JSONTextType</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
 			<key>NSDocumentClass</key>
 			<string>ModelerDocument</string>
 		</dict>
@@ -50,22 +48,26 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.5</string>
+	<string>0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>11</string>
+	<string>1</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2012 Nerdery Interactive Labs. All rights reserved.</string>
+	<string>Copyright © 2011 Nerdery Interactive Labs. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu-Internal</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
 	<string>https://yankee.sierrabravo.net/~jrexeise/JSONModeler/updates.xml</string>
+	<key>JRFeedbackURL</key>
+	<string>http://www.jsonmodeler.com/feedback.php</string>
+	<key>DMAppId</key>
+	<string>4f218fdaa14ad72c61000000</string>
 </dict>
 </plist>
