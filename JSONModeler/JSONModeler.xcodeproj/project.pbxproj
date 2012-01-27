@@ -146,6 +146,10 @@
 		7D78647E14CF1FBB00A0B173 /* CoreDataModelGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D78647C14CF1FBB00A0B173 /* CoreDataModelGenerator.m */; };
 		7D9FDFDC14D1E5CF00F135CC /* OutputLanguageWriterDjango.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FDFDB14D1E5CF00F135CC /* OutputLanguageWriterDjango.m */; };
 		7D9FDFDD14D1E5CF00F135CC /* OutputLanguageWriterDjango.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FDFDB14D1E5CF00F135CC /* OutputLanguageWriterDjango.m */; };
+		7D9FE00A14D32CD800F135CC /* JavaArrayTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D9FE00914D32CD800F135CC /* JavaArrayTemplate.txt */; };
+		7D9FE00B14D32CD800F135CC /* JavaArrayTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D9FE00914D32CD800F135CC /* JavaArrayTemplate.txt */; };
+		7D9FE01114D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D9FE01014D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt */; };
+		7D9FE01214D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D9FE01014D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt */; };
 		7DBDAE5D14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBDAE5C14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m */; };
 		7DBDAE5E14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DBDAE5C14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m */; };
 		7DC99D2014A26D8900314AA5 /* ModelerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */; };
@@ -336,6 +340,8 @@
 		7D78647C14CF1FBB00A0B173 /* CoreDataModelGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataModelGenerator.m; path = Models/OutputLanguageWriters/CoreDataModelGenerator.m; sourceTree = "<group>"; };
 		7D9FDFDA14D1E5CF00F135CC /* OutputLanguageWriterDjango.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterDjango.h; path = Models/OutputLanguageWriters/OutputLanguageWriterDjango.h; sourceTree = "<group>"; };
 		7D9FDFDB14D1E5CF00F135CC /* OutputLanguageWriterDjango.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterDjango.m; path = Models/OutputLanguageWriters/OutputLanguageWriterDjango.m; sourceTree = "<group>"; };
+		7D9FE00914D32CD800F135CC /* JavaArrayTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JavaArrayTemplate.txt; path = Resources/Templates/JavaArrayTemplate.txt; sourceTree = "<group>"; };
+		7D9FE01014D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JavaPrimitiveArrayTemplate.txt; path = Resources/Templates/JavaPrimitiveArrayTemplate.txt; sourceTree = "<group>"; };
 		7DBDAE5B14CF7C1B00D7349E /* OutputLanguageWriterCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterCoreData.h; path = Models/OutputLanguageWriters/OutputLanguageWriterCoreData.h; sourceTree = "<group>"; };
 		7DBDAE5C14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterCoreData.m; path = Models/OutputLanguageWriters/OutputLanguageWriterCoreData.m; sourceTree = "<group>"; };
 		7DC99D1D14A26D8900314AA5 /* ModelerDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelerDocument.h; path = Documents/ModelerDocument.h; sourceTree = "<group>"; };
@@ -677,6 +683,8 @@
 				44C546EA146C191F00D3860A /* ImplementationTemplate.txt */,
 				44C546E7146C18D700D3860A /* InterfaceTemplate.txt */,
 				44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */,
+				7D9FE00914D32CD800F135CC /* JavaArrayTemplate.txt */,
+				7D9FE01014D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt */,
 				448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */,
 			);
 			name = Templates;
@@ -915,6 +923,8 @@
 				7D2AD95614D087A90035A4FE /* CoreDataInterfaceTemplate.txt in Resources */,
 				7D2AD95914D089440035A4FE /* CoreDataImplementationTemplate.txt in Resources */,
 				7D2AD96514D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */,
+				7D9FE00A14D32CD800F135CC /* JavaArrayTemplate.txt in Resources */,
+				7D9FE01114D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -958,6 +968,8 @@
 				7D2AD95714D087A90035A4FE /* CoreDataInterfaceTemplate.txt in Resources */,
 				7D2AD95A14D089440035A4FE /* CoreDataImplementationTemplate.txt in Resources */,
 				7D2AD96614D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */,
+				7D9FE00B14D32CD800F135CC /* JavaArrayTemplate.txt in Resources */,
+				7D9FE01214D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

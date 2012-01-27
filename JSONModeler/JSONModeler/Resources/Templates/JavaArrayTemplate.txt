@@ -1,0 +1,19 @@
+
+        this.{PROPERTYNAME} = new ArrayList<{CLASSNAME}>();
+        JSONArray array{CLASSNAME} = json.optJSONArray("{JSONNAME}");
+        if (null != array{CLASSNAME}) {
+            int {PROPERTYNAME}Length = array{CLASSNAME}.length();
+            for (int i = 0; i < {PROPERTYNAME}Length; i++) {
+                {OBJECTTYPE} item = array{CLASSNAME}.opt{OBJECTTYPE}(i);
+                if (null != item) {
+                    this.{PROPERTYNAME}.add(new {CLASSNAME}(item));
+                }
+            }
+        }
+        else {
+            {OBJECTTYPE} item = json.opt{OBJECTTYPE}("{JSONNAME}");
+            if (null != item) {
+                this.{PROPERTYNAME}.add(new {CLASSNAME}(item));
+            }
+        }
+

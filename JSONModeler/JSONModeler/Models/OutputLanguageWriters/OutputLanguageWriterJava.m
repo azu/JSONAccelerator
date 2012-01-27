@@ -8,6 +8,7 @@
 
 #import "OutputLanguageWriterJava.h"
 #import "ClassBaseObject.h"
+#import "ClassPropertiesObject.h"
 #import "NSString+Nerdery.h"
 
 @interface OutputLanguageWriterJava ()
@@ -138,17 +139,17 @@
     }
     
     // Constructor arguments
-    NSString *constructorArgs = @"";
-    for (ClassPropertiesObject *property in [classObject.properties allValues]) {
-        //Append a comma if not the first argument added to the string
-        if ( ![constructorArgs isEqualToString:@""] ) {
-            constructorArgs = [constructorArgs stringByAppendingString:@", "];
-        }
-        
-        constructorArgs = [constructorArgs stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [self typeStringForProperty:property], property.name]];
-    }
-    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CONSTRUCTOR_ARGS}" withString:constructorArgs];
+//    NSString *constructorArgs = @"";
+//    for (ClassPropertiesObject *property in [classObject.properties allValues]) {
+//        //Append a comma if not the first argument added to the string
+//        if ( ![constructorArgs isEqualToString:@""] ) {
+//            constructorArgs = [constructorArgs stringByAppendingString:@", "];
+//        }
+//        
+//        constructorArgs = [constructorArgs stringByAppendingString:[NSString stringWithFormat:@"%@ %@", [self typeStringForProperty:property], property.name]];
+//    }
+//    
+//    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CONSTRUCTOR_ARGS}" withString:constructorArgs];
     
     
     // Setters strings   
@@ -187,7 +188,64 @@
 - (NSString *)setterForProperty:(ClassPropertiesObject *)  property
 {
     NSString *setterString = @"";
-    setterString = [setterString stringByAppendingFormat:@"        this.%@ = %@;\n", property.name, property.name];
+    if(property.isClass && (property.type == PropertyTypeDictionary || property.type == PropertyTypeClass)) {
+        setterString = [setterString stringByAppendingFormat:@"        this.%@ = new %@(json.optJSONObject(\"%@\"));\n", property.name, property.referenceClass.className, property.jsonName];
+    } else if(property.type == PropertyTypeArray) {
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        
+        if (nil != property.referenceClass) {
+            NSString *arrayTemplate = [mainBundle pathForResource:@"JavaArrayTemplate" ofType:@"txt"];
+            NSString *templateString = [[NSString alloc] initWithContentsOfFile:arrayTemplate encoding:NSUTF8StringEncoding error:nil];
+            templateString = [templateString stringByReplacingOccurrencesOfString:@"{JSONNAME}" withString:property.jsonName];
+            templateString = [templateString stringByReplacingOccurrencesOfString:@"{PROPERTYNAME}" withString:property.name];
+            templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:property.referenceClass.className];
+            setterString = [templateString stringByReplacingOccurrencesOfString:@"{OBJECTTYPE}" withString:@"JSONObject"];
+        }
+        else {
+            NSString *arrayTemplate = [mainBundle pathForResource:@"JavaPrimitiveArrayTemplate" ofType:@"txt"];
+            NSString *templateString = [[NSString alloc] initWithContentsOfFile:arrayTemplate encoding:NSUTF8StringEncoding error:nil];
+            templateString = [templateString stringByReplacingOccurrencesOfString:@"{JSONNAME}" withString:property.jsonName];
+            templateString = [templateString stringByReplacingOccurrencesOfString:@"{PROPERTYNAME}" withString:property.name];
+            templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:[property.name capitalizeFirstCharacter]];
+            
+            PropertyType type = property.collectionType;
+            if (type == PropertyTypeString) {
+                templateString = [templateString stringByReplacingOccurrencesOfString:@"{TYPE}" withString:@"String"];
+                templateString = [templateString stringByReplacingOccurrencesOfString:@"{TYPE_UPPERCASE}" withString:@"String"];
+            }
+            else if (type == PropertyTypeInt) {
+                templateString = [templateString stringByReplacingOccurrencesOfString:@"{TYPE}" withString:@"int"];
+                templateString = [templateString stringByReplacingOccurrencesOfString:@"{TYPE_UPPERCASE}" withString:@"Int"];
+            }
+            else if (type == PropertyTypeDouble) {
+                templateString = [templateString stringByReplacingOccurrencesOfString:@"{TYPE}" withString:@"double"];
+                templateString = [templateString stringByReplacingOccurrencesOfString:@"{TYPE_UPPERCASE}" withString:@"Double"];
+            }
+            else if (type == PropertyTypeBool) {
+                templateString = [templateString stringByReplacingOccurrencesOfString:@"{TYPE}" withString:@"boolean"];
+                templateString = [templateString stringByReplacingOccurrencesOfString:@"{TYPE_UPPERCASE}" withString:@"Boolean"];
+            }
+            else {
+                templateString = [templateString stringByReplacingOccurrencesOfString:@"{TYPE}" withString:@"JSONObject"];
+                templateString = [templateString stringByReplacingOccurrencesOfString:@"{TYPE_UPPERCASE}" withString:@""];
+            }
+            setterString = [NSString stringWithString:templateString];
+        }
+        
+    } else {
+        setterString = [setterString stringByAppendingString:[NSString stringWithFormat:@"        this.%@ = ", property.name]];
+        if([property type] == PropertyTypeInt) {
+            setterString = [setterString stringByAppendingFormat:@"json.optInt(\"%@\");\n", property.jsonName];
+        } else if([property type] == PropertyTypeDouble) {
+            setterString = [setterString stringByAppendingFormat:@"json.optDouble(\"%@\");\n", property.jsonName]; 
+        } else if([property type] == PropertyTypeBool) {
+            setterString = [setterString stringByAppendingFormat:@"json.optBoolean(\"%@\");\n", property.jsonName]; 
+        } else if([property type] == PropertyTypeString) {
+            setterString = [setterString stringByAppendingFormat:@"json.optString(\"%@\");\n", property.jsonName]; 
+        } else {
+            setterString = [setterString stringByAppendingFormat:@"json.opt(\"%@\");\n", property.jsonName];
+        }
+    }
     return setterString;
 }
 

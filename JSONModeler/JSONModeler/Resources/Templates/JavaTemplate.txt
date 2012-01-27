@@ -1,5 +1,6 @@
 package {PACKAGENAME};
 
+import org.json.*;
 {IMPORTBLOCK}
 
 public class {CLASSNAME} {
@@ -10,7 +11,7 @@ public class {CLASSNAME} {
 		
 	}	
         
-    public {CLASSNAME} ({CONSTRUCTOR_ARGS}) {
+    public {CLASSNAME} (JSONObject json) {
     
 {SETTERS}
     }
