@@ -74,6 +74,10 @@
 		44233144149BA0760071978D /* MainMenu-Internal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44233142149BA0760071978D /* MainMenu-Internal.xib */; };
 		4423314A149BA95B0071978D /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44233140149B9F380071978D /* Sparkle.framework */; };
 		44233150149BD4C40071978D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 441FC4FB1462D8E1007BF9DC /* MainMenu.xib */; };
+		4426908C14DA050900C16CBD /* NPReceiptVerification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4426908B14DA050900C16CBD /* NPReceiptVerification.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4426908E14DA052900C16CBD /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4426908D14DA052900C16CBD /* IOKit.framework */; };
+		4426909014DA053C00C16CBD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4426908F14DA053C00C16CBD /* Security.framework */; };
+		4426909214DA056100C16CBD /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4426909114DA056100C16CBD /* libcrypto.dylib */; };
 		4430047614AB6F4500F7C8DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
 		4430047714AB6F4A00F7C8DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
 		4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
@@ -255,6 +259,11 @@
 		4423313D149B9E290071978D /* JSONModeler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONModeler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44233140149B9F380071978D /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = JSONModeler/Vendor/Sparkle/Sparkle.framework; sourceTree = "<group>"; };
 		44233143149BA0760071978D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
+		4426908A14DA050900C16CBD /* NPReceiptVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPReceiptVerification.h; path = Vendor/Receipt/NPReceiptVerification.h; sourceTree = "<group>"; };
+		4426908B14DA050900C16CBD /* NPReceiptVerification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPReceiptVerification.m; path = Vendor/Receipt/NPReceiptVerification.m; sourceTree = "<group>"; };
+		4426908D14DA052900C16CBD /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		4426908F14DA053C00C16CBD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4426909114DA056100C16CBD /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		442C6F0E1475B676002BA77F /* TableSelectionChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableSelectionChangeDelegate.h; path = JSONModeler/Protocols/TableSelectionChangeDelegate.h; sourceTree = "<group>"; };
 		4430047514AB6F4500F7C8DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4430047814AB6F5300F7C8DE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -378,6 +387,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4426909214DA056100C16CBD /* libcrypto.dylib in Frameworks */,
+				4426909014DA053C00C16CBD /* Security.framework in Frameworks */,
+				4426908E14DA052900C16CBD /* IOKit.framework in Frameworks */,
 				44F7B43614CA1B00004CEA55 /* SystemConfiguration.framework in Frameworks */,
 				7D00408814A24F1C00235189 /* AddressBook.framework in Frameworks */,
 				440A183114D3377A00AA1894 /* ObjectiveMetrics.framework in Frameworks */,
@@ -444,6 +456,9 @@
 		441FC4E51462D8E1007BF9DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4426909114DA056100C16CBD /* libcrypto.dylib */,
+				4426908F14DA053C00C16CBD /* Security.framework */,
+				4426908D14DA052900C16CBD /* IOKit.framework */,
 				440A183914D338D100AA1894 /* ObjectiveMetrics.framework */,
 				440A183A14D338D100AA1894 /* SBJson.framework */,
 				44C942B314D3322400CE4765 /* ObjectiveMetrics.framework */,
@@ -583,6 +598,7 @@
 		441FC51F1462D960007BF9DC /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4426908914DA04F400C16CBD /* Receipt */,
 				44F037E214CA189F00FECF86 /* JRFeedback */,
 				44233102149B9DE70071978D /* MASPreferences */,
 				445409F41476E112009B59AE /* Noodle */,
@@ -662,6 +678,15 @@
 				44233107149B9DFC0071978D /* MASPreferencesWindowController.m */,
 			);
 			name = MASPreferences;
+			sourceTree = "<group>";
+		};
+		4426908914DA04F400C16CBD /* Receipt */ = {
+			isa = PBXGroup;
+			children = (
+				4426908A14DA050900C16CBD /* NPReceiptVerification.h */,
+				4426908B14DA050900C16CBD /* NPReceiptVerification.m */,
+			);
+			name = Receipt;
 			sourceTree = "<group>";
 		};
 		445409F41476E112009B59AE /* Noodle */ = {
@@ -1068,6 +1093,7 @@
 				7D2AD98014D0C3960035A4FE /* NoodleLineNumberMarker.m in Sources */,
 				7D2AD98214D0C3960035A4FE /* NoodleLineNumberView.m in Sources */,
 				7D9FDFDC14D1E5CF00F135CC /* OutputLanguageWriterDjango.m in Sources */,
+				4426908C14DA050900C16CBD /* NPReceiptVerification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1301,7 +1327,7 @@
 				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "CE26365C-D529-492D-946F-53E589521CD0";
+				PROVISIONING_PROFILE = "B02A5448-7332-4626-98E8-7468E562A55F";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
 			};
