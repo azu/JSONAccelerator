@@ -25,6 +25,7 @@
  */
 - (BOOL)writeClassObjects:(NSDictionary *)classObjectsDict toURL:(NSURL *)url options:(NSDictionary *)options generatedError:(BOOL *)generatedErrorFlag;
 
+@optional
 - (NSDictionary *)getOutputFilesForClassObject:(ClassBaseObject *)classObject;
 
 - (NSString *)propertyForProperty:(ClassPropertiesObject *)property;
