@@ -12,7 +12,7 @@
 #import "MainWindowController.h"
 #import "MASPreferencesWindowController.h"
 #import "JRFeedbackController.h"
-#import <ObjectiveMetrics/ObjectiveMetrics.h>
+#import "DMTracker.h"
 
 @interface AppDelegate () {
     
