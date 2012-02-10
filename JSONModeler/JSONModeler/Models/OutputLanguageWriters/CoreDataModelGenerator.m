@@ -58,7 +58,7 @@
     NSArray *inverseRelationships = [self computeInverseRelationshipsForModel:rootElement];
     NSArray *entities = [rootElement elementsForName:@"entity"];
     for (NSXMLElement *inverse in inverseRelationships) {
-        NSString *entityNeedingInverseName = [[[inverse attributeForName:@"inverseName"] stringValue] objectiveCClassString];
+        NSString *entityNeedingInverseName = [[[inverse attributeForName:@"inverseName"] stringValue] uppercaseCamelcaseString];
         for (NSXMLElement *entity in entities) {
             if ([[[entity attributeForName:@"name"] stringValue] isEqualToString:entityNeedingInverseName]) {
                 [entity addChild:inverse];
@@ -213,15 +213,15 @@
     [element addAttribute:deletionAttribute];
     
     /* Set the destination entity */
-    NSXMLNode *destinationAttribute = [NSXMLNode attributeWithName:@"destinationEntity" stringValue:[classPropertiesObject.name objectiveCClassString]];
+    NSXMLNode *destinationAttribute = [NSXMLNode attributeWithName:@"destinationEntity" stringValue:[classPropertiesObject.name uppercaseCamelcaseString]];
     [element addAttribute:destinationAttribute];
     
     /* Set the inverse relationship */
-    NSXMLNode *inverseAttribute = [NSXMLNode attributeWithName:@"inverseName" stringValue:[entityName objectiveCPropertyString]];
+    NSXMLNode *inverseAttribute = [NSXMLNode attributeWithName:@"inverseName" stringValue:[entityName lowercaseCamelcaseString]];
     [element addAttribute:inverseAttribute];
     
     /* Set the inverse entity name */
-    NSXMLNode *inverseEntityAttribute = [NSXMLNode attributeWithName:@"inverseEntity" stringValue:[classPropertiesObject.name objectiveCClassString]];
+    NSXMLNode *inverseEntityAttribute = [NSXMLNode attributeWithName:@"inverseEntity" stringValue:[classPropertiesObject.name uppercaseCamelcaseString]];
     [element addAttribute:inverseEntityAttribute];
     
     /* Add the syncable attribute */

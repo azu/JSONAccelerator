@@ -176,6 +176,41 @@
     return templateString;
 }
 
+#pragma mark - Reserved Words Callbacks
+
+- (NSSet *)reservedWords
+{
+    return [NSSet setWithObjects:@"abstract", @"assert", @"boolean", @"break", @"byte", @"case", @"catch", @"char", @"class", @"const", @"continue", @"default", @"do", @"double", @"else", @"enum", @"extends", @"false", @"final", @"finally", @"float", @"for", @"goto", @"if", @"implements", @"import", @"instanceof", @"int", @"interface", @"long", @"native", @"new", @"null", @"package", @"private", @"protected", @"public", @"return", @"short", @"static", @"strictfp", @"super", @"switch", @"synchronized", @"this", @"throw", @"throws", @"transient", @"true", @"try", @"void", @"volatile", @"while", nil];
+}
+
+- (NSString *)classNameForObject:(ClassBaseObject *)classObject fromReservedWord:(NSString *)reservedWord
+{
+    NSString *className = [[reservedWord stringByAppendingString:@"Class"] capitalizeFirstCharacter];
+    NSRange startsWithNumeral = [[className substringToIndex:1] rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]];
+    if ( !(startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0) ) {
+        className = [@"Num" stringByAppendingString:className];
+    }
+    
+    NSMutableArray *components = [[className componentsSeparatedByString:@"_"] mutableCopy];
+    
+    NSInteger numComponents = [components count];
+    for (int i = 0; i < numComponents; ++i) {
+        [components replaceObjectAtIndex:i withObject:[(NSString *)[components objectAtIndex:i] capitalizeFirstCharacter]];
+    }
+    return [components componentsJoinedByString:@""];
+}
+
+- (NSString *)propertyNameForObject:(ClassPropertiesObject *)propertyObject inClass:(ClassBaseObject *)classObject fromReservedWord:(NSString *)reservedWord
+{
+    /* General case */
+    NSString *propertyName = [[reservedWord stringByAppendingString:@"Property"] uncapitalizeFirstCharacter];
+    NSRange startsWithNumeral = [[propertyName substringToIndex:1] rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]];
+    if ( !(startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0) ) {
+        propertyName = [@"num" stringByAppendingString:propertyName];
+    }
+    return [propertyName uncapitalizeFirstCharacter];
+}
+
 #pragma mark - Property Writing Methods
 
 - (NSString *)propertyForProperty:(ClassPropertiesObject *) property

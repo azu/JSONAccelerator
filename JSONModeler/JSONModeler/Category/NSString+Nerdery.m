@@ -39,75 +39,28 @@
     return [NSString stringWithFormat:@"%@%@", firstLetter, restOfString];
 }
 
-- (NSString *)alphanumericStringIsObjectiveCReservedWord:(BOOL *)reserved
+- (NSString *)alphanumericStringIsReservedWord:(BOOL *)reserved fromReservedWordSet:(NSSet *)reservedWords
 {
     BOOL isReservedWord = NO;
     
-    /* Remove any non-alphanumeric characters.
-     * This uses a custom (very strict) character set instead of +alphanumericCharacterSet
-     * so that characters like é don't appear in class/property names.
-     */
-    NSCharacterSet *nonAlphanumericCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"] invertedSet];
-    NSMutableArray *components = [NSMutableArray arrayWithArray:[self componentsSeparatedByCharactersInSet:nonAlphanumericCharacterSet]];
-    NSUInteger componentCount = components.count;
-    for (NSUInteger i = 0; i < componentCount; ++i) {
-        [components replaceObjectAtIndex:i withObject:[[components objectAtIndex:i] capitalizeFirstCharacter]];
-    }
+    NSString *alphanumericString = [self uppercaseCamelcaseString];
     
-    NSString *alphanumericString = [components componentsJoinedByString:@""];
-    
-    /* Make sure string isn't a C/Objective-C reserved word */
-    NSSet *reservedWords = [NSSet setWithObjects:@"__autoreleasing", @"__block", @"__strong", @"__unsafe_unretained", @"__weak", @"_Bool", @"_Complex", @"_Imaginery", @"@catch", @"@class", @"@dynamic", @"@end", @"@finally", @"@implementation", @"@interface", @"@private", @"@property", @"@protected", @"@protocol", @"@public", @"@selector", @"@synthesize", @"@throw", @"@try", @"atomic", @"auto", @"autoreleasing", @"block", @"BOOL", @"break", @"bycopy", @"byref", @"case", @"catch", @"char", @"class", @"Class", @"const", @"continue", @"default", @"description", @"do", @"double", @"dynamic", @"else", @"end", @"enum", @"extern", @"finally", @"float", @"for", @"goto", @"id", @"if", @"IMP", @"implementation", @"in", @"inline", @"inout", @"int", @"interface", @"long", @"nil", @"NO", @"nonatomic", @"NULL", @"oneway", @"out", @"private", @"property", @"protected", @"protocol", @"Protocol", @"public", @"register", @"restrict", @"retain", @"return", @"SEL", @"selector", @"self", @"short", @"signed", @"sizeof", @"static", @"strong", @"struct", @"super", @"switch", @"synthesize", @"throw", @"try", @"typedef", @"union", @"unretained", @"unsafe", @"unsigned", @"void", @"volatile", @"weak", @"while", @"YES", nil];
-    //We'll match the lowercase version of alphanumericString adgainst all lowercase versions of reserved words.
-    //This will prevent property names like `Null` or `yes` from slipping through the cracks. 
+    // Check to see if it's a reserved word
+    // We'll match the lowercase version of alphanumericString adgainst all lowercase versions of reserved words.
+    // This will prevent property names like `Null` or `yes` (in Obj-C) from slipping through the cracks. 
     NSMutableSet *lowercaseReservedWords = [[NSMutableSet alloc] init];
     [reservedWords enumerateObjectsUsingBlock:^(NSString *word, BOOL *stop) {
         [lowercaseReservedWords addObject:[word lowercaseString]];
     }];
-    for (NSString *word in lowercaseReservedWords) {
-        if ( [[alphanumericString lowercaseString] isEqualToString:word] ) {
-            isReservedWord = YES;
-            break;
-        }
+    if ([lowercaseReservedWords containsObject:[alphanumericString lowercaseString]]) {
+        isReservedWord = YES;
     }
     
-    *reserved = isReservedWord;
+    if (NULL != reserved) {
+        *reserved = isReservedWord;
+    }
+    
     return alphanumericString;
-}
-
-- (NSString *)objectiveCClassString
-{
-    BOOL isReservedWord;
-    NSString *alphanumeric = [self alphanumericStringIsObjectiveCReservedWord:&isReservedWord];
-    if (isReservedWord) {
-        alphanumeric = [[alphanumeric stringByAppendingString:@"Class"] capitalizeFirstCharacter];
-    }
-    NSRange startsWithNumeral = [[alphanumeric substringToIndex:1] rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]];
-    if ( !(startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0) ) {
-        alphanumeric = [@"Num" stringByAppendingString:alphanumeric];
-    }
-    
-    NSMutableArray *components = [[alphanumeric componentsSeparatedByString:@"_"] mutableCopy];
-    
-    NSInteger numComponents = [components count];
-    for (int i = 0; i < numComponents; ++i) {
-        [components replaceObjectAtIndex:i withObject:[(NSString *)[components objectAtIndex:i] capitalizeFirstCharacter]];
-    }
-    return [components componentsJoinedByString:@""];
-}
-
-- (NSString *)objectiveCPropertyString
-{
-    BOOL isReservedWord;
-    NSString *alphanumeric = [self alphanumericStringIsObjectiveCReservedWord:&isReservedWord];
-    if (isReservedWord) {
-        alphanumeric = [[alphanumeric stringByAppendingString:@"Property"] uncapitalizeFirstCharacter];
-    }
-    NSRange startsWithNumeral = [[alphanumeric substringToIndex:1] rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]];
-    if ( !(startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0) ) {
-        alphanumeric = [@"num" stringByAppendingString:alphanumeric];
-    }
-    return [alphanumeric uncapitalizeFirstCharacter];
 }
 
 - (NSString *)underscoreDelimitedString
@@ -125,6 +78,27 @@
     }
     
     return [NSString stringWithString:mutableSelf];
+}
+
+- (NSString *)uppercaseCamelcaseString
+{
+    /* Remove any non-alphanumeric characters.
+     * This uses a custom (very strict) character set instead of +alphanumericCharacterSet
+     * so that characters like é don't appear in class/property names.
+     */
+    NSCharacterSet *nonAlphanumericCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"] invertedSet];
+    NSMutableArray *components = [NSMutableArray arrayWithArray:[self componentsSeparatedByCharactersInSet:nonAlphanumericCharacterSet]];
+    NSUInteger componentCount = components.count;
+    for (NSUInteger i = 0; i < componentCount; ++i) {
+        [components replaceObjectAtIndex:i withObject:[[components objectAtIndex:i] capitalizeFirstCharacter]];
+    }
+    
+    return [components componentsJoinedByString:@""];
+}
+
+- (NSString *)lowercaseCamelcaseString
+{
+    return [[self uppercaseCamelcaseString] uncapitalizeFirstCharacter];
 }
 
 @end

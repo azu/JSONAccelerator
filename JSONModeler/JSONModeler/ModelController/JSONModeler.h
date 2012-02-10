@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol OutputLanguageWriterProtocol;
+
+
 @interface JSONModeler : NSObject <NSCoding>
 
-- (void) loadJSONWithURL: (NSString *) url;
-- (void) loadJSONWithString: (NSString *) string;
+- (void)loadJSONWithURL:(NSString *)url outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer;
+- (void)loadJSONWithString:(NSString *)string outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer;
 
 @property (assign) BOOL parseComplete;
 @property (strong) NSObject *rawJSONObject;
 @property (strong) NSMutableDictionary *parsedDictionary;
 @property (strong) NSString *JSONString;
+
+- (NSDictionary *)parsedDictionaryByReplacingReservedWords:(NSArray *)reservedWords;
 
 @end

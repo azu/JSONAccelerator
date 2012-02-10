@@ -131,7 +131,6 @@
 - (IBAction)chooseLanguagePressed:(id)sender 
 {
     if([self verifyJSONString]) {
-        [self.modeler loadJSONWithString:[self.JSONTextView string]];
         [self generateFiles];
     }
 }
@@ -240,6 +239,8 @@
                     writer = [[OutputLanguageWriterDjango alloc] init];
                     optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:_languageChooserViewController.baseClassName, kDjangoWritingOptionBaseClassName, nil];
                 }
+                
+                [self.modeler loadJSONWithString:[self.JSONTextView string] outputLanguageWriter:writer];
                 
                 filesHaveBeenWritten = [writer writeClassObjects:[self.modeler parsedDictionary] toURL:selectedDirectory options:optionsDict generatedError:&filesHaveHadError];
                 

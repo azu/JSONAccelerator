@@ -105,20 +105,20 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
             }
             else if (type == PropertyTypeClass) {
                 /* Add a one-to-one relationship to the child class */
-                if (nil == [pythonClasses objectForKey:[property.name objectiveCClassString]]) {
+                if (nil == [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]]) {
                     NSMutableDictionary *childClass = [[NSMutableDictionary alloc] init];
-                    [pythonClasses setObject:childClass forKey:[property.name objectiveCClassString]];
+                    [pythonClasses setObject:childClass forKey:[property.name uppercaseCamelcaseString]];
                 }
-                NSMutableDictionary *childClass = [pythonClasses objectForKey:[property.name objectiveCClassString]];
+                NSMutableDictionary *childClass = [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]];
                 [childClass setObject:classObject.className forKey:[NSString stringWithFormat:@"oneToOne%@", classObject.className]];
             }
             else if (type == PropertyTypeArray) {
                 /* Add a many-to-one relationship to the child class */
-                if (nil == [pythonClasses objectForKey:[property.name objectiveCClassString]]) {
+                if (nil == [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]]) {
                     NSMutableDictionary *childClass = [[NSMutableDictionary alloc] init];
-                    [pythonClasses setObject:childClass forKey:[property.name objectiveCClassString]];
+                    [pythonClasses setObject:childClass forKey:[property.name uppercaseCamelcaseString]];
                 }
-                NSMutableDictionary *childClass = [pythonClasses objectForKey:[property.name objectiveCClassString]];
+                NSMutableDictionary *childClass = [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]];
                 [childClass setObject:classObject.className forKey:[NSString stringWithFormat:@"manyToOne%@", classObject.className]];
                 if (property.collectionType == PropertyTypeInt) {
                     [childClass setObject:@"int" forKey:property.name];
@@ -174,6 +174,40 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
     
     return fileString;
     
+}
+
+#pragma mark - Reserved Words Methods
+
+- (NSSet *)reservedWords
+{
+    return [NSSet setWithObjects:@"and", @"assert", @"break", @"class", @"continue", @"def", @"del", @"elif", @"else", @"except", @"exec", @"finally", @"for", @"from", @"global", @"if", @"import", @"in", @"is", @"lambda", @"not", @"or", @"pass", @"print", @"raise", @"return", @"try", @"while", @"yield", nil];
+}
+
+- (NSString *)classNameForObject:(ClassBaseObject *)classObject fromReservedWord:(NSString *)reservedWord
+{
+    NSString *className = [[reservedWord stringByAppendingString:@"Class"] capitalizeFirstCharacter];
+    NSRange startsWithNumeral = [[className substringToIndex:1] rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]];
+    if ( !(startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0) ) {
+        className = [@"Num" stringByAppendingString:className];
+    }
+    
+    NSMutableArray *components = [[className componentsSeparatedByString:@"_"] mutableCopy];
+    
+    NSInteger numComponents = [components count];
+    for (int i = 0; i < numComponents; ++i) {
+        [components replaceObjectAtIndex:i withObject:[(NSString *)[components objectAtIndex:i] capitalizeFirstCharacter]];
+    }
+    return [components componentsJoinedByString:@""];
+}
+
+- (NSString *)propertyNameForObject:(ClassPropertiesObject *)propertyObject inClass:(ClassBaseObject *)classObject fromReservedWord:(NSString *)reservedWord
+{
+    NSString *propertyName = [[reservedWord stringByAppendingString:@"Property"] uncapitalizeFirstCharacter];
+    NSRange startsWithNumeral = [[propertyName substringToIndex:1] rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]];
+    if ( !(startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0) ) {
+        propertyName = [@"num" stringByAppendingString:propertyName];
+    }
+    return [propertyName uncapitalizeFirstCharacter];
 }
 
 @end

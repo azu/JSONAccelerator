@@ -9,6 +9,7 @@
 #import "OutputLanguageWriterObjectiveC.h"
 #import "ClassBaseObject.h"
 #import <AddressBook/AddressBook.h>
+#import "NSString+Nerdery.h"
 
 @interface OutputLanguageWriterObjectiveC ()
 
@@ -308,6 +309,50 @@
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{DEALLOC}" withString:deallocString];
     
     return templateString;
+}
+
+#pragma mark - Reserved Words Callbacks
+
+- (NSSet *)reservedWords
+{
+    return [NSSet setWithObjects:@"__autoreleasing", @"__block", @"__strong", @"__unsafe_unretained", @"__weak", @"_Bool", @"_Complex", @"_Imaginery", @"@catch", @"@class", @"@dynamic", @"@end", @"@finally", @"@implementation", @"@interface", @"@private", @"@property", @"@protected", @"@protocol", @"@public", @"@selector", @"@synthesize", @"@throw", @"@try", @"assign", @"atomic", @"auto", @"autoreleasing", @"block", @"BOOL", @"break", @"bycopy", @"byref", @"case", @"catch", @"char", @"class", @"Class", @"const", @"continue", @"default", @"description", @"do", @"double", @"dynamic", @"else", @"end", @"enum", @"extern", @"finally", @"float", @"for", @"goto", @"id", @"if", @"IMP", @"implementation", @"in", @"inline", @"inout", @"int", @"interface", @"long", @"nil", @"NO", @"nonatomic", @"NULL", @"oneway", @"out", @"private", @"property", @"protected", @"protocol", @"Protocol", @"public", @"register", @"restrict", @"retain", @"return", @"SEL", @"selector", @"self", @"short", @"signed", @"sizeof", @"static", @"strong", @"struct", @"super", @"switch", @"synthesize", @"throw", @"try", @"typedef", @"union", @"unretained", @"unsafe", @"unsigned", @"void", @"volatile", @"weak", @"while", @"YES", nil];
+}
+
+- (NSString *)classNameForObject:(ClassBaseObject *)classObject fromReservedWord:(NSString *)reservedWord
+{
+    NSString *className = [[reservedWord stringByAppendingString:@"Class"] capitalizeFirstCharacter];
+    NSRange startsWithNumeral = [[className substringToIndex:1] rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]];
+    if ( !(startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0) ) {
+        className = [@"Num" stringByAppendingString:className];
+    }
+    
+    NSMutableArray *components = [[className componentsSeparatedByString:@"_"] mutableCopy];
+    
+    NSInteger numComponents = [components count];
+    for (int i = 0; i < numComponents; ++i) {
+        [components replaceObjectAtIndex:i withObject:[(NSString *)[components objectAtIndex:i] capitalizeFirstCharacter]];
+    }
+    return [components componentsJoinedByString:@""];
+}
+
+- (NSString *)propertyNameForObject:(ClassPropertiesObject *)propertyObject inClass:(ClassBaseObject *)classObject fromReservedWord:(NSString *)reservedWord
+{
+    /* Special cases */
+    if([reservedWord isEqualToString:@"id"]) {
+        return [[classObject.className stringByAppendingString:@"Identifier"] uncapitalizeFirstCharacter];
+    } else if ([reservedWord isEqualToString:@"description"]) {
+        return [[classObject.className stringByAppendingString:@"Description"] uncapitalizeFirstCharacter];
+    } else if ([reservedWord isEqualToString:@"self"]) {
+        return [[classObject.className stringByAppendingString:@"Self"] uncapitalizeFirstCharacter];
+    }
+    
+    /* General case */
+    NSString *propertyName = [[reservedWord stringByAppendingString:@"Property"] uncapitalizeFirstCharacter];
+    NSRange startsWithNumeral = [[propertyName substringToIndex:1] rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"0123456789"]];
+    if ( !(startsWithNumeral.location == NSNotFound && startsWithNumeral.length == 0) ) {
+        propertyName = [@"num" stringByAppendingString:propertyName];
+    }
+    return [propertyName uncapitalizeFirstCharacter];
 }
 
 #pragma mark - Property Writing Methods

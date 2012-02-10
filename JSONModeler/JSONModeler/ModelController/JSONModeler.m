@@ -11,13 +11,14 @@
 #import "ClassBaseObject.h"
 #import "ClassPropertiesObject.h"
 #import "NSString+Nerdery.h"
+#import "OutputLanguageWriterProtocol.h"
 
 @interface JSONModeler () {
     NSUInteger _numUnnamedClasses;
 }
 
-- (void) loadJSONWithData: (NSData *) data;
-- (ClassBaseObject *) parseData: (NSDictionary *)dict intoObjectsWithBaseObjectName: (NSString *) baseObjectName andBaseObjectClass: (NSString *) baseObjectClass;
+- (void)loadJSONWithData:(NSData *)data outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer;
+- (ClassBaseObject *)parseData:(NSDictionary *)dict intoObjectsWithBaseObjectName:(NSString *)baseObjectName andBaseObjectClass:(NSString *)baseObjectClass outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer;
 
 @end
 
@@ -35,23 +36,23 @@
     return self;
 }
 
-- (void) loadJSONWithURL: (NSString *) url
+- (void)loadJSONWithURL:(NSString *)url outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer
 {
     JSONFetcher *fetcher = [[JSONFetcher alloc] init];
     [fetcher downloadJSONFromLocation:url withSuccess:^(id object) {
-        [self loadJSONWithData:object];
+        [self loadJSONWithData:object outputLanguageWriter:writer];
     } 
    andFailure:^(NSHTTPURLResponse *response, NSError *error) {
        DLog(@"An error occured here, but it's not too much trouble because this method is only used in debugging");
    }];
 }
 
-- (void) loadJSONWithString: (NSString *) string
+- (void)loadJSONWithString:(NSString *)string outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer
 {
-    [self loadJSONWithData:[string dataUsingEncoding:NSUTF8StringEncoding]];
+    [self loadJSONWithData:[string dataUsingEncoding:NSUTF8StringEncoding] outputLanguageWriter:writer];
 }
 
-- (void) loadJSONWithData: (NSData *) data
+- (void)loadJSONWithData:(NSData *)data outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer
 {
     NSError *error = nil;    
     self.parsedDictionary = nil;
@@ -64,7 +65,7 @@
     if([object isKindOfClass:[NSDictionary class]]) {
         self.rawJSONObject = object;
         self.parseComplete = NO;
-        [self parseData:(NSDictionary *)self.rawJSONObject intoObjectsWithBaseObjectName:@"InternalBaseClass" andBaseObjectClass:@"NSObject"];
+        [self parseData:(NSDictionary *)self.rawJSONObject intoObjectsWithBaseObjectName:@"InternalBaseClass" andBaseObjectClass:@"NSObject" outputLanguageWriter:writer];
         self.parseComplete = YES;
     }
     
@@ -73,7 +74,7 @@
         self.rawJSONObject = object;        
         for(NSObject *arrayObject in (NSArray *)object) {
             if([arrayObject isKindOfClass:[NSDictionary class]]) {
-                [self parseData:(NSDictionary *)arrayObject intoObjectsWithBaseObjectName:@"InternalBaseClass" andBaseObjectClass:@"NSObject"];
+                [self parseData:(NSDictionary *)arrayObject intoObjectsWithBaseObjectName:@"InternalBaseClass" andBaseObjectClass:@"NSObject" outputLanguageWriter:writer];
             }
         }
         self.parseComplete = YES;
@@ -82,7 +83,7 @@
 
 #pragma mark - Create the model objects
 
-- (ClassBaseObject *) parseData: (NSDictionary *)dict intoObjectsWithBaseObjectName: (NSString *) baseObjectName andBaseObjectClass: (NSString *) baseObjectClass
+- (ClassBaseObject *)parseData:(NSDictionary *)dict intoObjectsWithBaseObjectName:(NSString *)baseObjectName andBaseObjectClass:(NSString *)baseObjectClass outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer
 {
     if(_parsedDictionary == nil) {
         self.parsedDictionary = [NSMutableDictionary dictionary];
@@ -97,7 +98,11 @@
         [tempClass setBaseClass:baseObjectClass];
         
         // Set the name of the class
-        NSString *tempClassName = [baseObjectName objectiveCClassString];
+        BOOL isReservedWord;
+        NSString *tempClassName = [baseObjectName alphanumericStringIsReservedWord:&isReservedWord fromReservedWordSet:[writer reservedWords]];
+        if (isReservedWord) {
+            tempClassName = [writer classNameForObject:tempClass fromReservedWord:tempClassName];
+        }
         if ([tempClassName isEqualToString:@""]) {
             tempClassName = [NSString stringWithFormat:@"InternalBaseClass%u", ++_numUnnamedClasses];
         }
@@ -115,19 +120,15 @@
             tempPropertyObject = [ClassPropertiesObject new];
             [tempPropertyObject setJsonName:currentKey];
             // Set the name of the property
-            if([currentKey isEqualToString:@"id"]) {
-                [tempPropertyObject setName:[[tempClass.className stringByAppendingString:@"Identifier"] uncapitalizeFirstCharacter]];
-            } else if ([currentKey isEqualToString:@"description"]) {
-                [tempPropertyObject setName:[[tempClass.className stringByAppendingString:@"Description"] uncapitalizeFirstCharacter]];
-            } else if ([currentKey isEqualToString:@"self"]) {
-                [tempPropertyObject setName:[[tempClass.className stringByAppendingString:@"Self"] uncapitalizeFirstCharacter]];
-            }else {
-                NSString *tempPropertyName = [currentKey objectiveCPropertyString];
-                if ([tempPropertyName isEqualToString:@""]) {
-                    tempPropertyName = [NSString stringWithFormat:@"myProperty%u", ++numUnnamedProperties];
-                }
-                [tempPropertyObject setName:tempPropertyName];
+            BOOL isReservedWord;
+            NSString *tempPropertyName = [[currentKey alphanumericStringIsReservedWord:&isReservedWord fromReservedWordSet:[writer reservedWords]] uncapitalizeFirstCharacter];
+            if (isReservedWord) {
+                tempPropertyName = [writer propertyNameForObject:tempPropertyObject inClass:tempClass fromReservedWord:tempPropertyName];
             }
+            if ([tempPropertyName isEqualToString:@""]) {
+                tempPropertyName = [NSString stringWithFormat:@"myProperty%u", ++numUnnamedProperties];
+            }
+            [tempPropertyObject setName:tempPropertyName];
             
             [tempPropertyObject setIsAtomic:NO];
             [tempPropertyObject setIsClass:NO];
@@ -160,7 +161,7 @@
                 // the array (used by java)
                 for(tempArrayObject in (NSArray *)tempObject) {
                     if([tempArrayObject isKindOfClass:[NSDictionary class]]) {
-                        ClassBaseObject *newClass = [self parseData:(NSDictionary *)tempArrayObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"];
+                        ClassBaseObject *newClass = [self parseData:(NSDictionary *)tempArrayObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject" outputLanguageWriter:writer];
                         [tempPropertyObject setReferenceClass:newClass];
                         [tempPropertyObject setCollectionType:PropertyTypeClass];
                         [tempPropertyObject setCollectionTypeString:newClass.className];
@@ -192,7 +193,7 @@
                 // NSDictionary Objects
                 [tempPropertyObject setIsClass:YES];
                 [tempPropertyObject setType:PropertyTypeClass];
-                [tempPropertyObject setReferenceClass:[self parseData:(NSDictionary *)tempObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"]];
+                [tempPropertyObject setReferenceClass:[self parseData:(NSDictionary *)tempObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject" outputLanguageWriter:writer]];
                 
             } else {
                 // Miscellaneous
@@ -221,6 +222,13 @@
     
     [self.parsedDictionary setObject:tempClass forKey:baseObjectName];
     return tempClass;
+}
+
+- (NSDictionary *)parsedDictionaryByReplacingReservedWords:(NSArray *)reservedWords
+{
+    if (nil == _parsedDictionary) {
+        return nil;
+    }
 }
 
 
