@@ -31,7 +31,6 @@
 - (IBAction)getUrlPressed:(id)sender;
 - (IBAction)chooseLanguagePressed:(id)sender;
 - (IBAction)verifyPressed:(id)sender;
-- (IBAction)animateButtonPressed:(id)sender;
 - (IBAction)optionsButtonPressed:(id)sender;
 
 @end

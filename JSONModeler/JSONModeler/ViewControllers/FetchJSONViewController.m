@@ -133,10 +133,6 @@
     if([self verifyJSONString]) {
         [self.modeler loadJSONWithString:[self.JSONTextView string]];
         [self generateFiles];
-//        if([self.delegate conformsToProtocol:@protocol(MasterControllerDelegate)]) {
-//            [self.modeler loadJSONWithString:[self.JSONTextView string]];
-//            [self.delegate moveToNextViewController];
-//        }
     }
 }
 
@@ -177,25 +173,6 @@
     return YES;
 }
 
-- (IBAction)animateButtonPressed:(id)sender 
-{
-    NSShadow *shadow = [[NSShadow alloc] init];
-        
-    [shadow setShadowOffset:NSMakeSize(3, -3)];
-    [shadow setShadowBlurRadius:4.0];
-    [shadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.75]];
-    // Begin a grouping of animation target value settings.
-    [NSAnimationContext beginGrouping];
-    
-    // Request a default animation duration of 0.5 seconds.
-    [[NSAnimationContext currentContext] setDuration:2.5];
-    
-    [[(NSButton *)sender animator] setFrameOrigin:NSMakePoint(100, 100)];
-    // End the grouping of animation target value settings, causing the animations in the grouping to be started simultaneously.
-    [NSAnimationContext endGrouping];
-
-}
-
 - (IBAction)optionsButtonPressed:(id)sender {
     NSPopover *myPopover = [[NSPopover alloc] init];
     
@@ -217,10 +194,6 @@
     [myPopover showRelativeToRect:[targetButton bounds] ofView:sender preferredEdge:prefEdge];
 
     return;
-//    HTTPOptionsWindowController *wc = [[HTTPOptionsWindowController alloc] initWithWindowNibName:@"HTTPOptionsWindowController"];
-//    [self.document addWindowController:wc];
-//    [wc.window makeKeyAndOrderFront:self.document];
-//    [wc.window setTitle:NSLocalizedString(@"Options", @"This is the current title of http options window that gets written")];
 }
 
 - (void)generateFiles

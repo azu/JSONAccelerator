@@ -159,8 +159,6 @@
                 // if it is, then we need to create a new class. Also, set the collection type for
                 // the array (used by java)
                 for(tempArrayObject in (NSArray *)tempObject) {
-//                if([(NSArray *)tempObject count] > 0) {
-//                    tempArrayObject = [(NSArray *)tempObject objectAtIndex:0];
                     if([tempArrayObject isKindOfClass:[NSDictionary class]]) {
                         ClassBaseObject *newClass = [self parseData:(NSDictionary *)tempArrayObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject"];
                         [tempPropertyObject setReferenceClass:newClass];
