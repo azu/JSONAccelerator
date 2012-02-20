@@ -239,6 +239,7 @@
     if (nil == _parsedDictionary) {
         return nil;
     }
+    return nil;
 }
 
 

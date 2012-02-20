@@ -152,6 +152,8 @@
 		44BC25C614756AFD00777EB8 /* ClassNameTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */; };
 		44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
+		44E567B414F285FB00D60066 /* iRate.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44E567B214F285FB00D60066 /* iRate.strings */; };
+		44E567B514F285FB00D60066 /* iRate.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44E567B214F285FB00D60066 /* iRate.strings */; };
 		44F037CE14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037CF14C8B57700FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037D314C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */; };
@@ -411,6 +413,7 @@
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
 		44C6F4E714AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44E567B314F285FB00D60066 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/iRate.strings; sourceTree = "<group>"; };
 		44F037CC14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterObjectiveC.h; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.h; sourceTree = "<group>"; };
 		44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterObjectiveC.m; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.m; sourceTree = "<group>"; };
 		44F037D014C8B63600FECF86 /* OutputLanguageWriterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterProtocol.h; path = Models/OutputLanguageWriters/OutputLanguageWriterProtocol.h; sourceTree = "<group>"; };
@@ -789,6 +792,7 @@
 		447E8A7714AAA94E00A3345A /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				44E567B214F285FB00D60066 /* iRate.strings */,
 				447E8A7314AAA93E00A3345A /* Localizable.strings */,
 			);
 			name = Localization;
@@ -1136,6 +1140,7 @@
 				7D2AD96514D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */,
 				7D9FE00A14D32CD800F135CC /* JavaArrayTemplate.txt in Resources */,
 				7D9FE01114D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt in Resources */,
+				44E567B414F285FB00D60066 /* iRate.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1180,6 +1185,7 @@
 				7D2AD96614D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */,
 				7D9FE00B14D32CD800F135CC /* JavaArrayTemplate.txt in Resources */,
 				7D9FE01214D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt in Resources */,
+				44E567B514F285FB00D60066 /* iRate.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1451,6 +1457,14 @@
 				44703BE114D05D6600994234 /* zh-Hans */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		44E567B214F285FB00D60066 /* iRate.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44E567B314F285FB00D60066 /* en */,
+			);
+			name = iRate.strings;
 			sourceTree = "<group>";
 		};
 		44F037EB14CA18B800FECF86 /* JRFeedbackProvider.strings */ = {
