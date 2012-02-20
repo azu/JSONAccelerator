@@ -12,7 +12,7 @@
 @interface {CLASSNAME} : {BASEOBJECT} <NSCoding>
 
 {PROPERTIES}
-+ ({CLASSNAME} *)initWithDictionary:(NSDictionary *)dict;
-- (void)importDictionary:(NSDictionary *)dict;
++ ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict;
+- (id)initWithDictionary:(NSDictionary *)dict;
 
 @end

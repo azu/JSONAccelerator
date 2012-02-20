@@ -194,10 +194,10 @@
     // Need to check for ARC to tell whether or not to use autorelease or not
     if(useARCFlag) {
         // Uses ARC
-        templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME_INIT}" withString:@"[[{CLASSNAME} alloc] init]"];
+        templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME_INIT}" withString:@"[[{CLASSNAME} alloc] initWithDictionary:dict]"];
     } else {
         // Doesn't use ARC
-        templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME_INIT}" withString:@"[[[{CLASSNAME} alloc] init] autorelease]"];
+        templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME_INIT}" withString:@"[[[{CLASSNAME} alloc] initWithDictionary:dict] autorelease]"];
     }
     
     
@@ -326,13 +326,7 @@
         className = [@"Num" stringByAppendingString:className];
     }
     
-    NSMutableArray *components = [[className componentsSeparatedByString:@"_"] mutableCopy];
-    
-    NSInteger numComponents = [components count];
-    for (int i = 0; i < numComponents; ++i) {
-        [components replaceObjectAtIndex:i withObject:[(NSString *)[components objectAtIndex:i] capitalizeFirstCharacter]];
-    }
-    return [components componentsJoinedByString:@""];
+    return className;
 }
 
 - (NSString *)propertyNameForObject:(ClassPropertiesObject *)propertyObject inClass:(ClassBaseObject *)classObject fromReservedWord:(NSString *)reservedWord
@@ -398,7 +392,7 @@
 {
     NSString *setterString = @"";
     if(property.isClass && (property.type == PropertyTypeDictionary || property.type == PropertyTypeClass)) {
-        setterString = [setterString stringByAppendingFormat:@"    self.%@ = [%@ initWithDictionary:[dict objectForKey:@\"%@\"]];\n", property.name, property.referenceClass.className, property.jsonName];
+        setterString = [setterString stringByAppendingFormat:@"            self.%@ = [%@ modelObjectWithDictionary:[dict objectForKey:@\"%@\"]];\n", property.name, property.referenceClass.className, property.jsonName];
     } else if(property.type == PropertyTypeArray && property.referenceClass != nil) {
         NSBundle *mainBundle = [NSBundle mainBundle];
         
@@ -409,7 +403,7 @@
         setterString = [templateString stringByReplacingOccurrencesOfString:@"{REFERENCE_CLASS}" withString:property.referenceClass.className];
         
     } else {
-        setterString = [setterString stringByAppendingString:[NSString stringWithFormat:@"    self.%@ = ", property.name]];
+        setterString = [setterString stringByAppendingString:[NSString stringWithFormat:@"            self.%@ = ", property.name]];
         if([property type] == PropertyTypeInt) {
             setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] intValue];\n", property.jsonName];
         } else if([property type] == PropertyTypeDouble) {

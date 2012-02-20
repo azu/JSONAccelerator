@@ -12,20 +12,23 @@
 
 {SYNTHESIZE_BLOCK}
 
-+ ({CLASSNAME} *)initWithDictionary:(NSDictionary *)dict
++ ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict
 {
     {CLASSNAME} *instance = {CLASSNAME_INIT};
-    [instance importDictionary:dict];
     return instance;
 }
 
-- (void)importDictionary:(NSDictionary *)dict
+- (id)initWithDictionary:(NSDictionary *)dict
 {
-    if ([dict isKindOfClass:[NSDictionary class]] == NO) {
-        return;
+    self = [super init];
+    
+    // This check serves to make sure that a non-NSDictionary object
+    // passed into the model class doesn't break the parsing.
+    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+{SETTERS}
     }
     
-{SETTERS}
+    return self;
     
 }
 

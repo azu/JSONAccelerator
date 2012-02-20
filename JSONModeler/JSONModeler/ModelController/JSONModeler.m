@@ -100,6 +100,16 @@
         // Set the name of the class
         BOOL isReservedWord;
         NSString *tempClassName = [baseObjectName alphanumericStringIsReservedWord:&isReservedWord fromReservedWordSet:[writer reservedWords]];
+        
+        NSMutableArray *components = [[tempClassName componentsSeparatedByString:@"_"] mutableCopy];
+        
+        NSInteger numComponents = [components count];
+        for (int i = 0; i < numComponents; ++i) {
+            [components replaceObjectAtIndex:i withObject:[(NSString *)[components objectAtIndex:i] capitalizeFirstCharacter]];
+        }
+        tempClassName = [components componentsJoinedByString:@""];
+        
+        
         if (isReservedWord) {
             tempClassName = [writer classNameForObject:tempClass fromReservedWord:tempClassName];
         }

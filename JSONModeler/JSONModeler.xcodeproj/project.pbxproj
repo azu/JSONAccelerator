@@ -77,6 +77,8 @@
 		4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		443EF41314ABCD21006216BE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
+		4442837414F1E69500345D34 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4442837314F1E69500345D34 /* iRate.m */; };
+		4442837514F1E72B00345D34 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4442837314F1E69500345D34 /* iRate.m */; };
 		444AAC1C14CA260E008FBD6F /* JRFeedbackProviderRevised.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444AAC1B14CA260E008FBD6F /* JRFeedbackProviderRevised.xib */; };
 		444AAC1D14CA260E008FBD6F /* JRFeedbackProviderRevised.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444AAC1B14CA260E008FBD6F /* JRFeedbackProviderRevised.xib */; };
 		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
@@ -175,7 +177,6 @@
 		7D00408814A24F1C00235189 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D00408614A24F1700235189 /* AddressBook.framework */; };
 		7D00F426149FF30C00235189 /* JSONTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D00F425149FF30C00235189 /* JSONTextView.m */; };
 		7D00F427149FF99600235189 /* JSONTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D00F425149FF30C00235189 /* JSONTextView.m */; };
-		7D00F42914A11BAF00235189 /* JSONModeler-Internal-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */; };
 		7D2AD95614D087A90035A4FE /* CoreDataInterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD95514D087A90035A4FE /* CoreDataInterfaceTemplate.txt */; };
 		7D2AD95714D087A90035A4FE /* CoreDataInterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD95514D087A90035A4FE /* CoreDataInterfaceTemplate.txt */; };
 		7D2AD95914D089440035A4FE /* CoreDataImplementationTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD95814D089440035A4FE /* CoreDataImplementationTemplate.txt */; };
@@ -308,6 +309,8 @@
 		443EF41B14ABCD80006216BE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = "de.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		443EF41C14ABCDA6006216BE /* es */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		443EF41D14ABCDA7006216BE /* de */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4442837214F1E69500345D34 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iRate.h; path = Vendor/iRate/iRate.h; sourceTree = "<group>"; };
+		4442837314F1E69500345D34 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iRate.m; path = Vendor/iRate/iRate.m; sourceTree = "<group>"; };
 		444522F614B4ACA800288ED6 /* ja */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		444522F814B4AE8700288ED6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = "ja.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		444522FE14B4AEAB00288ED6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -670,6 +673,7 @@
 		441FC51F1462D960007BF9DC /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4442837114F1E67D00345D34 /* iRate */,
 				449A1EDF14E2AF3C00F1B0E6 /* ObjectiveMetrics */,
 				4426908914DA04F400C16CBD /* Receipt */,
 				44F037E214CA189F00FECF86 /* JRFeedback */,
@@ -760,6 +764,15 @@
 				4426908B14DA050900C16CBD /* NPReceiptVerification.m */,
 			);
 			name = Receipt;
+			sourceTree = "<group>";
+		};
+		4442837114F1E67D00345D34 /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				4442837214F1E69500345D34 /* iRate.h */,
+				4442837314F1E69500345D34 /* iRate.m */,
+			);
+			name = iRate;
 			sourceTree = "<group>";
 		};
 		445409F41476E112009B59AE /* Noodle */ = {
@@ -1061,7 +1074,7 @@
 		441FC4D91462D8E1007BF9DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Nerdery Interactive Labs";
 			};
 			buildConfigurationList = 441FC4DC1462D8E1007BF9DC /* Build configuration list for PBXProject "JSONModeler" */;
@@ -1150,7 +1163,6 @@
 				44233138149B9E290071978D /* appIcons.icns in Resources */,
 				44233139149B9E290071978D /* MASPreferencesWindow.xib in Resources */,
 				44233144149BA0760071978D /* MainMenu-Internal.xib in Resources */,
-				7D00F42914A11BAF00235189 /* JSONModeler-Internal-Info.plist in Resources */,
 				446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */,
 				446F098D14AABF0400E37C0C /* MainWindowController.xib in Resources */,
 				44703BE314D05D9400994234 /* FetchJSONViewController.xib in Resources */,
@@ -1256,6 +1268,7 @@
 				449A1F3F14E2B14100F1B0E6 /* SBJsonTokeniser.m in Sources */,
 				449A1F4114E2B14100F1B0E6 /* SBJsonUTF8Stream.m in Sources */,
 				449A1F4314E2B14100F1B0E6 /* SBJsonWriter.m in Sources */,
+				4442837414F1E69500345D34 /* iRate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1332,6 +1345,7 @@
 				449A1F4014E2B14100F1B0E6 /* SBJsonTokeniser.m in Sources */,
 				449A1F4214E2B14100F1B0E6 /* SBJsonUTF8Stream.m in Sources */,
 				449A1F4414E2B14100F1B0E6 /* SBJsonWriter.m in Sources */,
+				4442837514F1E72B00345D34 /* iRate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

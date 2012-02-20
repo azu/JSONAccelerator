@@ -13,6 +13,7 @@
 #import "MASPreferencesWindowController.h"
 #import "JRFeedbackController.h"
 #import "DMTracker.h"
+#import "iRate.h"
 
 @interface AppDelegate () {
     
@@ -25,10 +26,17 @@
 
 @implementation AppDelegate
 
++ (void)initialize
+{
+    //configure iRate
+    [iRate sharedInstance].appStoreID = 499674067;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+#ifndef DEBUG
     [[DMTracker defaultTracker] startApp];
+#endif
     _preferencesWindowController = nil;
     
 }
