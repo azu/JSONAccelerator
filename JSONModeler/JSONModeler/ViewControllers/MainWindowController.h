@@ -7,20 +7,28 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "MasterControllerDelegate.h"
 
-@interface MainWindowController : NSWindowController <MasterControllerDelegate> {
-    IBOutlet NSView*	myTargetView;				// the host view
-	NSViewController*	myCurrentViewController;	// the current view controller
-}
+@interface MainWindowController : NSWindowController
 
-@property (weak) IBOutlet NSPathControl *currentPlacementPathBar;
+@property (weak) IBOutlet NSTextField *urlTextField;
+@property (weak) IBOutlet NSTextFieldCell *urlTextFieldCell;
+@property (weak) IBOutlet NSButton *getDataButton;
+@property (unsafe_unretained) IBOutlet NSTextView *JSONTextView;
+@property (weak) IBOutlet NSProgressIndicator *progressView;
+@property (weak) IBOutlet NSButton *optionsButton;
+@property (weak) IBOutlet NSScrollView *scrollView;
 @property (strong) IBOutlet NSWindow *mainWindow;
 @property (weak) IBOutlet NSToolbarItem *generateFilesButton;
 @property (weak) IBOutlet NSToolbarItem *verifyJSONButton;
 
-- (NSViewController*)viewController;
+
+- (IBAction)getUrlPressed:(id)sender;
+- (void)chooseLanguagePressed:(id)sender;
+- (void)verifyPressed:(id)sender;
+- (IBAction)optionsButtonPressed:(id)sender;
 - (IBAction)generateFilesPressed:(id)sender;
 - (IBAction)verifyJSONPressed:(id)sender;
+
+
 
 @end
