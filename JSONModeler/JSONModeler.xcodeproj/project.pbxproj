@@ -42,26 +42,13 @@
 		44233117149B9E290071978D /* ClassBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4414992414642ABC002B6969 /* ClassBaseObject.m */; };
 		44233118149B9E290071978D /* ClassPropertiesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4414992814642AF4002B6969 /* ClassPropertiesObject.m */; };
 		44233119149B9E290071978D /* NSString+Nerdery.m in Sources */ = {isa = PBXBuildFile; fileRef = 441499341464619A002B6969 /* NSString+Nerdery.m */; };
-		4423311A149B9E290071978D /* FetchJSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */; };
-		4423311B149B9E290071978D /* ChooseLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F4F146C712600FA13F9 /* ChooseLanguageViewController.m */; };
-		4423311C149B9E290071978D /* EditOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F54146C714200FA13F9 /* EditOutputViewController.m */; };
-		4423311D149B9E290071978D /* GenerateFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F59146C715200FA13F9 /* GenerateFilesViewController.m */; };
 		4423311F149B9E290071978D /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4419EB04146D7A73002605A0 /* BaseView.m */; };
-		44233120149B9E290071978D /* ClassNameTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */; };
-		44233121149B9E290071978D /* ClassPropertiesTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */; };
-		44233124149B9E290071978D /* EditClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10A8148840DD00BEE605 /* EditClassViewController.m */; };
-		44233125149B9E290071978D /* EditPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10AF1488410C00BEE605 /* EditPropertyViewController.m */; };
 		44233126149B9E290071978D /* MASPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44233107149B9DFC0071978D /* MASPreferencesWindowController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44233128149B9E290071978D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC4E61462D8E1007BF9DC /* Cocoa.framework */; };
 		4423312D149B9E290071978D /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
 		4423312E149B9E290071978D /* ImplementationTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546EA146C191F00D3860A /* ImplementationTemplate.txt */; };
-		44233130149B9E290071978D /* ChooseLanguageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F50146C712600FA13F9 /* ChooseLanguageViewController.xib */; };
-		44233131149B9E290071978D /* EditOutputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F55146C714200FA13F9 /* EditOutputViewController.xib */; };
-		44233132149B9E290071978D /* GenerateFilesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F5A146C715200FA13F9 /* GenerateFilesViewController.xib */; };
 		44233134149B9E290071978D /* JavaTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */; };
 		44233135149B9E290071978D /* ArraySetterTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */; };
-		44233136149B9E290071978D /* EditClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448B10A9148840DE00BEE605 /* EditClassViewController.xib */; };
-		44233137149B9E290071978D /* EditPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448B10B01488410C00BEE605 /* EditPropertyViewController.xib */; };
 		44233138149B9E290071978D /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
 		44233139149B9E290071978D /* MASPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44233105149B9DFC0071978D /* MASPreferencesWindow.xib */; };
 		44233141149B9F380071978D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44233140149B9F380071978D /* Sparkle.framework */; };
@@ -86,8 +73,6 @@
 		446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447E8A7314AAA93E00A3345A /* Localizable.strings */; };
 		446F098614AABE7100E37C0C /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098514AABE7100E37C0C /* MainWindowController.xib */; };
 		446F098D14AABF0400E37C0C /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446F098514AABE7100E37C0C /* MainWindowController.xib */; };
-		44703BE214D05D9400994234 /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44703BE414D05D9400994234 /* FetchJSONViewController.xib */; };
-		44703BE314D05D9400994234 /* FetchJSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44703BE414D05D9400994234 /* FetchJSONViewController.xib */; };
 		44703BE514D05DA300994234 /* SavePanelLanguageChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44703BE814D05DA300994234 /* SavePanelLanguageChooserViewController.xib */; };
 		44703BE614D05DA300994234 /* SavePanelLanguageChooserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44703BE814D05DA300994234 /* SavePanelLanguageChooserViewController.xib */; };
 		44731FB414B78BDC009FC27D /* 57-download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44731FB314B78BDC009FC27D /* 57-download@2x.png */; };
@@ -98,10 +83,6 @@
 		44731FBC14B78E91009FC27D /* 117-todo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44731FBA14B78E91009FC27D /* 117-todo@2x.png */; };
 		447E8A7514AAA93E00A3345A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447E8A7314AAA93E00A3345A /* Localizable.strings */; };
 		448B10901487EAF800BEE605 /* ArraySetterTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */; };
-		448B10AA148840DE00BEE605 /* EditClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10A8148840DD00BEE605 /* EditClassViewController.m */; };
-		448B10AB148840DE00BEE605 /* EditClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448B10A9148840DE00BEE605 /* EditClassViewController.xib */; };
-		448B10B11488410C00BEE605 /* EditPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B10AF1488410C00BEE605 /* EditPropertyViewController.m */; };
-		448B10B21488410C00BEE605 /* EditPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 448B10B01488410C00BEE605 /* EditPropertyViewController.xib */; };
 		449A1EF214E2AF3D00F1B0E6 /* DMHosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1EE114E2AF3C00F1B0E6 /* DMHosts.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		449A1EF314E2AF3D00F1B0E6 /* DMNullQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1EE314E2AF3C00F1B0E6 /* DMNullQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		449A1EF414E2AF3D00F1B0E6 /* DMRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1EE514E2AF3C00F1B0E6 /* DMRequester.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -149,8 +130,6 @@
 		449A1F4314E2B14100F1B0E6 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1F2C14E2B14100F1B0E6 /* SBJsonWriter.m */; };
 		449A1F4414E2B14100F1B0E6 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1F2C14E2B14100F1B0E6 /* SBJsonWriter.m */; };
 		44B6BD9C14B62073000AEC28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F21462D8E1007BF9DC /* main.m */; };
-		44BC25C614756AFD00777EB8 /* ClassNameTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */; };
-		44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
 		44E567B414F285FB00D60066 /* iRate.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44E567B214F285FB00D60066 /* iRate.strings */; };
 		44E567B514F285FB00D60066 /* iRate.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44E567B214F285FB00D60066 /* iRate.strings */; };
@@ -167,13 +146,6 @@
 		44F7B43414CA1AF5004CEA55 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F7B43314CA1AF5004CEA55 /* SystemConfiguration.framework */; };
 		44F7B43614CA1B00004CEA55 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F7B43314CA1AF5004CEA55 /* SystemConfiguration.framework */; };
 		44FE6F14146C241300FA13F9 /* ImplementationTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546EA146C191F00D3860A /* ImplementationTemplate.txt */; };
-		44FE6F4B146C710300FA13F9 /* FetchJSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */; };
-		44FE6F51146C712600FA13F9 /* ChooseLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F4F146C712600FA13F9 /* ChooseLanguageViewController.m */; };
-		44FE6F52146C712600FA13F9 /* ChooseLanguageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F50146C712600FA13F9 /* ChooseLanguageViewController.xib */; };
-		44FE6F56146C714200FA13F9 /* EditOutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F54146C714200FA13F9 /* EditOutputViewController.m */; };
-		44FE6F57146C714200FA13F9 /* EditOutputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F55146C714200FA13F9 /* EditOutputViewController.xib */; };
-		44FE6F5B146C715200FA13F9 /* GenerateFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44FE6F59146C715200FA13F9 /* GenerateFilesViewController.m */; };
-		44FE6F5C146C715200FA13F9 /* GenerateFilesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F5A146C715200FA13F9 /* GenerateFilesViewController.xib */; };
 		44FE6F77146C8D5600FA13F9 /* JavaTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */; };
 		7D00408714A24F1700235189 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D00408614A24F1700235189 /* AddressBook.framework */; };
 		7D00408814A24F1C00235189 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D00408614A24F1700235189 /* AddressBook.framework */; };
@@ -325,7 +297,6 @@
 		446B282B14ABCC1F00FBE699 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Credits.rtf; sourceTree = "<group>"; };
 		446F098514AABE7100E37C0C /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindowController.xib; path = ViewControllers/MainWindowController.xib; sourceTree = "<group>"; };
 		44703BE114D05D6600994234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		44703BE414D05D9400994234 /* FetchJSONViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FetchJSONViewController.xib; sourceTree = "<group>"; };
 		44703BE714D05DA300994234 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SavePanelLanguageChooserViewController.xib; sourceTree = "<group>"; };
 		44703BE914D05DAA00994234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		44703BEA14D05DC100994234 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.xib"; sourceTree = "<group>"; };
@@ -341,12 +312,6 @@
 		447E8A7414AAA93E00A3345A /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		447E8A7614AAA94800A3345A /* ru */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ArraySetterTemplate.txt; path = Resources/Templates/ArraySetterTemplate.txt; sourceTree = "<group>"; };
-		448B10A7148840DD00BEE605 /* EditClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditClassViewController.h; path = ViewControllers/Edit/EditClassViewController.h; sourceTree = "<group>"; };
-		448B10A8148840DD00BEE605 /* EditClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditClassViewController.m; path = ViewControllers/Edit/EditClassViewController.m; sourceTree = "<group>"; };
-		448B10A9148840DE00BEE605 /* EditClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditClassViewController.xib; path = ViewControllers/Edit/EditClassViewController.xib; sourceTree = "<group>"; };
-		448B10AE1488410C00BEE605 /* EditPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditPropertyViewController.h; path = ViewControllers/Edit/EditPropertyViewController.h; sourceTree = "<group>"; };
-		448B10AF1488410C00BEE605 /* EditPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPropertyViewController.m; path = ViewControllers/Edit/EditPropertyViewController.m; sourceTree = "<group>"; };
-		448B10B01488410C00BEE605 /* EditPropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditPropertyViewController.xib; path = ViewControllers/Edit/EditPropertyViewController.xib; sourceTree = "<group>"; };
 		449A1EE014E2AF3C00F1B0E6 /* DMHosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMHosts.h; sourceTree = "<group>"; };
 		449A1EE114E2AF3C00F1B0E6 /* DMHosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMHosts.m; sourceTree = "<group>"; };
 		449A1EE214E2AF3C00F1B0E6 /* DMNullQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMNullQueue.h; sourceTree = "<group>"; };
@@ -406,10 +371,6 @@
 		44B6BD9714B61EE6000AEC28 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		44B6BD9A14B61F30000AEC28 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		44B6BD9B14B61F30000AEC28 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		44BC25C414756AFD00777EB8 /* ClassNameTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassNameTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.h; sourceTree = "<group>"; };
-		44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassNameTableViewHelper.m; path = ViewControllers/Edit/Helpers/ClassNameTableViewHelper.m; sourceTree = "<group>"; };
-		44BC25C914756B6100777EB8 /* ClassPropertiesTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassPropertiesTableViewHelper.h; path = ViewControllers/Edit/Helpers/ClassPropertiesTableViewHelper.h; sourceTree = "<group>"; };
-		44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassPropertiesTableViewHelper.m; path = ViewControllers/Edit/Helpers/ClassPropertiesTableViewHelper.m; sourceTree = "<group>"; };
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
 		44C6F4E714AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -426,17 +387,6 @@
 		44F037EC14CA18B800FECF86 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/JRFeedbackProvider.strings; sourceTree = "<group>"; };
 		44F037F314CA18BE00FECF86 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/JRFeedbackProvider.strings; sourceTree = "<group>"; };
 		44F7B43314CA1AF5004CEA55 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		44FE6F48146C710300FA13F9 /* FetchJSONViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FetchJSONViewController.h; path = ViewControllers/FetchJSONViewController.h; sourceTree = "<group>"; };
-		44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FetchJSONViewController.m; path = ViewControllers/FetchJSONViewController.m; sourceTree = "<group>"; };
-		44FE6F4E146C712600FA13F9 /* ChooseLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLanguageViewController.h; path = ViewControllers/ChooseLanguageViewController.h; sourceTree = "<group>"; };
-		44FE6F4F146C712600FA13F9 /* ChooseLanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseLanguageViewController.m; path = ViewControllers/ChooseLanguageViewController.m; sourceTree = "<group>"; };
-		44FE6F50146C712600FA13F9 /* ChooseLanguageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChooseLanguageViewController.xib; path = ViewControllers/ChooseLanguageViewController.xib; sourceTree = "<group>"; };
-		44FE6F53146C714200FA13F9 /* EditOutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditOutputViewController.h; path = ViewControllers/EditOutputViewController.h; sourceTree = "<group>"; };
-		44FE6F54146C714200FA13F9 /* EditOutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditOutputViewController.m; path = ViewControllers/EditOutputViewController.m; sourceTree = "<group>"; };
-		44FE6F55146C714200FA13F9 /* EditOutputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EditOutputViewController.xib; path = ViewControllers/EditOutputViewController.xib; sourceTree = "<group>"; };
-		44FE6F58146C715200FA13F9 /* GenerateFilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenerateFilesViewController.h; path = ViewControllers/GenerateFilesViewController.h; sourceTree = "<group>"; };
-		44FE6F59146C715200FA13F9 /* GenerateFilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenerateFilesViewController.m; path = ViewControllers/GenerateFilesViewController.m; sourceTree = "<group>"; };
-		44FE6F5A146C715200FA13F9 /* GenerateFilesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GenerateFilesViewController.xib; path = ViewControllers/GenerateFilesViewController.xib; sourceTree = "<group>"; };
 		44FE6F65146C736900FA13F9 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = ViewControllers/MainWindowController.h; sourceTree = "<group>"; };
 		44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JavaTemplate.txt; path = Resources/Templates/JavaTemplate.txt; sourceTree = "<group>"; };
 		7D00408614A24F1700235189 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -645,10 +595,6 @@
 				7D5FE4CD14AD11CD00330C2F /* HTTP Options Window */,
 				7D384DB814ACF86E0073EA2C /* Save Panel Accessory View */,
 				7DD23D12149BE74500F8719D /* Preferences */,
-				44FE6F5D146C715700FA13F9 /* Fetch */,
-				44FE6F5E146C716400FA13F9 /* Choose Language */,
-				44FE6F5F146C716F00FA13F9 /* Edit Output */,
-				44FE6F60146C718800FA13F9 /* GenerateFiles */,
 				44FE6F65146C736900FA13F9 /* MainWindowController.h */,
 				4439F07A14AABA9C005AA280 /* MainWindowController.m */,
 				446F098514AABE7100E37C0C /* MainWindowController.xib */,
@@ -798,19 +744,6 @@
 			name = Localization;
 			sourceTree = "<group>";
 		};
-		448B10AD148840ED00BEE605 /* Popover */ = {
-			isa = PBXGroup;
-			children = (
-				448B10A7148840DD00BEE605 /* EditClassViewController.h */,
-				448B10A8148840DD00BEE605 /* EditClassViewController.m */,
-				448B10A9148840DE00BEE605 /* EditClassViewController.xib */,
-				448B10AE1488410C00BEE605 /* EditPropertyViewController.h */,
-				448B10AF1488410C00BEE605 /* EditPropertyViewController.m */,
-				448B10B01488410C00BEE605 /* EditPropertyViewController.xib */,
-			);
-			name = Popover;
-			sourceTree = "<group>";
-		};
 		449A1EDF14E2AF3C00F1B0E6 /* ObjectiveMetrics */ = {
 			isa = PBXGroup;
 			children = (
@@ -877,17 +810,6 @@
 			name = SBJSON;
 			sourceTree = "<group>";
 		};
-		44BC25C814756B4200777EB8 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				44BC25C414756AFD00777EB8 /* ClassNameTableViewHelper.h */,
-				44BC25C514756AFD00777EB8 /* ClassNameTableViewHelper.m */,
-				44BC25C914756B6100777EB8 /* ClassPropertiesTableViewHelper.h */,
-				44BC25CA14756B6100777EB8 /* ClassPropertiesTableViewHelper.m */,
-			);
-			name = Helpers;
-			sourceTree = "<group>";
-		};
 		44C546E6146C189F00D3860A /* Templates */ = {
 			isa = PBXGroup;
 			children = (
@@ -933,48 +855,6 @@
 				44F037E614CA18AE00FECF86 /* NSURLRequest+postForm.m */,
 			);
 			name = JRFeedback;
-			sourceTree = "<group>";
-		};
-		44FE6F5D146C715700FA13F9 /* Fetch */ = {
-			isa = PBXGroup;
-			children = (
-				44703BE414D05D9400994234 /* FetchJSONViewController.xib */,
-				44FE6F48146C710300FA13F9 /* FetchJSONViewController.h */,
-				44FE6F49146C710300FA13F9 /* FetchJSONViewController.m */,
-			);
-			name = Fetch;
-			sourceTree = "<group>";
-		};
-		44FE6F5E146C716400FA13F9 /* Choose Language */ = {
-			isa = PBXGroup;
-			children = (
-				44FE6F4E146C712600FA13F9 /* ChooseLanguageViewController.h */,
-				44FE6F4F146C712600FA13F9 /* ChooseLanguageViewController.m */,
-				44FE6F50146C712600FA13F9 /* ChooseLanguageViewController.xib */,
-			);
-			name = "Choose Language";
-			sourceTree = "<group>";
-		};
-		44FE6F5F146C716F00FA13F9 /* Edit Output */ = {
-			isa = PBXGroup;
-			children = (
-				44BC25C814756B4200777EB8 /* Helpers */,
-				448B10AD148840ED00BEE605 /* Popover */,
-				44FE6F53146C714200FA13F9 /* EditOutputViewController.h */,
-				44FE6F54146C714200FA13F9 /* EditOutputViewController.m */,
-				44FE6F55146C714200FA13F9 /* EditOutputViewController.xib */,
-			);
-			name = "Edit Output";
-			sourceTree = "<group>";
-		};
-		44FE6F60146C718800FA13F9 /* GenerateFiles */ = {
-			isa = PBXGroup;
-			children = (
-				44FE6F58146C715200FA13F9 /* GenerateFilesViewController.h */,
-				44FE6F59146C715200FA13F9 /* GenerateFilesViewController.m */,
-				44FE6F5A146C715200FA13F9 /* GenerateFilesViewController.xib */,
-			);
-			name = GenerateFiles;
 			sourceTree = "<group>";
 		};
 		7D384DB814ACF86E0073EA2C /* Save Panel Accessory View */ = {
@@ -1113,19 +993,13 @@
 			files = (
 				44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */,
 				44FE6F14146C241300FA13F9 /* ImplementationTemplate.txt in Resources */,
-				44FE6F52146C712600FA13F9 /* ChooseLanguageViewController.xib in Resources */,
-				44FE6F57146C714200FA13F9 /* EditOutputViewController.xib in Resources */,
-				44FE6F5C146C715200FA13F9 /* GenerateFilesViewController.xib in Resources */,
 				44FE6F77146C8D5600FA13F9 /* JavaTemplate.txt in Resources */,
 				448B10901487EAF800BEE605 /* ArraySetterTemplate.txt in Resources */,
-				448B10AB148840DE00BEE605 /* EditClassViewController.xib in Resources */,
-				448B10B21488410C00BEE605 /* EditPropertyViewController.xib in Resources */,
 				44670A801489987E0042A444 /* appIcons.icns in Resources */,
 				44233108149B9DFC0071978D /* MASPreferencesWindow.xib in Resources */,
 				44233150149BD4C40071978D /* MainMenu.xib in Resources */,
 				447E8A7514AAA93E00A3345A /* Localizable.strings in Resources */,
 				446F098614AABE7100E37C0C /* MainWindowController.xib in Resources */,
-				44703BE214D05D9400994234 /* FetchJSONViewController.xib in Resources */,
 				4430047614AB6F4500F7C8DE /* InfoPlist.strings in Resources */,
 				446B282614ABCC0600FBE699 /* Credits.rtf in Resources */,
 				44703BE514D05DA300994234 /* SavePanelLanguageChooserViewController.xib in Resources */,
@@ -1158,19 +1032,13 @@
 			files = (
 				4423312D149B9E290071978D /* InterfaceTemplate.txt in Resources */,
 				4423312E149B9E290071978D /* ImplementationTemplate.txt in Resources */,
-				44233130149B9E290071978D /* ChooseLanguageViewController.xib in Resources */,
-				44233131149B9E290071978D /* EditOutputViewController.xib in Resources */,
-				44233132149B9E290071978D /* GenerateFilesViewController.xib in Resources */,
 				44233134149B9E290071978D /* JavaTemplate.txt in Resources */,
 				44233135149B9E290071978D /* ArraySetterTemplate.txt in Resources */,
-				44233136149B9E290071978D /* EditClassViewController.xib in Resources */,
-				44233137149B9E290071978D /* EditPropertyViewController.xib in Resources */,
 				44233138149B9E290071978D /* appIcons.icns in Resources */,
 				44233139149B9E290071978D /* MASPreferencesWindow.xib in Resources */,
 				44233144149BA0760071978D /* MainMenu-Internal.xib in Resources */,
 				446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */,
 				446F098D14AABF0400E37C0C /* MainWindowController.xib in Resources */,
-				44703BE314D05D9400994234 /* FetchJSONViewController.xib in Resources */,
 				4430047714AB6F4A00F7C8DE /* InfoPlist.strings in Resources */,
 				443EF41314ABCD21006216BE /* Credits.rtf in Resources */,
 				44703BE614D05DA300994234 /* SavePanelLanguageChooserViewController.xib in Resources */,
@@ -1226,15 +1094,7 @@
 				4414992514642ABC002B6969 /* ClassBaseObject.m in Sources */,
 				4414992914642AF4002B6969 /* ClassPropertiesObject.m in Sources */,
 				441499351464619A002B6969 /* NSString+Nerdery.m in Sources */,
-				44FE6F4B146C710300FA13F9 /* FetchJSONViewController.m in Sources */,
-				44FE6F51146C712600FA13F9 /* ChooseLanguageViewController.m in Sources */,
-				44FE6F56146C714200FA13F9 /* EditOutputViewController.m in Sources */,
-				44FE6F5B146C715200FA13F9 /* GenerateFilesViewController.m in Sources */,
 				4419EB05146D7A73002605A0 /* BaseView.m in Sources */,
-				44BC25C614756AFD00777EB8 /* ClassNameTableViewHelper.m in Sources */,
-				44BC25CB14756B6100777EB8 /* ClassPropertiesTableViewHelper.m in Sources */,
-				448B10AA148840DE00BEE605 /* EditClassViewController.m in Sources */,
-				448B10B11488410C00BEE605 /* EditPropertyViewController.m in Sources */,
 				44233109149B9DFC0071978D /* MASPreferencesWindowController.m in Sources */,
 				7D00F426149FF30C00235189 /* JSONTextView.m in Sources */,
 				7DC99D2014A26D8900314AA5 /* ModelerDocument.m in Sources */,
@@ -1304,15 +1164,7 @@
 				44233117149B9E290071978D /* ClassBaseObject.m in Sources */,
 				44233118149B9E290071978D /* ClassPropertiesObject.m in Sources */,
 				44233119149B9E290071978D /* NSString+Nerdery.m in Sources */,
-				4423311A149B9E290071978D /* FetchJSONViewController.m in Sources */,
-				4423311B149B9E290071978D /* ChooseLanguageViewController.m in Sources */,
-				4423311C149B9E290071978D /* EditOutputViewController.m in Sources */,
-				4423311D149B9E290071978D /* GenerateFilesViewController.m in Sources */,
 				4423311F149B9E290071978D /* BaseView.m in Sources */,
-				44233120149B9E290071978D /* ClassNameTableViewHelper.m in Sources */,
-				44233121149B9E290071978D /* ClassPropertiesTableViewHelper.m in Sources */,
-				44233124149B9E290071978D /* EditClassViewController.m in Sources */,
-				44233125149B9E290071978D /* EditPropertyViewController.m in Sources */,
 				44233126149B9E290071978D /* MASPreferencesWindowController.m in Sources */,
 				7D00F427149FF99600235189 /* JSONTextView.m in Sources */,
 				7DC99D2114A26D8900314AA5 /* ModelerDocument.m in Sources */,
