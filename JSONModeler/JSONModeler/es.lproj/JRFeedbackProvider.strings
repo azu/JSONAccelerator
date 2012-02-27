@@ -1,0 +1,5 @@
+"Title" = "Asistencia de %@";
+"Feedback Host Not Reachable" = "No se puede contactar con la empresa";
+"Proceed Anyway" = "Continuar de todos modos";
+"Cancel" = "Cancelar";
+"Unreachable Explanation" = "Es posible que no puedas enviar una respuesta porque no se puede contactar con %@.\n\nComprueba que tienes conexión a internet antes de continuar.\n";

@@ -1,0 +1,5 @@
+"Title" = "%@ のフィードバック";
+"Feedback Host Not Reachable" = "フィードバック機能が接続できません";
+"Proceed Anyway" = "このまま実行する";
+"Cancel" = "キャンセル";
+"Unreachable Explanation" = "%@ に接続できないため、フィードバックを送信できません。\n\n実行する前に、インターネットの接続をご確認下さい。\n";

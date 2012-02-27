@@ -154,3 +154,6 @@
 
 /* Class = "NSMenuItem"; title = "Close"; ObjectID = "645"; */
 "645.title" = "Cerrar";
+
+/* Class = "NSMenuItem"; title = "Send Feedback"; ObjectID = "647"; */
+"647.title" = "Enviar comentarios";

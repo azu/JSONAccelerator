@@ -278,7 +278,7 @@
     NSString *deallocString = @"";
     
     /* Add dealloc method only if not building for ARC */
-    if(useARCFlag) {
+    if(useARCFlag == NO) {
         deallocString = @"\n- (void)dealloc\n{\n";
         for(ClassPropertiesObject *property in [classObject.properties allValues]) {
             if([property type] != PropertyTypeInt && [property type] != PropertyTypeDouble && [property type] != PropertyTypeBool){

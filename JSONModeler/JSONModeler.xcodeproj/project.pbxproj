@@ -311,6 +311,12 @@
 		447E8A7214AAA7D900A3345A /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		447E8A7414AAA93E00A3345A /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		447E8A7614AAA94800A3345A /* ru */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4485C9D214FBC24F0064F291 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/JRFeedbackProvider.strings; sourceTree = "<group>"; };
+		4485C9D414FBC2540064F291 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/JRFeedbackProvider.strings; sourceTree = "<group>"; };
+		4485C9D514FBC2580064F291 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/JRFeedbackProvider.strings; sourceTree = "<group>"; };
+		4485C9D614FBC2AC0064F291 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/iRate.strings; sourceTree = "<group>"; };
+		4485C9D714FBC2B00064F291 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/iRate.strings; sourceTree = "<group>"; };
+		4485C9D814FBC2B30064F291 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/iRate.strings; sourceTree = "<group>"; };
 		448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ArraySetterTemplate.txt; path = Resources/Templates/ArraySetterTemplate.txt; sourceTree = "<group>"; };
 		449A1EE014E2AF3C00F1B0E6 /* DMHosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMHosts.h; sourceTree = "<group>"; };
 		449A1EE114E2AF3C00F1B0E6 /* DMHosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMHosts.m; sourceTree = "<group>"; };
@@ -1315,6 +1321,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				44E567B314F285FB00D60066 /* en */,
+				4485C9D614FBC2AC0064F291 /* es */,
+				4485C9D714FBC2B00064F291 /* de */,
+				4485C9D814FBC2B30064F291 /* ja */,
 			);
 			name = iRate.strings;
 			sourceTree = "<group>";
@@ -1324,6 +1333,9 @@
 			children = (
 				44F037EC14CA18B800FECF86 /* en */,
 				44F037F314CA18BE00FECF86 /* fr */,
+				4485C9D214FBC24F0064F291 /* ja */,
+				4485C9D414FBC2540064F291 /* de */,
+				4485C9D514FBC2580064F291 /* es */,
 			);
 			name = JRFeedbackProvider.strings;
 			sourceTree = "<group>";
@@ -1446,6 +1458,7 @@
 		4423313B149B9E290071978D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/JSONModeler/Vendor/Sparkle\"",
@@ -1468,6 +1481,7 @@
 		4423313C149B9E290071978D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/JSONModeler/Vendor/Sparkle\"",

@@ -1,0 +1,5 @@
+"Title" = "%@ Feedback";
+"Feedback Host Not Reachable" = "Feedback-Unternehmen nicht erreichbar";
+"Proceed Anyway" = "Trotzdem fortfahren";
+"Cancel" = "Abbrechen";
+"Unreachable Explanation" = "Sie können vielleicht kein Feedback senden, weil %@ nicht erreichbar ist.\n\nBitte stellen Sie sicher, dass Sie eine Netzwerkverbindung haben, bevor Sie fortfahren.\n";
