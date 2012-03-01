@@ -30,6 +30,7 @@
 {
     //configure iRate
     [iRate sharedInstance].appStoreID = 499674067;
+    [iRate sharedInstance].usesUntilPrompt = 4;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification

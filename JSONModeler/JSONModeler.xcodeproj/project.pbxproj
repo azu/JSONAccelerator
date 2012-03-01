@@ -1458,7 +1458,6 @@
 		4423313B149B9E290071978D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/JSONModeler/Vendor/Sparkle\"",
@@ -1481,7 +1480,6 @@
 		4423313C149B9E290071978D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/JSONModeler/Vendor/Sparkle\"",
