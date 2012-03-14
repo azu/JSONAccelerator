@@ -80,7 +80,7 @@ NSString * const headerValue = @"headerValue";
     _addButton.title = NSLocalizedString(@"Add", @"Title for the Add header button in the HTTP Options window");
     [[_headerTableKeyColumn headerCell] setStringValue:NSLocalizedString(@"Key", @"Title for the column of HTTP header keys")];
     [[_headerTableValueColumn headerCell] setStringValue:NSLocalizedString(@"Value", @"Title for the column of HTTP header values")];
-    [self.urlTextFieldCell setPlaceholderString:NSLocalizedString(@"Enter URL...", @"Prompt user gets to enter a URL")];    
+    [self.urlTextFieldCell setPlaceholderString:NSLocalizedString(@"http://www.domain.com/", @"Prompt user gets to enter a URL")];    
     [self.generateDataButton setTitle:NSLocalizedString(@"Get Data", @"In the main screen, this is the button that fetches data from a URL")];
 
 #ifdef DEBUG
