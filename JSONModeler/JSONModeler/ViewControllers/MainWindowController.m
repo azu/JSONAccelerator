@@ -40,7 +40,6 @@
 
 @synthesize mainWindow = _mainWindow;
 @synthesize generateFilesButton = _generateFilesButton;
-@synthesize verifyJSONButton;
 @synthesize fetchDataFromURLView = _fetchDataFromURLView;
 @synthesize switchToDataLoadButton = _switchToDataLoadButton;
 @synthesize getDataView = _getDataView;
@@ -71,10 +70,10 @@
 {
     ModelerDocument *document = self.document;
     self.modeler = document.modeler;
-    [self.mainWindow setMinSize:NSMakeSize(500, 300)];
     
-    [self.generateFilesButton setLabel:NSLocalizedString(@"Generate Files", @"In the main screen, this is the button that writes out files")];
-    [self.verifyJSONButton setLabel:NSLocalizedString(@"Verify", @"In the main screen, this is the verify button that formats the JSON")];
+    NSString *genFiles = NSLocalizedString(@"Generate Files", @"In the main screen, this is the button that writes out files");
+    [self.generateFilesButton setTitle:genFiles];
+    [self.mainWindow setMinSize:NSMakeSize(550, 300)];
     
     
     [self.urlTextFieldCell setPlaceholderString:NSLocalizedString(@"Enter URL...", @"Prompt user gets to enter a URL")];
@@ -105,16 +104,13 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    [self.scrollView setHidden:NO];
+    [self.JSONTextView setTextColor:[NSColor whiteColor]];
+    [self.JSONTextView setTextContainerInset:NSMakeSize(2, 4)];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
 - (IBAction)generateFilesPressed:(id)sender {
     [self chooseLanguagePressed:sender];
-}
-
-- (IBAction)verifyJSONPressed:(id)sender {
-    [self verifyPressed:sender];
 }
 
 - (IBAction)switchToDataLoadView:(id)sender
