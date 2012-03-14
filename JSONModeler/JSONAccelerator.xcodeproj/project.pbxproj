@@ -277,20 +277,20 @@
 		4419EB03146D7A73002605A0 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseView.h; path = Views/BaseView.h; sourceTree = "<group>"; };
 		4419EB04146D7A73002605A0 /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseView.m; path = Views/BaseView.m; sourceTree = "<group>"; };
 		4419EB19146DC740002605A0 /* MasterControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterControllerDelegate.h; path = JSONModeler/Protocols/MasterControllerDelegate.h; sourceTree = "<group>"; };
-		441FC4E21462D8E1007BF9DC /* JSONModeler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONModeler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		441FC4E21462D8E1007BF9DC /* JSON Accelerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JSON Accelerator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		441FC4E61462D8E1007BF9DC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		441FC4E91462D8E1007BF9DC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		441FC4EA1462D8E1007BF9DC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		441FC4EB1462D8E1007BF9DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		441FC4EE1462D8E1007BF9DC /* JSONModeler-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "JSONModeler-Info.plist"; sourceTree = "<group>"; };
+		441FC4EE1462D8E1007BF9DC /* JSONAccelerator-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.mxml; path = "JSONAccelerator-Info.plist"; sourceTree = "<group>"; };
 		441FC4F21462D8E1007BF9DC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		441FC4F41462D8E1007BF9DC /* JSONModeler-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModeler-Prefix.pch"; sourceTree = "<group>"; };
+		441FC4F41462D8E1007BF9DC /* JSONAccelerator-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONAccelerator-Prefix.pch"; sourceTree = "<group>"; };
 		441FC4F81462D8E1007BF9DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		441FC4F91462D8E1007BF9DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		441FC4FC1462D8E1007BF9DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		441FC5031462D8E1007BF9DC /* JSONModelerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONModelerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		441FC5031462D8E1007BF9DC /* JSONAcceleratorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONAcceleratorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		441FC5041462D8E1007BF9DC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		441FC50B1462D8E1007BF9DC /* JSONModelerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JSONModelerTests-Info.plist"; sourceTree = "<group>"; };
+		441FC50B1462D8E1007BF9DC /* JSONAcceleratorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.mxml; path = "JSONAcceleratorTests-Info.plist"; sourceTree = "<group>"; };
 		441FC50D1462D8E1007BF9DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		441FC50F1462D8E1007BF9DC /* JSONModelerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONModelerTests.h; sourceTree = "<group>"; };
 		441FC5101462D8E1007BF9DC /* JSONModelerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONModelerTests.m; sourceTree = "<group>"; };
@@ -315,7 +315,7 @@
 		44233105149B9DFC0071978D /* MASPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MASPreferencesWindow.xib; path = Vendor/MASPreferences/MASPreferencesWindow.xib; sourceTree = "<group>"; };
 		44233106149B9DFC0071978D /* MASPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MASPreferencesWindowController.h; path = Vendor/MASPreferences/MASPreferencesWindowController.h; sourceTree = "<group>"; };
 		44233107149B9DFC0071978D /* MASPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MASPreferencesWindowController.m; path = Vendor/MASPreferences/MASPreferencesWindowController.m; sourceTree = "<group>"; };
-		4423313D149B9E290071978D /* JSONModeler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONModeler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4423313D149B9E290071978D /* JSON Accelerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JSON Accelerator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44233140149B9F380071978D /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = JSONModeler/Vendor/Sparkle/Sparkle.framework; sourceTree = "<group>"; };
 		44233143149BA0760071978D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/MainMenu-Internal.xib"; sourceTree = "<group>"; };
 		4426908A14DA050900C16CBD /* NPReceiptVerification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPReceiptVerification.h; path = Vendor/Receipt/NPReceiptVerification.h; sourceTree = "<group>"; };
@@ -488,7 +488,7 @@
 		7D00408614A24F1700235189 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		7D00F424149FF30C00235189 /* JSONTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONTextView.h; path = Views/JSONTextView.h; sourceTree = "<group>"; };
 		7D00F425149FF30C00235189 /* JSONTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONTextView.m; path = Views/JSONTextView.m; sourceTree = "<group>"; };
-		7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.mxml; name = "JSONModeler-Internal-Info.plist"; path = "../JSONModeler-Internal-Info.plist"; sourceTree = "<group>"; };
+		7D00F42814A11BAF00235189 /* JSONAccelerator-Internal-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.mxml; name = "JSONAccelerator-Internal-Info.plist"; path = "../JSONAccelerator-Internal-Info.plist"; sourceTree = "<group>"; };
 		7D2AD95514D087A90035A4FE /* CoreDataInterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataInterfaceTemplate.txt; path = Resources/Templates/CoreDataInterfaceTemplate.txt; sourceTree = "<group>"; };
 		7D2AD95814D089440035A4FE /* CoreDataImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataImplementationTemplate.txt; path = Resources/Templates/CoreDataImplementationTemplate.txt; sourceTree = "<group>"; };
 		7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataAccessorsTemplate.txt; path = Resources/Templates/CoreDataAccessorsTemplate.txt; sourceTree = "<group>"; };
@@ -572,9 +572,9 @@
 		441FC4E31462D8E1007BF9DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				441FC4E21462D8E1007BF9DC /* JSONModeler.app */,
-				441FC5031462D8E1007BF9DC /* JSONModelerTests.octest */,
-				4423313D149B9E290071978D /* JSONModeler.app */,
+				441FC4E21462D8E1007BF9DC /* JSON Accelerator.app */,
+				441FC5031462D8E1007BF9DC /* JSONAcceleratorTests.octest */,
+				4423313D149B9E290071978D /* JSON Accelerator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -634,10 +634,10 @@
 			children = (
 				4430047414AB6F4500F7C8DE /* InfoPlist.strings */,
 				446B282414ABCC0600FBE699 /* Credits.rtf */,
-				7D00F42814A11BAF00235189 /* JSONModeler-Internal-Info.plist */,
-				441FC4EE1462D8E1007BF9DC /* JSONModeler-Info.plist */,
+				7D00F42814A11BAF00235189 /* JSONAccelerator-Internal-Info.plist */,
+				441FC4EE1462D8E1007BF9DC /* JSONAccelerator-Info.plist */,
 				441FC4F21462D8E1007BF9DC /* main.m */,
-				441FC4F41462D8E1007BF9DC /* JSONModeler-Prefix.pch */,
+				441FC4F41462D8E1007BF9DC /* JSONAccelerator-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -655,7 +655,7 @@
 		441FC50A1462D8E1007BF9DC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				441FC50B1462D8E1007BF9DC /* JSONModelerTests-Info.plist */,
+				441FC50B1462D8E1007BF9DC /* JSONAcceleratorTests-Info.plist */,
 				441FC50C1462D8E1007BF9DC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -1034,9 +1034,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		441FC4E11462D8E1007BF9DC /* JSONModeler */ = {
+		441FC4E11462D8E1007BF9DC /* JSON Accelerator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 441FC5141462D8E1007BF9DC /* Build configuration list for PBXNativeTarget "JSONModeler" */;
+			buildConfigurationList = 441FC5141462D8E1007BF9DC /* Build configuration list for PBXNativeTarget "JSON Accelerator" */;
 			buildPhases = (
 				441FC4DE1462D8E1007BF9DC /* Sources */,
 				441FC4DF1462D8E1007BF9DC /* Frameworks */,
@@ -1047,14 +1047,14 @@
 			);
 			dependencies = (
 			);
-			name = JSONModeler;
+			name = "JSON Accelerator";
 			productName = JSONModeler;
-			productReference = 441FC4E21462D8E1007BF9DC /* JSONModeler.app */;
+			productReference = 441FC4E21462D8E1007BF9DC /* JSON Accelerator.app */;
 			productType = "com.apple.product-type.application";
 		};
-		441FC5021462D8E1007BF9DC /* JSONModelerTests */ = {
+		441FC5021462D8E1007BF9DC /* JSONAcceleratorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 441FC5171462D8E1007BF9DC /* Build configuration list for PBXNativeTarget "JSONModelerTests" */;
+			buildConfigurationList = 441FC5171462D8E1007BF9DC /* Build configuration list for PBXNativeTarget "JSONAcceleratorTests" */;
 			buildPhases = (
 				441FC4FE1462D8E1007BF9DC /* Sources */,
 				441FC4FF1462D8E1007BF9DC /* Frameworks */,
@@ -1066,14 +1066,14 @@
 			dependencies = (
 				441FC5081462D8E1007BF9DC /* PBXTargetDependency */,
 			);
-			name = JSONModelerTests;
+			name = JSONAcceleratorTests;
 			productName = JSONModelerTests;
-			productReference = 441FC5031462D8E1007BF9DC /* JSONModelerTests.octest */;
+			productReference = 441FC5031462D8E1007BF9DC /* JSONAcceleratorTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		4423310A149B9E290071978D /* JSONModeler_internal */ = {
+		4423310A149B9E290071978D /* JSON Accelerator_internal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4423313A149B9E290071978D /* Build configuration list for PBXNativeTarget "JSONModeler_internal" */;
+			buildConfigurationList = 4423313A149B9E290071978D /* Build configuration list for PBXNativeTarget "JSON Accelerator_internal" */;
 			buildPhases = (
 				4423310B149B9E290071978D /* Sources */,
 				44233127149B9E290071978D /* Frameworks */,
@@ -1084,9 +1084,9 @@
 			);
 			dependencies = (
 			);
-			name = JSONModeler_internal;
+			name = "JSON Accelerator_internal";
 			productName = JSONModeler;
-			productReference = 4423313D149B9E290071978D /* JSONModeler.app */;
+			productReference = 4423313D149B9E290071978D /* JSON Accelerator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1098,7 +1098,7 @@
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Nerdery Interactive Labs";
 			};
-			buildConfigurationList = 441FC4DC1462D8E1007BF9DC /* Build configuration list for PBXProject "JSONModeler" */;
+			buildConfigurationList = 441FC4DC1462D8E1007BF9DC /* Build configuration list for PBXProject "JSONAccelerator" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1116,9 +1116,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				441FC4E11462D8E1007BF9DC /* JSONModeler */,
-				441FC5021462D8E1007BF9DC /* JSONModelerTests */,
-				4423310A149B9E290071978D /* JSONModeler_internal */,
+				441FC4E11462D8E1007BF9DC /* JSON Accelerator */,
+				441FC5021462D8E1007BF9DC /* JSONAcceleratorTests */,
+				4423310A149B9E290071978D /* JSON Accelerator_internal */,
 			);
 		};
 /* End PBXProject section */
@@ -1399,7 +1399,7 @@
 /* Begin PBXTargetDependency section */
 		441FC5081462D8E1007BF9DC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 441FC4E11462D8E1007BF9DC /* JSONModeler */;
+			target = 441FC4E11462D8E1007BF9DC /* JSON Accelerator */;
 			targetProxy = 441FC5071462D8E1007BF9DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1581,9 +1581,9 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
-				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "JSONModeler/JSONAccelerator-Prefix.pch";
+				INFOPLIST_FILE = "JSONModeler/JSONAccelerator-Info.plist";
+				PRODUCT_NAME = "JSON Accelerator";
 				PROVISIONING_PROFILE = "B02A5448-7332-4626-98E8-7468E562A55F";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
@@ -1600,9 +1600,9 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
-				INFOPLIST_FILE = "JSONModeler/JSONModeler-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "JSONModeler/JSONAccelerator-Prefix.pch";
+				INFOPLIST_FILE = "JSONModeler/JSONAccelerator-Info.plist";
+				PRODUCT_NAME = "JSON Accelerator";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1615,8 +1615,8 @@
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
-				INFOPLIST_FILE = "JSONModelerTests/JSONModelerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "JSONModelerTests/JSONAcceleratorTests-Info.plist";
+				PRODUCT_NAME = JSONAcceleratorTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1629,8 +1629,8 @@
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
-				INFOPLIST_FILE = "JSONModelerTests/JSONModelerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "JSONModelerTests/JSONAcceleratorTests-Info.plist";
+				PRODUCT_NAME = JSONAcceleratorTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1645,19 +1645,19 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
+				GCC_PREFIX_HEADER = "JSONModeler/JSONAccelerator-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 					"NORATE=1",
 				);
-				INFOPLIST_FILE = "JSONModeler-Internal-Info.plist";
+				INFOPLIST_FILE = "JSONAccelerator-Internal-Info.plist";
 				INFOPLIST_PREPROCESS = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
-				PRODUCT_NAME = JSONModeler;
+				PRODUCT_NAME = "JSON Accelerator";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1672,15 +1672,15 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
+				GCC_PREFIX_HEADER = "JSONModeler/JSONAccelerator-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "NORATE=1";
-				INFOPLIST_FILE = "JSONModeler-Internal-Info.plist";
+				INFOPLIST_FILE = "JSONAccelerator-Internal-Info.plist";
 				INFOPLIST_PREPROCESS = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
-				PRODUCT_NAME = JSONModeler;
+				PRODUCT_NAME = "JSON Accelerator";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1689,7 +1689,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		441FC4DC1462D8E1007BF9DC /* Build configuration list for PBXProject "JSONModeler" */ = {
+		441FC4DC1462D8E1007BF9DC /* Build configuration list for PBXProject "JSONAccelerator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				441FC5121462D8E1007BF9DC /* Debug */,
@@ -1698,7 +1698,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		441FC5141462D8E1007BF9DC /* Build configuration list for PBXNativeTarget "JSONModeler" */ = {
+		441FC5141462D8E1007BF9DC /* Build configuration list for PBXNativeTarget "JSON Accelerator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				441FC5151462D8E1007BF9DC /* Debug */,
@@ -1707,7 +1707,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		441FC5171462D8E1007BF9DC /* Build configuration list for PBXNativeTarget "JSONModelerTests" */ = {
+		441FC5171462D8E1007BF9DC /* Build configuration list for PBXNativeTarget "JSONAcceleratorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				441FC5181462D8E1007BF9DC /* Debug */,
@@ -1716,7 +1716,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4423313A149B9E290071978D /* Build configuration list for PBXNativeTarget "JSONModeler_internal" */ = {
+		4423313A149B9E290071978D /* Build configuration list for PBXNativeTarget "JSON Accelerator_internal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4423313B149B9E290071978D /* Debug */,

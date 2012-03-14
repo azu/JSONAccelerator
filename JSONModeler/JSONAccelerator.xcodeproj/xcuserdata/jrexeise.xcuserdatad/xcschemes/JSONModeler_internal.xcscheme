@@ -14,9 +14,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4423310A149B9E290071978D"
-               BuildableName = "JSONModeler.app"
-               BlueprintName = "JSONModeler_internal"
-               ReferencedContainer = "container:JSONModeler.xcodeproj">
+               BuildableName = "JSONAccelerator.app"
+               BlueprintName = "JSON Accelerator_internal"
+               ReferencedContainer = "container:JSONAccelerator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,9 +32,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4423310A149B9E290071978D"
-            BuildableName = "JSONModeler.app"
-            BlueprintName = "JSONModeler_internal"
-            ReferencedContainer = "container:JSONModeler.xcodeproj">
+            BuildableName = "JSONAccelerator.app"
+            BlueprintName = "JSON Accelerator_internal"
+            ReferencedContainer = "container:JSONAccelerator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,9 +51,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4423310A149B9E290071978D"
-            BuildableName = "JSONModeler.app"
-            BlueprintName = "JSONModeler_internal"
-            ReferencedContainer = "container:JSONModeler.xcodeproj">
+            BuildableName = "JSONAccelerator.app"
+            BlueprintName = "JSON Accelerator_internal"
+            ReferencedContainer = "container:JSONAccelerator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,9 +69,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4423310A149B9E290071978D"
-            BuildableName = "JSONModeler.app"
-            BlueprintName = "JSONModeler_internal"
-            ReferencedContainer = "container:JSONModeler.xcodeproj">
+            BuildableName = "JSONAccelerator.app"
+            BlueprintName = "JSON Accelerator_internal"
+            ReferencedContainer = "container:JSONAccelerator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -14,9 +14,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "441FC4E11462D8E1007BF9DC"
-               BuildableName = "JSONModeler.app"
-               BlueprintName = "JSONModeler"
-               ReferencedContainer = "container:JSONModeler.xcodeproj">
+               BuildableName = "JSONAccelerator.app"
+               BlueprintName = "JSON Accelerator"
+               ReferencedContainer = "container:JSONAccelerator.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,9 +32,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "441FC5021462D8E1007BF9DC"
-               BuildableName = "JSONModelerTests.octest"
-               BlueprintName = "JSONModelerTests"
-               ReferencedContainer = "container:JSONModeler.xcodeproj">
+               BuildableName = "JSONAcceleratorTests.octest"
+               BlueprintName = "JSONAcceleratorTests"
+               ReferencedContainer = "container:JSONAccelerator.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -42,9 +42,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "441FC4E11462D8E1007BF9DC"
-            BuildableName = "JSONModeler.app"
-            BlueprintName = "JSONModeler"
-            ReferencedContainer = "container:JSONModeler.xcodeproj">
+            BuildableName = "JSONAccelerator.app"
+            BlueprintName = "JSON Accelerator"
+            ReferencedContainer = "container:JSONAccelerator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "441FC4E11462D8E1007BF9DC"
-            BuildableName = "JSONModeler.app"
-            BlueprintName = "JSONModeler"
-            ReferencedContainer = "container:JSONModeler.xcodeproj">
+            BuildableName = "JSONAccelerator.app"
+            BlueprintName = "JSON Accelerator"
+            ReferencedContainer = "container:JSONAccelerator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,9 +79,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "441FC4E11462D8E1007BF9DC"
-            BuildableName = "JSONModeler.app"
-            BlueprintName = "JSONModeler"
-            ReferencedContainer = "container:JSONModeler.xcodeproj">
+            BuildableName = "JSONAccelerator.app"
+            BlueprintName = "JSON Accelerator"
+            ReferencedContainer = "container:JSONAccelerator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
