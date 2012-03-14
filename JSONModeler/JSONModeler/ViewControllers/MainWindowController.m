@@ -517,6 +517,7 @@
                 NSString *parsedString = [informativeText stringByReplacingOccurrencesOfString:@"around character " withString:@""];
                 parsedString = [parsedString stringByReplacingOccurrencesOfString:@"Unescaped control character " withString:@""];
                 parsedString = [parsedString stringByReplacingOccurrencesOfString:@"No value for key in object" withString:@""];
+                parsedString = [parsedString stringByReplacingOccurrencesOfString:@"Invalid value " withString:@""];
                 parsedString = [parsedString stringByReplacingOccurrencesOfString:@"Badly formed object" withString:@""];
                 parsedString = [parsedString stringByReplacingOccurrencesOfString:@"Badly formed array" withString:@""];
                 parsedString = [parsedString stringByReplacingOccurrencesOfString:@"No string key for value in object" withString:@""];

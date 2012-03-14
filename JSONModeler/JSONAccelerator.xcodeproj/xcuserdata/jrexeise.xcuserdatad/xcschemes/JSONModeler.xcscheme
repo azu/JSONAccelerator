@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "441FC4E11462D8E1007BF9DC"
-               BuildableName = "JSONAccelerator.app"
+               BuildableName = "JSON Accelerator.app"
                BlueprintName = "JSON Accelerator"
                ReferencedContainer = "container:JSONAccelerator.xcodeproj">
             </BuildableReference>
@@ -42,7 +42,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "441FC4E11462D8E1007BF9DC"
-            BuildableName = "JSONAccelerator.app"
+            BuildableName = "JSON Accelerator.app"
             BlueprintName = "JSON Accelerator"
             ReferencedContainer = "container:JSONAccelerator.xcodeproj">
          </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "441FC4E11462D8E1007BF9DC"
-            BuildableName = "JSONAccelerator.app"
+            BuildableName = "JSON Accelerator.app"
             BlueprintName = "JSON Accelerator"
             ReferencedContainer = "container:JSONAccelerator.xcodeproj">
          </BuildableReference>
@@ -79,7 +79,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "441FC4E11462D8E1007BF9DC"
-            BuildableName = "JSONAccelerator.app"
+            BuildableName = "JSON Accelerator.app"
             BlueprintName = "JSON Accelerator"
             ReferencedContainer = "container:JSONAccelerator.xcodeproj">
          </BuildableReference>
