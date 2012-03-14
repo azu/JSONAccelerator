@@ -6,13 +6,16 @@
 //  Copyright (c) 2011 Nerdery Interactive Labs. All rights reserved.
 //
 
+
 #import "MainWindowController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "JSONModeler.h"
 #import "ModelerDocument.h"
 #import "JSONFetcher.h"
 #import "HTTPOptionsWindowController.h"
 #import "MarkerLineNumberView.h"
 #import "SavePanelLanguageChooserViewController.h"
+#import "GenerateFilesButton.h"
 
 #import "OutputLanguageWriterObjectiveC.h"
 #import "OutputLanguageWriterJava.h"
@@ -22,13 +25,14 @@
 #import "CoreDataModelGenerator.h"
 
 
-@interface MainWindowController ()  <NSTextViewDelegate, NSOpenSavePanelDelegate>
+@interface MainWindowController ()  <NSTextViewDelegate, NSOpenSavePanelDelegate, HTTPOptionsWindowControllerDelegate, ClickViewDelegate>
 
 @property (strong) JSONModeler *modeler;
+@property (strong) HTTPOptionsWindowController *wc;
 
 - (BOOL) verifyJSONString;
 - (void) generateFiles;
-
+- (void)getDataButtonPressed;
 
 @end
 
@@ -38,58 +42,44 @@
     SavePanelLanguageChooserViewController *_languageChooserViewController;
 }
 @synthesize validDataStructureView = _validDataStructureView;
+@synthesize genFilesView = _genFilesView;
 
 @synthesize mainWindow = _mainWindow;
-@synthesize generateFilesButton = _generateFilesButton;
 @synthesize fetchDataFromURLView = _fetchDataFromURLView;
 @synthesize switchToDataLoadButton = _switchToDataLoadButton;
 @synthesize getDataView = _getDataView;
 @synthesize modeler = _modeler;
-@synthesize urlTextField = _urlTextField;
-@synthesize urlTextFieldCell = _urlTextFieldCell;
 @synthesize getDataButton = _getDataButton;
 @synthesize JSONTextView = _JSONTextView;
 @synthesize progressView = _progressView;
 @synthesize optionsButton = _optionsButton;
 @synthesize scrollView = _scrollView;
+@synthesize wc = _wc;
 
-- (id)initWithWindow:(NSWindow *)window
-{
-    self = [super initWithWindow:window];
-    if (self) {
-        // Initialization code here.
-        
-    }
-    
-    return self;
-}
-
+#pragma mark - Begin Class Methods
+#pragma mark Loading Methods
 // -------------------------------------------------------------------------------
 //	awakeFromNib:
 // -------------------------------------------------------------------------------
 - (void)awakeFromNib
 {
     ModelerDocument *document = self.document;
+    
     self.modeler = document.modeler;
+    [self.getDataView setHidden:YES];
+    self.wc = [[HTTPOptionsWindowController alloc] initWithNibName:@"HTTPOptionsWindowController" bundle:nil document:self.document];
+    self.wc.popoverOwnerDelegate = self;
     
     NSString *genFiles = NSLocalizedString(@"Generate Files", @"In the main screen, this is the button that writes out files");
-    [self.generateFilesButton setTitle:genFiles];
-    [self.mainWindow setMinSize:NSMakeSize(550, 300)];
+    [self.mainWindow setMinSize:NSMakeSize(550, 588)];
+    [self.genFilesView.textField setStringValue:genFiles];
+    self.genFilesView.delegate = self;
+
     
-    
-    [self.urlTextFieldCell setPlaceholderString:NSLocalizedString(@"Enter URL...", @"Prompt user gets to enter a URL")];
     NSFont *fixedFont = [NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]];
     [self.JSONTextView setFont:fixedFont];
 
     [self.JSONTextView setNeedsDisplay:YES];
-    
-    [self.getDataButton setTitle:NSLocalizedString(@"Get Data", @"In the main screen, this is the button that fetches data from a URL")];
-    //[self.optionsButton setTitle:NSLocalizedString(@"Options", @"This is the current title of http options window that gets written")];
-    
-#ifdef DEBUG
-    [self.urlTextFieldCell setStringValue:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=fm34txf3v6vu9jph5fdqt529"];
-#endif
-
     
     _lineNumberView = [[MarkerLineNumberView alloc] initWithScrollView:self.scrollView];
     CGFloat lineNumberColor = 42.0/255.0;
@@ -107,95 +97,161 @@
     [super windowDidLoad];
     [self.JSONTextView setTextColor:[NSColor whiteColor]];
     [self.JSONTextView setTextContainerInset:NSMakeSize(2, 4)];
-    [[NSNotificationCenter defaultCenter] addObserver:self.JSONTextView selector:@selector(textDidChange:)  name:NSControlTextDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:)  name:NSControlTextDidChangeNotification object:nil];
 
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-}
-
-- (void)textDidChange:(NSNotification *)notification
-{
     NSError *error = nil;    
     NSData *data = [[self.JSONTextView string] dataUsingEncoding:NSUTF8StringEncoding];
     // Just for testing
     [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    
-    if(error) {
-        [self.validDataStructureView setHidden:YES];
+    if(error == nil) {
+        [self toggleCanGenerateFilesTo:YES];
     } else {
-        // Show 
-        [self.validDataStructureView setHidden:NO];
+        [self toggleCanGenerateFilesTo:NO];
     }
     
+    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
+
+#pragma mark IBActions
 
 - (IBAction)generateFilesPressed:(id)sender {
-    [self chooseLanguagePressed:sender];
-}
-
-- (IBAction)switchToDataLoadView:(id)sender
-{
-//    [self.scrollView setHidden:YES];
-//    [self.switchToDataLoadButton setHidden:YES];
-}
-
-- (IBAction)getUrlPressed:(id)sender 
-{
-    if (nil == [_urlTextField stringValue] || [[_urlTextField stringValue] isEqualToString:@""]) {
-        return;
-    }
-    
-    [self.urlTextField setStringValue:[self.urlTextField.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    [self.getDataButton setHidden:YES];
-    [self.progressView startAnimation:nil];
-    NSString *escapedString = [[self.urlTextField stringValue] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
-    
-    [self.modeler addObserver:self forKeyPath:@"parseComplete" options:NSKeyValueObservingOptionNew context:NULL];
-    JSONFetcher *fetcher = [[JSONFetcher alloc] init];
-    fetcher.document = self.document;
-    [fetcher downloadJSONFromLocation:escapedString withSuccess:^(id object) {
-        [self.getDataButton setHidden:NO];
-        [self.progressView stopAnimation:nil];
-        NSString *parsedString  = [[NSString alloc] initWithData:object encoding:NSUTF8StringEncoding];
-        self.modeler.JSONString = [parsedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    } 
-                           andFailure:^(NSHTTPURLResponse *response, NSError *error) {
-                               [self.getDataButton setHidden:NO];
-                               [self.progressView stopAnimation:nil];
-                               if(response == nil) {
-                                   NSString *informativeText = [error localizedDescription];
-                                   if(informativeText == nil) {
-                                       informativeText = @"";
-                                   }
-                                   NSAlert *testAlert = [NSAlert alertWithMessageText:NSLocalizedString(@"An Error Occurred", @"Title of an alert if there is an error getting content of a url")
-                                                                        defaultButton:NSLocalizedString(@"Dismiss", @"Button to dismiss an action sheet")
-                                                                      alternateButton:nil
-                                                                          otherButton:nil
-                                                            informativeTextWithFormat:@"%@", informativeText];
-                                   [testAlert runModal];
-                               }
-                               else {
-                                   NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"An Error Occurred", @"Title of an alert if there is an error getting content of a url")
-                                                                    defaultButton:NSLocalizedString(@"Dismiss", @"Button to dismiss an action sheet")
-                                                                  alternateButton:nil
-                                                                      otherButton:nil
-                                                        informativeTextWithFormat:[NSString stringWithFormat:@"%ld - %@", [response statusCode], [NSHTTPURLResponse localizedStringForStatusCode:[response statusCode]]]];
-                                   [alert runModal];
-                               }
-                           }];
-    
-}
-
-- (void)chooseLanguagePressed:(id)sender 
-{
     if([self verifyJSONString]) {
         [self generateFiles];
     }
 }
 
-- (void)verifyPressed:(id)sender
+- (IBAction)switchToDataLoadView:(id)sender
 {
-    [self verifyJSONString];
-}  
+    [self optionsButtonPressed:sender];
+//    [self.scrollView setHidden:YES];
+//    [self.switchToDataLoadButton setHidden:YES];
+//    [self.getDataView setHidden:NO];
+//    [self.urlTextField becomeFirstResponder];
+//    [self.generateFilesButton setEnabled:NO];
+}
+
+- (IBAction)cancelDataLoad:(id)sender 
+{
+    
+    [self.scrollView setHidden:NO];
+    [self.switchToDataLoadButton setHidden:NO];
+    [self.getDataView setHidden:YES];
+    
+    
+    NSError *error = nil;    
+    NSData *data = [[self.JSONTextView string] dataUsingEncoding:NSUTF8StringEncoding];
+    // Just for testing
+    [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    if(error == nil) {
+        [self toggleCanGenerateFilesTo:YES];
+    } else {
+        [self toggleCanGenerateFilesTo:NO];
+    }
+}
+
+- (void)getDataButtonPressed
+{
+    if (nil == [self.wc.urlTextField stringValue] || [[self.wc.urlTextField stringValue] isEqualToString:@""]) {
+        return;
+    }
+    
+    [self.wc.urlTextField setStringValue:[self.wc.urlTextField.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    [self.getDataButton setHidden:YES];
+    [self.progressView startAnimation:nil];
+    NSString *escapedString = [[self.wc.urlTextField stringValue] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
+    
+    [self.modeler addObserver:self forKeyPath:@"parseComplete" options:NSKeyValueObservingOptionNew context:NULL];
+    JSONFetcher *fetcher = [[JSONFetcher alloc] init];
+    fetcher.document = self.document;
+    
+    // ******************************************
+    // SUCCESS BLOCK
+    // ******************************************    
+    void (^successBlock)(id object) = ^(id object) {
+        [self.wc.popover close];
+        [self.getDataButton setHidden:NO];
+        [self.progressView stopAnimation:nil];
+        NSString *parsedString  = [[NSString alloc] initWithData:object encoding:NSUTF8StringEncoding];
+        
+        NSError *error = nil;    
+        parsedString = [parsedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        NSData *data = [parsedString dataUsingEncoding:NSUTF8StringEncoding];
+        // Just for testing
+        id jsonObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        
+        if(error == nil) {
+            id output = [NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:&error];
+            NSString *outputString = [[NSString alloc] initWithData:output encoding:NSUTF8StringEncoding];
+            self.modeler.JSONString = outputString;
+            [self toggleCanGenerateFilesTo:YES]; 
+        } else {
+            self.modeler.JSONString = parsedString;
+            [self toggleCanGenerateFilesTo:NO];
+        }
+    };
+
+    // ******************************************
+    // ERROR BLOCK
+    // ******************************************    
+    void (^errorBlock)(NSHTTPURLResponse *response, NSError *error) = ^(NSHTTPURLResponse *response, NSError *error){
+        [self.getDataButton setHidden:NO];
+        [self.progressView stopAnimation:nil];
+        if(response == nil) {
+            NSString *informativeText = [error localizedDescription];
+            if(informativeText == nil) {
+                informativeText = @"";
+            }
+            NSAlert *testAlert = [NSAlert alertWithMessageText:NSLocalizedString(@"An Error Occurred", @"Title of an alert if there is an error getting content of a url")
+                                                 defaultButton:NSLocalizedString(@"Dismiss", @"Button to dismiss an action sheet")
+                                               alternateButton:nil
+                                                   otherButton:nil
+                                     informativeTextWithFormat:@"%@", informativeText];
+            [testAlert runModal];
+        }
+        else {
+            NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"An Error Occurred", @"Title of an alert if there is an error getting content of a url")
+                                             defaultButton:NSLocalizedString(@"Dismiss", @"Button to dismiss an action sheet")
+                                           alternateButton:nil
+                                               otherButton:nil
+                                 informativeTextWithFormat:[NSString stringWithFormat:@"%ld - %@", [response statusCode], [NSHTTPURLResponse localizedStringForStatusCode:[response statusCode]]]];
+            [alert runModal];
+        }
+    };
+    
+    [fetcher downloadJSONFromLocation:escapedString withSuccess: successBlock andFailure:errorBlock ];
+    
+}
+
+#pragma mark Helper Methods
+
+- (void)textDidChange:(NSNotification *)notification
+{
+    if ([notification object]== self.JSONTextView) {
+        NSError *error = nil;    
+        NSData *data = [[self.JSONTextView string] dataUsingEncoding:NSUTF8StringEncoding];
+        // Just for testing
+        [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+        
+        if(error) {
+            [self toggleCanGenerateFilesTo:NO];
+        } else {
+            // Show 
+            [self toggleCanGenerateFilesTo:YES];
+        }
+    }
+}
+
+- (void)toggleCanGenerateFilesTo:(BOOL)canGenerateFiles {
+    if(canGenerateFiles == NO) {
+        [self.genFilesView setEnabled:NO];
+        [self.validDataStructureView setHidden:YES];
+    } else {
+        // Show 
+        [self.validDataStructureView setHidden:NO];
+        [self.genFilesView setEnabled:YES];
+    }
+}
 
 - (BOOL)verifyJSONString
 {
@@ -220,7 +276,6 @@
         [testAlert beginSheetModalForWindow:self.mainWindow modalDelegate:self didEndSelector:nil contextInfo:nil]; 
         return NO;
     } else {
-//        [self.chooseLanguageButton setEnabled:YES];
         id output = [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted error:&error];
         NSString *outputString = [[NSString alloc] initWithData:output encoding:NSUTF8StringEncoding];
         self.modeler.JSONString = outputString;
@@ -231,11 +286,11 @@
 
 - (IBAction)optionsButtonPressed:(id)sender {
     NSPopover *myPopover = [[NSPopover alloc] init];
+    myPopover.appearance = NSPopoverAppearanceMinimal;
     
-    HTTPOptionsWindowController *wc = [[HTTPOptionsWindowController alloc] initWithNibName:@"HTTPOptionsWindowController" bundle:nil document:self.document];
-    wc.popover = myPopover;
-    myPopover.delegate = wc;
-    myPopover.contentViewController = wc;
+    self.wc.popover = myPopover;
+    myPopover.delegate = self.wc;
+    myPopover.contentViewController = self.wc;
     
     // AppKit will close the popover when the user interacts with a user interface element outside the popover.
     // note that interacting with menus or panels that become key only when needed will not cause a transient popover to close.
@@ -380,12 +435,12 @@
     
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+#pragma mark - Custom Delegate method
+
+- (void)clickViewPressed:(id)sender
 {
-    if ([keyPath isEqualToString:@"parseComplete"]) {
-        if(_modeler.parseComplete) {
-//            [self.chooseLanguageButton setEnabled:YES];
-        }
+    if(sender  == self.genFilesView) {
+        [self generateFilesPressed:nil];
     }
 }
 

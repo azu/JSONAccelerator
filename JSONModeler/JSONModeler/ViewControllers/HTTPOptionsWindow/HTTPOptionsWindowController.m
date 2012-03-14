@@ -34,11 +34,15 @@ NSString * const headerValue = @"headerValue";
 @synthesize headerKeyField = _headerKeyField;
 @synthesize headerValueField = _headerValueField;
 @synthesize headerTableView = _headerTableView;
+@synthesize urlTextField = _urlTextField;
+@synthesize urlTextFieldCell = _urlTextFieldCell;
+@synthesize generateDataButton = _generateDataButton;
 @synthesize headerTableKeyColumn = _headerTableKeyColumn;
 @synthesize headerTableValueColumn = _headerTableValueColumn;
 @synthesize dummyButton = _dummyButton;
 @synthesize document = _document;
 @synthesize popover = _popover;
+@synthesize popoverOwnerDelegate = _popoverOwnerDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -76,6 +80,14 @@ NSString * const headerValue = @"headerValue";
     _addButton.title = NSLocalizedString(@"Add", @"Title for the Add header button in the HTTP Options window");
     [[_headerTableKeyColumn headerCell] setStringValue:NSLocalizedString(@"Key", @"Title for the column of HTTP header keys")];
     [[_headerTableValueColumn headerCell] setStringValue:NSLocalizedString(@"Value", @"Title for the column of HTTP header values")];
+    [self.urlTextFieldCell setPlaceholderString:NSLocalizedString(@"Enter URL...", @"Prompt user gets to enter a URL")];    
+    [self.generateDataButton setTitle:NSLocalizedString(@"Get Data", @"In the main screen, this is the button that fetches data from a URL")];
+
+#ifdef DEBUG
+    [self.urlTextFieldCell setStringValue:@"http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=fm34txf3v6vu9jph5fdqt529"];
+#endif
+
+    
     
     /* Set up http parameters */
     self.httpMethod = self.document.httpMethod;
@@ -95,7 +107,6 @@ NSString * const headerValue = @"headerValue";
 - (IBAction)addHeaderClicked:(id)sender {
     if (_headerKeyField.stringValue != nil && ![_headerKeyField.stringValue isEqualToString:@""] && _headerValueField.stringValue != nil && ![_headerValueField.stringValue isEqualToString:@""]) {
         [self.headerArrayController addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:_headerKeyField.stringValue, headerKey, _headerValueField.stringValue, headerValue, nil]];
-        
     }
 }
 
@@ -117,6 +128,11 @@ NSString * const headerValue = @"headerValue";
     if (row != -1) {
         [_headerArrayController removeObjectAtArrangedObjectIndex:row];
     }
+}
+
+- (IBAction)fetchDataPress:(id)sender
+{
+    [self.popoverOwnerDelegate getDataButtonPressed];
 }
 
 #pragma mark - NSControl Delegate Methods (for Header Key Text Field)

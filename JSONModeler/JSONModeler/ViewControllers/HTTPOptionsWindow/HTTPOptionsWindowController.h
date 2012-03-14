@@ -10,8 +10,15 @@
 
 @class ModelerDocument;
 
+@protocol HTTPOptionsWindowControllerDelegate <NSObject>
+
+- (void)getDataButtonPressed;
+
+@end
+
 @interface HTTPOptionsWindowController : NSViewController <NSPopoverDelegate>
 
+@property (strong) id<HTTPOptionsWindowControllerDelegate>popoverOwnerDelegate;
 @property (weak) IBOutlet NSMatrix *httpMethodRadioButtons;
 @property HTTPMethod httpMethod;
 @property (weak) NSPopover *popover;
@@ -23,6 +30,9 @@
 @property (weak) IBOutlet NSTextField *headerKeyField;
 @property (weak) IBOutlet NSTextField *headerValueField;
 @property (weak) IBOutlet NSTableView *headerTableView;
+@property (weak) IBOutlet NSTextField *urlTextField;
+@property (weak) IBOutlet NSTextFieldCell *urlTextFieldCell;
+@property (weak) IBOutlet NSButton *generateDataButton;
 
 @property (weak) IBOutlet NSTableColumn *headerTableKeyColumn;
 @property (weak) IBOutlet NSTableColumn *headerTableValueColumn;
@@ -44,5 +54,6 @@
 
 - (IBAction)plusClicked:(id)sender;
 - (IBAction)minusClicked:(id)sender;
+- (IBAction)fetchDataPress:(id)sender;
 
 @end
