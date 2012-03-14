@@ -501,7 +501,7 @@
             
             NSError *error = nil;    
             NSData *data = [[self.JSONTextView string] dataUsingEncoding:NSUTF8StringEncoding];
-            id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+            [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
             
             if(error) {
                 NSDictionary *dict = [error userInfo];

@@ -60,6 +60,9 @@ static NSString * const kReceiptHashKey = @"Hash";
 @implementation NPReceiptVerification
 
 + (void)load {
+#ifdef DEBUG
+    return;
+#endif
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
 	NSBundle *appBundle = [NSBundle mainBundle];
