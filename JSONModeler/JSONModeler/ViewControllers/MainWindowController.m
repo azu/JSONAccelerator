@@ -37,6 +37,7 @@
     MarkerLineNumberView *_lineNumberView;
     SavePanelLanguageChooserViewController *_languageChooserViewController;
 }
+@synthesize validDataStructureView = _validDataStructureView;
 
 @synthesize mainWindow = _mainWindow;
 @synthesize generateFilesButton = _generateFilesButton;
@@ -106,7 +107,25 @@
     [super windowDidLoad];
     [self.JSONTextView setTextColor:[NSColor whiteColor]];
     [self.JSONTextView setTextContainerInset:NSMakeSize(2, 4)];
+    [[NSNotificationCenter defaultCenter] addObserver:self.JSONTextView selector:@selector(textDidChange:)  name:NSControlTextDidChangeNotification object:nil];
+
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+}
+
+- (void)textDidChange:(NSNotification *)notification
+{
+    NSError *error = nil;    
+    NSData *data = [[self.JSONTextView string] dataUsingEncoding:NSUTF8StringEncoding];
+    // Just for testing
+    [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    
+    if(error) {
+        [self.validDataStructureView setHidden:YES];
+    } else {
+        // Show 
+        [self.validDataStructureView setHidden:NO];
+    }
+    
 }
 
 - (IBAction)generateFilesPressed:(id)sender {

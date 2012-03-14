@@ -22,6 +22,7 @@
 @property (weak) IBOutlet NSView *fetchDataFromURLView;
 @property (weak) IBOutlet NSButton *switchToDataLoadButton;
 @property (weak) IBOutlet NSView *getDataView;
+@property (weak) IBOutlet NSView *validDataStructureView;
 
 
 
