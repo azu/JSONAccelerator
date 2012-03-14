@@ -98,9 +98,13 @@
     return YES;
 }
 
+- (BOOL)isDocumentEdited {
+    return NO;
+}
+
 + (BOOL)autosavesInPlace
 {
-    return YES;
+    return NO;
 }
 
 @end

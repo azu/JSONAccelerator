@@ -11,7 +11,7 @@
 #import "ModelerDocument.h"
 #import "JSONFetcher.h"
 #import "HTTPOptionsWindowController.h"
-#import "NoodleLineNumberView.h"
+#import "MarkerLineNumberView.h"
 #import "SavePanelLanguageChooserViewController.h"
 
 #import "OutputLanguageWriterObjectiveC.h"
@@ -34,7 +34,7 @@
 
 @implementation MainWindowController  {
 @private
-    NoodleLineNumberView *_lineNumberView;
+    MarkerLineNumberView *_lineNumberView;
     SavePanelLanguageChooserViewController *_languageChooserViewController;
 }
 
@@ -86,7 +86,10 @@
 #endif
 
     
-    _lineNumberView = [[NoodleLineNumberView alloc] initWithScrollView:self.scrollView];
+    _lineNumberView = [[MarkerLineNumberView alloc] initWithScrollView:self.scrollView];
+    CGFloat lineNumberColor = 42.0/255.0;
+    
+    _lineNumberView.backgroundColor = [NSColor colorWithCalibratedRed:lineNumberColor green:lineNumberColor blue:lineNumberColor alpha:1.0f];
     [self.scrollView setVerticalRulerView:_lineNumberView];
     [self.scrollView setHasHorizontalRuler:NO];
     [self.scrollView setHasVerticalRuler:YES];

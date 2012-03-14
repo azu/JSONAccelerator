@@ -130,6 +130,16 @@
 		449A1F4314E2B14100F1B0E6 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1F2C14E2B14100F1B0E6 /* SBJsonWriter.m */; };
 		449A1F4414E2B14100F1B0E6 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1F2C14E2B14100F1B0E6 /* SBJsonWriter.m */; };
 		44B6BD9C14B62073000AEC28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F21462D8E1007BF9DC /* main.m */; };
+		44C0FF69150AA0DF0039A847 /* dragIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C0FF65150AA0DF0039A847 /* dragIcon.png */; };
+		44C0FF6A150AA0DF0039A847 /* dragIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C0FF66150AA0DF0039A847 /* dragIcon@2x.png */; };
+		44C0FF6B150AA0DF0039A847 /* globe.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C0FF67150AA0DF0039A847 /* globe.png */; };
+		44C0FF6C150AA0DF0039A847 /* globe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44C0FF68150AA0DF0039A847 /* globe@2x.png */; };
+		44C0FF7E150AA33A0039A847 /* MarkerLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF79150AA33A0039A847 /* MarkerLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44C0FF7F150AA33A0039A847 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF7B150AA33A0039A847 /* NoodleLineNumberMarker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44C0FF80150AA33A0039A847 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF7D150AA33A0039A847 /* NoodleLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44C0FF86150AA3B30039A847 /* MarkerLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF79150AA33A0039A847 /* MarkerLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44C0FF88150AA3BA0039A847 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF7B150AA33A0039A847 /* NoodleLineNumberMarker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44C0FF89150AA3C00039A847 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF7D150AA33A0039A847 /* NoodleLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
 		44E567B414F285FB00D60066 /* iRate.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44E567B214F285FB00D60066 /* iRate.strings */; };
 		44E567B514F285FB00D60066 /* iRate.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44E567B214F285FB00D60066 /* iRate.strings */; };
@@ -157,10 +167,6 @@
 		7D2AD95A14D089440035A4FE /* CoreDataImplementationTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD95814D089440035A4FE /* CoreDataImplementationTemplate.txt */; };
 		7D2AD96514D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */; };
 		7D2AD96614D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */; };
-		7D2AD98014D0C3960035A4FE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2AD97D14D0C3960035A4FE /* NoodleLineNumberMarker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		7D2AD98114D0C3960035A4FE /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2AD97D14D0C3960035A4FE /* NoodleLineNumberMarker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		7D2AD98214D0C3960035A4FE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2AD97F14D0C3960035A4FE /* NoodleLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		7D2AD98314D0C3960035A4FE /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D2AD97F14D0C3960035A4FE /* NoodleLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7D384DBD14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */; };
 		7D384DBF14ACFB210073EA2C /* SavePanelLanguageChooserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */; };
 		7D5FE4D114AD11F900330C2F /* HTTPOptionsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FE4D014AD11F900330C2F /* HTTPOptionsWindowController.m */; };
@@ -377,6 +383,16 @@
 		44B6BD9714B61EE6000AEC28 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		44B6BD9A14B61F30000AEC28 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		44B6BD9B14B61F30000AEC28 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44C0FF65150AA0DF0039A847 /* dragIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dragIcon.png; path = Resources/Images/dragIcon.png; sourceTree = "<group>"; };
+		44C0FF66150AA0DF0039A847 /* dragIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dragIcon@2x.png"; path = "Resources/Images/dragIcon@2x.png"; sourceTree = "<group>"; };
+		44C0FF67150AA0DF0039A847 /* globe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = globe.png; path = Resources/Images/globe.png; sourceTree = "<group>"; };
+		44C0FF68150AA0DF0039A847 /* globe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "globe@2x.png"; path = "Resources/Images/globe@2x.png"; sourceTree = "<group>"; };
+		44C0FF78150AA33A0039A847 /* MarkerLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkerLineNumberView.h; path = Vendor/Noodle/MarkerLineNumberView.h; sourceTree = "<group>"; };
+		44C0FF79150AA33A0039A847 /* MarkerLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarkerLineNumberView.m; path = Vendor/Noodle/MarkerLineNumberView.m; sourceTree = "<group>"; };
+		44C0FF7A150AA33A0039A847 /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberMarker.h; path = Vendor/Noodle/NoodleLineNumberMarker.h; sourceTree = "<group>"; };
+		44C0FF7B150AA33A0039A847 /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = Vendor/Noodle/NoodleLineNumberMarker.m; sourceTree = "<group>"; };
+		44C0FF7C150AA33A0039A847 /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = Vendor/Noodle/NoodleLineNumberView.h; sourceTree = "<group>"; };
+		44C0FF7D150AA33A0039A847 /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberView.m; path = Vendor/Noodle/NoodleLineNumberView.m; sourceTree = "<group>"; };
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
 		44C6F4E714AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -402,10 +418,6 @@
 		7D2AD95514D087A90035A4FE /* CoreDataInterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataInterfaceTemplate.txt; path = Resources/Templates/CoreDataInterfaceTemplate.txt; sourceTree = "<group>"; };
 		7D2AD95814D089440035A4FE /* CoreDataImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataImplementationTemplate.txt; path = Resources/Templates/CoreDataImplementationTemplate.txt; sourceTree = "<group>"; };
 		7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CoreDataAccessorsTemplate.txt; path = Resources/Templates/CoreDataAccessorsTemplate.txt; sourceTree = "<group>"; };
-		7D2AD97C14D0C3960035A4FE /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberMarker.h; sourceTree = "<group>"; };
-		7D2AD97D14D0C3960035A4FE /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberMarker.m; sourceTree = "<group>"; };
-		7D2AD97E14D0C3960035A4FE /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberView.h; sourceTree = "<group>"; };
-		7D2AD97F14D0C3960035A4FE /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberView.m; sourceTree = "<group>"; };
 		7D384DB214ACE7FC0073EA2C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
 		7D384DBA14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SavePanelLanguageChooserViewController.h; path = ViewControllers/SavePanelLanguageChooserViewController.h; sourceTree = "<group>"; };
 		7D384DBB14ACF8AC0073EA2C /* SavePanelLanguageChooserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SavePanelLanguageChooserViewController.m; path = ViewControllers/SavePanelLanguageChooserViewController.m; sourceTree = "<group>"; };
@@ -653,6 +665,10 @@
 		441FC5211462D982007BF9DC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				44C0FF65150AA0DF0039A847 /* dragIcon.png */,
+				44C0FF66150AA0DF0039A847 /* dragIcon@2x.png */,
+				44C0FF67150AA0DF0039A847 /* globe.png */,
+				44C0FF68150AA0DF0039A847 /* globe@2x.png */,
 				44731FBA14B78E91009FC27D /* 117-todo@2x.png */,
 				44731FB714B78CA8009FC27D /* 19-gear@2x.png */,
 				44731FB314B78BDC009FC27D /* 57-download@2x.png */,
@@ -733,10 +749,12 @@
 		445409F41476E112009B59AE /* Noodle */ = {
 			isa = PBXGroup;
 			children = (
-				7D2AD97C14D0C3960035A4FE /* NoodleLineNumberMarker.h */,
-				7D2AD97D14D0C3960035A4FE /* NoodleLineNumberMarker.m */,
-				7D2AD97E14D0C3960035A4FE /* NoodleLineNumberView.h */,
-				7D2AD97F14D0C3960035A4FE /* NoodleLineNumberView.m */,
+				44C0FF78150AA33A0039A847 /* MarkerLineNumberView.h */,
+				44C0FF79150AA33A0039A847 /* MarkerLineNumberView.m */,
+				44C0FF7A150AA33A0039A847 /* NoodleLineNumberMarker.h */,
+				44C0FF7B150AA33A0039A847 /* NoodleLineNumberMarker.m */,
+				44C0FF7C150AA33A0039A847 /* NoodleLineNumberView.h */,
+				44C0FF7D150AA33A0039A847 /* NoodleLineNumberView.m */,
 			);
 			name = Noodle;
 			sourceTree = "<group>";
@@ -1021,6 +1039,10 @@
 				7D9FE00A14D32CD800F135CC /* JavaArrayTemplate.txt in Resources */,
 				7D9FE01114D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt in Resources */,
 				44E567B414F285FB00D60066 /* iRate.strings in Resources */,
+				44C0FF69150AA0DF0039A847 /* dragIcon.png in Resources */,
+				44C0FF6A150AA0DF0039A847 /* dragIcon@2x.png in Resources */,
+				44C0FF6B150AA0DF0039A847 /* globe.png in Resources */,
+				44C0FF6C150AA0DF0039A847 /* globe@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,8 +1135,6 @@
 				44F037E914CA18AE00FECF86 /* NSURLRequest+postForm.m in Sources */,
 				7D78647D14CF1FBB00A0B173 /* CoreDataModelGenerator.m in Sources */,
 				7DBDAE5D14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m in Sources */,
-				7D2AD98014D0C3960035A4FE /* NoodleLineNumberMarker.m in Sources */,
-				7D2AD98214D0C3960035A4FE /* NoodleLineNumberView.m in Sources */,
 				7D9FDFDC14D1E5CF00F135CC /* OutputLanguageWriterDjango.m in Sources */,
 				4426908C14DA050900C16CBD /* NPReceiptVerification.m in Sources */,
 				449A1EF214E2AF3D00F1B0E6 /* DMHosts.m in Sources */,
@@ -1141,6 +1161,9 @@
 				449A1F4114E2B14100F1B0E6 /* SBJsonUTF8Stream.m in Sources */,
 				449A1F4314E2B14100F1B0E6 /* SBJsonWriter.m in Sources */,
 				4442837414F1E69500345D34 /* iRate.m in Sources */,
+				44C0FF7E150AA33A0039A847 /* MarkerLineNumberView.m in Sources */,
+				44C0FF7F150AA33A0039A847 /* NoodleLineNumberMarker.m in Sources */,
+				44C0FF80150AA33A0039A847 /* NoodleLineNumberView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1183,8 +1206,6 @@
 				44F037EA14CA18AE00FECF86 /* NSURLRequest+postForm.m in Sources */,
 				7D78647E14CF1FBB00A0B173 /* CoreDataModelGenerator.m in Sources */,
 				7DBDAE5E14CF7C1B00D7349E /* OutputLanguageWriterCoreData.m in Sources */,
-				7D2AD98114D0C3960035A4FE /* NoodleLineNumberMarker.m in Sources */,
-				7D2AD98314D0C3960035A4FE /* NoodleLineNumberView.m in Sources */,
 				7D9FDFDD14D1E5CF00F135CC /* OutputLanguageWriterDjango.m in Sources */,
 				449A1EFA14E2AF8B00F1B0E6 /* DMHosts.m in Sources */,
 				449A1EFB14E2AF8E00F1B0E6 /* DMNullQueue.m in Sources */,
@@ -1210,6 +1231,9 @@
 				449A1F4214E2B14100F1B0E6 /* SBJsonUTF8Stream.m in Sources */,
 				449A1F4414E2B14100F1B0E6 /* SBJsonWriter.m in Sources */,
 				4442837514F1E72B00345D34 /* iRate.m in Sources */,
+				44C0FF86150AA3B30039A847 /* MarkerLineNumberView.m in Sources */,
+				44C0FF88150AA3BA0039A847 /* NoodleLineNumberMarker.m in Sources */,
+				44C0FF89150AA3C00039A847 /* NoodleLineNumberView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1465,6 +1489,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"NORATE=1",
+				);
 				INFOPLIST_FILE = "JSONModeler-Internal-Info.plist";
 				INFOPLIST_PREPROCESS = NO;
 				LIBRARY_SEARCH_PATHS = (
@@ -1487,6 +1516,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "NORATE=1";
 				INFOPLIST_FILE = "JSONModeler-Internal-Info.plist";
 				INFOPLIST_PREPROCESS = NO;
 				LIBRARY_SEARCH_PATHS = (

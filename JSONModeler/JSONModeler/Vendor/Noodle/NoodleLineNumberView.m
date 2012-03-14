@@ -395,8 +395,8 @@
 		[_backgroundColor set];
 		NSRectFill(bounds);
         
-		[[NSColor colorWithCalibratedWhite:0.58 alpha:1.0] set];
-		[NSBezierPath strokeLineFromPoint:NSMakePoint(NSMaxX(bounds) - 0/5, NSMinY(bounds)) toPoint:NSMakePoint(NSMaxX(bounds) - 0.5, NSMaxY(bounds))];
+//		[[NSColor colorWithCalibratedWhite:0.58 alpha:1.0] set];
+//		[NSBezierPath strokeLineFromPoint:NSMakePoint(NSMaxX(bounds) - 0/5, NSMinY(bounds)) toPoint:NSMakePoint(NSMaxX(bounds) - 0.5, NSMaxY(bounds))];
 	}
 	
     view = [self clientView];

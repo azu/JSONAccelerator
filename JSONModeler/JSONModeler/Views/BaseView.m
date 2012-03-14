@@ -29,12 +29,15 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    NSColor *plainColor = [NSColor colorWithDeviceRed:237.0 / 255.0 green:237.0 / 255.0 blue:237.0 / 255.0 alpha:1.0];
+    CGFloat tC = 72.0 / 255.0;
+    NSColor *top = [NSColor colorWithCalibratedRed:tC green:tC blue:tC alpha:1.0f];
+    NSColor *bottom = [NSColor colorWithCalibratedRed:39.0 / 255.0 green:39.0 / 255.0 blue:39.0 / 255.0 alpha:1.0];
+
     // Drawing code here.
 //    [[NSColor darkGrayColor] setFill];
 //    NSRectFill(dirtyRect);
     if (backgroundGradient == nil) {
-        backgroundGradient = [[NSGradient alloc] initWithStartingColor:plainColor endingColor:plainColor];
+        backgroundGradient = [[NSGradient alloc] initWithStartingColor:bottom endingColor:top];
     }
     
     NSRect tempBounds = [self bounds];
