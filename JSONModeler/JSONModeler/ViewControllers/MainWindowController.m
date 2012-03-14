@@ -477,9 +477,9 @@
         if(self.attachedWindow) {
             [self closeAlertBox];
         } else {
-            int side = NSMaxYEdge;
+            int side = MAPositionTopRight;
             NSView *toggleButton = (NSView *)sender;
-            NSPoint buttonPoint = NSMakePoint(NSMidX([toggleButton frame]),
+            NSPoint buttonPoint = NSMakePoint(40,
                                               NSMidY([toggleButton frame]));
             
             self.attachedWindow = [[MAAttachedWindow alloc] initWithView:self.errorMessageView
@@ -495,7 +495,7 @@
             [self.attachedWindow setHasArrow:1.0f];
             
             [self.attachedWindow setDrawsRoundCornerBesideArrow:1.0f];
-            [self.attachedWindow setArrowBaseWidth:20.0f];
+            [self.attachedWindow setArrowBaseWidth:15.0f];
             [self.attachedWindow setArrowHeight:10.0f];
             [[toggleButton window] addChildWindow:self.attachedWindow ordered:NSWindowAbove];
             
