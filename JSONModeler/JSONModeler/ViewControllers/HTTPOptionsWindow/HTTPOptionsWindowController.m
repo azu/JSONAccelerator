@@ -132,6 +132,9 @@ NSString * const headerValue = @"headerValue";
 
 - (IBAction)fetchDataPress:(id)sender
 {
+    ModelerDocument *document = self.document;
+    document.httpMethod = _httpMethod;
+    document.httpHeaders = [[_headerArrayController arrangedObjects] copy];
     [self.popoverOwnerDelegate getDataButtonPressed];
 }
 
