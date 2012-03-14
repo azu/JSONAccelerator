@@ -20,6 +20,10 @@
 @property (strong) IBOutlet NSWindow *mainWindow;
 @property (weak) IBOutlet NSToolbarItem *generateFilesButton;
 @property (weak) IBOutlet NSToolbarItem *verifyJSONButton;
+@property (weak) IBOutlet NSView *fetchDataFromURLView;
+@property (weak) IBOutlet NSButton *switchToDataLoadButton;
+@property (weak) IBOutlet NSView *getDataView;
+
 
 
 - (IBAction)getUrlPressed:(id)sender;
@@ -28,6 +32,7 @@
 - (IBAction)optionsButtonPressed:(id)sender;
 - (IBAction)generateFilesPressed:(id)sender;
 - (IBAction)verifyJSONPressed:(id)sender;
+- (IBAction)switchToDataLoadView:(id)sender;
 
 
 

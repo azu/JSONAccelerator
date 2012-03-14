@@ -41,6 +41,9 @@
 @synthesize mainWindow = _mainWindow;
 @synthesize generateFilesButton = _generateFilesButton;
 @synthesize verifyJSONButton;
+@synthesize fetchDataFromURLView = _fetchDataFromURLView;
+@synthesize switchToDataLoadButton = _switchToDataLoadButton;
+@synthesize getDataView = _getDataView;
 @synthesize modeler = _modeler;
 @synthesize urlTextField = _urlTextField;
 @synthesize urlTextFieldCell = _urlTextFieldCell;
@@ -73,9 +76,11 @@
     [self.generateFilesButton setLabel:NSLocalizedString(@"Generate Files", @"In the main screen, this is the button that writes out files")];
     [self.verifyJSONButton setLabel:NSLocalizedString(@"Verify", @"In the main screen, this is the verify button that formats the JSON")];
     
+    
     [self.urlTextFieldCell setPlaceholderString:NSLocalizedString(@"Enter URL...", @"Prompt user gets to enter a URL")];
-    [self.JSONTextView setRichText:NO];
-    [self.JSONTextView setFont:[NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]]];
+    NSFont *fixedFont = [NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]];
+    [self.JSONTextView setFont:fixedFont];
+
     [self.JSONTextView setNeedsDisplay:YES];
     
     [self.getDataButton setTitle:NSLocalizedString(@"Get Data", @"In the main screen, this is the button that fetches data from a URL")];
@@ -100,7 +105,7 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    
+    [self.scrollView setHidden:NO];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
@@ -110,6 +115,12 @@
 
 - (IBAction)verifyJSONPressed:(id)sender {
     [self verifyPressed:sender];
+}
+
+- (IBAction)switchToDataLoadView:(id)sender
+{
+//    [self.scrollView setHidden:YES];
+//    [self.switchToDataLoadButton setHidden:YES];
 }
 
 - (IBAction)getUrlPressed:(id)sender 
