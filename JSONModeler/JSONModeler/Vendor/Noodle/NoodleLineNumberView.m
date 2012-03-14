@@ -341,7 +341,7 @@
 - (NSDictionary *)markerTextAttributes
 {
     return [NSDictionary dictionaryWithObjectsAndKeys:
-            [self font], NSFontAttributeName, 
+            [NSFont boldSystemFontOfSize:[NSFont systemFontSizeForControlSize:NSMiniControlSize]], NSFontAttributeName, 
             [self alternateTextColor], NSForegroundColorAttributeName,
             nil];
 }

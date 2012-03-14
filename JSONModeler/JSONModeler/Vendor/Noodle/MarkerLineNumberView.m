@@ -44,7 +44,7 @@
 
 - (void)setRuleThickness:(CGFloat)thickness
 {
-	[super setRuleThickness:thickness];
+	[super setRuleThickness:thickness + 0];
 	
 	// Overridden to reset the size of the marker image forcing it to redraw with the new width.
 	// If doing this in a non-subclass of NoodleLineNumberView, you can set it to post frame 
@@ -57,7 +57,7 @@
 	NSBezierPath	*path;
 	NSRect			rect;
 	
-	rect = NSMakeRect(1.0, 2.0, [rep size].width - 2.0, [rep size].height - 3.0);
+	rect = NSMakeRect(0.0, 2.0, [rep size].width, [rep size].height - 3.0);
 	
 	path = [NSBezierPath bezierPath];
 	[path moveToPoint:NSMakePoint(NSMaxX(rect), NSMinY(rect) + NSHeight(rect) / 2)];
@@ -140,8 +140,8 @@
     {
         marker = [[NoodleLineNumberMarker alloc] initWithRulerView:self
                                                         lineNumber:line
-                                                             image:[self markerImageWithSize:NSMakeSize([self ruleThickness], MARKER_HEIGHT)]
-                                                       imageOrigin:NSMakePoint(0, MARKER_HEIGHT / 2)];
+                                                             image:[self markerImageWithSize:NSMakeSize([self ruleThickness], MARKER_HEIGHT + 2)]
+                                                       imageOrigin:NSMakePoint(0, MARKER_HEIGHT / 2 + 2)];
         [self addMarker:marker];
         [marker release];
     }
