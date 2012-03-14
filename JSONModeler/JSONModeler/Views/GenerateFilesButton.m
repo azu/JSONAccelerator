@@ -20,12 +20,13 @@
 {
     self = [super initWithFrame:frameRect];
     if(self) {
-        self.textField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, -6, frameRect.size.width, frameRect.size.height)];
+        self.textField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, -7, frameRect.size.width, frameRect.size.height)];
         [self.textField setAlignment:NSCenterTextAlignment];
         [_textField setBezeled:NO];
         [_textField setDrawsBackground:NO];
         [_textField setEditable:NO];
         [_textField setSelectable:NO];
+        [[_textField cell] setBackgroundStyle:NSBackgroundStyleDark];
         [self addSubview:self.textField];
         
         // Setup the images

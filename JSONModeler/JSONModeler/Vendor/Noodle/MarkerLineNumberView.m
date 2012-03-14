@@ -104,6 +104,7 @@
 	
 	if (line != NSNotFound)
 	{
+
 		NoodleLineNumberMarker		*marker;
 		
 		marker = [self markerAtLine:line];
@@ -123,6 +124,28 @@
 		}
 		[self setNeedsDisplay:YES];
 	}
+}
+
+- (void)placeMarkerAtLine:(NSUInteger)line
+{
+    NoodleLineNumberMarker		*marker;
+    
+    marker = [self markerAtLine:line];
+    
+    if (marker != nil)
+    {
+        [self removeMarker:marker];
+    }
+    else
+    {
+        marker = [[NoodleLineNumberMarker alloc] initWithRulerView:self
+                                                        lineNumber:line
+                                                             image:[self markerImageWithSize:NSMakeSize([self ruleThickness], MARKER_HEIGHT)]
+                                                       imageOrigin:NSMakePoint(0, MARKER_HEIGHT / 2)];
+        [self addMarker:marker];
+        [marker release];
+    }
+    [self setNeedsDisplay:YES];    
 }
 
 @end

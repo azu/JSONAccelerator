@@ -16,6 +16,8 @@
 #import "MarkerLineNumberView.h"
 #import "SavePanelLanguageChooserViewController.h"
 #import "GenerateFilesButton.h"
+#import "InvalidDataButton.h"
+#import "MAAttachedWindow.h"
 
 #import "OutputLanguageWriterObjectiveC.h"
 #import "OutputLanguageWriterJava.h"
@@ -25,14 +27,18 @@
 #import "CoreDataModelGenerator.h"
 
 
-@interface MainWindowController ()  <NSTextViewDelegate, NSOpenSavePanelDelegate, HTTPOptionsWindowControllerDelegate, ClickViewDelegate>
+@interface MainWindowController ()  <NSTextViewDelegate, NSOpenSavePanelDelegate, HTTPOptionsWindowControllerDelegate, ClickViewDelegate> {
+    NSUInteger _lineNumberForMarker;
+}
 
 @property (strong) JSONModeler *modeler;
 @property (strong) HTTPOptionsWindowController *wc;
+@property (nonatomic, strong) MAAttachedWindow *attachedWindow;
 
 - (BOOL) verifyJSONString;
 - (void) generateFiles;
 - (void)getDataButtonPressed;
+- (void)closeAlertBox;
 
 @end
 
@@ -43,6 +49,11 @@
 }
 @synthesize validDataStructureView = _validDataStructureView;
 @synthesize genFilesView = _genFilesView;
+@synthesize invalidDataView = _invalidDataView;
+@synthesize errorMessageView = _errorMessageView;
+@synthesize errorMessageTitle = _errorMessageTitle;
+@synthesize errorMessageDescription = _errorMessageDescription;
+@synthesize errorCloseButton = _errorCloseButton;
 
 @synthesize mainWindow = _mainWindow;
 @synthesize fetchDataFromURLView = _fetchDataFromURLView;
@@ -55,6 +66,7 @@
 @synthesize optionsButton = _optionsButton;
 @synthesize scrollView = _scrollView;
 @synthesize wc = _wc;
+@synthesize attachedWindow = _attachedWindow;
 
 #pragma mark - Begin Class Methods
 #pragma mark Loading Methods
@@ -74,7 +86,7 @@
     [self.mainWindow setMinSize:NSMakeSize(550, 588)];
     [self.genFilesView.textField setStringValue:genFiles];
     self.genFilesView.delegate = self;
-
+    self.invalidDataView.delegate = self;
     
     NSFont *fixedFont = [NSFont userFixedPitchFontOfSize:[NSFont smallSystemFontSize]];
     [self.JSONTextView setFont:fixedFont];
@@ -89,8 +101,15 @@
     [self.scrollView setHasHorizontalRuler:NO];
     [self.scrollView setHasVerticalRuler:YES];
     [self.scrollView setRulersVisible:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowWillClose:) name:NSWindowWillCloseNotification object:self];
 }
 
+- (void)windowWillClose:(NSNotification *)notification
+{
+    if([notification object] == self.window) {
+        [self closeAlertBox];
+    }
+}
 
 - (void)windowDidLoad
 {
@@ -108,6 +127,9 @@
     } else {
         [self toggleCanGenerateFilesTo:NO];
     }
+    
+    [self.errorCloseButton.cell setShowsStateBy:NSPushInCellMask]; 
+    [self.errorCloseButton.cell setHighlightsBy:NSContentsCellMask];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
@@ -149,11 +171,17 @@
     }
 }
 
+- (IBAction)closeAlertPressed:(id)sender
+{
+    [self closeAlertBox];
+}
+
 - (void)getDataButtonPressed
 {
     if (nil == [self.wc.urlTextField stringValue] || [[self.wc.urlTextField stringValue] isEqualToString:@""]) {
         return;
     }
+    [self closeAlertBox];
     
     [self.wc.urlTextField setStringValue:[self.wc.urlTextField.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
     [self.getDataButton setHidden:YES];
@@ -243,13 +271,19 @@
 }
 
 - (void)toggleCanGenerateFilesTo:(BOOL)canGenerateFiles {
-    if(canGenerateFiles == NO) {
-        [self.genFilesView setEnabled:NO];
-        [self.validDataStructureView setHidden:YES];
-    } else {
-        // Show 
-        [self.validDataStructureView setHidden:NO];
-        [self.genFilesView setEnabled:YES];
+    [self closeAlertBox];
+    [self.genFilesView setEnabled:canGenerateFiles];
+    [self.invalidDataView setHidden:canGenerateFiles];
+    [self.validDataStructureView setHidden:!canGenerateFiles];    
+}
+
+- (void)closeAlertBox 
+{
+    if(self.attachedWindow) {
+        [_lineNumberView placeMarkerAtLine:_lineNumberForMarker];
+        [self.window removeChildWindow:self.attachedWindow];
+        [self.attachedWindow orderOut:self];
+        _attachedWindow = nil;
     }
 }
 
@@ -428,11 +462,9 @@
         else if (alertReturn == NSAlertAlternateReturn) {
             return NO;
         }
-        
     }
     
     return YES;
-    
 }
 
 #pragma mark - Custom Delegate method
@@ -441,7 +473,78 @@
 {
     if(sender  == self.genFilesView) {
         [self generateFilesPressed:nil];
+    } else if(sender == self.invalidDataView) {
+        if(self.attachedWindow) {
+            [self closeAlertBox];
+        } else {
+            int side = NSMaxYEdge;
+            NSView *toggleButton = (NSView *)sender;
+            NSPoint buttonPoint = NSMakePoint(NSMidX([toggleButton frame]),
+                                              NSMidY([toggleButton frame]));
+            
+            self.attachedWindow = [[MAAttachedWindow alloc] initWithView:self.errorMessageView
+                                                         attachedToPoint:buttonPoint 
+                                                                inWindow:[toggleButton window] 
+                                                                  onSide:side 
+                                                              atDistance:24.0f];
+            [self.attachedWindow setBorderColor:[NSColor darkGrayColor]];
+            [self.attachedWindow setBackgroundColor:[NSColor colorWithDeviceRed:1 green:1 blue:1 alpha:1]];
+            [self.attachedWindow setViewMargin:0.0f];
+            [self.attachedWindow setBorderWidth:0.0f];
+            [self.attachedWindow setCornerRadius:5.0f];
+            [self.attachedWindow setHasArrow:1.0f];
+            
+            [self.attachedWindow setDrawsRoundCornerBesideArrow:1.0f];
+            [self.attachedWindow setArrowBaseWidth:20.0f];
+            [self.attachedWindow setArrowHeight:10.0f];
+            [[toggleButton window] addChildWindow:self.attachedWindow ordered:NSWindowAbove];
+            
+            NSError *error = nil;    
+            NSData *data = [[self.JSONTextView string] dataUsingEncoding:NSUTF8StringEncoding];
+            id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+            
+            if(error) {
+                NSDictionary *dict = [error userInfo];
+                NSString *informativeText = [[dict allValues] objectAtIndex:0];
+                if([informativeText isEqualToString:@"No value."]) {
+                    informativeText = NSLocalizedString(@"There is no content to parse.", @"If there is nothing in the JSON field, state that there is nothing there");
+                } else if ([informativeText isEqualToString:@"JSON text did not start with array or object and option to allow fragments not set."]) {
+                    informativeText = NSLocalizedString(@"JSON text did not start with array or object.", @"Error message to state the JSON didn't start with a {} or []");
+                }
+                [self.errorMessageDescription setStringValue:informativeText];
+                
+                
+                NSString *parsedString = [informativeText stringByReplacingOccurrencesOfString:@"around character " withString:@""];
+                parsedString = [parsedString stringByReplacingOccurrencesOfString:@"Unescaped control character " withString:@""];
+                parsedString = [parsedString stringByReplacingOccurrencesOfString:@"No value for key in object" withString:@""];
+                parsedString = [parsedString stringByReplacingOccurrencesOfString:@"Badly formed object" withString:@""];
+                parsedString = [parsedString stringByReplacingOccurrencesOfString:@"Badly formed array" withString:@""];
+                parsedString = [parsedString stringByReplacingOccurrencesOfString:@"No string key for value in object" withString:@""];
+
+                parsedString = [parsedString stringByReplacingOccurrencesOfString:@"." withString:@""];
+                _lineNumberForMarker = [self findLineForCharacter:[parsedString intValue]];
+                [_lineNumberView placeMarkerAtLine:_lineNumberForMarker];
+                NSRange range;
+                range = NSMakeRange ([parsedString intValue], 0);
+                
+                [self.JSONTextView scrollRangeToVisible: range];
+            }
+        }
     }
+}
+
+- (NSUInteger)findLineForCharacter:(NSUInteger)characterNumber;
+{
+    NSString *string = [self.JSONTextView string];
+    unsigned numberOfLines, index, numberOfGlyphs = [string length];
+    
+    for (numberOfLines = 0, index = 0; index < numberOfGlyphs; numberOfLines++){
+        index = NSMaxRange([string lineRangeForRange:NSMakeRange(index, 0)]);
+        if(index > characterNumber) {
+            return numberOfLines + 1;
+        }
+    }
+    return 0;
 }
 
 #pragma mark - NSTextViewDelegate methods

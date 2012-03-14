@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class GenerateFilesButton;
+@class GenerateFilesButton, InvalidDataButton;
 
 @interface MainWindowController : NSWindowController
 
@@ -23,11 +23,17 @@
 @property (weak) IBOutlet NSView *getDataView;
 @property (weak) IBOutlet NSView *validDataStructureView;
 @property (weak) IBOutlet GenerateFilesButton *genFilesView;
+@property (weak) IBOutlet InvalidDataButton *invalidDataView;
+@property (weak) IBOutlet NSView *errorMessageView;
+@property (weak) IBOutlet NSTextField *errorMessageTitle;
+@property (weak) IBOutlet NSTextField *errorMessageDescription;
+@property (weak) IBOutlet NSButton *errorCloseButton;
 
 - (IBAction)optionsButtonPressed:(id)sender;
 - (IBAction)generateFilesPressed:(id)sender;
 - (IBAction)switchToDataLoadView:(id)sender;
 - (IBAction)cancelDataLoad:(id)sender;
+- (IBAction)closeAlertPressed:(id)sender;
 
 
 

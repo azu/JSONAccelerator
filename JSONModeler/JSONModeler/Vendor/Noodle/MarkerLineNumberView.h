@@ -35,4 +35,6 @@
 	NSImage				*markerImage;
 }
 
+- (void)placeMarkerAtLine:(NSUInteger)line;
+
 @end

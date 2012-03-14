@@ -32,6 +32,8 @@
 		NSTrackingCursorUpdate | NSTrackingEnabledDuringMouseDrag | NSTrackingMouseEnteredAndExited |
 		NSTrackingActiveInActiveApp;
         
+        _enabled = YES;
+        
         myTrackingArea = [[NSTrackingArea alloc]
                           initWithRect: [self bounds] // in our case track the entire view
                           options: trackingOptions

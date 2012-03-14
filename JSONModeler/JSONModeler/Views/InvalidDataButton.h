@@ -6,8 +6,10 @@
 //  Copyright (c) 2012 Nerdery Interactive Labs. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "ClickView.h"
 
-@interface InvalidDataButton : NSButtonCell
+@interface InvalidDataButton : ClickView
+
+@property (strong) NSTextField *textField;
 
 @end
