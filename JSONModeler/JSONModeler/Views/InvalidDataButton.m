@@ -49,10 +49,29 @@
         self.capMiddle.frame = NSMakeRect(leftCapImage.size.width, 0, frameRect.size.width - leftCapImage.size.width - rightCapImage.size.width, middleCapImage.size.height);
         
         self.capRight.image = rightCapImage;
-        self.capRight.frame = NSMakeRect(frameRect.size.width-rightCapImage.size.width, 0, rightCapImage.size.width, rightCapImage.size.height);        
+        self.capRight.frame = NSMakeRect(frameRect.size.width-rightCapImage.size.width, 0, rightCapImage.size.width, rightCapImage.size.height);     
+        
+        self.capLeft.hidden = YES;
+        self.capMiddle.hidden = YES;
+        self.capRight.hidden = YES;
+
     }
     return self;
 }
+
+- (void)mouseEntered:(NSEvent *)theEvent 
+{
+    self.capLeft.hidden = NO;
+    self.capMiddle.hidden = NO;
+    self.capRight.hidden = NO;
+}
+- (void)mouseExited:(NSEvent *)theEvent
+{
+    self.capLeft.hidden = YES;
+    self.capMiddle.hidden = YES;
+    self.capRight.hidden = YES;
+}
+
 
 - (void)setEnabled:(BOOL)enabled
 {

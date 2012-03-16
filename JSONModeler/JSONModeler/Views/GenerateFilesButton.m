@@ -26,7 +26,7 @@
         [_textField setDrawsBackground:NO];
         [_textField setEditable:NO];
         [_textField setSelectable:NO];
-        [[_textField cell] setBackgroundStyle:NSBackgroundStyleDark];
+        [[_textField cell] setBackgroundStyle:NSBackgroundStyleRaised];
         [self addSubview:self.textField];
         
         // Setup the images
@@ -76,6 +76,8 @@
     [self.capRight setHidden:!enabled];
     
     [self.textField setTextColor:(enabled) ? [NSColor whiteColor] : [NSColor colorWithCalibratedRed:0.25 green:0.25 blue:0.25 alpha:1.0]];
+    [[_textField cell] setBackgroundStyle:(enabled) ? NSBackgroundStyleDark : NSBackgroundStyleRaised];
+
 }
 
 @end

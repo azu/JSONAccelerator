@@ -452,15 +452,6 @@
 						<object class="NSMenu" key="NSSubmenu" id="992780483">
 							<string key="NSTitle">帮助</string>
 							<array class="NSMutableArray" key="NSMenuItems">
-								<object class="NSMenuItem" id="105068016">
-									<reference key="NSMenu" ref="992780483"/>
-									<string key="NSTitle">JSON Accelerator 帮助</string>
-									<string key="NSKeyEquiv">?</string>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="35465992"/>
-									<reference key="NSMixedImage" ref="502551668"/>
-								</object>
 								<object class="NSMenuItem" id="487024522">
 									<reference key="NSMenu" ref="992780483"/>
 									<string key="NSTitle">发送反馈</string>
@@ -671,14 +662,6 @@
 						<reference key="destination" ref="159080638"/>
 					</object>
 					<int key="connectionID">489</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">showHelp:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="105068016"/>
-					</object>
-					<int key="connectionID">493</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1028,15 +1011,9 @@
 						<int key="objectID">491</int>
 						<reference key="object" ref="992780483"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="105068016"/>
 							<reference ref="487024522"/>
 						</array>
 						<reference key="parent" ref="448692316"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">492</int>
-						<reference key="object" ref="105068016"/>
-						<reference key="parent" ref="992780483"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">494</int>
@@ -1130,7 +1107,6 @@
 				<string key="420.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="490.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="491.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="492.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="494.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="534.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

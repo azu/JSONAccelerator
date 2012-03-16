@@ -114,6 +114,7 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+        
     [self.JSONTextView setTextColor:[NSColor whiteColor]];
     [self.JSONTextView setTextContainerInset:NSMakeSize(2, 4)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange:)  name:NSControlTextDidChangeNotification object:nil];
@@ -253,6 +254,11 @@
 
 #pragma mark Helper Methods
 
+- (NSString *)windowTitleForDocumentDisplayName:(NSString *)displayName
+{
+    return @"JSON Accelerator";
+}
+
 - (void)textDidChange:(NSNotification *)notification
 {
     if ([notification object]== self.JSONTextView) {
@@ -272,6 +278,11 @@
 
 - (void)toggleCanGenerateFilesTo:(BOOL)canGenerateFiles {
     [self closeAlertBox];
+    if(!(canGenerateFiles == NO && [self.invalidDataView isHidden] == NO)) {
+        if(canGenerateFiles == NO) {
+            [self clickViewPressed:self.invalidDataView];
+        }
+    }
     [self.genFilesView setEnabled:canGenerateFiles];
     [self.invalidDataView setHidden:canGenerateFiles];
     [self.validDataStructureView setHidden:!canGenerateFiles];    
@@ -320,6 +331,7 @@
 
 - (IBAction)optionsButtonPressed:(id)sender {
     NSPopover *myPopover = [[NSPopover alloc] init];
+    myPopover.animates = NO;
     myPopover.appearance = NSPopoverAppearanceMinimal;
     
     self.wc.popover = myPopover;
