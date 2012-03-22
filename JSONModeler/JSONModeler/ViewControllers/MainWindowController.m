@@ -189,7 +189,6 @@
     [self.progressView startAnimation:nil];
     NSString *escapedString = [[self.wc.urlTextField stringValue] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
     
-    [self.modeler addObserver:self forKeyPath:@"parseComplete" options:NSKeyValueObservingOptionNew context:NULL];
     JSONFetcher *fetcher = [[JSONFetcher alloc] init];
     fetcher.document = self.document;
     

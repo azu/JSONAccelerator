@@ -1563,7 +1563,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JSONModeler/JSONModeler.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer: Jonathan Rexeisen (NUYRHWR8MG)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1572,7 +1572,7 @@
 				GCC_PREFIX_HEADER = "JSONModeler/JSONAccelerator-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler/JSONAccelerator-Info.plist";
 				PRODUCT_NAME = "JSON Accelerator";
-				PROVISIONING_PROFILE = "B02A5448-7332-4626-98E8-7468E562A55F";
+				PROVISIONING_PROFILE = "";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
 			};
