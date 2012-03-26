@@ -12,12 +12,14 @@
 @interface JSONFetcher ()
 
 @property (strong) NSOperationQueue *jsonOperationQueue;
+@property (strong) AFHTTPRequestOperation *operation;
 
 @end
 
 @implementation JSONFetcher
 @synthesize document = _document;
 @synthesize jsonOperationQueue = _jsonOperationQueue;
+@synthesize operation = _operation;
 
 - (id)init {
     self = [super init];
@@ -27,6 +29,8 @@
     
     self.jsonOperationQueue = [[NSOperationQueue alloc] init];
     self.jsonOperationQueue.maxConcurrentOperationCount = 8;
+    self.operation = [[AFHTTPRequestOperation alloc] init];
+    
     
     return self;
 }
@@ -54,33 +58,33 @@
             break;
     }
     [request setHTTPMethod:method];
+    
     for (NSDictionary *header in self.document.httpHeaders) {
         [request addValue:[header objectForKey:@"headerValue"] forHTTPHeaderField:[header objectForKey:@"headerKey"]];
     }
     
-    AFHTTPRequestOperation *tempOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    __weak AFHTTPRequestOperation *operation = tempOperation;
-    operation.completionBlock = ^ {
-        if ([operation isCancelled]) {
+    self.operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    self.operation.completionBlock = ^ {
+        if ([self.operation isCancelled]) {
             return;
         }
         
-        if (operation.error) {
+        if (self.operation.error) {
             if (failure) {
                 dispatch_async(dispatch_get_main_queue(), ^(void) {
-                    failure(operation.response, operation.error);
+                    failure(self.operation.response, self.operation.error);
                 });
             }
         } else {
             if (success) {
                 dispatch_async(dispatch_get_main_queue(), ^(void) {
-                    success(operation.responseData);
+                    success(self.operation.responseData);
                 });
             }
         }
     };
     
-    [self.jsonOperationQueue addOperation:operation];
+    [self.jsonOperationQueue addOperation:self.operation];
 }
 
 @end

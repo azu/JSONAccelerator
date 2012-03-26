@@ -63,11 +63,11 @@
 		4430047714AB6F4A00F7C8DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
 		4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
-		443DD5B31520FB09002410E8 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AD1520FB09002410E8 /* AFJSONRequestOperation.m */; };
+		443DD5B31520FB09002410E8 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AD1520FB09002410E8 /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		443DD5B41520FB09002410E8 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AD1520FB09002410E8 /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		443DD5B51520FB09002410E8 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5B01520FB09002410E8 /* AFNetworkActivityIndicatorManager.m */; };
+		443DD5B51520FB09002410E8 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5B01520FB09002410E8 /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		443DD5B61520FB09002410E8 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5B01520FB09002410E8 /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		443DD5B71520FB09002410E8 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5B21520FB09002410E8 /* UIImageView+AFNetworking.m */; };
+		443DD5B71520FB09002410E8 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5B21520FB09002410E8 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		443DD5B81520FB09002410E8 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5B21520FB09002410E8 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		443EF41314ABCD21006216BE /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
 		4442837414F1E69500345D34 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4442837314F1E69500345D34 /* iRate.m */; };
@@ -139,7 +139,7 @@
 		449A1EFF14E2AF9B00F1B0E6 /* DMURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1EEB14E2AF3C00F1B0E6 /* DMURLConnection.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		449A1F0014E2AFA000F1B0E6 /* NSNull+DMTranslate.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1EED14E2AF3D00F1B0E6 /* NSNull+DMTranslate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		449A1F0114E2AFA400F1B0E6 /* NSString+DMUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1EEF14E2AF3D00F1B0E6 /* NSString+DMUUID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		449A1F0914E2B02500F1B0E6 /* GTMStackTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1F0814E2B02500F1B0E6 /* GTMStackTrace.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		449A1F0914E2B02500F1B0E6 /* GTMStackTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1F0814E2B02500F1B0E6 /* GTMStackTrace.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -w"; }; };
 		449A1F0A14E2B02500F1B0E6 /* GTMStackTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1F0814E2B02500F1B0E6 /* GTMStackTrace.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		449A1F0F14E2B07300F1B0E6 /* DMSUHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1F0C14E2B06F00F1B0E6 /* DMSUHost.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		449A1F1014E2B07300F1B0E6 /* DMSUHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 449A1F0C14E2B06F00F1B0E6 /* DMSUHost.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };

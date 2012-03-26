@@ -183,6 +183,7 @@
         return;
     }
     [self closeAlertBox];
+    [self.wc.popover close];
     
     [self.wc.urlTextField setStringValue:[self.wc.urlTextField.stringValue stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
     [self.getDataButton setHidden:YES];
