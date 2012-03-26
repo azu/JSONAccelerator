@@ -57,7 +57,28 @@
     for (NSDictionary *header in self.document.httpHeaders) {
         [request addValue:[header objectForKey:@"headerValue"] forHTTPHeaderField:[header objectForKey:@"headerKey"]];
     }
-    AFHTTPRequestOperation *operation = [AFHTTPRequestOperation HTTPRequestOperationWithRequest:request success:success failure:failure];    
+    
+    AFHTTPRequestOperation *tempOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    __weak AFHTTPRequestOperation *operation = tempOperation;
+    operation.completionBlock = ^ {
+        if ([operation isCancelled]) {
+            return;
+        }
+        
+        if (operation.error) {
+            if (failure) {
+                dispatch_async(dispatch_get_main_queue(), ^(void) {
+                    failure(operation.response, operation.error);
+                });
+            }
+        } else {
+            if (success) {
+                dispatch_async(dispatch_get_main_queue(), ^(void) {
+                    success(operation.responseData);
+                });
+            }
+        }
+    };
     
     [self.jsonOperationQueue addOperation:operation];
 }
