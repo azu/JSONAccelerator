@@ -34,6 +34,7 @@
 @property (strong) JSONModeler *modeler;
 @property (strong) HTTPOptionsWindowController *wc;
 @property (nonatomic, strong) MAAttachedWindow *attachedWindow;
+@property (nonatomic, strong) NSOpenPanel *panel;
 
 - (BOOL) verifyJSONString;
 - (void) generateFiles;
@@ -67,6 +68,7 @@
 @synthesize scrollView = _scrollView;
 @synthesize wc = _wc;
 @synthesize attachedWindow = _attachedWindow;
+@synthesize panel = _panel;
 
 #pragma mark - Begin Class Methods
 #pragma mark Loading Methods
@@ -355,19 +357,19 @@
 
 - (void)generateFiles
 {
-    NSOpenPanel *panel = [NSOpenPanel openPanel];
-    [panel setAllowsMultipleSelection:NO];
-    [panel setCanChooseDirectories:YES];
-    [panel setCanChooseFiles:NO];
-    [panel setCanCreateDirectories:YES];
-    [panel setResolvesAliases:YES];
-    [panel setPrompt:NSLocalizedString(@"Choose", @"Label to have the user select which folder to choose")];
-    [panel setDelegate:self];
+    self.panel = [NSOpenPanel openPanel];
+    [self.panel setAllowsMultipleSelection:NO];
+    [self.panel setCanChooseDirectories:YES];
+    [self.panel setCanChooseFiles:NO];
+    [self.panel setCanCreateDirectories:YES];
+    [self.panel setResolvesAliases:YES];
+    [self.panel setPrompt:NSLocalizedString(@"Choose", @"Label to have the user select which folder to choose")];
+    [self.panel setDelegate:self];
     
     _languageChooserViewController = [[SavePanelLanguageChooserViewController alloc] initWithNibName:@"SavePanelLanguageChooserViewController" bundle:nil];
-    [panel setAccessoryView:_languageChooserViewController.view];
+    [self.panel setAccessoryView:_languageChooserViewController.view];
     
-    [panel beginSheetModalForWindow:self.mainWindow completionHandler:^(NSInteger result) {        
+    [self.panel beginSheetModalForWindow:self.mainWindow completionHandler:^(NSInteger result) {        
         if (result == NSOKButton)
         {
             OutputLanguage language = [_languageChooserViewController chosenLanguage];
@@ -377,7 +379,7 @@
             
             if(self.modeler) {
                 
-                NSURL *selectedDirectory = [panel URL];
+                NSURL *selectedDirectory = [self.panel URL];
                 id<OutputLanguageWriterProtocol> writer = nil;
                 NSDictionary *optionsDict = nil;
                 

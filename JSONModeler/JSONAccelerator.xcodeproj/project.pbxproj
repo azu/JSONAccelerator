@@ -61,6 +61,8 @@
 		4426909214DA056100C16CBD /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4426909114DA056100C16CBD /* libcrypto.dylib */; };
 		4430047614AB6F4500F7C8DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
 		4430047714AB6F4A00F7C8DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
+		4430204B15214CE60008D9A7 /* dataButtonUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4430204A15214CE60008D9A7 /* dataButtonUp@2x.png */; };
+		4430204C15214CE60008D9A7 /* dataButtonUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4430204A15214CE60008D9A7 /* dataButtonUp@2x.png */; };
 		4439F07B14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		4439F07C14AABA9C005AA280 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4439F07A14AABA9C005AA280 /* MainWindowController.m */; };
 		443DD5B31520FB09002410E8 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 443DD5AD1520FB09002410E8 /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -333,6 +335,7 @@
 		4430047514AB6F4500F7C8DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4430047814AB6F5300F7C8DE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4430047B14AB6F6200F7C8DE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4430204A15214CE60008D9A7 /* dataButtonUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dataButtonUp@2x.png"; path = "Resources/Images/dataButtonUp@2x.png"; sourceTree = "<group>"; };
 		4439F07A14AABA9C005AA280 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = ViewControllers/MainWindowController.m; sourceTree = "<group>"; };
 		443DD5AC1520FB09002410E8 /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFJSONRequestOperation.h; path = Vendor/AFNetworking/AFJSONRequestOperation.h; sourceTree = "<group>"; };
 		443DD5AD1520FB09002410E8 /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFJSONRequestOperation.m; path = Vendor/AFNetworking/AFJSONRequestOperation.m; sourceTree = "<group>"; };
@@ -773,6 +776,7 @@
 				448366BF150C411C00D2F6BF /* alert@2x.png */,
 				448366B8150BF07500D2F6BF /* dataButtonDisabled.png */,
 				448366B9150BF07500D2F6BF /* dataButtonUp.png */,
+				4430204A15214CE60008D9A7 /* dataButtonUp@2x.png */,
 				448366B1150BEF8900D2F6BF /* validCheck.png */,
 				448366B2150BEF8900D2F6BF /* validCheck@2x.png */,
 				44C0FF65150AA0DF0039A847 /* dragIcon.png */,
@@ -1187,6 +1191,7 @@
 				44AC168215102EB700794AB7 /* alertRightCap.png in Resources */,
 				44AC16A8151043D700794AB7 /* alertCloseButton.png in Resources */,
 				44AC16AA151043D700794AB7 /* alertCloseButton@2x.png in Resources */,
+				4430204B15214CE60008D9A7 /* dataButtonUp@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1243,6 +1248,7 @@
 				44AC168615102FCC00794AB7 /* alertRightCap.png in Resources */,
 				44AC16A9151043D700794AB7 /* alertCloseButton.png in Resources */,
 				44AC16AB151043D700794AB7 /* alertCloseButton@2x.png in Resources */,
+				4430204C15214CE60008D9A7 /* dataButtonUp@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
