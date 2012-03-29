@@ -55,6 +55,8 @@
 @synthesize errorMessageTitle = _errorMessageTitle;
 @synthesize errorMessageDescription = _errorMessageDescription;
 @synthesize errorCloseButton = _errorCloseButton;
+@synthesize instuctionsTextField = _instuctionsTextField;
+@synthesize validDataStructureField = _validDataStructureField;
 
 @synthesize mainWindow = _mainWindow;
 @synthesize fetchDataFromURLView = _fetchDataFromURLView;
@@ -83,6 +85,9 @@
     [self.getDataView setHidden:YES];
     self.wc = [[HTTPOptionsWindowController alloc] initWithNibName:@"HTTPOptionsWindowController" bundle:nil document:self.document];
     self.wc.popoverOwnerDelegate = self;
+    
+    [self.instuctionsTextField setStringValue:NSLocalizedString(@"Drag a file, paste your clipboard or load remote data into the pane below.", @"Instructions on how to use the application")]; 
+    [self.validDataStructureField setStringValue:NSLocalizedString(@"Valid data structure", @"Message to state the the JSON is valid")];
     
     NSString *genFiles = NSLocalizedString(@"Generate Files", @"In the main screen, this is the button that writes out files");
     [self.mainWindow setMinSize:NSMakeSize(550, 588)];

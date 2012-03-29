@@ -28,6 +28,8 @@
 @property (weak) IBOutlet NSTextField *errorMessageTitle;
 @property (weak) IBOutlet NSTextField *errorMessageDescription;
 @property (weak) IBOutlet NSButton *errorCloseButton;
+@property (weak) IBOutlet NSTextFieldCell *instuctionsTextField;
+@property (weak) IBOutlet NSTextFieldCell *validDataStructureField;
 
 - (IBAction)optionsButtonPressed:(id)sender;
 - (IBAction)generateFilesPressed:(id)sender;
