@@ -390,21 +390,27 @@
                 id<OutputLanguageWriterProtocol> writer = nil;
                 NSDictionary *optionsDict = nil;
                 
+                NSString *baseClassName = [self.languageChooserViewController baseClassName];
+                                
                 if (language == OutputLanguageObjectiveC) {
                     writer = [[OutputLanguageWriterObjectiveC alloc] init];
-                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:self.languageChooserViewController.baseClassName, kObjectiveCWritingOptionBaseClassName, [NSNumber numberWithBool:self.languageChooserViewController.buildForARC], kObjectiveCWritingOptionUseARC, nil];
+                    if(baseClassName != nil) {
+                        optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:baseClassName, kObjectiveCWritingOptionBaseClassName, [NSNumber numberWithBool:self.languageChooserViewController.buildForARC], kObjectiveCWritingOptionUseARC, nil];
+                    } else {
+                        optionsDict = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:self.languageChooserViewController.buildForARC] forKey:kObjectiveCWritingOptionUseARC];
+                    }
                 }
                 else if (language == OutputLanguageJava) {
                     writer = [[OutputLanguageWriterJava alloc] init];
-                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:self.languageChooserViewController.baseClassName, kJavaWritingOptionBaseClassName, self.languageChooserViewController.packageName, kJavaWritingOptionPackageName, nil];
+                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:baseClassName, kJavaWritingOptionBaseClassName, self.languageChooserViewController.packageName, kJavaWritingOptionPackageName, nil];
                 }
                 else if (language == OutputLanguageCoreDataObjectiveC) {
                     writer = [[OutputLanguageWriterCoreData alloc] init];
-                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:self.languageChooserViewController.baseClassName, kCoreDataWritingOptionBaseClassName, nil];
+                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:baseClassName, kCoreDataWritingOptionBaseClassName, nil];
                 }
                 else if (language == OutputLanguageDjangoPython) {
                     writer = [[OutputLanguageWriterDjango alloc] init];
-                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:self.languageChooserViewController.baseClassName, kDjangoWritingOptionBaseClassName, nil];
+                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:baseClassName, kDjangoWritingOptionBaseClassName, nil];
                 }
                 
                 [self.modeler loadJSONWithString:[self.JSONTextView string] outputLanguageWriter:writer];
