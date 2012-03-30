@@ -86,7 +86,7 @@
      * This uses a custom (very strict) character set instead of +alphanumericCharacterSet
      * so that characters like é don't appear in class/property names.
      */
-    NSCharacterSet *nonAlphanumericCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_"] invertedSet];
+    NSCharacterSet *nonAlphanumericCharacterSet = [[NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"] invertedSet];
     NSMutableArray *components = [NSMutableArray arrayWithArray:[self componentsSeparatedByCharactersInSet:nonAlphanumericCharacterSet]];
     NSUInteger componentCount = components.count;
     for (NSUInteger i = 0; i < componentCount; ++i) {

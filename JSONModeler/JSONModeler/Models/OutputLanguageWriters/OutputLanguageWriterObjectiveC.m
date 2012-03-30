@@ -238,13 +238,13 @@
     // SYNTHESIZE
     NSString *sythesizeString = @"";
     for(ClassPropertiesObject *property in [classObject.properties allValues]) {
-        sythesizeString = [sythesizeString stringByAppendingFormat:@"@synthesize %@ = _%@;\n", property.name, property.name];
+        NSString *camelCased = [property.name lowercaseCamelcaseString];
+        sythesizeString = [sythesizeString stringByAppendingFormat:@"@synthesize %@ = _%@;\n", camelCased, camelCased];
     }
     
     // SETTERS
     NSString *settersString = @"";
     for(ClassPropertiesObject *property in [classObject.properties allValues]) {
-        
         settersString = [settersString stringByAppendingString:[self setterForProperty:property]];
     }
     
@@ -253,16 +253,16 @@
     for (ClassPropertiesObject *property in [classObject.properties allValues]) {
         switch (property.type) {
             case PropertyTypeInt:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeIntegerForKey:@\"%@\"];", property.name, property.name]];
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeIntegerForKey:@\"%@\"];", [property.name lowercaseCamelcaseString], property.name]];
                 break;
             case PropertyTypeDouble:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeDoubleForKey:@\"%@\"];", property.name, property.name]];
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeDoubleForKey:@\"%@\"];", [property.name lowercaseCamelcaseString], property.name]];
                 break;
             case PropertyTypeBool:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeBoolForKey:@\"%@\"];", property.name, property.name]];
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeBoolForKey:@\"%@\"];", [property.name lowercaseCamelcaseString], property.name]];
                 break;
             default:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeObjectForKey:@\"%@\"];", property.name, property.name]];
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeObjectForKey:@\"%@\"];", [property.name lowercaseCamelcaseString], property.name]];
                 break;
         }
     }
@@ -306,6 +306,18 @@
     NSString *meFirstName = [me valueForProperty:kABFirstNameProperty];
     NSString *meLastName = [me valueForProperty:kABLastNameProperty];
     NSString *meCompany = [me valueForProperty:kABOrganizationProperty];
+    
+    if(meFirstName == nil) {
+        meFirstName = @"";
+    }
+    
+    if(meLastName == nil) {
+        meLastName = @"";
+    }
+    
+    if(meCompany == nil) {
+        meCompany = @"__MyCompanyName__";
+    }
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"__NAME__" withString:[NSString stringWithFormat:@"%@ %@", meFirstName, meLastName]];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{COMPANY_NAME}" withString:[NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany]];
@@ -415,7 +427,7 @@
         setterString = [templateString stringByReplacingOccurrencesOfString:@"{REFERENCE_CLASS}" withString:property.referenceClass.className];
         
     } else {
-        setterString = [setterString stringByAppendingString:[NSString stringWithFormat:@"            self.%@ = ", property.name]];
+        setterString = [setterString stringByAppendingString:[NSString stringWithFormat:@"            self.%@ = ", [property.name lowercaseCamelcaseString]]];
         if([property type] == PropertyTypeInt) {
             setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] intValue];\n", property.jsonName];
         } else if([property type] == PropertyTypeDouble) {
