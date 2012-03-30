@@ -233,6 +233,18 @@
     NSString *meLastName = [me valueForProperty:kABLastNameProperty];
     NSString *meCompany = [me valueForProperty:kABOrganizationProperty];
     
+    if(meFirstName == nil) {
+        meFirstName = @"";
+    }
+    
+    if(meLastName == nil) {
+        meLastName = @"";
+    }
+    
+    if(meCompany == nil) {
+        meCompany = @"__MyCompanyName__";
+    }
+    
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{NAME}" withString:[NSString stringWithFormat:@"%@ %@", meFirstName, meLastName]];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{COMPANY_NAME}" withString:[NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany]];
     

@@ -147,8 +147,20 @@
     NSString *meLastName = [me valueForProperty:kABLastNameProperty];
     NSString *meCompany = [me valueForProperty:kABOrganizationProperty];
     
+    if(meFirstName == nil) {
+        meFirstName = @"";
+    }
+    
+    if(meLastName == nil) {
+        meLastName = @"";
+    }
+    
+    if(meCompany == nil) {
+        meCompany = @"__MyCompanyName__";
+    }
+    
     templateString = [templateString stringByReplacingOccurrencesOfString:@"__NAME__" withString:[NSString stringWithFormat:@"%@ %@", meFirstName, meLastName]];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"__company_name__" withString:[NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany]];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{COMPANY_NAME}" withString:[NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany]];
     
     // First we need to find if there are any class properties, if so do the @Class business
     NSString *forwardDeclarationString = @"";
@@ -296,7 +308,7 @@
     NSString *meCompany = [me valueForProperty:kABOrganizationProperty];
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"__NAME__" withString:[NSString stringWithFormat:@"%@ %@", meFirstName, meLastName]];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"__company_name__" withString:[NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany]];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{COMPANY_NAME}" withString:[NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany]];
     
     /* Set other template strings */
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:classObject.className];

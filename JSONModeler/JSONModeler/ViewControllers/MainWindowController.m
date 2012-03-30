@@ -35,6 +35,7 @@
 @property (strong) HTTPOptionsWindowController *wc;
 @property (nonatomic, strong) MAAttachedWindow *attachedWindow;
 @property (nonatomic, strong) NSOpenPanel *panel;
+@property (nonatomic, strong) SavePanelLanguageChooserViewController *languageChooserViewController;
 
 - (BOOL) verifyJSONString;
 - (void) generateFiles;
@@ -46,7 +47,7 @@
 @implementation MainWindowController  {
 @private
     MarkerLineNumberView *_lineNumberView;
-    SavePanelLanguageChooserViewController *_languageChooserViewController;
+    
 }
 @synthesize validDataStructureView = _validDataStructureView;
 @synthesize genFilesView = _genFilesView;
@@ -71,6 +72,7 @@
 @synthesize wc = _wc;
 @synthesize attachedWindow = _attachedWindow;
 @synthesize panel = _panel;
+@synthesize languageChooserViewController = _languageChooserViewController;
 
 #pragma mark - Begin Class Methods
 #pragma mark Loading Methods
@@ -371,13 +373,13 @@
     [self.panel setPrompt:NSLocalizedString(@"Choose", @"Label to have the user select which folder to choose")];
     [self.panel setDelegate:self];
     
-    _languageChooserViewController = [[SavePanelLanguageChooserViewController alloc] initWithNibName:@"SavePanelLanguageChooserViewController" bundle:nil];
-    [self.panel setAccessoryView:_languageChooserViewController.view];
+    self.languageChooserViewController = [[SavePanelLanguageChooserViewController alloc] initWithNibName:@"SavePanelLanguageChooserViewController" bundle:nil];
+    [self.panel setAccessoryView:self.languageChooserViewController.view];
     
     [self.panel beginSheetModalForWindow:self.mainWindow completionHandler:^(NSInteger result) {        
         if (result == NSOKButton)
         {
-            OutputLanguage language = [_languageChooserViewController chosenLanguage];
+            OutputLanguage language = [self.languageChooserViewController chosenLanguage];
             
             BOOL filesHaveBeenWritten = NO;
             BOOL filesHaveHadError = NO;
@@ -390,19 +392,19 @@
                 
                 if (language == OutputLanguageObjectiveC) {
                     writer = [[OutputLanguageWriterObjectiveC alloc] init];
-                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:_languageChooserViewController.baseClassName, kObjectiveCWritingOptionBaseClassName, [NSNumber numberWithBool:_languageChooserViewController.buildForARC], kObjectiveCWritingOptionUseARC, nil];
+                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:self.languageChooserViewController.baseClassName, kObjectiveCWritingOptionBaseClassName, [NSNumber numberWithBool:self.languageChooserViewController.buildForARC], kObjectiveCWritingOptionUseARC, nil];
                 }
                 else if (language == OutputLanguageJava) {
                     writer = [[OutputLanguageWriterJava alloc] init];
-                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:_languageChooserViewController.baseClassName, kJavaWritingOptionBaseClassName, _languageChooserViewController.packageName, kJavaWritingOptionPackageName, nil];
+                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:self.languageChooserViewController.baseClassName, kJavaWritingOptionBaseClassName, self.languageChooserViewController.packageName, kJavaWritingOptionPackageName, nil];
                 }
                 else if (language == OutputLanguageCoreDataObjectiveC) {
                     writer = [[OutputLanguageWriterCoreData alloc] init];
-                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:_languageChooserViewController.baseClassName, kCoreDataWritingOptionBaseClassName, nil];
+                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:self.languageChooserViewController.baseClassName, kCoreDataWritingOptionBaseClassName, nil];
                 }
                 else if (language == OutputLanguageDjangoPython) {
                     writer = [[OutputLanguageWriterDjango alloc] init];
-                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:_languageChooserViewController.baseClassName, kDjangoWritingOptionBaseClassName, nil];
+                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:self.languageChooserViewController.baseClassName, kDjangoWritingOptionBaseClassName, nil];
                 }
                 
                 [self.modeler loadJSONWithString:[self.JSONTextView string] outputLanguageWriter:writer];
@@ -442,9 +444,9 @@
 
 -(BOOL)panel:(id)sender validateURL:(NSURL *)url error:(NSError *__autoreleasing *)outError {
     
-    OutputLanguage language = [_languageChooserViewController chosenLanguage];
+    OutputLanguage language = [self.languageChooserViewController chosenLanguage];
     // If we're creating java files, and there's no package name, reject
-    if (language == OutputLanguageJava && (_languageChooserViewController.packageName == nil || _languageChooserViewController.packageName == @"") ) {
+    if (language == OutputLanguageJava && (self.languageChooserViewController.packageName == nil || self.languageChooserViewController.packageName == @"") ) {
         NSAlert *alert = [NSAlert alertWithMessageText:@"No Package Name" defaultButton:@"Close" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Please enter a package name."];
         [alert runModal];
         return NO;
