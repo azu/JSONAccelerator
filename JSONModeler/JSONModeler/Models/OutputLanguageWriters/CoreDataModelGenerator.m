@@ -61,7 +61,14 @@
         NSString *entityNeedingInverseName = [[[inverse attributeForName:@"inverseName"] stringValue] uppercaseCamelcaseString];
         for (NSXMLElement *entity in entities) {
             if ([[[entity attributeForName:@"name"] stringValue] isEqualToString:entityNeedingInverseName]) {
-                [entity addChild:inverse];
+                @try {
+                    [entity addChild:inverse];
+                }
+                @catch (NSException *exception) {
+                    [entity addChild:[inverse copy]];
+                }
+                @finally {
+                }
             }
         }
     }
