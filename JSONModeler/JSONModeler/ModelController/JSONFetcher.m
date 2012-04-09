@@ -39,14 +39,57 @@
                           andFailure:(void (^)(NSHTTPURLResponse *response, NSError *error))failure
 {    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:location]];
-    NSString *method;
+    NSString *method = nil;
+    
+    NSString *variables = @"";
+    NSString *headerValue = nil;
+    NSString *keyValue = nil;
+    
+    // Build the request string
+    for(NSDictionary *header in self.document.httpHeaders) {
+        if(![variables isEqualToString:@""]) {
+            [variables stringByAppendingString:@"&"];
+        }
+        headerValue = [header objectForKey:@"headerValue"];
+        keyValue = [header objectForKey:@"headerKey"];
+        
+        headerValue = [headerValue stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+        keyValue = [keyValue stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+        
+        variables = [variables stringByAppendingString:[NSString stringWithFormat:@"%@=%@", keyValue, headerValue]];
+    }
+
+    
     switch (self.document.httpMethod) {
-        case HTTPMethodGet:
+        case HTTPMethodGet: {
             method = @"GET";
+            NSArray *array = [location componentsSeparatedByString:@"?"];
+            if([array count] == 1) {
+                // There are no post parameters
+                [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", location, variables]]];
+            } else if ([array count] == 2) {
+                if([[array objectAtIndex:1] isEqualToString:@""]) {
+                    // Try to fake me out with a fake url? How dare you
+                    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", location, variables]]];
+                } else {
+                    // Let's just keep appending stuff
+                    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@&%@", location, variables]]];
+                }
+            } else {
+                // Forget about it
+            }
+            
             break;
-        case HTTPMethodPut:
+        }
+        case HTTPMethodPut: {
             method = @"PUT";
+            [ request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+            NSData *postData = [NSData dataWithBytes: [variables UTF8String] length: [variables length]];
+            
+            [ request setHTTPBody: postData ];
+
             break;
+        }
         case HTTPMethodPost:
             method = @"POST";
             break;
@@ -58,10 +101,6 @@
             break;
     }
     [request setHTTPMethod:method];
-    
-    for (NSDictionary *header in self.document.httpHeaders) {
-        [request addValue:[header objectForKey:@"headerValue"] forHTTPHeaderField:[header objectForKey:@"headerKey"]];
-    }
     
     self.operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     self.operation.completionBlock = ^ {

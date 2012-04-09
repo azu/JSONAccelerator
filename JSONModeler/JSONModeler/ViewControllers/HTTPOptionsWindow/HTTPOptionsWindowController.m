@@ -141,6 +141,7 @@ NSString * const headerValue = @"headerValue";
 #pragma mark - NSControl Delegate Methods (for Header Key Text Field)
 -(void)controlTextDidChange:(NSNotification *)obj
 {    
+    return;
     if ( [obj object] == _headerKeyField    // If the key field was edited...
         || ([obj object] == _headerTableView && [_headerTableView editedColumn] == 0) ) { // ...or if a cell in the key column was edited...
         // ...autocomplete with a http header key
