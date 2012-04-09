@@ -8,6 +8,12 @@
 #import "{CLASSNAME}.h"
 {IMPORT_BLOCK}
 
+@interface {CLASSNAME} ()
+
+- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
+
+@end
+
 @implementation {CLASSNAME}
 
 {SYNTHESIZE_BLOCK}
@@ -31,6 +37,14 @@
     return self;
     
 }
+
+#pragma mark - Helper Method
+- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict
+{
+    id object = [dict objectForKey:aKey];
+    return [object isEqual:[NSNull null]] ? nil : object;
+}
+
 
 #pragma mark - NSCoding Methods
 

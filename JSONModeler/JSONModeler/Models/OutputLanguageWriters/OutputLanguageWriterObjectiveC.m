@@ -435,7 +435,8 @@
         } else if([property type] == PropertyTypeBool) {
             setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] boolValue];\n", property.jsonName]; 
         } else {
-            setterString = [setterString stringByAppendingFormat:@"[dict objectForKey:@\"%@\"];\n", property.jsonName];
+            // It's a normal class type
+            setterString = [setterString stringByAppendingFormat:@"[self objectOrNilForKey:@\"%@\" fromDictionary:dict];\n", property.jsonName];
         }
     }
     return setterString;
