@@ -12,6 +12,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+- (IBAction)reflowDocument:(id)sender;
 - (IBAction)openPreferences:(id)sender;
 - (IBAction)feedbackMenuSelected:(id)sender;
 

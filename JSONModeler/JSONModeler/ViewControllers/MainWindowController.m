@@ -37,7 +37,6 @@
 @property (nonatomic, strong) NSOpenPanel *panel;
 @property (nonatomic, strong) SavePanelLanguageChooserViewController *languageChooserViewController;
 
-- (BOOL) verifyJSONString;
 - (void) generateFiles;
 - (void)getDataButtonPressed;
 - (void)closeAlertBox;

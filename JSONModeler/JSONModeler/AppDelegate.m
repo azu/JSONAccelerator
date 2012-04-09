@@ -12,6 +12,7 @@
 #import "MainWindowController.h"
 #import "MASPreferencesWindowController.h"
 #import "JRFeedbackController.h"
+#import "ModelerDocument.h"
 #import "DMTracker.h"
 #import "iRate.h"
 
@@ -62,6 +63,13 @@
 - (IBAction)openPreferences:(id)sender 
 {
     
+}
+
+- (IBAction)reflowDocument:(id)sender
+{
+    ModelerDocument *docController = [[NSDocumentController sharedDocumentController] currentDocument];
+    MainWindowController *windowController = [[docController windowControllers] objectAtIndex:0];
+    [windowController verifyJSONString];
 }
 
 - (IBAction)feedbackMenuSelected:(id)sender

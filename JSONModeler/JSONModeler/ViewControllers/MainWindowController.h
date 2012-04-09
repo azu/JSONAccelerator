@@ -31,6 +31,8 @@
 @property (weak) IBOutlet NSTextFieldCell *instuctionsTextField;
 @property (weak) IBOutlet NSTextFieldCell *validDataStructureField;
 
+
+- (BOOL)verifyJSONString;
 - (IBAction)optionsButtonPressed:(id)sender;
 - (IBAction)generateFilesPressed:(id)sender;
 - (IBAction)switchToDataLoadView:(id)sender;

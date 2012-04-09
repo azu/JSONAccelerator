@@ -9,6 +9,8 @@
 #import <Cocoa/Cocoa.h>
 #import "JSONModeler.h"
 
+@class MainWindowController;
+
 @interface ModelerDocument : NSDocument
 
 @property HTTPMethod httpMethod;
