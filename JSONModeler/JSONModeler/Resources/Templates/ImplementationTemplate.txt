@@ -38,6 +38,18 @@
     
 }
 
+- (NSDictionary *)dictionaryRepresentation
+{
+    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
+{DICTIONARY_REPRESENTATION}
+    return [NSDictionary dictionaryWithDictionary:mutableDict];
+}
+
+- (NSString *)description 
+{
+    return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
+}
+
 #pragma mark - Helper Method
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict
 {

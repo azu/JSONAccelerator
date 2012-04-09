@@ -248,6 +248,12 @@
         settersString = [settersString stringByAppendingString:[self setterForProperty:property]];
     }
     
+    //dictionaryRepresentation
+    NSString *dictionaryRepresentation = @"";
+    for(ClassPropertiesObject *property in [classObject.properties allValues]) {
+        dictionaryRepresentation = [dictionaryRepresentation stringByAppendingString:[self dictionaryRepresentationfromProperty:property]];
+    }
+    
     // NSCODING SECTION
     NSString *initWithCoderString = @"";
     for (ClassPropertiesObject *property in [classObject.properties allValues]) {
@@ -328,6 +334,7 @@
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORT_BLOCK}" withString:importString];    
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{SYNTHESIZE_BLOCK}" withString:sythesizeString];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DICTIONARY_REPRESENTATION}" withString:dictionaryRepresentation];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{INITWITHCODER}" withString:initWithCoderString];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{ENCODEWITHCODER}" withString:encodeWithCoderString];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{DEALLOC}" withString:deallocString];
@@ -340,6 +347,57 @@
 - (NSSet *)reservedWords
 {
     return [NSSet setWithObjects:@"__autoreleasing", @"__block", @"__strong", @"__unsafe_unretained", @"__weak", @"_Bool", @"_Complex", @"_Imaginery", @"@catch", @"@class", @"@dynamic", @"@end", @"@finally", @"@implementation", @"@interface", @"@private", @"@property", @"@protected", @"@protocol", @"@public", @"@selector", @"@synthesize", @"@throw", @"@try", @"assign", @"atomic", @"auto", @"autoreleasing", @"block", @"BOOL", @"break", @"bycopy", @"byref", @"case", @"catch", @"char", @"class", @"Class", @"const", @"continue", @"default", @"description", @"do", @"double", @"dynamic", @"else", @"end", @"enum", @"extern", @"finally", @"float", @"for", @"goto", @"id", @"if", @"IMP", @"implementation", @"in", @"inline", @"inout", @"int", @"interface", @"long", @"nil", @"NO", @"nonatomic", @"NULL", @"oneway", @"out", @"private", @"property", @"protected", @"protocol", @"Protocol", @"public", @"register", @"restrict", @"retain", @"return", @"SEL", @"selector", @"self", @"short", @"signed", @"sizeof", @"static", @"strong", @"struct", @"super", @"switch", @"synthesize", @"throw", @"try", @"typedef", @"union", @"unretained", @"unsafe", @"unsigned", @"void", @"volatile", @"weak", @"while", @"YES", nil];
+}
+
+- (NSString *)dictionaryRepresentationfromProperty:(ClassPropertiesObject *)property
+{
+    // Arrays are another bag of tricks 
+    if(property.type == PropertyTypeArray) {
+        NSBundle *mainBundle = [NSBundle mainBundle];
+        
+        NSString *implementationTemplate = [mainBundle pathForResource:@"DictionaryRepresentationArrayTemplate" ofType:@"txt"];
+        NSString *templateString = [[NSString alloc] initWithContentsOfFile:implementationTemplate encoding:NSUTF8StringEncoding error:nil];
+        templateString = [templateString stringByReplacingOccurrencesOfString:@"{ARRAY_GETTER_NAME}" withString:[property.name uppercaseCamelcaseString]];
+        templateString = [templateString stringByReplacingOccurrencesOfString:@"{ARRAY_GETTER_NAME_LOWERCASE}" withString:[property.name lowercaseCamelcaseString]];
+        return [NSString stringWithFormat:templateString, property.jsonName];
+    }
+
+    
+    NSString *dictionaryRepresentation = @"";
+    NSString *formatString = @"    [mutableDict setValue:%@ forKey:@\"%@\"];\n";
+    NSString *value;
+    NSString *key = [NSString stringWithFormat:@"%@", property.jsonName];
+    
+    
+    
+    switch (property.type) {
+        case PropertyTypeString:
+        case PropertyTypeDictionary:
+        case PropertyTypeOther:
+            value = [NSString stringWithFormat:@"self.%@", [property.name lowercaseCamelcaseString]];
+            break;
+        case PropertyTypeClass:
+            value = [NSString stringWithFormat:@"[self.%@ dictionaryRepresentation]", [property.name lowercaseCamelcaseString]];
+            break;
+
+        case PropertyTypeInt:
+            value = [NSString stringWithFormat:@"[NSNumber numberWithInt:self.%@]", [property.name lowercaseCamelcaseString]];
+            break;
+        case PropertyTypeBool:
+            value = [NSString stringWithFormat:@"[NSNumber numberWithBool:self.%@]", [property.name lowercaseCamelcaseString]];
+            break;
+        case PropertyTypeDouble:
+            value = [NSString stringWithFormat:@"[NSNumber numberWithDouble:self.%@]", [property.name lowercaseCamelcaseString]];
+            break;
+        case PropertyTypeArray:
+            NSAssert(NO, @"This shouldn't happen");
+            break;
+            
+    }
+    dictionaryRepresentation = [NSString stringWithFormat:formatString, value, key];
+    
+    
+    return dictionaryRepresentation;
 }
 
 - (NSString *)classNameForObject:(ClassBaseObject *)classObject fromReservedWord:(NSString *)reservedWord

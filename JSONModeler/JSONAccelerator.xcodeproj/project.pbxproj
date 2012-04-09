@@ -78,6 +78,8 @@
 		444AAC1D14CA260E008FBD6F /* JRFeedbackProviderRevised.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444AAC1B14CA260E008FBD6F /* JRFeedbackProviderRevised.xib */; };
 		44519A2A150E67A1003A5CE0 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44519A29150E67A1003A5CE0 /* GradientView.m */; };
 		44519A2B150E67A1003A5CE0 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44519A29150E67A1003A5CE0 /* GradientView.m */; };
+		445F441F15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 445F441E15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt */; };
+		445F442015328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 445F441E15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt */; };
 		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
 		446B282614ABCC0600FBE699 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
 		446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447E8A7314AAA93E00A3345A /* Localizable.strings */; };
@@ -359,6 +361,7 @@
 		444AAC1B14CA260E008FBD6F /* JRFeedbackProviderRevised.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JRFeedbackProviderRevised.xib; sourceTree = "<group>"; };
 		44519A28150E67A1003A5CE0 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradientView.h; path = Views/GradientView.h; sourceTree = "<group>"; };
 		44519A29150E67A1003A5CE0 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradientView.m; path = Views/GradientView.m; sourceTree = "<group>"; };
+		445F441E15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DictionaryRepresentationArrayTemplate.txt; path = Resources/Templates/DictionaryRepresentationArrayTemplate.txt; sourceTree = "<group>"; };
 		44670A7F1489987E0042A444 /* appIcons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appIcons.icns; sourceTree = "<group>"; };
 		44670A821489988E0042A444 /* JSONModeler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = JSONModeler.entitlements; sourceTree = "<group>"; };
 		446B281B14ABCBD400FBE699 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -976,6 +979,7 @@
 				44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */,
 				7D9FE00914D32CD800F135CC /* JavaArrayTemplate.txt */,
 				7D9FE01014D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt */,
+				445F441E15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt */,
 				448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */,
 			);
 			name = Templates;
@@ -1192,6 +1196,7 @@
 				44AC16A8151043D700794AB7 /* alertCloseButton.png in Resources */,
 				44AC16AA151043D700794AB7 /* alertCloseButton@2x.png in Resources */,
 				4430204B15214CE60008D9A7 /* dataButtonUp@2x.png in Resources */,
+				445F441F15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1249,6 +1254,7 @@
 				44AC16A9151043D700794AB7 /* alertCloseButton.png in Resources */,
 				44AC16AB151043D700794AB7 /* alertCloseButton@2x.png in Resources */,
 				4430204C15214CE60008D9A7 /* dataButtonUp@2x.png in Resources */,
+				445F442015328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

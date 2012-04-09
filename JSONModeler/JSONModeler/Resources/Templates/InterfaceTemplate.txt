@@ -14,5 +14,6 @@
 {PROPERTIES}
 + ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict;
 - (id)initWithDictionary:(NSDictionary *)dict;
+- (NSDictionary *)dictionaryRepresentation;
 
 @end

@@ -1,0 +1,11 @@
+NSMutableArray *tempArrayFor{ARRAY_GETTER_NAME} = [NSMutableArray array];
+    for (NSObject *subArrayObject in self.{ARRAY_GETTER_NAME_LOWERCASE}) {
+        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+            // This class is a model object
+            [tempArrayFor{ARRAY_GETTER_NAME} addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
+        } else {
+            // Generic object
+            [tempArrayFor{ARRAY_GETTER_NAME} addObject:subArrayObject];
+        }
+    }
+    [mutableDict setValue:[NSArray arrayWithArray:tempArrayFor{ARRAY_GETTER_NAME}] forKey:@"%@"];
