@@ -241,7 +241,7 @@
                 informativeText = @"";
             }
             NSAlert *testAlert = [NSAlert alertWithMessageText:NSLocalizedString(@"An Error Occurred", @"Title of an alert if there is an error getting content of a url")
-                                                 defaultButton:NSLocalizedString(@"Dismiss", @"Button to dismiss an action sheet")
+                                                 defaultButton:NSLocalizedString(@"OK", @"Button to dismiss an action sheet")
                                                alternateButton:nil
                                                    otherButton:nil
                                      informativeTextWithFormat:@"%@", informativeText];
@@ -249,7 +249,7 @@
         }
         else {
             NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"An Error Occurred", @"Title of an alert if there is an error getting content of a url")
-                                             defaultButton:NSLocalizedString(@"Dismiss", @"Button to dismiss an action sheet")
+                                             defaultButton:NSLocalizedString(@"OK", @"Button to dismiss an action sheet")
                                            alternateButton:nil
                                                otherButton:nil
                                  informativeTextWithFormat:[NSString stringWithFormat:@"%ld - %@", [response statusCode], [NSHTTPURLResponse localizedStringForStatusCode:[response statusCode]]]];
@@ -323,7 +323,7 @@
             informativeText = NSLocalizedString(@"JSON text did not start with array or object.", @"Error message to state the JSON didn't start with a {} or []");
         }
         NSAlert *testAlert = [NSAlert alertWithMessageText:NSLocalizedString(@"An error occurred while verifying the JSON", @"The title for the action sheet saying something went wrong")
-                                             defaultButton:NSLocalizedString(@"Dismiss", @"Button to dismiss an action sheet")
+                                             defaultButton:NSLocalizedString(@"OK", @"Button to dismiss an action sheet")
                                            alternateButton:nil
                                                otherButton:nil
                                  informativeTextWithFormat:@"%@", informativeText];
@@ -437,7 +437,7 @@
             }
             
             NSAlert *statusAlert = [NSAlert alertWithMessageText:titleMessage
-                                                   defaultButton:NSLocalizedString(@"Dismiss", @"Button to dismiss an action sheet")
+                                                   defaultButton:NSLocalizedString(@"OK", @"Button to dismiss an action sheet")
                                                  alternateButton:nil
                                                      otherButton:nil
                                        informativeTextWithFormat:@"%@", statusString];

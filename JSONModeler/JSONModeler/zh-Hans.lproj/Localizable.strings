@@ -20,7 +20,7 @@
 "Choose" = "选择";
 
 /* Button to dismiss an action sheet */
-"Dismiss" = "解除";
+"OK" = "确定";
 
 /* Prompt user gets to enter a URL */
 "Enter URL..." = "请输入 URL...";
