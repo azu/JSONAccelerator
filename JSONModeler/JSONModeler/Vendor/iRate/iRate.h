@@ -1,7 +1,7 @@
 //
 //  iRate.h
 //
-//  Version 1.3.3
+//  Version 1.4.2
 //
 //  Created by Nick Lockwood on 26/01/2011.
 //  Copyright 2011 Charcoal Design
@@ -34,7 +34,7 @@
 //
 //  ARC Helper
 //
-//  Version 1.2
+//  Version 1.2.2
 //
 //  Created by Nick Lockwood on 05/01/2012.
 //  Copyright 2012 Charcoal Design
@@ -47,16 +47,16 @@
 
 #ifndef AH_RETAIN
 #if __has_feature(objc_arc)
-#define AH_RETAIN(x) x
-#define AH_RELEASE(x)
-#define AH_AUTORELEASE(x) x
-#define AH_SUPER_DEALLOC
+#define AH_RETAIN(x) (x)
+#define AH_RELEASE(x) (void)(x)
+#define AH_AUTORELEASE(x) (x)
+#define AH_SUPER_DEALLOC (void)(0)
 #else
 #define __AH_WEAK
 #define AH_WEAK assign
-#define AH_RETAIN(x) [x retain]
-#define AH_RELEASE(x) [x release]
-#define AH_AUTORELEASE(x) [x autorelease]
+#define AH_RETAIN(x) [(x) retain]
+#define AH_RELEASE(x) [(x) release]
+#define AH_AUTORELEASE(x) [(x) autorelease]
 #define AH_SUPER_DEALLOC [super dealloc]
 #endif
 #endif
@@ -93,10 +93,14 @@
 #endif
 
 
+extern NSString *const iRateAppStoreGenreGame;
+
+
 @protocol iRateDelegate <NSObject>
 @optional
 
 - (void)iRateCouldNotConnectToAppStore:(NSError *)error;
+- (void)iRateDidDetectAppUpdate;
 - (BOOL)iRateShouldPromptForRating;
 - (void)iRateUserDidAttemptToRateApp;
 - (void)iRateUserDidDeclineToRateApp;
@@ -108,13 +112,16 @@
 @interface iRate : NSObject
 
 //required for 32-bit Macs
-#ifdef __i386__
+#ifdef __i386
 {
-    @private
+@private
     
     NSUInteger appStoreID;
+    NSString *appStoreGenre;
+    NSString *appStoreCountry;
     NSString *applicationName;
     NSString *applicationVersion;
+    NSString *applicationBundleID;
     NSUInteger usesUntilPrompt;
     NSUInteger eventsUntilPrompt;
     float daysUntilPrompt;
@@ -125,6 +132,7 @@
     NSString *remindButtonLabel;
     NSString *rateButtonLabel;
     NSURL *ratingsURL;
+    BOOL onlyPromptIfLatestVersion;
     BOOL promptAtLaunch;
     BOOL debug;
     id<iRateDelegate> __AH_WEAK delegate;
@@ -134,12 +142,16 @@
 
 + (iRate *)sharedInstance;
 
-//app-store id - always set this
+//app store ID - this is only needed if your
+//bundle ID is not unique between iOS and Mac app stores
 @property (nonatomic, assign) NSUInteger appStoreID;
 
-//application name and version - these are set automatically
+//application details - these are set automatically
+@property (nonatomic, copy) NSString *appStoreGenre;
+@property (nonatomic, copy) NSString *appStoreCountry;
 @property (nonatomic, copy) NSString *applicationName;
 @property (nonatomic, copy) NSString *applicationVersion;
+@property (nonatomic, copy) NSString *applicationBundleID;
 
 //usage settings - these have sensible defaults
 @property (nonatomic, assign) NSUInteger usesUntilPrompt;
@@ -154,7 +166,8 @@
 @property (nonatomic, copy) NSString *remindButtonLabel;
 @property (nonatomic, copy) NSString *rateButtonLabel;
 
-//debugging and automatic prompt
+//debugging and prompt overrides
+@property (nonatomic, assign) BOOL onlyPromptIfLatestVersion;
 @property (nonatomic, assign) BOOL promptAtLaunch;
 @property (nonatomic, assign) BOOL debug;
 

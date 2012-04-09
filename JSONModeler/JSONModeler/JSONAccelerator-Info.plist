@@ -50,11 +50,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+	<string>1.0.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>101</string>
+	<string>102</string>
 	<key>DMAppId</key>
 	<string>4f218fdaa14ad72c61000000</string>
 	<key>JRFeedbackURL</key>

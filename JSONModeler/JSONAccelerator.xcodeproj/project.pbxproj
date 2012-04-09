@@ -81,6 +81,8 @@
 		445F441F15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 445F441E15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt */; };
 		445F442015328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 445F441E15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt */; };
 		44670A801489987E0042A444 /* appIcons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 44670A7F1489987E0042A444 /* appIcons.icns */; };
+		4468CEC115336DF900815345 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4468CEC015336DF900815345 /* iRate.bundle */; };
+		4468CEC215336DF900815345 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4468CEC015336DF900815345 /* iRate.bundle */; };
 		446B282614ABCC0600FBE699 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 446B282414ABCC0600FBE699 /* Credits.rtf */; };
 		446C77C314AAAD8F00FD9A5F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447E8A7314AAA93E00A3345A /* Localizable.strings */; };
 		446E0768150EA6290071DB0B /* InvalidDataButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 446E0767150EA6290071DB0B /* InvalidDataButton.m */; };
@@ -197,8 +199,6 @@
 		44C0FF88150AA3BA0039A847 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF7B150AA33A0039A847 /* NoodleLineNumberMarker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44C0FF89150AA3C00039A847 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF7D150AA33A0039A847 /* NoodleLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
-		44E567B414F285FB00D60066 /* iRate.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44E567B214F285FB00D60066 /* iRate.strings */; };
-		44E567B514F285FB00D60066 /* iRate.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44E567B214F285FB00D60066 /* iRate.strings */; };
 		44F037CE14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037CF14C8B57700FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037D314C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */; };
@@ -364,6 +364,7 @@
 		445F441E15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DictionaryRepresentationArrayTemplate.txt; path = Resources/Templates/DictionaryRepresentationArrayTemplate.txt; sourceTree = "<group>"; };
 		44670A7F1489987E0042A444 /* appIcons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appIcons.icns; sourceTree = "<group>"; };
 		44670A821489988E0042A444 /* JSONModeler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = JSONModeler.entitlements; sourceTree = "<group>"; };
+		4468CEC015336DF900815345 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = iRate.bundle; path = Vendor/iRate/iRate.bundle; sourceTree = "<group>"; };
 		446B281B14ABCBD400FBE699 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		446B282514ABCC0600FBE699 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		446E0766150EA6290071DB0B /* InvalidDataButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InvalidDataButton.h; path = Views/InvalidDataButton.h; sourceTree = "<group>"; };
@@ -403,9 +404,6 @@
 		4485C9D214FBC24F0064F291 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/JRFeedbackProvider.strings; sourceTree = "<group>"; };
 		4485C9D414FBC2540064F291 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/JRFeedbackProvider.strings; sourceTree = "<group>"; };
 		4485C9D514FBC2580064F291 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/JRFeedbackProvider.strings; sourceTree = "<group>"; };
-		4485C9D614FBC2AC0064F291 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/iRate.strings; sourceTree = "<group>"; };
-		4485C9D714FBC2B00064F291 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/iRate.strings; sourceTree = "<group>"; };
-		4485C9D814FBC2B30064F291 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/iRate.strings; sourceTree = "<group>"; };
 		448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ArraySetterTemplate.txt; path = Resources/Templates/ArraySetterTemplate.txt; sourceTree = "<group>"; };
 		449A1EE014E2AF3C00F1B0E6 /* DMHosts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DMHosts.h; sourceTree = "<group>"; };
 		449A1EE114E2AF3C00F1B0E6 /* DMHosts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMHosts.m; sourceTree = "<group>"; };
@@ -484,7 +482,6 @@
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
 		44C6F4E714AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		44E567B314F285FB00D60066 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/iRate.strings; sourceTree = "<group>"; };
 		44F037CC14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterObjectiveC.h; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.h; sourceTree = "<group>"; };
 		44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterObjectiveC.m; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.m; sourceTree = "<group>"; };
 		44F037D014C8B63600FECF86 /* OutputLanguageWriterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterProtocol.h; path = Models/OutputLanguageWriters/OutputLanguageWriterProtocol.h; sourceTree = "<group>"; };
@@ -866,6 +863,7 @@
 			children = (
 				4442837214F1E69500345D34 /* iRate.h */,
 				4442837314F1E69500345D34 /* iRate.m */,
+				4468CEC015336DF900815345 /* iRate.bundle */,
 			);
 			name = iRate;
 			sourceTree = "<group>";
@@ -886,7 +884,6 @@
 		447E8A7714AAA94E00A3345A /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				44E567B214F285FB00D60066 /* iRate.strings */,
 				447E8A7314AAA93E00A3345A /* Localizable.strings */,
 			);
 			name = Localization;
@@ -1173,7 +1170,6 @@
 				7D2AD96514D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */,
 				7D9FE00A14D32CD800F135CC /* JavaArrayTemplate.txt in Resources */,
 				7D9FE01114D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt in Resources */,
-				44E567B414F285FB00D60066 /* iRate.strings in Resources */,
 				44C0FF69150AA0DF0039A847 /* dragIcon.png in Resources */,
 				44C0FF6A150AA0DF0039A847 /* dragIcon@2x.png in Resources */,
 				44C0FF6B150AA0DF0039A847 /* globe.png in Resources */,
@@ -1197,6 +1193,7 @@
 				44AC16AA151043D700794AB7 /* alertCloseButton@2x.png in Resources */,
 				4430204B15214CE60008D9A7 /* dataButtonUp@2x.png in Resources */,
 				445F441F15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt in Resources */,
+				4468CEC115336DF900815345 /* iRate.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1235,7 +1232,6 @@
 				7D2AD96614D099480035A4FE /* CoreDataAccessorsTemplate.txt in Resources */,
 				7D9FE00B14D32CD800F135CC /* JavaArrayTemplate.txt in Resources */,
 				7D9FE01214D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt in Resources */,
-				44E567B514F285FB00D60066 /* iRate.strings in Resources */,
 				448366B4150BEF8900D2F6BF /* validCheck.png in Resources */,
 				448366B6150BEF8900D2F6BF /* validCheck@2x.png in Resources */,
 				448366BB150BF07500D2F6BF /* dataButtonDisabled.png in Resources */,
@@ -1255,6 +1251,7 @@
 				44AC16AB151043D700794AB7 /* alertCloseButton@2x.png in Resources */,
 				4430204C15214CE60008D9A7 /* dataButtonUp@2x.png in Resources */,
 				445F442015328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt in Resources */,
+				4468CEC215336DF900815345 /* iRate.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1522,17 +1519,6 @@
 				44703BE114D05D6600994234 /* zh-Hans */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		44E567B214F285FB00D60066 /* iRate.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				44E567B314F285FB00D60066 /* en */,
-				4485C9D614FBC2AC0064F291 /* es */,
-				4485C9D714FBC2B00064F291 /* de */,
-				4485C9D814FBC2B30064F291 /* ja */,
-			);
-			name = iRate.strings;
 			sourceTree = "<group>";
 		};
 		44F037EB14CA18B800FECF86 /* JRFeedbackProvider.strings */ = {
