@@ -48,7 +48,7 @@
     // Build the request string
     for(NSDictionary *header in self.document.httpHeaders) {
         if(![variables isEqualToString:@""]) {
-            [variables stringByAppendingString:@"&"];
+            variables = [variables stringByAppendingString:@"&"];
         }
         headerValue = [header objectForKey:@"headerValue"];
         keyValue = [header objectForKey:@"headerKey"];
