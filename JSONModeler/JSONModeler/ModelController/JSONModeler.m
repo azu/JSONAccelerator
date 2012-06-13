@@ -207,18 +207,21 @@
                 
             } else {
                 // Miscellaneous
+                NSNumber *number = (NSNumber *)tempObject;
                 NSString *classDecription = [[tempObject class] description];
-                if([classDecription rangeOfString:@"NSCFNumber"].location != NSNotFound) {
-                    [tempPropertyObject setType:PropertyTypeInt];
-                    [tempPropertyObject setSemantics:SetterSemanticAssign];
-                } else if([classDecription rangeOfString:@"NSDecimalNumber"].location != NSNotFound) {
-                    [tempPropertyObject setType:PropertyTypeDouble];
-                    [tempPropertyObject setSemantics:SetterSemanticAssign];
-                } else if([classDecription rangeOfString:@"NSCFBoolean"].location != NSNotFound) {
+                NSNumber *tempIntNumber = [NSNumber numberWithInteger:[number integerValue]];
+                NSNumber *tempDoubleNumber = [NSNumber numberWithDouble:[number doubleValue]];
+                
+                if([classDecription rangeOfString:@"NSCFBoolean"].location != NSNotFound) {
                     [tempPropertyObject setType:PropertyTypeBool];
                     [tempPropertyObject setSemantics:SetterSemanticAssign];
-                } 
-                else {
+                } else if([[number stringValue] isEqualToString:[tempDoubleNumber stringValue]]) {
+                    [tempPropertyObject setType:PropertyTypeDouble];
+                    [tempPropertyObject setSemantics:SetterSemanticAssign];
+                } else if([[number stringValue] isEqualToString:[tempIntNumber stringValue]]) {
+                    [tempPropertyObject setType:PropertyTypeInt];
+                    [tempPropertyObject setSemantics:SetterSemanticAssign];
+                } else {
                     DLog(@"UNDEFINED TYPE: %@", [tempObject class]);
                 }
                 // This is undefined right now - add other if
