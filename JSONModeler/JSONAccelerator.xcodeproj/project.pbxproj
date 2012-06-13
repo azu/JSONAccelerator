@@ -59,6 +59,8 @@
 		4426908E14DA052900C16CBD /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4426908D14DA052900C16CBD /* IOKit.framework */; };
 		4426909014DA053C00C16CBD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4426908F14DA053C00C16CBD /* Security.framework */; };
 		4426909214DA056100C16CBD /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4426909114DA056100C16CBD /* libcrypto.dylib */; };
+		442E38EF15895900003CE8F6 /* OutputLanguageWriterPython.m in Sources */ = {isa = PBXBuildFile; fileRef = 442E38EE15895900003CE8F6 /* OutputLanguageWriterPython.m */; };
+		442E38F015895900003CE8F6 /* OutputLanguageWriterPython.m in Sources */ = {isa = PBXBuildFile; fileRef = 442E38EE15895900003CE8F6 /* OutputLanguageWriterPython.m */; };
 		4430047614AB6F4500F7C8DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
 		4430047714AB6F4A00F7C8DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
 		4430204B15214CE60008D9A7 /* dataButtonUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4430204A15214CE60008D9A7 /* dataButtonUp@2x.png */; };
@@ -334,6 +336,8 @@
 		4426908F14DA053C00C16CBD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4426909114DA056100C16CBD /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		442C6F0E1475B676002BA77F /* TableSelectionChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableSelectionChangeDelegate.h; path = JSONModeler/Protocols/TableSelectionChangeDelegate.h; sourceTree = "<group>"; };
+		442E38ED15895900003CE8F6 /* OutputLanguageWriterPython.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterPython.h; path = Models/OutputLanguageWriters/OutputLanguageWriterPython.h; sourceTree = "<group>"; };
+		442E38EE15895900003CE8F6 /* OutputLanguageWriterPython.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterPython.m; path = Models/OutputLanguageWriters/OutputLanguageWriterPython.m; sourceTree = "<group>"; };
 		4430047514AB6F4500F7C8DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4430047814AB6F5300F7C8DE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4430047B14AB6F6200F7C8DE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -985,6 +989,8 @@
 		44F037CB14C8B52E00FECF86 /* OutputLanguageWriters */ = {
 			isa = PBXGroup;
 			children = (
+				442E38ED15895900003CE8F6 /* OutputLanguageWriterPython.h */,
+				442E38EE15895900003CE8F6 /* OutputLanguageWriterPython.m */,
 				44F037D014C8B63600FECF86 /* OutputLanguageWriterProtocol.h */,
 				44F037CC14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.h */,
 				44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */,
@@ -1342,6 +1348,7 @@
 				443DD5B31520FB09002410E8 /* AFJSONRequestOperation.m in Sources */,
 				443DD5B51520FB09002410E8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				443DD5B71520FB09002410E8 /* UIImageView+AFNetworking.m in Sources */,
+				442E38EF15895900003CE8F6 /* OutputLanguageWriterPython.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1420,6 +1427,7 @@
 				443DD5B41520FB09002410E8 /* AFJSONRequestOperation.m in Sources */,
 				443DD5B61520FB09002410E8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				443DD5B81520FB09002410E8 /* UIImageView+AFNetworking.m in Sources */,
+				442E38F015895900003CE8F6 /* OutputLanguageWriterPython.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

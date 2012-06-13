@@ -1,5 +1,5 @@
 //
-//  OutputLanguageWriterDjango.h
+//  OutputLanguageWriterPython.h
 //  JSONModeler
 //
 //  Created by Sean Hickey on 1/26/12.
@@ -10,8 +10,8 @@
 #import <Foundation/Foundation.h>
 #import "OutputLanguageWriterProtocol.h"
 
-static NSString *const kDjangoWritingOptionBaseClassName = @"kDjangoWritingOptionBaseClassName";
+static NSString *const kPythonWritingOptionBaseClassName = @"kPythonWritingOptionBaseClassName";
 
-@interface OutputLanguageWriterDjango : NSObject <OutputLanguageWriterProtocol>
+@interface OutputLanguageWriterPython : NSObject <OutputLanguageWriterProtocol>
 
 @end

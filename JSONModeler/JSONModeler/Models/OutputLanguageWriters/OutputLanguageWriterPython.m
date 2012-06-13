@@ -1,19 +1,19 @@
 //
-//  OutputLanguageWriterDjango.m
+//  OutputLanguageWriterPython.m
 //  JSONModeler
 //
 //  Created by Sean Hickey on 1/26/12.
 //  Copyright (c) 2012 Nerdery Interactive Labs. All rights reserved.
 //
 
-#import "OutputLanguageWriterDjango.h"
+#import "OutputLanguageWriterPython.h"
 #import "ClassBaseObject.h"
 
 #import "NSString+Nerdery.h"
 
-static NSUInteger kDjangoModelMaxTextLength = 255;
+static NSUInteger kPythonModelMaxTextLength = 255;
 
-@interface OutputLanguageWriterDjango () {
+@interface OutputLanguageWriterPython () {
 @private
     
 }
@@ -22,7 +22,7 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
 
 @end
 
-@implementation OutputLanguageWriterDjango
+@implementation OutputLanguageWriterPython
 
 -(BOOL)writeClassObjects:(NSDictionary *)classObjectsDict toURL:(NSURL *)url options:(NSDictionary *)options generatedError:(BOOL *)generatedErrorFlag
 {
@@ -34,8 +34,8 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
     for (ClassBaseObject *base in classObjects) {
         if([[base className] isEqualToString:@"InternalBaseClass"]) {
             NSString *newBaseClassName;
-            if (nil != [options objectForKey:kDjangoWritingOptionBaseClassName]) {
-                newBaseClassName = [options objectForKey:kDjangoWritingOptionBaseClassName];
+            if (nil != [options objectForKey:kPythonWritingOptionBaseClassName]) {
+                newBaseClassName = [options objectForKey:kPythonWritingOptionBaseClassName];
             }
             else {
                 newBaseClassName = @"BaseClass";
@@ -50,7 +50,7 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
                     }
                 }
                 if(hasUniqueFileNameBeenFound == NO) {
-                    newBaseClassName = [NSString stringWithFormat:@"%@%i", newBaseClassName, classCheckInteger];
+                    newBaseClassName = [NSString stringWithFormat:@"%@%li", newBaseClassName, classCheckInteger];
                     classCheckInteger++;
                 }
             }
@@ -136,16 +136,16 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
         }
     }
     
-    NSMutableString *fileString = [NSMutableString stringWithString:@"from django.db import models\n"];
+    NSMutableString *fileString = [NSMutableString stringWithString:@""];
     
     for (NSString *className in pythonClasses) {
-        [fileString appendFormat:@"\nclass %@(models.Model):\n", className];
+        [fileString appendFormat:@"\nclass %@(object):\n\n         def __init__(self):\n", className];
         NSDictionary *properties = [pythonClasses objectForKey:className];
         for (NSString *property in properties) {
             /* If it's a simple type, define the database column type */
             NSString *type = [properties objectForKey:property];
             if ([type isEqualToString:@"string"]) {
-                [fileString appendFormat:@"\t%@ = models.CharField(max_length=%i, blank=True)\n", [property underscoreDelimitedString], kDjangoModelMaxTextLength];
+                [fileString appendFormat:@"\t%@ = models.CharField(max_length=%i, blank=True)\n", [property underscoreDelimitedString], kPythonModelMaxTextLength];
             }
             else if ([type isEqualToString:@"int"]) {
                 [fileString appendFormat:@"\t%@ = models.IntegerField(blank=True, null=True)\n", [property underscoreDelimitedString]];
