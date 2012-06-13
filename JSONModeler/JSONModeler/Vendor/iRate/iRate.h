@@ -1,7 +1,7 @@
 //
 //  iRate.h
 //
-//  Version 1.4.2
+//  Version 1.4.7
 //
 //  Created by Nick Lockwood on 26/01/2011.
 //  Copyright 2011 Charcoal Design
@@ -34,7 +34,7 @@
 //
 //  ARC Helper
 //
-//  Version 1.2.2
+//  Version 1.3.1
 //
 //  Created by Nick Lockwood on 05/01/2012.
 //  Copyright 2012 Charcoal Design
@@ -51,6 +51,7 @@
 #define AH_RELEASE(x) (void)(x)
 #define AH_AUTORELEASE(x) (x)
 #define AH_SUPER_DEALLOC (void)(0)
+#define __AH_BRIDGE __bridge
 #else
 #define __AH_WEAK
 #define AH_WEAK assign
@@ -58,14 +59,16 @@
 #define AH_RELEASE(x) [(x) release]
 #define AH_AUTORELEASE(x) [(x) autorelease]
 #define AH_SUPER_DEALLOC [super dealloc]
+#define __AH_BRIDGE
 #endif
 #endif
 
 //  Weak reference support
 
+#import <Availability.h>
 #ifndef AH_WEAK
 #if defined __IPHONE_OS_VERSION_MIN_REQUIRED
-#if __IPHONE_OS_VERSION_MIN_REQUIRED > __IPHONE_4_3
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 50000
 #define __AH_WEAK __weak
 #define AH_WEAK weak
 #else
@@ -73,7 +76,7 @@
 #define AH_WEAK unsafe_unretained
 #endif
 #elif defined __MAC_OS_X_VERSION_MIN_REQUIRED
-#if __MAC_OS_X_VERSION_MIN_REQUIRED > __MAC_10_6
+#if __MAC_OS_X_VERSION_MIN_REQUIRED >= 1070
 #define __AH_WEAK __weak
 #define AH_WEAK weak
 #else
@@ -116,27 +119,30 @@ extern NSString *const iRateAppStoreGenreGame;
 {
 @private
     
-    NSUInteger appStoreID;
-    NSString *appStoreGenre;
-    NSString *appStoreCountry;
-    NSString *applicationName;
-    NSString *applicationVersion;
-    NSString *applicationBundleID;
-    NSUInteger usesUntilPrompt;
-    NSUInteger eventsUntilPrompt;
-    float daysUntilPrompt;
-    float remindPeriod;
-    NSString *messageTitle;
-    NSString *message;
-    NSString *cancelButtonLabel;
-    NSString *remindButtonLabel;
-    NSString *rateButtonLabel;
-    NSURL *ratingsURL;
-    BOOL onlyPromptIfLatestVersion;
-    BOOL promptAtLaunch;
-    BOOL debug;
-    id<iRateDelegate> __AH_WEAK delegate;
-    id visibleAlert;
+    NSUInteger _appStoreID;
+    NSString *_appStoreGenre;
+    NSString *_appStoreCountry;
+    NSString *_applicationName;
+    NSString *_applicationVersion;
+    NSString *_applicationBundleID;
+    NSUInteger _usesUntilPrompt;
+    NSUInteger _eventsUntilPrompt;
+    float _daysUntilPrompt;
+    float _remindPeriod;
+    NSString *_messageTitle;
+    NSString *_message;
+    NSString *_cancelButtonLabel;
+    NSString *_remindButtonLabel;
+    NSString *_rateButtonLabel;
+    NSURL *_ratingsURL;
+    BOOL _disableAlertViewResizing;
+    BOOL _onlyPromptIfLatestVersion;
+    BOOL _onlyPromptIfMainWindowIsAvailable;
+    BOOL _promptAtLaunch;
+    BOOL _debug;
+    id<iRateDelegate> __AH_WEAK _delegate;
+    id _visibleAlert;
+    int _previousOrientation;
 }
 #endif
 
@@ -167,7 +173,9 @@ extern NSString *const iRateAppStoreGenreGame;
 @property (nonatomic, copy) NSString *rateButtonLabel;
 
 //debugging and prompt overrides
+@property (nonatomic, assign) BOOL disableAlertViewResizing;
 @property (nonatomic, assign) BOOL onlyPromptIfLatestVersion;
+@property (nonatomic, assign) BOOL onlyPromptIfMainWindowIsAvailable;
 @property (nonatomic, assign) BOOL promptAtLaunch;
 @property (nonatomic, assign) BOOL debug;
 

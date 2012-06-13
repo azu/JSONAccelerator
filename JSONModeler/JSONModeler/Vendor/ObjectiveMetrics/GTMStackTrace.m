@@ -172,7 +172,7 @@ static NSString *GTMStackTraceFromAddressDescriptors(struct GTMAddressDescriptor
       fileName = @"??";
     }
     if (descs[i].class_name) {
-      [trace appendFormat:@"#%-2u %-35s %0*p %s[%s %s]",
+      [trace appendFormat:@"#%-2lu %-35s %0*p %s[%s %s]",
        i,
        [fileName UTF8String],
        // sizeof(void*) * 2 is the length of the hex address (32 vs 64) and + 2 
@@ -183,7 +183,7 @@ static NSString *GTMStackTraceFromAddressDescriptors(struct GTMAddressDescriptor
        descs[i].class_name,
        (descs[i].symbol ? descs[i].symbol : "??")];
     } else {
-      [trace appendFormat:@"#%-2u %-35s %0*p %s()",
+      [trace appendFormat:@"#%-2lu %-35s %0*p %s()",
        i, 
        [fileName UTF8String],
        // sizeof(void*) * 2 is the length of the hex address (32 vs 64) and + 2 

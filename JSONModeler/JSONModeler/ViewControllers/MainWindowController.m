@@ -563,7 +563,7 @@
 - (NSUInteger)findLineForCharacter:(NSUInteger)characterNumber;
 {
     NSString *string = [self.JSONTextView string];
-    unsigned numberOfLines, index, numberOfGlyphs = [string length];
+    NSUInteger numberOfLines, index, numberOfGlyphs = [string length];
     
     for (numberOfLines = 0, index = 0; index < numberOfGlyphs; numberOfLines++){
         index = NSMaxRange([string lineRangeForRange:NSMakeRange(index, 0)]);

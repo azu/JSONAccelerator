@@ -50,7 +50,7 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
                     }
                 }
                 if(hasUniqueFileNameBeenFound == NO) {
-                    newBaseClassName = [NSString stringWithFormat:@"%@%i", newBaseClassName, classCheckInteger];
+                    newBaseClassName = [NSString stringWithFormat:@"%@%li", newBaseClassName, classCheckInteger];
                     classCheckInteger++;
                 }
             }
