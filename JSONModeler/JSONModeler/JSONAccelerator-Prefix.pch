@@ -18,7 +18,8 @@ typedef enum
     OutputLanguageObjectiveC = 0,
     OutputLanguageJava,
     OutputLanguageCoreDataObjectiveC,
-    OutputLanguageDjangoPython
+    OutputLanguageDjangoPython,
+    OutputLanguagePython
 } OutputLanguage;
 
 typedef enum {

@@ -23,6 +23,7 @@
 #import "OutputLanguageWriterJava.h"
 #import "OutputLanguageWriterCoreData.h"
 #import "OutputLanguageWriterDjango.h"
+#import "OutputLanguageWriterPython.h"
 
 #import "CoreDataModelGenerator.h"
 
@@ -409,6 +410,9 @@
                 }
                 else if (language == OutputLanguageDjangoPython) {
                     writer = [[OutputLanguageWriterDjango alloc] init];
+                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:baseClassName, kDjangoWritingOptionBaseClassName, nil];
+                } else if (language == OutputLanguagePython) {
+                    writer = [[OutputLanguageWriterPython alloc] init];
                     optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:baseClassName, kDjangoWritingOptionBaseClassName, nil];
                 }
                 

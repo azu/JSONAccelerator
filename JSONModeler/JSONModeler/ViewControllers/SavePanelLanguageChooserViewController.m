@@ -74,6 +74,9 @@
     else if (_languageDropDownIndex == 3) {
         return OutputLanguageDjangoPython;
     }
+    else if (_languageDropDownIndex == 4) {
+        return OutputLanguagePython;
+    }
     else {
         return -1;
     }
