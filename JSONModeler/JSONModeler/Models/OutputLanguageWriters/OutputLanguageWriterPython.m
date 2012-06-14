@@ -79,63 +79,6 @@
 
 - (NSString *)pythonFileForClassObjects:(NSArray *)classObjects
 {
-    /* Reconstruct the classes so that relationships are in the child class, not parent */
-    /*
-    for (ClassBaseObject *classObject in classObjects) {
-        if (nil == [pythonClasses objectForKey:classObject.className]) {
-            NSMutableDictionary *pythonClass = [[NSMutableDictionary alloc] init];
-            [pythonClasses setObject:pythonClass forKey:classObject.className];
-        }
-        
-        NSMutableDictionary *pythonClass = [pythonClasses objectForKey:classObject.className];
-        for (ClassPropertiesObject *property in [[classObject properties] allValues]) {
-            PropertyType type = property.type;
-            if (type == PropertyTypeString) {
-                [pythonClass setObject:@"string" forKey:property.name];
-            }
-            else if (type == PropertyTypeInt) {
-                [pythonClass setObject:@"int" forKey:property.name];
-            }
-            else if (type == PropertyTypeDouble) {
-                [pythonClass setObject:@"double" forKey:property.name];
-            }
-            else if (type == PropertyTypeBool) {
-                [pythonClass setObject:@"bool" forKey:property.name];
-            }
-            else if (type == PropertyTypeClass) {
-                // Add a one-to-one relationship to the child class
-                if (nil == [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]]) {
-                    NSMutableDictionary *childClass = [[NSMutableDictionary alloc] init];
-                    [pythonClasses setObject:childClass forKey:[property.name uppercaseCamelcaseString]];
-                }
-                NSMutableDictionary *childClass = [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]];
-                [childClass setObject:classObject.className forKey:[NSString stringWithFormat:@"oneToOne%@", classObject.className]];
-            }
-            else if (type == PropertyTypeArray) {
-                // Add a many-to-one relationship to the child class
-                if (nil == [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]]) {
-                    NSMutableDictionary *childClass = [[NSMutableDictionary alloc] init];
-                    [pythonClasses setObject:childClass forKey:[property.name uppercaseCamelcaseString]];
-                }
-                NSMutableDictionary *childClass = [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]];
-                [childClass setObject:classObject.className forKey:[NSString stringWithFormat:@"manyToOne%@", classObject.className]];
-                if (property.collectionType == PropertyTypeInt) {
-                    [childClass setObject:@"int" forKey:property.name];
-                }
-                else if (property.collectionType == PropertyTypeDouble) {
-                    [childClass setObject:@"double" forKey:property.name];
-                }
-                else if (property.collectionType == PropertyTypeString) {
-                    [childClass setObject:@"string" forKey:property.name];
-                }
-                else if (property.collectionType == PropertyTypeBool) {
-                    [childClass setObject:@"bool" forKey:property.name];
-                }
-            }
-        }
-    }
-    */
-    
     NSMutableString *fileString = [NSMutableString stringWithString:@""];
     
     for (ClassBaseObject *classObject in classObjects) {
@@ -161,35 +104,9 @@
             }
             else if (type == PropertyTypeClass) {
                 [fileString appendFormat:formatString, kPythonPropertyPrefix, [property.name underscoreDelimitedString], [property.referenceClass.className uppercaseCamelcaseString]];
-                // Add a one-to-one relationship to the child class
-//                if (nil == [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]]) {
-//                    NSMutableDictionary *childClass = [[NSMutableDictionary alloc] init];
-//                    [pythonClasses setObject:childClass forKey:[property.name uppercaseCamelcaseString]];
-//                }
-//                NSMutableDictionary *childClass = [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]];
-//                [childClass setObject:classObject.className forKey:[NSString stringWithFormat:@"oneToOne%@", classObject.className]];
             }
             else if (type == PropertyTypeArray) {
                 [fileString appendFormat:formatString, kPythonPropertyPrefix, [property.name underscoreDelimitedString], @"array"];
-                // Add a many-to-one relationship to the child class
-//                if (nil == [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]]) {
-//                    NSMutableDictionary *childClass = [[NSMutableDictionary alloc] init];
-//                    [pythonClasses setObject:childClass forKey:[property.name uppercaseCamelcaseString]];
-//                }
-//                NSMutableDictionary *childClass = [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]];
-//                [childClass setObject:classObject.className forKey:[NSString stringWithFormat:@"manyToOne%@", classObject.className]];
-//                if (property.collectionType == PropertyTypeInt) {
-//                    [childClass setObject:@"int" forKey:property.name];
-//                }
-//                else if (property.collectionType == PropertyTypeDouble) {
-//                    [childClass setObject:@"double" forKey:property.name];
-//                }
-//                else if (property.collectionType == PropertyTypeString) {
-//                    [childClass setObject:@"string" forKey:property.name];
-//                }
-//                else if (property.collectionType == PropertyTypeBool) {
-//                    [childClass setObject:@"bool" forKey:property.name];
-//                }
             }
         }
         
@@ -205,48 +122,6 @@
         
     }
     
-//    for (NSString *className in pythonClasses) {
-//        [fileString appendFormat:@"\nclass %@(object):\n\n         def __init__(self):\n", className];
-//        [fileString appendFormat:@"%@\"\"\"\n", kPythonPropertyPrefix];
-//        
-//        NSDictionary *properties = [pythonClasses objectForKey:className];
-//        NSString *formatString = @"%@: attribute %@ : %@\n";
-//        for (NSString *property in properties) {
-//            /* If it's a simple type, define the database column type */
-//            NSString *type = [properties objectForKey:property];
-//            if ([type isEqualToString:@"string"]) {
-//                [fileString appendFormat:formatString, kPythonPropertyPrefix, [property underscoreDelimitedString], @"string"];
-//            }
-//            else if ([type isEqualToString:@"int"]) {
-//                [fileString appendFormat:formatString, kPythonPropertyPrefix, [property underscoreDelimitedString], @"int"];
-//            }
-//            else if ([type isEqualToString:@"double"]) {
-//                [fileString appendFormat:formatString, kPythonPropertyPrefix, [property underscoreDelimitedString], @"float"];
-//            }
-//            else if ([type isEqualToString:@"bool"]) {
-//                [fileString appendFormat:formatString, kPythonPropertyPrefix, [property underscoreDelimitedString], @"bool"];
-//            }
-//            /* ...otherwise, make a relationship */
-//            else {
-//                [fileString appendFormat:formatString, kPythonPropertyPrefix, [property underscoreDelimitedString], @"string"];
-//                if ([property hasPrefix:@"oneToOne"]) {
-//                    [fileString appendFormat:formatString, kPythonPropertyPrefix, [property underscoreDelimitedString], [properties objectForKey:property]];
-//                }
-//                else if ([property hasPrefix:@"manyToOne"]) {
-//                    [fileString appendFormat:formatString, kPythonPropertyPrefix, [property underscoreDelimitedString], @"array"];
-//                }
-//            }
-//        }
-//        [fileString appendFormat:@"%@\"\"\"\n", kPythonPropertyPrefix];
-//        
-//        for (NSString *property in properties) {
-//            /* If it's a simple type, define the database column type */
-//            [fileString appendFormat:@"%@self.%@ = None\n", kPythonPropertyPrefix, [property underscoreDelimitedString]];
-//        }
-//        
-//        [fileString appendString:@"\n"];
-//    }
-//    
     return fileString;
     
 }
