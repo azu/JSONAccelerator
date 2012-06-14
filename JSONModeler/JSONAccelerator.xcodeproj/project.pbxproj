@@ -201,6 +201,8 @@
 		44C0FF88150AA3BA0039A847 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF7B150AA33A0039A847 /* NoodleLineNumberMarker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44C0FF89150AA3C00039A847 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF7D150AA33A0039A847 /* NoodleLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
+		44DF663D158A3FDF00B8E4E6 /* ArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DF663C158A3FDF00B8E4E6 /* ArrowView.m */; };
+		44DF663E158A3FDF00B8E4E6 /* ArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DF663C158A3FDF00B8E4E6 /* ArrowView.m */; };
 		44F037CE14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037CF14C8B57700FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037D314C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */; };
@@ -486,6 +488,8 @@
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
 		44C6F4E714AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44DF663B158A3FDF00B8E4E6 /* ArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrowView.h; path = Views/ArrowView.h; sourceTree = "<group>"; };
+		44DF663C158A3FDF00B8E4E6 /* ArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArrowView.m; path = Views/ArrowView.m; sourceTree = "<group>"; };
 		44F037CC14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterObjectiveC.h; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.h; sourceTree = "<group>"; };
 		44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterObjectiveC.m; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.m; sourceTree = "<group>"; };
 		44F037D014C8B63600FECF86 /* OutputLanguageWriterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterProtocol.h; path = Models/OutputLanguageWriters/OutputLanguageWriterProtocol.h; sourceTree = "<group>"; };
@@ -702,6 +706,8 @@
 				446E0782150F980A0071DB0B /* ClickView.m */,
 				4473B403150FCE1C008401B5 /* GenerateFilesButton.h */,
 				4473B404150FCE1C008401B5 /* GenerateFilesButton.m */,
+				44DF663B158A3FDF00B8E4E6 /* ArrowView.h */,
+				44DF663C158A3FDF00B8E4E6 /* ArrowView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1349,6 +1355,7 @@
 				443DD5B51520FB09002410E8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				443DD5B71520FB09002410E8 /* UIImageView+AFNetworking.m in Sources */,
 				442E38EF15895900003CE8F6 /* OutputLanguageWriterPython.m in Sources */,
+				44DF663D158A3FDF00B8E4E6 /* ArrowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1428,6 +1435,7 @@
 				443DD5B61520FB09002410E8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				443DD5B81520FB09002410E8 /* UIImageView+AFNetworking.m in Sources */,
 				442E38F015895900003CE8F6 /* OutputLanguageWriterPython.m in Sources */,
+				44DF663E158A3FDF00B8E4E6 /* ArrowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
