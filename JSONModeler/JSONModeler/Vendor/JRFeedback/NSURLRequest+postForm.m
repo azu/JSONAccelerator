@@ -72,7 +72,7 @@
         // TODO escape keys with quotes in them.
         [formData jr_appendFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n", key];
         
-        id value = [values objectForKey:key];
+        id value = values[key];
         if ([value isKindOfClass:[NSData class]]) {
             [formData jr_appendString:@"\r\n"];
             [formData appendData:value];

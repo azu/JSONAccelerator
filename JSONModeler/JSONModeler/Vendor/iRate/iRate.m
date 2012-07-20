@@ -1,7 +1,7 @@
 //
 //  iRate.m
 //
-//  Version 1.4.7
+//  Version 1.4.9
 //
 //  Created by Nick Lockwood on 26/01/2011.
 //  Copyright 2011 Charcoal Design
@@ -47,13 +47,13 @@ static NSString *const iRateEventCountKey = @"iRateEventCount";
 static NSString *const iRateMacAppStoreBundleID = @"com.apple.appstore";
 static NSString *const iRateAppLookupURLFormat = @"http://itunes.apple.com/lookup?country=%@";
 
-//note, these don't link directly to the review page - there doesn't seem to be a way to do that
-static NSString *const iRateiOSAppStoreURLFormat = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%i";
-static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.com/app/id%li";
+static NSString *const iRateiOSAppStoreURLFormat = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%u";
+static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.com/app/id%u";
 
 
 #define SECONDS_IN_A_DAY 86400.0
 #define MAC_APP_STORE_REFRESH_DELAY 5.0
+#define REQUEST_TIMEOUT 60.0
 
 
 #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
@@ -64,6 +64,7 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
 
 @property (nonatomic, strong) id visibleAlert;
 @property (nonatomic, assign) int previousOrientation;
+@property (nonatomic, assign) BOOL currentlyChecking;
 
 @end
 
@@ -93,6 +94,7 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
 @synthesize debug = _debug;
 @synthesize delegate = _delegate;
 @synthesize visibleAlert = _visibleAlert;
+@synthesize currentlyChecking = _currentlyChecking;
 @synthesize previousOrientation = _previousOrientation;
 
 #pragma mark -
@@ -138,7 +140,7 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
         }
         
         //retain bundle
-        bundle = AH_RETAIN(bundle);
+        bundle = [bundle ah_retain];
     }
     
     //return localised string
@@ -268,11 +270,11 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
     }
 #ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
     
-    return [NSURL URLWithString:[NSString stringWithFormat:iRateiOSAppStoreURLFormat, self.appStoreID]];
+    return [NSURL URLWithString:[NSString stringWithFormat:iRateiOSAppStoreURLFormat, (unsigned int)self.appStoreID]];
     
 #else
     
-    return [NSURL URLWithString:[NSString stringWithFormat:iRateMacAppStoreURLFormat, self.appStoreID]];
+    return [NSURL URLWithString:[NSString stringWithFormat:iRateMacAppStoreURLFormat, (unsigned int)self.appStoreID]];
     
 #endif
 }
@@ -347,19 +349,19 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    AH_RELEASE(_appStoreGenre);
-    AH_RELEASE(_appStoreCountry);
-    AH_RELEASE(_applicationName);
-    AH_RELEASE(_applicationVersion);
-    AH_RELEASE(_applicationBundleID);
-    AH_RELEASE(_messageTitle);
-    AH_RELEASE(_message);
-    AH_RELEASE(_cancelButtonLabel);
-    AH_RELEASE(_remindButtonLabel);
-    AH_RELEASE(_rateButtonLabel);
-    AH_RELEASE(_ratingsURL);
-    AH_RELEASE(_visibleAlert);
-    AH_SUPER_DEALLOC;
+    [_appStoreGenre release];
+    [_appStoreCountry release];
+    [_applicationName release];
+    [_applicationVersion release];
+    [_applicationBundleID release];
+    [_messageTitle release];
+    [_message release];
+    [_cancelButtonLabel release];
+    [_remindButtonLabel release];
+    [_rateButtonLabel release];
+    [_ratingsURL release];
+    [_visibleAlert release];
+    [super ah_dealloc];
 }
 
 #pragma mark -
@@ -497,6 +499,9 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
 
 - (void)connectionSucceeded
 {
+    //no longer checking
+    self.currentlyChecking = NO;
+    
     //confirm with delegate
     if ([self.delegate respondsToSelector:@selector(iRateShouldPromptForRating)])
     {
@@ -512,6 +517,9 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
 
 - (void)connectionError:(NSError *)error
 {
+    //no longer checking
+    self.currentlyChecking = NO;
+    
     //could not connect
     if ([self.delegate respondsToSelector:@selector(iRateCouldNotConnectToAppStore:)])
     {
@@ -529,14 +537,17 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
             NSString *iTunesServiceURL = [NSString stringWithFormat:iRateAppLookupURLFormat, self.appStoreCountry];
             if (self.appStoreID)
             {
-                iTunesServiceURL = [iTunesServiceURL stringByAppendingFormat:@"&id=%li", self.appStoreID];
+                iTunesServiceURL = [iTunesServiceURL stringByAppendingFormat:@"&id=%u", (unsigned int)self.appStoreID];
             }
             else 
             {
                 iTunesServiceURL = [iTunesServiceURL stringByAppendingFormat:@"&bundleId=%@", self.applicationBundleID];
             }
+            
             NSError *error = nil;
-            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:iTunesServiceURL] options:NSDataReadingUncached error:&error];
+            NSURLResponse *response = nil;
+            NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:iTunesServiceURL] cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:REQUEST_TIMEOUT];
+            NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             if (data)
             {
                 //convert to string
@@ -575,10 +586,10 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
                 }
                 
                 //release json
-                AH_RELEASE(json);
+                [json release];
             }
             
-            if (error)
+            if (error && !(error.code == EPERM && [error.domain isEqualToString:NSPOSIXErrorDomain] && self.appStoreID))
             {
                 [self performSelectorOnMainThread:@selector(connectionError:) withObject:error waitUntilDone:YES];
             }
@@ -593,7 +604,11 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
 
 - (void)promptIfNetworkAvailable
 {
-    [self performSelectorInBackground:@selector(checkForConnectivityInBackground) withObject:nil];
+    if (!self.currentlyChecking)
+    {
+        self.currentlyChecking = YES;
+        [self performSelectorInBackground:@selector(checkForConnectivityInBackground) withObject:nil];
+    }
 }
 
 - (void)promptForRating
@@ -615,7 +630,7 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
         
         self.visibleAlert = alert;
         [self.visibleAlert show];
-        AH_RELEASE(alert);
+        [alert release];
 
 #else
 
@@ -835,7 +850,7 @@ static NSString *const iRateMacAppStoreURLFormat = @"macappstore://itunes.apple.
     while (GetNextProcess(&psn) == noErr)
     {
         CFDictionaryRef cfDict = ProcessInformationCopyDictionary(&psn,  kProcessDictionaryIncludeAllInformationMask);
-        NSString *bundleID = [(__bridge NSDictionary *)cfDict objectForKey:(NSString *)kCFBundleIdentifierKey];
+        NSString *bundleID = [(__bridge NSDictionary *)cfDict objectForKey:(__bridge NSString *)kCFBundleIdentifierKey];
         if ([iRateMacAppStoreBundleID isEqualToString:bundleID])
         {
             //open app page

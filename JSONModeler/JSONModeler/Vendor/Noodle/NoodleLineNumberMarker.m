@@ -77,11 +77,11 @@
 	
 	if ([encoder allowsKeyedCoding])
 	{
-		[encoder encodeObject:[NSNumber numberWithUnsignedInteger:_lineNumber] forKey:NOODLE_LINE_CODING_KEY];
+		[encoder encodeObject:@(_lineNumber) forKey:NOODLE_LINE_CODING_KEY];
 	}
 	else
 	{
-		[encoder encodeObject:[NSNumber numberWithUnsignedInteger:_lineNumber]];
+		[encoder encodeObject:@(_lineNumber)];
 	}
 }
 

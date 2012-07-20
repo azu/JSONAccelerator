@@ -18,8 +18,8 @@
 @implementation ClassPropertiesObject
 @synthesize name = _name;
 @synthesize jsonName = _mappedName;
-@synthesize  type = _type;
-@synthesize  otherType = _otherType;
+@synthesize type = _type;
+@synthesize otherType = _otherType;
 
 @synthesize collectionType = _collectionType;
 @synthesize collectionTypeString = _collectionTypeString;

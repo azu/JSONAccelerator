@@ -31,8 +31,8 @@
     
     /* Determine package name */
     NSString *packageName;
-    if (nil != [options objectForKey:kJavaWritingOptionPackageName]) {
-        packageName = [options objectForKey:kJavaWritingOptionPackageName];
+    if (nil != options[kJavaWritingOptionPackageName]) {
+        packageName = options[kJavaWritingOptionPackageName];
     }
     else {
         /* Default value */
@@ -45,8 +45,8 @@
         // This will check the class name and keep appending an additional number until something has been found
         if([[base className] isEqualToString:@"InternalBaseClass"]) {
             NSString *newBaseClassName;
-            if (nil != [options objectForKey:kJavaWritingOptionBaseClassName]) {
-                newBaseClassName = [options objectForKey:kJavaWritingOptionBaseClassName];
+            if (nil != options[kJavaWritingOptionBaseClassName]) {
+                newBaseClassName = options[kJavaWritingOptionBaseClassName];
             }
             else {
                 newBaseClassName = @"BaseClass";
@@ -100,7 +100,7 @@
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
-    [dict setObject:[self Java_ImplementationFileForClassObject:classObject] forKey:[NSString stringWithFormat:@"%@.java", classObject.className]];
+    dict[[NSString stringWithFormat:@"%@.java", classObject.className]] = [self Java_ImplementationFileForClassObject:classObject];
     
     return [NSDictionary dictionaryWithDictionary:dict];
     
@@ -195,7 +195,7 @@
     
     NSInteger numComponents = [components count];
     for (int i = 0; i < numComponents; ++i) {
-        [components replaceObjectAtIndex:i withObject:[(NSString *)[components objectAtIndex:i] capitalizeFirstCharacter]];
+        components[i] = [(NSString *)components[i] capitalizeFirstCharacter];
     }
     return [components componentsJoinedByString:@""];
 }
@@ -292,7 +292,7 @@
 
 - (NSArray *)setterReferenceClassesForProperty:(ClassPropertiesObject *)  property
 {
-    return [NSArray array];
+    return @[];
 }
 
 - (NSString *)typeStringForProperty:(ClassPropertiesObject *)  property
