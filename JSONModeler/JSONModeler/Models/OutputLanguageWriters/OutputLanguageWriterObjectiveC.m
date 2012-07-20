@@ -32,8 +32,8 @@
     
     /* Determine whether or not to build for ARC */
     BOOL buildForARC;
-    if (nil != [options objectForKey:kObjectiveCWritingOptionUseARC]) {
-        buildForARC = [[options objectForKey:kObjectiveCWritingOptionUseARC] boolValue];
+    if (nil != options[kObjectiveCWritingOptionUseARC]) {
+        buildForARC = [options[kObjectiveCWritingOptionUseARC] boolValue];
     }
     else {
         /* Default to not building for ARC */
@@ -47,8 +47,8 @@
         // This will check the class name and keep appending an additional number until something has been found
         if([[base className] isEqualToString:@"InternalBaseClass"]) {
             NSString *newBaseClassName;
-            if (nil != [options objectForKey:kObjectiveCWritingOptionBaseClassName]) {
-                newBaseClassName = [options objectForKey:kObjectiveCWritingOptionBaseClassName];
+            if (nil != options[kObjectiveCWritingOptionBaseClassName]) {
+                newBaseClassName = options[kObjectiveCWritingOptionBaseClassName];
             }
             else {
                 newBaseClassName = @"BaseClass";
@@ -63,7 +63,7 @@
                     }
                 }
                 if(hasUniqueFileNameBeenFound == NO) {
-                    newBaseClassName = [NSString stringWithFormat:@"%@%i", newBaseClassName, classCheckInteger];
+                    newBaseClassName = [NSString stringWithFormat:@"%@%li", newBaseClassName, classCheckInteger];
                     classCheckInteger++;
                 }
             }
@@ -117,8 +117,8 @@
     
     // Defaults to not use ARC. This should probably be updated at some point.
     
-    [dict setObject:[self ObjC_HeaderFileForClassObject:classObject] forKey:[NSString stringWithFormat:@"%@.h", classObject.className]];
-    [dict setObject:[self ObjC_ImplementationFileForClassObject:classObject useARC:NO] forKey:[NSString stringWithFormat:@"%@.m", classObject.className]];        
+    dict[[NSString stringWithFormat:@"%@.h", classObject.className]] = [self ObjC_HeaderFileForClassObject:classObject];
+    dict[[NSString stringWithFormat:@"%@.m", classObject.className]] = [self ObjC_ImplementationFileForClassObject:classObject useARC:NO];        
     
     return [NSDictionary dictionaryWithDictionary:dict];
 
@@ -373,7 +373,7 @@
     switch (property.type) {
         case PropertyTypeString:
         case PropertyTypeDictionary:
-        case PropertyTypeOther:
+        case PropertyTypeOther: 
             value = [NSString stringWithFormat:@"self.%@", [property.name lowercaseCamelcaseString]];
             break;
         case PropertyTypeClass:
@@ -542,7 +542,7 @@
             return property.referenceClass.className;
             break;
         case PropertyTypeOther:
-            return property.otherType;
+            return @"id";
             break;
             
         default:

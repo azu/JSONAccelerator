@@ -91,8 +91,8 @@
 
     ClassBaseObject *tempClass = nil;
     
-    if([self.parsedDictionary objectForKey:baseObjectName]) {
-        tempClass = [self.parsedDictionary objectForKey:baseObjectName];
+    if((self.parsedDictionary)[baseObjectName]) {
+        tempClass = (self.parsedDictionary)[baseObjectName];
     } else {
         tempClass = [ClassBaseObject new];
         [tempClass setBaseClass:baseObjectClass];
@@ -105,7 +105,7 @@
         
         NSInteger numComponents = [components count];
         for (int i = 0; i < numComponents; ++i) {
-            [components replaceObjectAtIndex:i withObject:[(NSString *)[components objectAtIndex:i] capitalizeFirstCharacter]];
+            components[i] = [(NSString *)components[i] capitalizeFirstCharacter];
         }
         tempClassName = [components componentsJoinedByString:@""];
         
@@ -145,11 +145,11 @@
             [tempPropertyObject setIsReadWrite:YES];
             [tempPropertyObject setSemantics:SetterSemanticRetain];
             
-            tempObject = [dict objectForKey:currentKey];
+            tempObject = dict[currentKey];
             
             BOOL shouldSetObject = YES;
             
-            if([[tempClass properties] objectForKey:currentKey]) {
+            if([tempClass properties][currentKey]) {
                 shouldSetObject = NO;
             }
             
@@ -157,7 +157,7 @@
             if([tempObject isKindOfClass:[NSArray class]]) {
                 // NSArray Objects
                 if(shouldSetObject == NO) {
-                    if ([[[tempClass properties] objectForKey:currentKey] isKindOfClass:[NSDictionary class]]) {
+                    if ([[tempClass properties][currentKey] isKindOfClass:[NSDictionary class]]) {
                         // Just in case it originally came in as a Dictionary and then later is shown as an array
                         // We should switch this to using an array.
                         shouldSetObject = YES;
@@ -199,38 +199,55 @@
                 // NSString Objects
                 [tempPropertyObject setType:PropertyTypeString];
                 
-            } else if([tempObject isKindOfClass:[NSDictionary class]]) {
+            } else if ([tempObject isKindOfClass:[NSDictionary class]]) {
                 // NSDictionary Objects
                 [tempPropertyObject setIsClass:YES];
                 [tempPropertyObject setType:PropertyTypeClass];
                 [tempPropertyObject setReferenceClass:[self parseData:(NSDictionary *)tempObject intoObjectsWithBaseObjectName:currentKey andBaseObjectClass:@"NSObject" outputLanguageWriter:writer]];
                 
+            } else if ([tempObject isKindOfClass:[NSNull class]]) {
+                [tempPropertyObject setType:PropertyTypeOther];
+                [tempPropertyObject setSemantics:SetterSemanticAssign];
+                
             } else {
                 // Miscellaneous
+                NSNumber *number = (NSNumber *)tempObject;
                 NSString *classDecription = [[tempObject class] description];
-                if([classDecription rangeOfString:@"NSCFNumber"].location != NSNotFound) {
-                    [tempPropertyObject setType:PropertyTypeInt];
-                    [tempPropertyObject setSemantics:SetterSemanticAssign];
-                } else if([classDecription rangeOfString:@"NSDecimalNumber"].location != NSNotFound) {
-                    [tempPropertyObject setType:PropertyTypeDouble];
-                    [tempPropertyObject setSemantics:SetterSemanticAssign];
-                } else if([classDecription rangeOfString:@"NSCFBoolean"].location != NSNotFound) {
+                BOOL isInteger = NO;
+                BOOL isDouble = NO;
+                if([number isKindOfClass:[NSNull class]]) {
+                    // Huh - that's interesting.
+                    isDouble = YES;
+                } else {
+                    NSNumber *tempIntNumber = @([number integerValue]);
+                    NSNumber *tempDoubleNumber = @([number doubleValue]);
+                    
+                    isDouble = [[number stringValue] isEqualToString:[tempDoubleNumber stringValue]];
+                    isInteger = [[number stringValue] isEqualToString:[tempIntNumber stringValue]];
+                }
+                
+                if([classDecription rangeOfString:@"NSCFBoolean"].location != NSNotFound) {
                     [tempPropertyObject setType:PropertyTypeBool];
                     [tempPropertyObject setSemantics:SetterSemanticAssign];
-                } 
-                else {
+                } else if(isDouble) {
+                    [tempPropertyObject setType:PropertyTypeDouble];
+                    [tempPropertyObject setSemantics:SetterSemanticAssign];
+                } else if(isInteger) {
+                    [tempPropertyObject setType:PropertyTypeInt];
+                    [tempPropertyObject setSemantics:SetterSemanticAssign];
+                } else {
                     DLog(@"UNDEFINED TYPE: %@", [tempObject class]);
                 }
                 // This is undefined right now - add other if
             }
                         
             if(shouldSetObject) {
-                [[tempClass properties] setObject:tempPropertyObject forKey:currentKey];
+                [tempClass properties][currentKey] = tempPropertyObject;
             }
         }
     }
     
-    [self.parsedDictionary setObject:tempClass forKey:baseObjectName];
+    (self.parsedDictionary)[baseObjectName] = tempClass;
     return tempClass;
 }
 

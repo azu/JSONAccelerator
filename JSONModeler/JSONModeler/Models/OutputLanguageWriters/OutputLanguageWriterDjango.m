@@ -34,8 +34,8 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
     for (ClassBaseObject *base in classObjects) {
         if([[base className] isEqualToString:@"InternalBaseClass"]) {
             NSString *newBaseClassName;
-            if (nil != [options objectForKey:kDjangoWritingOptionBaseClassName]) {
-                newBaseClassName = [options objectForKey:kDjangoWritingOptionBaseClassName];
+            if (nil != options[kDjangoWritingOptionBaseClassName]) {
+                newBaseClassName = options[kDjangoWritingOptionBaseClassName];
             }
             else {
                 newBaseClassName = @"BaseClass";
@@ -50,7 +50,7 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
                     }
                 }
                 if(hasUniqueFileNameBeenFound == NO) {
-                    newBaseClassName = [NSString stringWithFormat:@"%@%i", newBaseClassName, classCheckInteger];
+                    newBaseClassName = [NSString stringWithFormat:@"%@%li", newBaseClassName, classCheckInteger];
                     classCheckInteger++;
                 }
             }
@@ -83,54 +83,54 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
     NSMutableDictionary *pythonClasses = [[NSMutableDictionary alloc] init];
     
     for (ClassBaseObject *classObject in classObjects) {
-        if (nil == [pythonClasses objectForKey:classObject.className]) {
+        if (nil == pythonClasses[classObject.className]) {
             NSMutableDictionary *pythonClass = [[NSMutableDictionary alloc] init];
-            [pythonClasses setObject:pythonClass forKey:classObject.className];
+            pythonClasses[classObject.className] = pythonClass;
         }
         
-        NSMutableDictionary *pythonClass = [pythonClasses objectForKey:classObject.className];
+        NSMutableDictionary *pythonClass = pythonClasses[classObject.className];
         for (ClassPropertiesObject *property in [[classObject properties] allValues]) {
             PropertyType type = property.type;
             if (type == PropertyTypeString) {
-                [pythonClass setObject:@"string" forKey:property.name];
+                pythonClass[property.name] = @"string";
             }
             else if (type == PropertyTypeInt) {
-                [pythonClass setObject:@"int" forKey:property.name];
+                pythonClass[property.name] = @"int";
             }
             else if (type == PropertyTypeDouble) {
-                [pythonClass setObject:@"double" forKey:property.name];
+                pythonClass[property.name] = @"double";
             }
             else if (type == PropertyTypeBool) {
-                [pythonClass setObject:@"bool" forKey:property.name];
+                pythonClass[property.name] = @"bool";
             }
             else if (type == PropertyTypeClass) {
                 /* Add a one-to-one relationship to the child class */
-                if (nil == [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]]) {
+                if (nil == pythonClasses[[property.name uppercaseCamelcaseString]]) {
                     NSMutableDictionary *childClass = [[NSMutableDictionary alloc] init];
-                    [pythonClasses setObject:childClass forKey:[property.name uppercaseCamelcaseString]];
+                    pythonClasses[[property.name uppercaseCamelcaseString]] = childClass;
                 }
-                NSMutableDictionary *childClass = [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]];
-                [childClass setObject:classObject.className forKey:[NSString stringWithFormat:@"oneToOne%@", classObject.className]];
+                NSMutableDictionary *childClass = pythonClasses[[property.name uppercaseCamelcaseString]];
+                childClass[[NSString stringWithFormat:@"oneToOne%@", classObject.className]] = classObject.className;
             }
             else if (type == PropertyTypeArray) {
                 /* Add a many-to-one relationship to the child class */
-                if (nil == [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]]) {
+                if (nil == pythonClasses[[property.name uppercaseCamelcaseString]]) {
                     NSMutableDictionary *childClass = [[NSMutableDictionary alloc] init];
-                    [pythonClasses setObject:childClass forKey:[property.name uppercaseCamelcaseString]];
+                    pythonClasses[[property.name uppercaseCamelcaseString]] = childClass;
                 }
-                NSMutableDictionary *childClass = [pythonClasses objectForKey:[property.name uppercaseCamelcaseString]];
-                [childClass setObject:classObject.className forKey:[NSString stringWithFormat:@"manyToOne%@", classObject.className]];
+                NSMutableDictionary *childClass = pythonClasses[[property.name uppercaseCamelcaseString]];
+                childClass[[NSString stringWithFormat:@"manyToOne%@", classObject.className]] = classObject.className;
                 if (property.collectionType == PropertyTypeInt) {
-                    [childClass setObject:@"int" forKey:property.name];
+                    childClass[property.name] = @"int";
                 }
                 else if (property.collectionType == PropertyTypeDouble) {
-                    [childClass setObject:@"double" forKey:property.name];
+                    childClass[property.name] = @"double";
                 }
                 else if (property.collectionType == PropertyTypeString) {
-                    [childClass setObject:@"string" forKey:property.name];
+                    childClass[property.name] = @"string";
                 }
                 else if (property.collectionType == PropertyTypeBool) {
-                    [childClass setObject:@"bool" forKey:property.name];
+                    childClass[property.name] = @"bool";
                 }
             }
         }
@@ -140,10 +140,10 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
     
     for (NSString *className in pythonClasses) {
         [fileString appendFormat:@"\nclass %@(models.Model):\n", className];
-        NSDictionary *properties = [pythonClasses objectForKey:className];
+        NSDictionary *properties = pythonClasses[className];
         for (NSString *property in properties) {
             /* If it's a simple type, define the database column type */
-            NSString *type = [properties objectForKey:property];
+            NSString *type = properties[property];
             if ([type isEqualToString:@"string"]) {
                 [fileString appendFormat:@"\t%@ = models.CharField(max_length=%i, blank=True)\n", [property underscoreDelimitedString], kDjangoModelMaxTextLength];
             }
@@ -159,13 +159,13 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
             /* ...otherwise, make a relationship */
             else {
                 if ([property hasPrefix:@"oneToOne"]) {
-                    [fileString appendFormat:@"\t%@ = models.OneToOneField(\"%@\", blank=True)\n", [[properties objectForKey:property] underscoreDelimitedString], [properties objectForKey:property]];
+                    [fileString appendFormat:@"\t%@ = models.OneToOneField(\"%@\", blank=True)\n", [properties[property] underscoreDelimitedString], properties[property]];
                 }
                 else if ([property hasPrefix:@"manyToOne"]) {
-                    [fileString appendFormat:@"\t%@ = models.ForeignKey(\"%@\", blank=True)\n", [[properties objectForKey:property] underscoreDelimitedString], [properties objectForKey:property]];
+                    [fileString appendFormat:@"\t%@ = models.ForeignKey(\"%@\", blank=True)\n", [properties[property] underscoreDelimitedString], properties[property]];
                 }
                 else {
-                    NSLog(@"%@ : %@->%@", className, property, [properties objectForKey:property]);
+                    NSLog(@"%@ : %@->%@", className, property, properties[property]);
                 }
             }
         }
@@ -195,7 +195,7 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
     
     NSInteger numComponents = [components count];
     for (int i = 0; i < numComponents; ++i) {
-        [components replaceObjectAtIndex:i withObject:[(NSString *)[components objectAtIndex:i] capitalizeFirstCharacter]];
+        components[i] = [(NSString *)components[i] capitalizeFirstCharacter];
     }
     return [components componentsJoinedByString:@""];
 }

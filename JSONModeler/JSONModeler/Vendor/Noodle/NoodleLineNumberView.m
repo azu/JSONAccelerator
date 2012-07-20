@@ -219,7 +219,7 @@
 		
 		for (line = 0; line < count; line++)
 		{
-			index = [[lines objectAtIndex:line] unsignedIntegerValue];
+			index = [lines[line] unsignedIntegerValue];
 			
 			rects = [layoutManager rectArrayForCharacterRange:NSMakeRange(index, 0)
 								 withinSelectedCharacterRange:nullRange
@@ -240,7 +240,7 @@
 
 - (NoodleLineNumberMarker *)markerAtLine:(NSUInteger)line
 {
-	return [_linesToMarkers objectForKey:[NSNumber numberWithUnsignedInteger:line - 1]];
+	return _linesToMarkers[@(line - 1)];
 }
 
 
@@ -266,7 +266,7 @@
         
         do
         {
-            [_lineIndices addObject:[NSNumber numberWithUnsignedInteger:index]];
+            [_lineIndices addObject:@(index)];
             
             index = NSMaxRange([text lineRangeForRange:NSMakeRange(index, 0)]);
             numberOfLines++;
@@ -277,7 +277,7 @@
         [text getLineStart:NULL end:&lineEnd contentsEnd:&contentEnd forRange:NSMakeRange([[_lineIndices lastObject] unsignedIntegerValue], 0)];
         if (contentEnd < lineEnd)
         {
-            [_lineIndices addObject:[NSNumber numberWithUnsignedInteger:index]];
+            [_lineIndices addObject:@(index)];
         }
         
         oldThickness = [self ruleThickness];
@@ -312,7 +312,7 @@
     while ((right - left) > 1)
     {
         mid = (right + left) / 2;
-        lineStart = [[lines objectAtIndex:mid] unsignedIntegerValue];
+        lineStart = [lines[mid] unsignedIntegerValue];
         
         if (index < lineStart)
         {
@@ -332,18 +332,14 @@
 
 - (NSDictionary *)textAttributes
 {
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            [self font], NSFontAttributeName, 
-            [self textColor], NSForegroundColorAttributeName,
-            nil];
+    return @{NSFontAttributeName: [self font], 
+            NSForegroundColorAttributeName: [self textColor]};
 }
 
 - (NSDictionary *)markerTextAttributes
 {
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            [NSFont boldSystemFontOfSize:[NSFont systemFontSizeForControlSize:NSMiniControlSize]], NSFontAttributeName, 
-            [self alternateTextColor], NSForegroundColorAttributeName,
-            nil];
+    return @{NSFontAttributeName: [NSFont boldSystemFontOfSize:[NSFont systemFontSizeForControlSize:NSMiniControlSize]], 
+            NSForegroundColorAttributeName: [self alternateTextColor]};
 }
 
 - (CGFloat)requiredThickness
@@ -442,7 +438,7 @@
         
         for (line = [self lineNumberForCharacterIndex:range.location inText:text]; line < count; line++)
         {
-            index = [[lines objectAtIndex:line] unsignedIntegerValue];
+            index = [lines[line] unsignedIntegerValue];
             
             if (NSLocationInRange(index, range))
             {
@@ -457,7 +453,7 @@
                     // portion. Need to compensate for the clipview's coordinates.
                     ypos = yinset + NSMinY(rects[0]) - NSMinY(visibleRect);
 					
-					marker = [_linesToMarkers objectForKey:[NSNumber numberWithUnsignedInteger:line]];
+					marker = _linesToMarkers[@(line)];
 					
 					if (marker != nil)
 					{
@@ -523,8 +519,7 @@
 {
 	if ([aMarker isKindOfClass:[NoodleLineNumberMarker class]])
 	{
-		[_linesToMarkers setObject:aMarker
-							forKey:[NSNumber numberWithUnsignedInteger:[(NoodleLineNumberMarker *)aMarker lineNumber] - 1]];
+		_linesToMarkers[@([(NoodleLineNumberMarker *)aMarker lineNumber] - 1)] = aMarker;
 	}
 	else
 	{
@@ -536,7 +531,7 @@
 {
 	if ([aMarker isKindOfClass:[NoodleLineNumberMarker class]])
 	{
-		[_linesToMarkers removeObjectForKey:[NSNumber numberWithUnsignedInteger:[(NoodleLineNumberMarker *)aMarker lineNumber] - 1]];
+		[_linesToMarkers removeObjectForKey:@([(NoodleLineNumberMarker *)aMarker lineNumber] - 1)];
 	}
 	else
 	{

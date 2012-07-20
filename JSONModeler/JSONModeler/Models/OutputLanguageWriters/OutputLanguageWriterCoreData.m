@@ -38,8 +38,8 @@
     for (ClassBaseObject *base in classObjects) {
         if([[base className] isEqualToString:@"InternalBaseClass"]) {
             NSString *newBaseClassName;
-            if (nil != [options objectForKey:kCoreDataWritingOptionBaseClassName]) {
-                newBaseClassName = [options objectForKey:kCoreDataWritingOptionBaseClassName];
+            if (nil != options[kCoreDataWritingOptionBaseClassName]) {
+                newBaseClassName = options[kCoreDataWritingOptionBaseClassName];
             }
             else {
                 newBaseClassName = @"BaseClass";
@@ -54,7 +54,7 @@
                     }
                 }
                 if(hasUniqueFileNameBeenFound == NO) {
-                    newBaseClassName = [NSString stringWithFormat:@"%@%i", newBaseClassName, classCheckInteger];
+                    newBaseClassName = [NSString stringWithFormat:@"%@%li", newBaseClassName, classCheckInteger];
                     classCheckInteger++;
                 }
             }
@@ -76,7 +76,7 @@
                 newProperty.name = property.name;
                 newProperty.type = property.collectionType;
                 
-                [newObject.properties setObject:newProperty forKey:newProperty.name];
+                (newObject.properties)[newProperty.name] = newProperty;
                 
                 [classObjects addObject:newObject];
             }
@@ -92,14 +92,14 @@
         NSString *hFile = [self headerFileForEntityElement:entity];
         NSString *mFile = [self implementationFileForEntityElement:entity];
         
-        [outputDict setObject:hFile forKey:[NSString stringWithFormat:@"%@.h", [[entity attributeForName:@"name"] stringValue]]];
-        [outputDict setObject:mFile forKey:[NSString stringWithFormat:@"%@.m", [[entity attributeForName:@"name"] stringValue]]];
+        outputDict[[NSString stringWithFormat:@"%@.h", [[entity attributeForName:@"name"] stringValue]]] = hFile;
+        outputDict[[NSString stringWithFormat:@"%@.m", [[entity attributeForName:@"name"] stringValue]]] = mFile;
         
     }
     
     for (NSString *filename in outputDict) {
         NSError *error;
-        [[outputDict objectForKey:filename] writeToURL:[url URLByAppendingPathComponent:filename] atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        [outputDict[filename] writeToURL:[url URLByAppendingPathComponent:filename] atomically:YES encoding:NSUTF8StringEncoding error:&error];
         if (error) {
             DLog(@"%@", [error localizedDescription]);
             filesHaveHadError = YES;
@@ -134,7 +134,7 @@
 
 - (NSDictionary *)getOutputFilesForClassObject:(ClassBaseObject *)classObject
 {
-    return [NSDictionary dictionary];
+    return @{};
 }
 
 #pragma mark - Reserved Words Callbacks
@@ -156,7 +156,7 @@
     
     NSInteger numComponents = [components count];
     for (int i = 0; i < numComponents; ++i) {
-        [components replaceObjectAtIndex:i withObject:[(NSString *)[components objectAtIndex:i] capitalizeFirstCharacter]];
+        components[i] = [(NSString *)components[i] capitalizeFirstCharacter];
     }
     return [components componentsJoinedByString:@""];
 }
@@ -195,7 +195,7 @@
 
 - (NSArray *)setterReferenceClassesForProperty:(ClassPropertiesObject *)property
 {
-    return [NSArray array];
+    return @[];
 }
 
 - (NSString *)typeStringForProperty:(ClassPropertiesObject *)property

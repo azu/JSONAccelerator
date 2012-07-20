@@ -90,7 +90,7 @@
     NSMutableArray *components = [NSMutableArray arrayWithArray:[self componentsSeparatedByCharactersInSet:nonAlphanumericCharacterSet]];
     NSUInteger componentCount = components.count;
     for (NSUInteger i = 0; i < componentCount; ++i) {
-        [components replaceObjectAtIndex:i withObject:[[components objectAtIndex:i] capitalizeFirstCharacter]];
+        components[i] = [components[i] capitalizeFirstCharacter];
     }
     
     return [components componentsJoinedByString:@""];

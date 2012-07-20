@@ -9,18 +9,6 @@
 #import "SavePanelLanguageChooserViewController.h"
 
 @implementation SavePanelLanguageChooserViewController
-@synthesize languageDropDownIndex = _languageDropDownIndex;
-@synthesize packageName = _packageName;
-@synthesize baseClassName = _baseClassName;
-@synthesize buildForARC = _buildForARC;
-
-@synthesize languageDropDown = _languageDropDown;
-@synthesize outputLanguageLabel = _outputLanguageLabel;
-@synthesize packageNameLabel = _packageNameLabel;
-@synthesize packageNameField = _packageNameField;
-@synthesize baseClassLabel = _baseClassLabel;
-@synthesize baseClassField = _baseClassField;
-@synthesize buildForArcButton = _buildForArcButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +29,9 @@
     self.packageNameLabel.hidden = YES;
     self.packageNameField.hidden = YES;
     self.buildForArcButton.hidden = NO;
+    
+    [self.languageDropDown selectItemAtIndex:2];
+    [self.languageDropDown selectItemAtIndex:0];
 }
 
 - (IBAction)languagePopUpChanged:(id)sender {
@@ -73,6 +64,9 @@
     }
     else if (_languageDropDownIndex == 3) {
         return OutputLanguageDjangoPython;
+    }
+    else if (_languageDropDownIndex == 4) {
+        return OutputLanguagePython;
     }
     else {
         return -1;

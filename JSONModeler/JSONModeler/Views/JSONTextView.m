@@ -14,7 +14,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType, NSPasteboardTypeString, nil]];
+        [self registerForDraggedTypes:@[NSFilenamesPboardType, NSPasteboardTypeString]];
     }
     
     return self;

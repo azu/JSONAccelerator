@@ -68,7 +68,7 @@
 - (IBAction)reflowDocument:(id)sender
 {
     ModelerDocument *docController = [[NSDocumentController sharedDocumentController] currentDocument];
-    MainWindowController *windowController = [[docController windowControllers] objectAtIndex:0];
+    MainWindowController *windowController = [docController windowControllers][0];
     [windowController verifyJSONString];
 }
 

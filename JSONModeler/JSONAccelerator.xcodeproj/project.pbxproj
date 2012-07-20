@@ -14,10 +14,6 @@
 		4419EB05146D7A73002605A0 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4419EB04146D7A73002605A0 /* BaseView.m */; };
 		441FC4E71462D8E1007BF9DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC4E61462D8E1007BF9DC /* Cocoa.framework */; };
 		441FC4FA1462D8E1007BF9DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC4F91462D8E1007BF9DC /* AppDelegate.m */; };
-		441FC5051462D8E1007BF9DC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC5041462D8E1007BF9DC /* SenTestingKit.framework */; };
-		441FC5061462D8E1007BF9DC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 441FC4E61462D8E1007BF9DC /* Cocoa.framework */; };
-		441FC50E1462D8E1007BF9DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 441FC50C1462D8E1007BF9DC /* InfoPlist.strings */; };
-		441FC5111462D8E1007BF9DC /* JSONModelerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC5101462D8E1007BF9DC /* JSONModelerTests.m */; };
 		441FC5261462DBF6007BF9DC /* JSONFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC5251462DBF6007BF9DC /* JSONFetcher.m */; };
 		441FC5411462E1CF007BF9DC /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC5311462E1CF007BF9DC /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		441FC5421462E1CF007BF9DC /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 441FC5331462E1CF007BF9DC /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -59,6 +55,8 @@
 		4426908E14DA052900C16CBD /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4426908D14DA052900C16CBD /* IOKit.framework */; };
 		4426909014DA053C00C16CBD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4426908F14DA053C00C16CBD /* Security.framework */; };
 		4426909214DA056100C16CBD /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4426909114DA056100C16CBD /* libcrypto.dylib */; };
+		442E38EF15895900003CE8F6 /* OutputLanguageWriterPython.m in Sources */ = {isa = PBXBuildFile; fileRef = 442E38EE15895900003CE8F6 /* OutputLanguageWriterPython.m */; };
+		442E38F015895900003CE8F6 /* OutputLanguageWriterPython.m in Sources */ = {isa = PBXBuildFile; fileRef = 442E38EE15895900003CE8F6 /* OutputLanguageWriterPython.m */; };
 		4430047614AB6F4500F7C8DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
 		4430047714AB6F4A00F7C8DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4430047414AB6F4500F7C8DE /* InfoPlist.strings */; };
 		4430204B15214CE60008D9A7 /* dataButtonUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4430204A15214CE60008D9A7 /* dataButtonUp@2x.png */; };
@@ -199,6 +197,8 @@
 		44C0FF88150AA3BA0039A847 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF7B150AA33A0039A847 /* NoodleLineNumberMarker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44C0FF89150AA3C00039A847 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF7D150AA33A0039A847 /* NoodleLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
+		44DF663D158A3FDF00B8E4E6 /* ArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DF663C158A3FDF00B8E4E6 /* ArrowView.m */; };
+		44DF663E158A3FDF00B8E4E6 /* ArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DF663C158A3FDF00B8E4E6 /* ArrowView.m */; };
 		44F037CE14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037CF14C8B57700FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037D314C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */; };
@@ -242,16 +242,6 @@
 		7DC99D2014A26D8900314AA5 /* ModelerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */; };
 		7DC99D2114A26D8900314AA5 /* ModelerDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC99D1E14A26D8900314AA5 /* ModelerDocument.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		441FC5071462D8E1007BF9DC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 441FC4D91462D8E1007BF9DC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 441FC4E11462D8E1007BF9DC;
-			remoteInfo = JSONModeler;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		440A183314D337C000AA1894 /* CopyFiles */ = {
@@ -298,7 +288,6 @@
 		441FC4F81462D8E1007BF9DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		441FC4F91462D8E1007BF9DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		441FC4FC1462D8E1007BF9DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		441FC5031462D8E1007BF9DC /* JSONAcceleratorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSONAcceleratorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		441FC5041462D8E1007BF9DC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		441FC50B1462D8E1007BF9DC /* JSONAcceleratorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.mxml; path = "JSONAcceleratorTests-Info.plist"; sourceTree = "<group>"; };
 		441FC50D1462D8E1007BF9DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -334,6 +323,8 @@
 		4426908F14DA053C00C16CBD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4426909114DA056100C16CBD /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		442C6F0E1475B676002BA77F /* TableSelectionChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableSelectionChangeDelegate.h; path = JSONModeler/Protocols/TableSelectionChangeDelegate.h; sourceTree = "<group>"; };
+		442E38ED15895900003CE8F6 /* OutputLanguageWriterPython.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterPython.h; path = Models/OutputLanguageWriters/OutputLanguageWriterPython.h; sourceTree = "<group>"; };
+		442E38EE15895900003CE8F6 /* OutputLanguageWriterPython.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterPython.m; path = Models/OutputLanguageWriters/OutputLanguageWriterPython.m; sourceTree = "<group>"; };
 		4430047514AB6F4500F7C8DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4430047814AB6F5300F7C8DE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4430047B14AB6F6200F7C8DE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -482,6 +473,8 @@
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
 		44C6F4E714AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		44DF663B158A3FDF00B8E4E6 /* ArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrowView.h; path = Views/ArrowView.h; sourceTree = "<group>"; };
+		44DF663C158A3FDF00B8E4E6 /* ArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArrowView.m; path = Views/ArrowView.m; sourceTree = "<group>"; };
 		44F037CC14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterObjectiveC.h; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.h; sourceTree = "<group>"; };
 		44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterObjectiveC.m; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.m; sourceTree = "<group>"; };
 		44F037D014C8B63600FECF86 /* OutputLanguageWriterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterProtocol.h; path = Models/OutputLanguageWriters/OutputLanguageWriterProtocol.h; sourceTree = "<group>"; };
@@ -535,15 +528,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		441FC4FF1462D8E1007BF9DC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				441FC5051462D8E1007BF9DC /* SenTestingKit.framework in Frameworks */,
-				441FC5061462D8E1007BF9DC /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		44233127149B9E290071978D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -583,7 +567,6 @@
 			isa = PBXGroup;
 			children = (
 				441FC4E21462D8E1007BF9DC /* JSON Accelerator.app */,
-				441FC5031462D8E1007BF9DC /* JSONAcceleratorTests.octest */,
 				4423313D149B9E290071978D /* JSON Accelerator.app */,
 			);
 			name = Products;
@@ -698,6 +681,8 @@
 				446E0782150F980A0071DB0B /* ClickView.m */,
 				4473B403150FCE1C008401B5 /* GenerateFilesButton.h */,
 				4473B404150FCE1C008401B5 /* GenerateFilesButton.m */,
+				44DF663B158A3FDF00B8E4E6 /* ArrowView.h */,
+				44DF663C158A3FDF00B8E4E6 /* ArrowView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -985,6 +970,8 @@
 		44F037CB14C8B52E00FECF86 /* OutputLanguageWriters */ = {
 			isa = PBXGroup;
 			children = (
+				442E38ED15895900003CE8F6 /* OutputLanguageWriterPython.h */,
+				442E38EE15895900003CE8F6 /* OutputLanguageWriterPython.m */,
 				44F037D014C8B63600FECF86 /* OutputLanguageWriterProtocol.h */,
 				44F037CC14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.h */,
 				44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */,
@@ -1071,25 +1058,6 @@
 			productReference = 441FC4E21462D8E1007BF9DC /* JSON Accelerator.app */;
 			productType = "com.apple.product-type.application";
 		};
-		441FC5021462D8E1007BF9DC /* JSONAcceleratorTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 441FC5171462D8E1007BF9DC /* Build configuration list for PBXNativeTarget "JSONAcceleratorTests" */;
-			buildPhases = (
-				441FC4FE1462D8E1007BF9DC /* Sources */,
-				441FC4FF1462D8E1007BF9DC /* Frameworks */,
-				441FC5001462D8E1007BF9DC /* Resources */,
-				441FC5011462D8E1007BF9DC /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				441FC5081462D8E1007BF9DC /* PBXTargetDependency */,
-			);
-			name = JSONAcceleratorTests;
-			productName = JSONModelerTests;
-			productReference = 441FC5031462D8E1007BF9DC /* JSONAcceleratorTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 		4423310A149B9E290071978D /* JSON Accelerator_internal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4423313A149B9E290071978D /* Build configuration list for PBXNativeTarget "JSON Accelerator_internal" */;
@@ -1114,7 +1082,7 @@
 		441FC4D91462D8E1007BF9DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Nerdery Interactive Labs";
 			};
 			buildConfigurationList = 441FC4DC1462D8E1007BF9DC /* Build configuration list for PBXProject "JSONAccelerator" */;
@@ -1136,7 +1104,6 @@
 			projectRoot = "";
 			targets = (
 				441FC4E11462D8E1007BF9DC /* JSON Accelerator */,
-				441FC5021462D8E1007BF9DC /* JSONAcceleratorTests */,
 				4423310A149B9E290071978D /* JSON Accelerator_internal */,
 			);
 		};
@@ -1197,14 +1164,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		441FC5001462D8E1007BF9DC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				441FC50E1462D8E1007BF9DC /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		44233129149B9E290071978D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1256,22 +1215,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		441FC5011462D8E1007BF9DC /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		441FC4DE1462D8E1007BF9DC /* Sources */ = {
@@ -1342,14 +1285,8 @@
 				443DD5B31520FB09002410E8 /* AFJSONRequestOperation.m in Sources */,
 				443DD5B51520FB09002410E8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				443DD5B71520FB09002410E8 /* UIImageView+AFNetworking.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		441FC4FE1462D8E1007BF9DC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				441FC5111462D8E1007BF9DC /* JSONModelerTests.m in Sources */,
+				442E38EF15895900003CE8F6 /* OutputLanguageWriterPython.m in Sources */,
+				44DF663D158A3FDF00B8E4E6 /* ArrowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1420,18 +1357,12 @@
 				443DD5B41520FB09002410E8 /* AFJSONRequestOperation.m in Sources */,
 				443DD5B61520FB09002410E8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				443DD5B81520FB09002410E8 /* UIImageView+AFNetworking.m in Sources */,
+				442E38F015895900003CE8F6 /* OutputLanguageWriterPython.m in Sources */,
+				44DF663E158A3FDF00B8E4E6 /* ArrowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		441FC5081462D8E1007BF9DC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 441FC4E11462D8E1007BF9DC /* JSON Accelerator */;
-			targetProxy = 441FC5071462D8E1007BF9DC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		441FC4FB1462D8E1007BF9DC /* MainMenu.xib */ = {
@@ -1588,6 +1519,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JSONModeler/JSONModeler.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1607,6 +1539,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JSONModeler/JSONModeler.entitlements;
 				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1620,37 +1553,10 @@
 			};
 			name = Release;
 		};
-		441FC5181462D8E1007BF9DC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JSONModeler.app/Contents/MacOS/JSONModeler";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
-				INFOPLIST_FILE = "JSONModelerTests/JSONAcceleratorTests-Info.plist";
-				PRODUCT_NAME = JSONAcceleratorTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		441FC5191462D8E1007BF9DC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/JSONModeler.app/Contents/MacOS/JSONModeler";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JSONModeler/JSONModeler-Prefix.pch";
-				INFOPLIST_FILE = "JSONModelerTests/JSONAcceleratorTests-Info.plist";
-				PRODUCT_NAME = JSONAcceleratorTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 		4423313B149B9E290071978D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/JSONModeler/Vendor/Sparkle\"",
@@ -1678,6 +1584,7 @@
 		4423313C149B9E290071978D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/JSONModeler/Vendor/Sparkle\"",
@@ -1715,15 +1622,6 @@
 			buildConfigurations = (
 				441FC5151462D8E1007BF9DC /* Debug */,
 				441FC5161462D8E1007BF9DC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		441FC5171462D8E1007BF9DC /* Build configuration list for PBXNativeTarget "JSONAcceleratorTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				441FC5181462D8E1007BF9DC /* Debug */,
-				441FC5191462D8E1007BF9DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
