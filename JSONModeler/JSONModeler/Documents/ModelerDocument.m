@@ -22,7 +22,7 @@
         // Add your subclass-specific initialization here.
         // If an error occurs here, return nil.
         _httpMethod = HTTPMethodGet;
-        _httpHeaders = [NSArray array];
+        _httpHeaders = @[];
         _modeler = [[JSONModeler alloc] init];
     }
     return self;

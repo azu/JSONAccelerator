@@ -34,8 +34,8 @@
     for (ClassBaseObject *base in classObjects) {
         if([[base className] isEqualToString:@"InternalBaseClass"]) {
             NSString *newBaseClassName;
-            if (nil != [options objectForKey:kPythonWritingOptionBaseClassName]) {
-                newBaseClassName = [options objectForKey:kPythonWritingOptionBaseClassName];
+            if (nil != options[kPythonWritingOptionBaseClassName]) {
+                newBaseClassName = options[kPythonWritingOptionBaseClassName];
             }
             else {
                 newBaseClassName = @"BaseClass";
@@ -145,7 +145,7 @@
     
     NSInteger numComponents = [components count];
     for (int i = 0; i < numComponents; ++i) {
-        [components replaceObjectAtIndex:i withObject:[(NSString *)[components objectAtIndex:i] capitalizeFirstCharacter]];
+        components[i] = [(NSString *)components[i] capitalizeFirstCharacter];
     }
     return [components componentsJoinedByString:@""];
 }

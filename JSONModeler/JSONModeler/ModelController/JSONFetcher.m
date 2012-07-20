@@ -50,8 +50,8 @@
         if(![variables isEqualToString:@""]) {
             variables = [variables stringByAppendingString:@"&"];
         }
-        headerValue = [header objectForKey:@"headerValue"];
-        keyValue = [header objectForKey:@"headerKey"];
+        headerValue = header[@"headerValue"];
+        keyValue = header[@"headerKey"];
         
         headerValue = [headerValue stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
         keyValue = [keyValue stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
@@ -68,7 +68,7 @@
                 // There are no post parameters
                 [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", location, variables]]];
             } else if ([array count] == 2) {
-                if([[array objectAtIndex:1] isEqualToString:@""]) {
+                if([array[1] isEqualToString:@""]) {
                     // Try to fake me out with a fake url? How dare you
                     [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", location, variables]]];
                 } else {

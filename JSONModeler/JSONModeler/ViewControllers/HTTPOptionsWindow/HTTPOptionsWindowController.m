@@ -49,7 +49,7 @@ NSString * const headerValue = @"headerValue";
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
-        _httpHeaderStrings = [NSArray arrayWithObjects:@"Accept", @"Accept-Charset", @"Accept-Encoding", @"Accept-Language", @"Authorization", @"Cache-Control", @"Connection", @"Cookie", @"Content-Length", @"Content-MD5", @"Content-Type", @"Date", @"Expect", @"From", @"Host", @"If-Match", @"If-Modified-Since", @"If-None-Match", @"If-Range", @"If-Unmodified-Since", @"Max-Forwards", @"Pragma", @"Proxy-Authorization", @"Range", @"Referer", @"TE", @"Upgrade", @"User-Agent", @"Via", @"Warning", nil];
+        _httpHeaderStrings = @[@"Accept", @"Accept-Charset", @"Accept-Encoding", @"Accept-Language", @"Authorization", @"Cache-Control", @"Connection", @"Cookie", @"Content-Length", @"Content-MD5", @"Content-Type", @"Date", @"Expect", @"From", @"Host", @"If-Match", @"If-Modified-Since", @"If-None-Match", @"If-Range", @"If-Unmodified-Since", @"Max-Forwards", @"Pragma", @"Proxy-Authorization", @"Range", @"Referer", @"TE", @"Upgrade", @"User-Agent", @"Via", @"Warning"];
         
     }
     
@@ -145,7 +145,7 @@ NSString * const headerValue = @"headerValue";
     if ( [obj object] == _headerKeyField    // If the key field was edited...
         || ([obj object] == _headerTableView && [_headerTableView editedColumn] == 0) ) { // ...or if a cell in the key column was edited...
         // ...autocomplete with a http header key
-        NSTextView *fieldEditor = [[obj userInfo] objectForKey:@"NSFieldEditor"];
+        NSTextView *fieldEditor = [obj userInfo][@"NSFieldEditor"];
         if (!_fieldIsCompleting && !_handlingCommand) {
             _fieldIsCompleting = YES;
             [fieldEditor complete:nil];

@@ -28,7 +28,7 @@
 #import "CoreDataModelGenerator.h"
 
 
-@interface MainWindowController ()  <NSTextViewDelegate, NSOpenSavePanelDelegate, HTTPOptionsWindowControllerDelegate, ClickViewDelegate> {
+@interface MainWindowController ()  <NSTextViewDelegate, NSOpenSavePanelDelegate, HTTPOptionsWindowControllerDelegate, ClickViewDelegate, NSUserNotificationCenterDelegate> {
     NSUInteger _lineNumberForMarker;
 }
 
@@ -316,7 +316,7 @@
     
     if(error) {
         NSDictionary *dict = [error userInfo];
-        NSString *informativeText = [[dict allValues] objectAtIndex:0];
+        NSString *informativeText = [dict allValues][0];
         if([informativeText isEqualToString:@"No value."]) {
             informativeText = NSLocalizedString(@"There is no content to parse.", @"If there is nothing in the JSON field, state that there is nothing there");
         } else if ([informativeText isEqualToString:@"JSON text did not start with array or object and option to allow fragments not set."]) {
@@ -395,25 +395,25 @@
                 if (language == OutputLanguageObjectiveC) {
                     writer = [[OutputLanguageWriterObjectiveC alloc] init];
                     if(baseClassName != nil) {
-                        optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:baseClassName, kObjectiveCWritingOptionBaseClassName, [NSNumber numberWithBool:self.languageChooserViewController.buildForARC], kObjectiveCWritingOptionUseARC, nil];
+                        optionsDict = @{kObjectiveCWritingOptionBaseClassName: baseClassName, kObjectiveCWritingOptionUseARC: @(self.languageChooserViewController.buildForARC)};
                     } else {
-                        optionsDict = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:self.languageChooserViewController.buildForARC] forKey:kObjectiveCWritingOptionUseARC];
+                        optionsDict = @{kObjectiveCWritingOptionUseARC: @(self.languageChooserViewController.buildForARC)};
                     }
                 }
                 else if (language == OutputLanguageJava) {
                     writer = [[OutputLanguageWriterJava alloc] init];
-                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:baseClassName, kJavaWritingOptionBaseClassName, self.languageChooserViewController.packageName, kJavaWritingOptionPackageName, nil];
+                    optionsDict = @{kJavaWritingOptionBaseClassName: baseClassName, kJavaWritingOptionPackageName: self.languageChooserViewController.packageName};
                 }
                 else if (language == OutputLanguageCoreDataObjectiveC) {
                     writer = [[OutputLanguageWriterCoreData alloc] init];
-                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:baseClassName, kCoreDataWritingOptionBaseClassName, nil];
+                    optionsDict = @{kCoreDataWritingOptionBaseClassName: baseClassName};
                 }
                 else if (language == OutputLanguageDjangoPython) {
                     writer = [[OutputLanguageWriterDjango alloc] init];
-                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:baseClassName, kDjangoWritingOptionBaseClassName, nil];
+                    optionsDict = @{kDjangoWritingOptionBaseClassName: baseClassName};
                 } else if (language == OutputLanguagePython) {
                     writer = [[OutputLanguageWriterPython alloc] init];
-                    optionsDict = [NSDictionary dictionaryWithObjectsAndKeys:baseClassName, kDjangoWritingOptionBaseClassName, nil];
+                    optionsDict = @{kDjangoWritingOptionBaseClassName: baseClassName};
                 }
                 
                 [self.modeler loadJSONWithString:[self.JSONTextView string] outputLanguageWriter:writer];
@@ -439,13 +439,25 @@
                 titleMessage = NSLocalizedString(@"No file were written to the disk", @"Message when writing the files, nothing was written");
             }
             
-            NSAlert *statusAlert = [NSAlert alertWithMessageText:titleMessage
-                                                   defaultButton:NSLocalizedString(@"OK", @"Button to dismiss an action sheet")
-                                                 alternateButton:nil
-                                                     otherButton:nil
-                                       informativeTextWithFormat:@"%@", statusString];
-            [statusAlert runModal];
-            //[statusAlert beginSheetModalForWindow:self.view.window modalDelegate:self didEndSelector:nil contextInfo:nil]; 
+            if (NSClassFromString(@"NSUserNotification")) {
+               // It's 10.8 - Notify
+                NSUserNotification *notification = [[NSUserNotification alloc] init];
+                notification.title = titleMessage;
+                notification.informativeText = statusString;
+                notification.deliveryDate = [NSDate date];
+                notification.hasActionButton = YES;
+                
+                [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+                [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+            } else {
+            
+                NSAlert *statusAlert = [NSAlert alertWithMessageText:titleMessage
+                                                       defaultButton:NSLocalizedString(@"OK", @"Button to dismiss an action sheet")
+                                                     alternateButton:nil
+                                                         otherButton:nil
+                                           informativeTextWithFormat:@"%@", statusString];
+                [statusAlert runModal];
+            }
         }
     }];
     
@@ -535,7 +547,7 @@
             
             if(error) {
                 NSDictionary *dict = [error userInfo];
-                NSString *informativeText = [[dict allValues] objectAtIndex:0];
+                NSString *informativeText = [dict allValues][0];
                 if([informativeText isEqualToString:@"No value."]) {
                     informativeText = NSLocalizedString(@"There is no content to parse.", @"If there is nothing in the JSON field, state that there is nothing there");
                 } else if ([informativeText isEqualToString:@"JSON text did not start with array or object and option to allow fragments not set."]) {
@@ -589,6 +601,11 @@
     
     return menu;
     
+}
+
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification
+{
+    return YES;
 }
 
 @end
