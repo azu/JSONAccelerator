@@ -64,7 +64,7 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSContactsUsageDescription</key>
-	<string></string>
+	<string>This application fetches your vCard and puts your name and company in the header comment block in Objective-C.</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2012 The Nerdery. All rights reserved.</string>
 	<key>NSMainNibFile</key>
