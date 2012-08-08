@@ -47,7 +47,7 @@
 
 //These need to be defined for each application and version
 #warning REMEMBER TO ALWAYS UPDATE THIS
-static NSString * const kReceiptBundleVersion = @"1.0.5";
+static NSString * const kReceiptBundleVersion = @"1.0.6";
 static NSString * const kReceiptBundleIdentifier = @"com.nerdery.JSON-Accelerator";
 
 

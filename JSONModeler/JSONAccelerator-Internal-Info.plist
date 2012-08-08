@@ -48,11 +48,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.5</string>
+	<string>1.0.6</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>105</string>
+	<string>106</string>
 	<key>DMAppId</key>
 	<string>4f218fdaa14ad72c61000000</string>
 	<key>JRFeedbackURL</key>
@@ -61,6 +61,8 @@
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
+	<key>NSContactsUsageDescription</key>
+	<string>This application fetches your vCard and puts your name and company in the header comment block in Objective-C.</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2012 The Nerdery. All rights reserved.</string>
 	<key>NSMainNibFile</key>
