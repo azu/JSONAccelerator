@@ -316,7 +316,7 @@
     
     if(error) {
         NSDictionary *dict = [error userInfo];
-        NSString *informativeText = [dict allValues][0];
+        NSString *informativeText = [[dict allValues] objectAtIndex:0];
         if([informativeText isEqualToString:@"No value."]) {
             informativeText = NSLocalizedString(@"There is no content to parse.", @"If there is nothing in the JSON field, state that there is nothing there");
         } else if ([informativeText isEqualToString:@"JSON text did not start with array or object and option to allow fragments not set."]) {
@@ -547,7 +547,7 @@
             
             if(error) {
                 NSDictionary *dict = [error userInfo];
-                NSString *informativeText = [dict allValues][0];
+                NSString *informativeText = [[dict allValues] objectAtIndex:0];
                 if([informativeText isEqualToString:@"No value."]) {
                     informativeText = NSLocalizedString(@"There is no content to parse.", @"If there is nothing in the JSON field, state that there is nothing there");
                 } else if ([informativeText isEqualToString:@"JSON text did not start with array or object and option to allow fragments not set."]) {

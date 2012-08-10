@@ -47,7 +47,7 @@
 
 //These need to be defined for each application and version
 #warning REMEMBER TO ALWAYS UPDATE THIS
-static NSString * const kReceiptBundleVersion = @"1.0.5";
+static NSString * const kReceiptBundleVersion = @"1.0.6";
 static NSString * const kReceiptBundleIdentifier = @"com.nerdery.JSON-Accelerator";
 
 
@@ -126,15 +126,15 @@ static NSString * const kReceiptHashKey = @"Hash";
 	
 	NSMutableData *input = [NSMutableData data];
 	[input appendData:guidData];
-	[input appendData:receiptDict[kReceiptOpaqueValueKey]];
-	[input appendData:receiptDict[kReceiptBundleIdentiferDataKey]];
+	[input appendData:[receiptDict objectForKey:kReceiptOpaqueValueKey]];
+	[input appendData:[receiptDict objectForKey:kReceiptBundleIdentiferDataKey]];
 	
 	NSMutableData *hash = [NSMutableData dataWithLength:SHA_DIGEST_LENGTH];
 	SHA1([input bytes], [input length], [hash mutableBytes]);
 	
 	if (!([kReceiptBundleIdentifier isEqualToString:receiptDict[kReceiptBundleIdentiferKey]] &&
 		[kReceiptBundleVersion isEqualToString:receiptDict[kReceiptVersionKey]] &&
-		[hash isEqualToData:receiptDict[kReceiptHashKey]]) )
+          [hash isEqualToData:[receiptDict objectForKey:kReceiptHashKey]]) )
 	{
 		exit(173);
 		pool = (NSAutoreleasePool *)1;
@@ -432,7 +432,7 @@ static NSString * const kReceiptHashKey = @"Hash";
                             break;
                     }
                     
-                    info[key] = data;
+                    [info setObject:data forKey:key];
                 }
                 
                 // Strings
@@ -455,7 +455,7 @@ static NSString * const kReceiptHashKey = @"Hash";
                                 break;
                         }
                         
-                        info[key] = string;
+                        [info setObject:string forKey:key];
                     }
                 }
             }
