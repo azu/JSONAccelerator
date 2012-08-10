@@ -1527,6 +1527,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONAccelerator-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler/JSONAccelerator-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "JSON Accelerator";
 				PROVISIONING_PROFILE = "";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
@@ -1547,6 +1548,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONAccelerator-Prefix.pch";
 				INFOPLIST_FILE = "JSONModeler/JSONAccelerator-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "JSON Accelerator";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
