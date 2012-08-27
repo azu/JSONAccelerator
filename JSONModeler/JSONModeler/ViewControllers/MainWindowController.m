@@ -393,11 +393,20 @@
                 NSString *baseClassName = [self.languageChooserViewController baseClassName];
                                 
                 if (language == OutputLanguageObjectiveC) {
+                    NSString *classPrefix = [self.languageChooserViewController classPrefix];
+                    
+                    if (!classPrefix) {
+                        classPrefix = @"";
+                    }
+                        
                     writer = [[OutputLanguageWriterObjectiveC alloc] init];
                     if(baseClassName != nil) {
-                        optionsDict = @{kObjectiveCWritingOptionBaseClassName: baseClassName, kObjectiveCWritingOptionUseARC: @(self.languageChooserViewController.buildForARC)};
+                        optionsDict = @{kObjectiveCWritingOptionBaseClassName: baseClassName,
+                                        kObjectiveCWritingOptionUseARC: @(self.languageChooserViewController.buildForARC),
+                                        kObjectiveCWritingOptionClassPrefix: classPrefix};
                     } else {
-                        optionsDict = @{kObjectiveCWritingOptionUseARC: @(self.languageChooserViewController.buildForARC)};
+                        optionsDict = @{kObjectiveCWritingOptionUseARC: @(self.languageChooserViewController.buildForARC),
+                                        kObjectiveCWritingOptionClassPrefix: classPrefix};
                     }
                 }
                 else if (language == OutputLanguageJava) {

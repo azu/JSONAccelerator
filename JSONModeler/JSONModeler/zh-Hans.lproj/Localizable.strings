@@ -79,6 +79,9 @@
 /* Success message in an action sheet */
 "Your files have successfully been generated." = "已成功生成您的文件。";
 
+/* "The letters to prepend to the file */
+"Class Prefix" = "文件前缀";
+
 /*************** HTTP OPTIONS WINDOW STRINGS *************/
 
 /* Title for the Method box in the HTTP Options window */

@@ -26,29 +26,31 @@
     self.packageNameLabel.stringValue = NSLocalizedString(@"Package Name", "In the save portion, the label to choose what the package is");
     self.baseClassLabel.stringValue = NSLocalizedString(@"Base Class", "In the save portion, the prompt to specify what the base class is");
     self.buildForArcButton.title = NSLocalizedString(@"Use Automatic Reference Counting", "In the save portion, for objective C, determine whether or not to use ARC");
-    self.packageNameLabel.hidden = YES;
-    self.packageNameField.hidden = YES;
-    self.buildForArcButton.hidden = NO;
+    self.classPrefixLabel.stringValue = NSLocalizedString(@"Class Prefix", "The letters to prepend to the file");
     
+    self.javaPanel.hidden = YES;
+    self.objectiveCPanel.hidden = NO;
+
     [self.languageDropDown selectItemAtIndex:2];
     [self.languageDropDown selectItemAtIndex:0];
 }
 
 - (IBAction)languagePopUpChanged:(id)sender {
     if (_languageDropDownIndex == 1) {
+        self.javaPanel.hidden = NO;
+        self.objectiveCPanel.hidden = YES;
+
         self.packageNameLabel.hidden = NO;
         self.packageNameField.hidden = NO;
         self.buildForArcButton.hidden = YES;
     }
     else if (_languageDropDownIndex == 0) {
-        self.packageNameLabel.hidden = YES;
-        self.packageNameField.hidden = YES;
-        self.buildForArcButton.hidden = NO;
+        self.javaPanel.hidden = YES;
+        self.objectiveCPanel.hidden = NO;
     }
     else {
-        self.packageNameLabel.hidden = YES;
-        self.packageNameField.hidden = YES;
-        self.buildForArcButton.hidden = YES;
+        self.javaPanel.hidden = YES;
+        self.objectiveCPanel.hidden = YES;
     }
 }
 

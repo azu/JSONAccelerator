@@ -45,14 +45,17 @@
         // This section is to guard against people going through and renaming the class
         // to something that has already been named.
         // This will check the class name and keep appending an additional number until something has been found
-        if([[base className] isEqualToString:@"InternalBaseClass"]) {
-            NSString *newBaseClassName;
+        NSString *newBaseClassName = base.className;
+        
+        if ([[base className] isEqualToString:@"InternalBaseClass"]) {
+            
             if (nil != options[kObjectiveCWritingOptionBaseClassName]) {
                 newBaseClassName = options[kObjectiveCWritingOptionBaseClassName];
             }
             else {
                 newBaseClassName = @"BaseClass";
             }
+                        
             BOOL hasUniqueFileNameBeenFound = NO;
             NSUInteger classCheckInteger = 2;
             while (hasUniqueFileNameBeenFound == NO) {
@@ -67,10 +70,14 @@
                     classCheckInteger++;
                 }
             }
-            
-            [base setClassName:newBaseClassName];
+        } 
+    
+        if (nil != options[kObjectiveCWritingOptionClassPrefix]) {
+            newBaseClassName = [NSString stringWithFormat:@"%@%@", options[kObjectiveCWritingOptionClassPrefix], newBaseClassName ];
         }
-        
+
+        [base setClassName:newBaseClassName];
+    
         /* Write the h file to disk */
         NSError * hFileError;
         NSString *outputHFile = [self ObjC_HeaderFileForClassObject:base];
