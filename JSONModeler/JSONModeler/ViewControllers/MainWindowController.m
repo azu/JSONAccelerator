@@ -248,11 +248,15 @@
             [testAlert runModal];
         }
         else {
+            NSString *statusCode = [NSString stringWithFormat:@"%ld", [response statusCode]];
+            NSString *localizedStatusCode = [NSHTTPURLResponse localizedStringForStatusCode:[response statusCode]];
+            NSString *contatenatedString = [NSString stringWithFormat:@"%@ - %@", statusCode, localizedStatusCode ];
+            
             NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"An Error Occurred", @"Title of an alert if there is an error getting content of a url")
                                              defaultButton:NSLocalizedString(@"OK", @"Button to dismiss an action sheet")
                                            alternateButton:nil
                                                otherButton:nil
-                                 informativeTextWithFormat:[NSString stringWithFormat:@"%ld - %@", [response statusCode], [NSHTTPURLResponse localizedStringForStatusCode:[response statusCode]]]];
+                                 informativeTextWithFormat:contatenatedString, nil];
             [alert runModal];
         }
     };
