@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
 		<string key="IBDocument.SystemVersion">12B19</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
+		<string key="IBDocument.InterfaceBuilderVersion">2829</string>
 		<string key="IBDocument.AppKitVersion">1187</string>
 		<string key="IBDocument.HIToolboxVersion">624.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2549</string>
+			<string key="NS.object.0">2829</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBNSLayoutConstraint</string>
@@ -1718,7 +1718,7 @@
 						<string key="baseClassField">NSTextField</string>
 						<string key="baseClassLabel">NSTextField</string>
 						<string key="buildForArcButton">NSButton</string>
-						<string key="classPrefix">NSTextField</string>
+						<string key="classPrefixField">NSTextField</string>
 						<string key="classPrefixLabel">NSTextField</string>
 						<string key="javaPanel">NSView</string>
 						<string key="languageDropDown">NSPopUpButton</string>
@@ -1740,8 +1740,8 @@
 							<string key="name">buildForArcButton</string>
 							<string key="candidateClassName">NSButton</string>
 						</object>
-						<object class="IBToOneOutletInfo" key="classPrefix">
-							<string key="name">classPrefix</string>
+						<object class="IBToOneOutletInfo" key="classPrefixField">
+							<string key="name">classPrefixField</string>
 							<string key="candidateClassName">NSTextField</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="classPrefixLabel">

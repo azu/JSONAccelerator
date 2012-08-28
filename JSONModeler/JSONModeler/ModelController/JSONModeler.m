@@ -114,7 +114,7 @@
             tempClassName = [writer classNameForObject:tempClass fromReservedWord:tempClassName];
         }
         if ([tempClassName isEqualToString:@""]) {
-            tempClassName = [NSString stringWithFormat:@"InternalBaseClass%u", ++_numUnnamedClasses];
+            tempClassName = [NSString stringWithFormat:@"InternalBaseClass%lu", ++_numUnnamedClasses];
         }
         [tempClass setClassName:tempClassName];
     }
@@ -136,7 +136,7 @@
                 tempPropertyName = [writer propertyNameForObject:tempPropertyObject inClass:tempClass fromReservedWord:tempPropertyName];
             }
             if ([tempPropertyName isEqualToString:@""]) {
-                tempPropertyName = [NSString stringWithFormat:@"myProperty%u", ++numUnnamedProperties];
+                tempPropertyName = [NSString stringWithFormat:@"myProperty%lu", ++numUnnamedProperties];
             }
             [tempPropertyObject setName:tempPropertyName];
             

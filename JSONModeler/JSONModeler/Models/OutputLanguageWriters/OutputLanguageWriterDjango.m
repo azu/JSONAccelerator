@@ -145,7 +145,7 @@ static NSUInteger kDjangoModelMaxTextLength = 255;
             /* If it's a simple type, define the database column type */
             NSString *type = properties[property];
             if ([type isEqualToString:@"string"]) {
-                [fileString appendFormat:@"\t%@ = models.CharField(max_length=%i, blank=True)\n", [property underscoreDelimitedString], kDjangoModelMaxTextLength];
+                [fileString appendFormat:@"\t%@ = models.CharField(max_length=%lu, blank=True)\n", [property underscoreDelimitedString], kDjangoModelMaxTextLength];
             }
             else if ([type isEqualToString:@"int"]) {
                 [fileString appendFormat:@"\t%@ = models.IntegerField(blank=True, null=True)\n", [property underscoreDelimitedString]];

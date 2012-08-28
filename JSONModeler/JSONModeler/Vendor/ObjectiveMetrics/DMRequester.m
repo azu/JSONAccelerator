@@ -94,7 +94,7 @@ static NSString * const DMStatusCodeKey = @"status_code";
     NSData *json = [[events JSONRepresentation] dataUsingEncoding:NSUTF8StringEncoding];
     NSMutableURLRequest *sentRequest = [request copy];
 
-    [sentRequest setValue:[NSString stringWithFormat:@"%d", [json length]] forHTTPHeaderField:@"Content-Length"];
+    [sentRequest setValue:[NSString stringWithFormat:@"%lu", [json length]] forHTTPHeaderField:@"Content-Length"];
     [sentRequest setHTTPBody:json];
 
     DLog(@"Sending data: %@", [events JSONRepresentation]);
