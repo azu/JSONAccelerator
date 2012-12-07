@@ -76,11 +76,17 @@
         
         /* Define the package name in each file */
         outputString = [outputString stringByReplacingOccurrencesOfString:@"{PACKAGENAME}" withString:packageName];
-        
+#ifndef COMMAND_LINE
         [outputString writeToURL:[url URLByAppendingPathComponent:filename]
                      atomically:YES
                        encoding:NSUTF8StringEncoding 
                           error:&error];
+#else
+        [outputString writeToFile:[[url URLByAppendingPathComponent:filename] absoluteString]
+                      atomically:YES
+                        encoding:NSUTF8StringEncoding
+                           error:&error];
+#endif
         if(error) {
             DLog(@"%@", [error localizedDescription]);
             filesHaveHadError = YES;
@@ -108,11 +114,14 @@
 
 - (NSString *) Java_ImplementationFileForClassObject:(ClassBaseObject *)classObject
 {
+#ifndef COMMAND_LINE
     NSBundle *mainBundle = [NSBundle mainBundle];
     
     NSString *interfaceTemplate = [mainBundle pathForResource:@"JavaTemplate" ofType:@"txt"];
     NSString *templateString = [[NSString alloc] initWithContentsOfFile:interfaceTemplate encoding:NSUTF8StringEncoding error:nil];
-    
+#else
+    NSString *templateString = @"package {PACKAGENAME};\n\nimport org.json.*;\n{IMPORTBLOCK}\n\npublic class {CLASSNAME} {\n	\n    {PROPERTIES}\n    \n	public {CLASSNAME} () {\n		\n	}	\n        \n    public {CLASSNAME} (JSONObject json) {\n    \n{SETTERS}\n    }\n    \n{GETTER_SETTER_METHODS}\n    \n}\n";
+#endif
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:classObject.className];
     
     // Flag if class has an ArrayList type property (used for generating the import block)
@@ -155,8 +164,8 @@
     // Setters strings   
     NSString *settersString = @"";
     for(ClassPropertiesObject *property in [classObject.properties allValues]) {
-        
-        settersString = [settersString stringByAppendingString:[self setterForProperty:property]];
+        NSString *setterForProperty = [self setterForProperty:property];
+        settersString = [settersString stringByAppendingString:setterForProperty];
     }
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];    
@@ -229,16 +238,24 @@
         NSBundle *mainBundle = [NSBundle mainBundle];
         
         if (nil != property.referenceClass) {
+#ifndef COMMAND_LINE
             NSString *arrayTemplate = [mainBundle pathForResource:@"JavaArrayTemplate" ofType:@"txt"];
             NSString *templateString = [[NSString alloc] initWithContentsOfFile:arrayTemplate encoding:NSUTF8StringEncoding error:nil];
+#else
+            NSString *templateString = @"\n        this.{PROPERTYNAME} = new ArrayList<{CLASSNAME}>();\n        JSONArray array{CLASSNAME} = json.optJSONArray(\"{JSONNAME}\");\n        if (null != array{CLASSNAME}) {\n            int {PROPERTYNAME}Length = array{CLASSNAME}.length();\n            for (int i = 0; i < {PROPERTYNAME}Length; i++) {\n                {OBJECTTYPE} item = array{CLASSNAME}.opt{OBJECTTYPE}(i);\n                if (null != item) {\n                    this.{PROPERTYNAME}.add(new {CLASSNAME}(item));\n                }\n            }\n        }\n        else {\n            {OBJECTTYPE} item = json.opt{OBJECTTYPE}(\"{JSONNAME}\");\n            if (null != item) {\n                this.{PROPERTYNAME}.add(new {CLASSNAME}(item));\n            }\n        }\n\n";
+#endif
             templateString = [templateString stringByReplacingOccurrencesOfString:@"{JSONNAME}" withString:property.jsonName];
             templateString = [templateString stringByReplacingOccurrencesOfString:@"{PROPERTYNAME}" withString:property.name];
             templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:property.referenceClass.className];
             setterString = [templateString stringByReplacingOccurrencesOfString:@"{OBJECTTYPE}" withString:@"JSONObject"];
         }
         else {
+#ifndef COMMAND_LINE
             NSString *arrayTemplate = [mainBundle pathForResource:@"JavaPrimitiveArrayTemplate" ofType:@"txt"];
             NSString *templateString = [[NSString alloc] initWithContentsOfFile:arrayTemplate encoding:NSUTF8StringEncoding error:nil];
+#else
+            NSString *templateString = @"\n        this.{PROPERTYNAME} = new ArrayList<{TYPE}>();\n        JSONArray array{CLASSNAME} = json.optJSONArray(\"{JSONNAME}\");\n        if (null != array{CLASSNAME}) {\n            int {PROPERTYNAME}Length = array{CLASSNAME}.length();\n            for (int i = 0; i < {PROPERTYNAME}Length; i++) {\n                {TYPE} item = array{CLASSNAME}.opt{TYPE_UPPERCASE}(i);\n                if (null != item) {\n                    this.{PROPERTYNAME}.add(item);\n                }\n            }\n        }\n        else {\n            {TYPE} item = json.opt{TYPE_UPPERCASE}(\"{JSONNAME}\");\n            if (null != item) {\n                this.{PROPERTYNAME}.add(item);\n            }\n        }\n\n";
+#endif
             templateString = [templateString stringByReplacingOccurrencesOfString:@"{JSONNAME}" withString:property.jsonName];
             templateString = [templateString stringByReplacingOccurrencesOfString:@"{PROPERTYNAME}" withString:property.name];
             templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:[property.name capitalizeFirstCharacter]];
@@ -281,6 +298,11 @@
             setterString = [setterString stringByAppendingFormat:@"json.opt(\"%@\");\n", property.jsonName];
         }
     }
+    
+    if (!setterString) {
+        setterString = @"";
+    }
+    
     return setterString;
 }
 
