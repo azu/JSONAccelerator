@@ -7,11 +7,15 @@
 //
 
 #import "JSONModeler.h"
-#import "JSONFetcher.h"
 #import "ClassBaseObject.h"
 #import "ClassPropertiesObject.h"
 #import "NSString+Nerdery.h"
 #import "OutputLanguageWriterProtocol.h"
+
+#ifndef COMMAND_LINE
+    #import "JSONFetcher.h"
+#endif
+
 
 @interface JSONModeler () {
     NSUInteger _numUnnamedClasses;
@@ -36,6 +40,7 @@
     return self;
 }
 
+#ifndef COMMAND_LINE
 - (void)loadJSONWithURL:(NSString *)url outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer
 {
     JSONFetcher *fetcher = [[JSONFetcher alloc] init];
@@ -43,9 +48,10 @@
         [self loadJSONWithData:object outputLanguageWriter:writer];
     } 
    andFailure:^(NSHTTPURLResponse *response, NSError *error) {
-       DLog(@"An error occured here, but it's not too much trouble because this method is only used in debugging");
+       NSLog(@"An error occured here, but it's not too much trouble because this method is only used in debugging");
    }];
 }
+#endif
 
 - (void)loadJSONWithString:(NSString *)string outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer
 {

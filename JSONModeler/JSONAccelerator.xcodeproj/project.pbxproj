@@ -199,6 +199,15 @@
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
 		44DF663D158A3FDF00B8E4E6 /* ArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DF663C158A3FDF00B8E4E6 /* ArrowView.m */; };
 		44DF663E158A3FDF00B8E4E6 /* ArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DF663C158A3FDF00B8E4E6 /* ArrowView.m */; };
+		44E17C7116719F1200945E6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E17C7016719F1200945E6D /* Foundation.framework */; };
+		44E17C7416719F1200945E6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E17C7316719F1200945E6D /* main.m */; };
+		44E17C7816719F1200945E6D /* json_accelerator.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44E17C7716719F1200945E6D /* json_accelerator.1 */; };
+		44E17C7E1671A76500945E6D /* JSONModeler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4415E4501462F39900953014 /* JSONModeler.m */; };
+		44E17C7F1671A7D700945E6D /* ClassBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4414992414642ABC002B6969 /* ClassBaseObject.m */; };
+		44E17C801671A7E200945E6D /* ClassPropertiesObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4414992814642AF4002B6969 /* ClassPropertiesObject.m */; };
+		44E17C811671A95900945E6D /* OutputLanguageWriterJava.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */; };
+		44E17C821671A96200945E6D /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
+		44E17C831671B38800945E6D /* NSString+Nerdery.m in Sources */ = {isa = PBXBuildFile; fileRef = 441499341464619A002B6969 /* NSString+Nerdery.m */; };
 		44F037CE14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037CF14C8B57700FECF86 /* OutputLanguageWriterObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */; };
 		44F037D314C8C43A00FECF86 /* OutputLanguageWriterJava.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F037D214C8C43A00FECF86 /* OutputLanguageWriterJava.m */; };
@@ -262,6 +271,16 @@
 				4423314A149BA95B0071978D /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44E17C6C16719F1200945E6D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				44E17C7816719F1200945E6D /* json_accelerator.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -475,6 +494,11 @@
 		44C6F4E714AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		44DF663B158A3FDF00B8E4E6 /* ArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrowView.h; path = Views/ArrowView.h; sourceTree = "<group>"; };
 		44DF663C158A3FDF00B8E4E6 /* ArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArrowView.m; path = Views/ArrowView.m; sourceTree = "<group>"; };
+		44E17C6E16719F1200945E6D /* json-accelerator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "json-accelerator"; sourceTree = BUILT_PRODUCTS_DIR; };
+		44E17C7016719F1200945E6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		44E17C7316719F1200945E6D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		44E17C7616719F1200945E6D /* json-accelerator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "json-accelerator-Prefix.pch"; sourceTree = "<group>"; };
+		44E17C7716719F1200945E6D /* json_accelerator.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = json_accelerator.1; sourceTree = "<group>"; };
 		44F037CC14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterObjectiveC.h; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.h; sourceTree = "<group>"; };
 		44F037CD14C8B56800FECF86 /* OutputLanguageWriterObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutputLanguageWriterObjectiveC.m; path = Models/OutputLanguageWriters/OutputLanguageWriterObjectiveC.m; sourceTree = "<group>"; };
 		44F037D014C8B63600FECF86 /* OutputLanguageWriterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutputLanguageWriterProtocol.h; path = Models/OutputLanguageWriters/OutputLanguageWriterProtocol.h; sourceTree = "<group>"; };
@@ -540,6 +564,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		44E17C6B16719F1200945E6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44E17C7116719F1200945E6D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -558,6 +590,7 @@
 			children = (
 				441FC4EC1462D8E1007BF9DC /* JSONModeler */,
 				441FC5091462D8E1007BF9DC /* JSONModelerTests */,
+				44E17C7216719F1200945E6D /* json-accelerator */,
 				441FC4E51462D8E1007BF9DC /* Frameworks */,
 				441FC4E31462D8E1007BF9DC /* Products */,
 			);
@@ -568,6 +601,7 @@
 			children = (
 				441FC4E21462D8E1007BF9DC /* JSON Accelerator.app */,
 				4423313D149B9E290071978D /* JSON Accelerator.app */,
+				44E17C6E16719F1200945E6D /* json-accelerator */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -584,6 +618,7 @@
 				44233140149B9F380071978D /* Sparkle.framework */,
 				441FC4E61462D8E1007BF9DC /* Cocoa.framework */,
 				441FC5041462D8E1007BF9DC /* SenTestingKit.framework */,
+				44E17C7016719F1200945E6D /* Foundation.framework */,
 				441FC4E81462D8E1007BF9DC /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -967,6 +1002,24 @@
 			name = Templates;
 			sourceTree = "<group>";
 		};
+		44E17C7216719F1200945E6D /* json-accelerator */ = {
+			isa = PBXGroup;
+			children = (
+				44E17C7316719F1200945E6D /* main.m */,
+				44E17C7716719F1200945E6D /* json_accelerator.1 */,
+				44E17C7516719F1200945E6D /* Supporting Files */,
+			);
+			path = "json-accelerator";
+			sourceTree = "<group>";
+		};
+		44E17C7516719F1200945E6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				44E17C7616719F1200945E6D /* json-accelerator-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		44F037CB14C8B52E00FECF86 /* OutputLanguageWriters */ = {
 			isa = PBXGroup;
 			children = (
@@ -1076,6 +1129,23 @@
 			productReference = 4423313D149B9E290071978D /* JSON Accelerator.app */;
 			productType = "com.apple.product-type.application";
 		};
+		44E17C6D16719F1200945E6D /* json-accelerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44E17C7B16719F1200945E6D /* Build configuration list for PBXNativeTarget "json-accelerator" */;
+			buildPhases = (
+				44E17C6A16719F1200945E6D /* Sources */,
+				44E17C6B16719F1200945E6D /* Frameworks */,
+				44E17C6C16719F1200945E6D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "json-accelerator";
+			productName = "json-accelerator";
+			productReference = 44E17C6E16719F1200945E6D /* json-accelerator */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1105,6 +1175,7 @@
 			targets = (
 				441FC4E11462D8E1007BF9DC /* JSON Accelerator */,
 				4423310A149B9E290071978D /* JSON Accelerator_internal */,
+				44E17C6D16719F1200945E6D /* json-accelerator */,
 			);
 		};
 /* End PBXProject section */
@@ -1362,6 +1433,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		44E17C6A16719F1200945E6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44E17C7416719F1200945E6D /* main.m in Sources */,
+				44E17C7E1671A76500945E6D /* JSONModeler.m in Sources */,
+				44E17C7F1671A7D700945E6D /* ClassBaseObject.m in Sources */,
+				44E17C801671A7E200945E6D /* ClassPropertiesObject.m in Sources */,
+				44E17C811671A95900945E6D /* OutputLanguageWriterJava.m in Sources */,
+				44E17C821671A96200945E6D /* OutputLanguageWriterObjectiveC.m in Sources */,
+				44E17C831671B38800945E6D /* NSString+Nerdery.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -1609,6 +1694,42 @@
 			};
 			name = Release;
 		};
+		44E17C7916719F1200945E6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "json-accelerator/json-accelerator-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"COMMAND_LINE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		44E17C7A16719F1200945E6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "json-accelerator/json-accelerator-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "COMMAND_LINE=1";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1638,6 +1759,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		44E17C7B16719F1200945E6D /* Build configuration list for PBXNativeTarget "json-accelerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44E17C7916719F1200945E6D /* Debug */,
+				44E17C7A16719F1200945E6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
