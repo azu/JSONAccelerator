@@ -13,7 +13,6 @@
 #import "MASPreferencesWindowController.h"
 #import "JRFeedbackController.h"
 #import "ModelerDocument.h"
-#import "DMTracker.h"
 #import "iRate.h"
 
 @interface AppDelegate () {
@@ -38,9 +37,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-#ifndef DEBUG
-    [[DMTracker defaultTracker] startApp];
-#endif
     _preferencesWindowController = nil;
     
 }

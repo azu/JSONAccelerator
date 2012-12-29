@@ -542,6 +542,7 @@
                                                                 inWindow:[toggleButton window] 
                                                                   onSide:side 
                                                               atDistance:24.0f];
+            
             [self.attachedWindow setBorderColor:[NSColor darkGrayColor]];
             [self.attachedWindow setBackgroundColor:[NSColor colorWithDeviceRed:1 green:1 blue:1 alpha:1]];
             [self.attachedWindow setViewMargin:0.0f];
@@ -552,6 +553,7 @@
             [self.attachedWindow setDrawsRoundCornerBesideArrow:1.0f];
             [self.attachedWindow setArrowBaseWidth:15.0f];
             [self.attachedWindow setArrowHeight:10.0f];
+            
             [[toggleButton window] addChildWindow:self.attachedWindow ordered:NSWindowAbove];
             
             NSError *error = nil;    

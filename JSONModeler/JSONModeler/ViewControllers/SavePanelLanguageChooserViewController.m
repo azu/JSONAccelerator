@@ -33,6 +33,10 @@
 
     [self.languageDropDown selectItemAtIndex:2];
     [self.languageDropDown selectItemAtIndex:0];
+    
+    self.languageDropDown.nextKeyView = self.baseClassField;
+    self.baseClassField.nextKeyView = self.classPrefixField;
+    
 }
 
 - (IBAction)languagePopUpChanged:(id)sender {
@@ -43,10 +47,12 @@
         self.packageNameLabel.hidden = NO;
         self.packageNameField.hidden = NO;
         self.buildForArcButton.hidden = YES;
+        self.baseClassField.nextKeyView = self.packageNameField;
     }
     else if (_languageDropDownIndex == 0) {
         self.javaPanel.hidden = YES;
         self.objectiveCPanel.hidden = NO;
+        self.baseClassField.nextKeyView = self.classPrefixField;
     }
     else {
         self.javaPanel.hidden = YES;

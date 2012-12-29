@@ -59,6 +59,10 @@ static NSString * const kReceiptHashKey = @"Hash";
 
 @implementation NPReceiptVerification
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
+
 + (void)load {
 #ifdef DEBUG
     return;
@@ -473,5 +477,5 @@ static NSString * const kReceiptHashKey = @"Hash";
     
     return info;
 }
-
+#pragma clang diagnostic pop
 @end
