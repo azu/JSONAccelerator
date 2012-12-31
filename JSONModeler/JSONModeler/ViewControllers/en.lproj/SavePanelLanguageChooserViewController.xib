@@ -99,6 +99,7 @@
 									<int key="NSCellFlags2">71304192</int>
 									<string key="NSContents">Class Prefix</string>
 									<reference key="NSSupport" ref="602523716"/>
+									<string key="NSPlaceholderString"/>
 									<string key="NSCellIdentifier">_NS:3944</string>
 									<reference key="NSControlView" ref="854683767"/>
 									<object class="NSColor" key="NSBackgroundColor" id="222947962">
@@ -136,7 +137,7 @@
 									<int key="NSCellFlags2">272630784</int>
 									<string key="NSContents"/>
 									<reference key="NSSupport" ref="602523716"/>
-									<string key="NSPlaceholderString"/>
+									<string key="NSPlaceholderString">NRD</string>
 									<string key="NSCellIdentifier">_NS:903</string>
 									<reference key="NSControlView" ref="749919959"/>
 									<bool key="NSDrawsBackground">YES</bool>
@@ -184,6 +185,7 @@
 									<int key="NSCellFlags2">71304192</int>
 									<string key="NSContents">Package Name</string>
 									<reference key="NSSupport" ref="602523716"/>
+									<string key="NSPlaceholderString"/>
 									<string key="NSCellIdentifier">_NS:3944</string>
 									<reference key="NSControlView" ref="141714038"/>
 									<reference key="NSBackgroundColor" ref="222947962"/>
@@ -249,6 +251,7 @@
 						<string key="NSFrame">{{171, 72}, {337, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:903</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="355507789">
@@ -387,7 +390,7 @@
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="1019727104"/>
-				<string key="NSClassName">NSView</string>
+				<string key="NSClassName">PanelCustomView</string>
 			</object>
 			<object class="NSUserDefaultsController" id="493795458">
 				<bool key="NSSharedInstance">YES</bool>
@@ -500,6 +503,14 @@
 					<int key="connectionID">546</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">classPrefixCell</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="264124722"/>
+					</object>
+					<int key="connectionID">591</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">selectedIndex: self.languageDropDownIndex</string>
 						<reference key="source" ref="198022230"/>
@@ -519,9 +530,9 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">nextKeyView</string>
 						<reference key="source" ref="198022230"/>
-						<reference key="destination" ref="67516576"/>
+						<reference key="destination" ref="1019727104"/>
 					</object>
-					<int key="connectionID">588</int>
+					<int key="connectionID">590</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -1695,7 +1706,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">589</int>
+			<int key="maxID">594</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1705,6 +1716,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">PanelCustomView</string>
+					<string key="superclassName">NSView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/PanelCustomView.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -1725,6 +1744,7 @@
 						<string key="baseClassField">NSTextField</string>
 						<string key="baseClassLabel">NSTextField</string>
 						<string key="buildForArcButton">NSButton</string>
+						<string key="classPrefixCell">NSTextFieldCell</string>
 						<string key="classPrefixField">NSTextField</string>
 						<string key="classPrefixLabel">NSTextField</string>
 						<string key="javaPanel">NSView</string>
@@ -1746,6 +1766,10 @@
 						<object class="IBToOneOutletInfo" key="buildForArcButton">
 							<string key="name">buildForArcButton</string>
 							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="classPrefixCell">
+							<string key="name">classPrefixCell</string>
+							<string key="candidateClassName">NSTextFieldCell</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="classPrefixField">
 							<string key="name">classPrefixField</string>

@@ -99,6 +99,13 @@
 		448366C2150C411C00D2F6BF /* alert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 448366BF150C411C00D2F6BF /* alert@2x.png */; };
 		448366C3150C411C00D2F6BF /* alert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 448366BF150C411C00D2F6BF /* alert@2x.png */; };
 		448B10901487EAF800BEE605 /* ArraySetterTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */; };
+		4490E89F169241D9007B4FBC /* DataModelsTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4490E89E169241D9007B4FBC /* DataModelsTemplate.txt */; };
+		4490E8A0169241D9007B4FBC /* DataModelsTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4490E89E169241D9007B4FBC /* DataModelsTemplate.txt */; };
+		4490E8A416924DF9007B4FBC /* PanelCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4490E8A316924DF9007B4FBC /* PanelCustomView.m */; };
+		4490E8A516924DF9007B4FBC /* PanelCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4490E8A316924DF9007B4FBC /* PanelCustomView.m */; };
+		4490E8A616924FDB007B4FBC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC6FAA4DD08944659C3B3970 /* libPods.a */; };
+		4490E8A816925077007B4FBC /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4426909114DA056100C16CBD /* libcrypto.dylib */; };
+		4490E8A91692507E007B4FBC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4426908F14DA053C00C16CBD /* Security.framework */; };
 		44AC168015102EB700794AB7 /* alertBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC167D15102EB700794AB7 /* alertBackground.png */; };
 		44AC168115102EB700794AB7 /* alertLeftCap.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC167E15102EB700794AB7 /* alertLeftCap.png */; };
 		44AC168215102EB700794AB7 /* alertRightCap.png in Resources */ = {isa = PBXBuildFile; fileRef = 44AC167F15102EB700794AB7 /* alertRightCap.png */; };
@@ -313,6 +320,9 @@
 		4485C9D414FBC2540064F291 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/JRFeedbackProvider.strings; sourceTree = "<group>"; };
 		4485C9D514FBC2580064F291 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/JRFeedbackProvider.strings; sourceTree = "<group>"; };
 		448B108F1487EAF800BEE605 /* ArraySetterTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ArraySetterTemplate.txt; path = Resources/Templates/ArraySetterTemplate.txt; sourceTree = "<group>"; };
+		4490E89E169241D9007B4FBC /* DataModelsTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DataModelsTemplate.txt; path = Resources/Templates/DataModelsTemplate.txt; sourceTree = "<group>"; };
+		4490E8A216924DF9007B4FBC /* PanelCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PanelCustomView.h; path = Views/PanelCustomView.h; sourceTree = "<group>"; };
+		4490E8A316924DF9007B4FBC /* PanelCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PanelCustomView.m; path = Views/PanelCustomView.m; sourceTree = "<group>"; };
 		44AC167D15102EB700794AB7 /* alertBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alertBackground.png; path = Resources/Images/alertBackground.png; sourceTree = "<group>"; };
 		44AC167E15102EB700794AB7 /* alertLeftCap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alertLeftCap.png; path = Resources/Images/alertLeftCap.png; sourceTree = "<group>"; };
 		44AC167F15102EB700794AB7 /* alertRightCap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alertRightCap.png; path = Resources/Images/alertRightCap.png; sourceTree = "<group>"; };
@@ -407,11 +417,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4490E8A91692507E007B4FBC /* Security.framework in Frameworks */,
+				4490E8A816925077007B4FBC /* libcrypto.dylib in Frameworks */,
 				4473B40D150FEBFA008401B5 /* QuartzCore.framework in Frameworks */,
 				44F7B43414CA1AF5004CEA55 /* SystemConfiguration.framework in Frameworks */,
 				7D00408714A24F1700235189 /* AddressBook.framework in Frameworks */,
 				44233128149B9E290071978D /* Cocoa.framework in Frameworks */,
 				44233141149B9F380071978D /* Sparkle.framework in Frameworks */,
+				4490E8A616924FDB007B4FBC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +583,8 @@
 				4473B404150FCE1C008401B5 /* GenerateFilesButton.m */,
 				44DF663B158A3FDF00B8E4E6 /* ArrowView.h */,
 				44DF663C158A3FDF00B8E4E6 /* ArrowView.m */,
+				4490E8A216924DF9007B4FBC /* PanelCustomView.h */,
+				4490E8A316924DF9007B4FBC /* PanelCustomView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -709,6 +724,7 @@
 				7D2AD96414D099480035A4FE /* CoreDataAccessorsTemplate.txt */,
 				44C546EA146C191F00D3860A /* ImplementationTemplate.txt */,
 				44C546E7146C18D700D3860A /* InterfaceTemplate.txt */,
+				4490E89E169241D9007B4FBC /* DataModelsTemplate.txt */,
 				44FE6F76146C8D5600FA13F9 /* JavaTemplate.txt */,
 				7D9FE00914D32CD800F135CC /* JavaArrayTemplate.txt */,
 				7D9FE01014D3369B00F135CC /* JavaPrimitiveArrayTemplate.txt */,
@@ -836,6 +852,7 @@
 				44233127149B9E290071978D /* Frameworks */,
 				44233129149B9E290071978D /* Resources */,
 				44233149149BA92A0071978D /* CopyFiles */,
+				4490E8A716924FE8007B4FBC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -947,6 +964,7 @@
 				44AC16AA151043D700794AB7 /* alertCloseButton@2x.png in Resources */,
 				4430204B15214CE60008D9A7 /* dataButtonUp@2x.png in Resources */,
 				445F441F15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt in Resources */,
+				4490E89F169241D9007B4FBC /* DataModelsTemplate.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -995,12 +1013,27 @@
 				44AC16AB151043D700794AB7 /* alertCloseButton@2x.png in Resources */,
 				4430204C15214CE60008D9A7 /* dataButtonUp@2x.png in Resources */,
 				445F442015328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt in Resources */,
+				4490E8A0169241D9007B4FBC /* DataModelsTemplate.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4490E8A716924FE8007B4FBC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		88CE318D583B41F68FB7A1F5 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1053,6 +1086,7 @@
 				44AC168A151033E200794AB7 /* MAAttachedWindow.m in Sources */,
 				442E38EF15895900003CE8F6 /* OutputLanguageWriterPython.m in Sources */,
 				44DF663D158A3FDF00B8E4E6 /* ArrowView.m in Sources */,
+				4490E8A416924DF9007B4FBC /* PanelCustomView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1090,6 +1124,7 @@
 				44AC168B151033E200794AB7 /* MAAttachedWindow.m in Sources */,
 				442E38F015895900003CE8F6 /* OutputLanguageWriterPython.m in Sources */,
 				44DF663E158A3FDF00B8E4E6 /* ArrowView.m in Sources */,
+				4490E8A516924DF9007B4FBC /* PanelCustomView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1318,6 +1353,7 @@
 					"$(inherited)",
 					"NORATE=1",
 				);
+				HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}";
 				INFOPLIST_FILE = "JSONAccelerator-Internal-Info.plist";
 				INFOPLIST_PREPROCESS = NO;
 				LIBRARY_SEARCH_PATHS = (
@@ -1325,6 +1361,10 @@
 					"\"$(SRCROOT)\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PODS_BUILD_HEADERS_SEARCH_PATHS = "\"${PODS_ROOT}/BuildHeaders\" \"${PODS_ROOT}/BuildHeaders/AFNetworking\" \"${PODS_ROOT}/BuildHeaders/MASPreferences\" \"${PODS_ROOT}/BuildHeaders/iRate\"";
+				PODS_HEADERS_SEARCH_PATHS = "${PODS_PUBLIC_HEADERS_SEARCH_PATHS}";
+				PODS_PUBLIC_HEADERS_SEARCH_PATHS = "\"${PODS_ROOT}/Headers\" \"${PODS_ROOT}/Headers/AFNetworking\" \"${PODS_ROOT}/Headers/MASPreferences\" \"${PODS_ROOT}/Headers/iRate\"";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "JSON Accelerator";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
@@ -1343,6 +1383,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSONModeler/JSONAccelerator-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "NORATE=1";
+				HEADER_SEARCH_PATHS = "${PODS_HEADERS_SEARCH_PATHS}";
 				INFOPLIST_FILE = "JSONAccelerator-Internal-Info.plist";
 				INFOPLIST_PREPROCESS = NO;
 				LIBRARY_SEARCH_PATHS = (
@@ -1350,6 +1391,10 @@
 					"\"$(SRCROOT)\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PODS_BUILD_HEADERS_SEARCH_PATHS = "\"${PODS_ROOT}/BuildHeaders\" \"${PODS_ROOT}/BuildHeaders/AFNetworking\" \"${PODS_ROOT}/BuildHeaders/MASPreferences\" \"${PODS_ROOT}/BuildHeaders/iRate\"";
+				PODS_HEADERS_SEARCH_PATHS = "${PODS_PUBLIC_HEADERS_SEARCH_PATHS}";
+				PODS_PUBLIC_HEADERS_SEARCH_PATHS = "\"${PODS_ROOT}/Headers\" \"${PODS_ROOT}/Headers/AFNetworking\" \"${PODS_ROOT}/Headers/MASPreferences\" \"${PODS_ROOT}/Headers/iRate\"";
+				PODS_ROOT = "${SRCROOT}/Pods";
 				PRODUCT_NAME = "JSON Accelerator";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;
