@@ -13,7 +13,9 @@
 
 @interface JSONModeler : NSObject <NSCoding>
 
-- (void)loadJSONWithURL:(NSString *)url outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer;
+#ifndef COMMAND_LINE
+    - (void)loadJSONWithURL:(NSString *)url outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer;
+#endif
 - (void)loadJSONWithString:(NSString *)string outputLanguageWriter:(id<OutputLanguageWriterProtocol>)writer;
 
 @property (assign) BOOL parseComplete;

@@ -248,11 +248,15 @@
             [testAlert runModal];
         }
         else {
+            NSString *statusCode = [NSString stringWithFormat:@"%ld", [response statusCode]];
+            NSString *localizedStatusCode = [NSHTTPURLResponse localizedStringForStatusCode:[response statusCode]];
+            NSString *contatenatedString = [NSString stringWithFormat:@"%@ - %@", statusCode, localizedStatusCode ];
+            
             NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"An Error Occurred", @"Title of an alert if there is an error getting content of a url")
                                              defaultButton:NSLocalizedString(@"OK", @"Button to dismiss an action sheet")
                                            alternateButton:nil
                                                otherButton:nil
-                                 informativeTextWithFormat:[NSString stringWithFormat:@"%ld - %@", [response statusCode], [NSHTTPURLResponse localizedStringForStatusCode:[response statusCode]]]];
+                                 informativeTextWithFormat:contatenatedString, nil];
             [alert runModal];
         }
     };
@@ -393,11 +397,20 @@
                 NSString *baseClassName = [self.languageChooserViewController baseClassName];
                                 
                 if (language == OutputLanguageObjectiveC) {
+                    NSString *classPrefix = [self.languageChooserViewController classPrefix];
+                    
+                    if (!classPrefix) {
+                        classPrefix = @"";
+                    }
+                        
                     writer = [[OutputLanguageWriterObjectiveC alloc] init];
                     if(baseClassName != nil) {
-                        optionsDict = @{kObjectiveCWritingOptionBaseClassName: baseClassName, kObjectiveCWritingOptionUseARC: @(self.languageChooserViewController.buildForARC)};
+                        optionsDict = @{kObjectiveCWritingOptionBaseClassName: baseClassName,
+                                        kObjectiveCWritingOptionUseARC: @(self.languageChooserViewController.buildForARC),
+                                        kObjectiveCWritingOptionClassPrefix: classPrefix};
                     } else {
-                        optionsDict = @{kObjectiveCWritingOptionUseARC: @(self.languageChooserViewController.buildForARC)};
+                        optionsDict = @{kObjectiveCWritingOptionUseARC: @(self.languageChooserViewController.buildForARC),
+                                        kObjectiveCWritingOptionClassPrefix: classPrefix};
                     }
                 }
                 else if (language == OutputLanguageJava) {
@@ -529,6 +542,7 @@
                                                                 inWindow:[toggleButton window] 
                                                                   onSide:side 
                                                               atDistance:24.0f];
+            
             [self.attachedWindow setBorderColor:[NSColor darkGrayColor]];
             [self.attachedWindow setBackgroundColor:[NSColor colorWithDeviceRed:1 green:1 blue:1 alpha:1]];
             [self.attachedWindow setViewMargin:0.0f];
@@ -539,6 +553,7 @@
             [self.attachedWindow setDrawsRoundCornerBesideArrow:1.0f];
             [self.attachedWindow setArrowBaseWidth:15.0f];
             [self.attachedWindow setArrowHeight:10.0f];
+            
             [[toggleButton window] addChildWindow:self.attachedWindow ordered:NSWindowAbove];
             
             NSError *error = nil;    

@@ -1,0 +1,33 @@
+//
+// Prefix header for all source files of the 'json-accelerator' target in the 'json-accelerator' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+
+    // Define DLog to log to NSLog when DEBUG is defined
+    // see http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file/
+    #ifdef DEBUG
+    #define DLog(...) NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+    #else
+    #define DLog(...) do {} while (NO);
+    #endif
+
+    typedef enum
+    {
+        OutputLanguageObjectiveC = 0,
+        OutputLanguageJava,
+        OutputLanguageCoreDataObjectiveC,
+        OutputLanguageDjangoPython,
+        OutputLanguagePython
+    } OutputLanguage;
+
+    typedef enum {
+        HTTPMethodGet = 0,
+        HTTPMethodPost = 1,
+        HTTPMethodPut = 2,
+        HTTPMethodHead = 3
+    } HTTPMethod;
+
+
+#endif

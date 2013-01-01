@@ -1,0 +1,17 @@
+
+PODS: 
+- AFNetworking (1.1.0)
+- MASPreferences (1.0)
+- iRate (1.7)
+
+DEPENDENCIES: 
+- AFNetworking (= 1.1)
+- MASPreferences (= 1.0)
+- iRate (= 1.7)
+
+COCOAPODS: 0.15.2
+
+SPEC CHECKSUMS: 
+  iRate: e4a0bd887cf39a1cd389a2112c0edc87fb8f7c0a
+  AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
+  MASPreferences: 9a855c017658b650057a683179b947baa0681073

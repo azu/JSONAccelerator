@@ -14,6 +14,7 @@
 /* Writing options keys for OutputLanguageWriterProtocol methods */
 static NSString *const kObjectiveCWritingOptionBaseClassName = @"kObjectiveCWritingOptionBaseClassName";
 static NSString *const kObjectiveCWritingOptionUseARC = @"kObjectiveCWritingOptionUseARC";
+static NSString *const kObjectiveCWritingOptionClassPrefix = @"kObjectiveCWritingOptionClassPrefix";
 
 
 @interface OutputLanguageWriterObjectiveC : NSObject <OutputLanguageWriterProtocol>

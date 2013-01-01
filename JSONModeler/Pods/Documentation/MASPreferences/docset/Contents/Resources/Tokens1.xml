@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/MASPreferencesWindowController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/MASPreferencesWindowController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASPreferencesWindowController/setViewControllers:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSArray *viewControllers</Declaration>
+			
+			
+			<Anchor>//api/name/viewControllers</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASPreferencesWindowController/viewControllers</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSArray *viewControllers</Declaration>
+			
+			
+			<Anchor>//api/name/viewControllers</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASPreferencesWindowController/setIndexOfSelectedController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger indexOfSelectedController</Declaration>
+			
+			
+			<Anchor>//api/name/indexOfSelectedController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASPreferencesWindowController/indexOfSelectedController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger indexOfSelectedController</Declaration>
+			
+			
+			<Anchor>//api/name/indexOfSelectedController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASPreferencesWindowController/setSelectedViewController:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, retain) NSViewController&lt;MASPreferencesViewController&gt; *selectedViewController</Declaration>
+			
+			
+			<Anchor>//api/name/selectedViewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASPreferencesWindowController/selectedViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly, retain) NSViewController&lt;MASPreferencesViewController&gt; *selectedViewController</Declaration>
+			
+			
+			<Anchor>//api/name/selectedViewController</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASPreferencesWindowController/setTitle:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/MASPreferencesWindowController/title</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASPreferencesWindowController/initWithViewControllers:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithViewControllers:(NSArray *)viewControllers</Declaration>
+			
+			
+			<Anchor>//api/name/initWithViewControllers:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASPreferencesWindowController/initWithViewControllers:title:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithViewControllers:(NSArray *)viewControllers title:(NSString *)title</Declaration>
+			
+			
+			<Anchor>//api/name/initWithViewControllers:title:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASPreferencesWindowController/selectControllerAtIndex:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>- (void)selectControllerAtIndex:(NSUInteger)controllerIndex</Declaration>
+			
+			
+			<Anchor>//api/name/selectControllerAtIndex:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASPreferencesWindowController/goNextTab:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>- (IBAction)goNextTab:(id)sender</Declaration>
+			
+			
+			<Anchor>//api/name/goNextTab:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/MASPreferencesWindowController/goPreviousTab:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesWindowController.h</DeclaredIn>			
+			
+			<Declaration>- (IBAction)goPreviousTab:(id)sender</Declaration>
+			
+			
+			<Anchor>//api/name/goPreviousTab:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>
