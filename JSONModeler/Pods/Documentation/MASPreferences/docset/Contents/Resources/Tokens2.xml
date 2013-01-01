@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/MASPreferencesViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/MASPreferencesViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesViewController.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASPreferencesViewController/viewWillAppear</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesViewController.h</DeclaredIn>			
+			
+			<Declaration>- (void)viewWillAppear</Declaration>
+			
+			
+			<Anchor>//api/name/viewWillAppear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASPreferencesViewController/viewDidDisappear</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesViewController.h</DeclaredIn>			
+			
+			<Declaration>- (void)viewDidDisappear</Declaration>
+			
+			
+			<Anchor>//api/name/viewDidDisappear</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASPreferencesViewController/initialKeyView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesViewController.h</DeclaredIn>			
+			
+			<Declaration>- (NSView *)initialKeyView</Declaration>
+			
+			
+			<Anchor>//api/name/initialKeyView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASPreferencesViewController/setIdentifier:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesViewController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfp/MASPreferencesViewController/identifier</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesViewController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASPreferencesViewController/setToolbarItemImage:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesViewController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSImage *toolbarItemImage</Declaration>
+			
+			
+			<Anchor>//api/name/toolbarItemImage</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfp/MASPreferencesViewController/toolbarItemImage</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesViewController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSImage *toolbarItemImage</Declaration>
+			
+			
+			<Anchor>//api/name/toolbarItemImage</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/MASPreferencesViewController/setToolbarItemLabel:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesViewController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSString *toolbarItemLabel</Declaration>
+			
+			
+			<Anchor>//api/name/toolbarItemLabel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfp/MASPreferencesViewController/toolbarItemLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>MASPreferencesViewController.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) NSString *toolbarItemLabel</Declaration>
+			
+			
+			<Anchor>//api/name/toolbarItemLabel</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

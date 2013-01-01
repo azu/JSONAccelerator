@@ -17,8 +17,11 @@
 
 @interface OutputLanguageWriterObjectiveC ()
 
+@property (nonatomic, assign) BOOL buildForARC;
+
 - (NSString *) ObjC_HeaderFileForClassObject:(ClassBaseObject *)classObject;
-- (NSString *) ObjC_ImplementationFileForClassObject:(ClassBaseObject *)classObject useARC:(BOOL)useARCFlag;
+- (NSString *) ObjC_ImplementationFileForClassObject:(ClassBaseObject *)classObject;
+- (NSString *)processHeaderForString:(NSString *)unprocessedString;
 
 @end
 
@@ -35,35 +38,37 @@
     NSArray *files = [classObjectsDict allValues];
     
     /* Determine whether or not to build for ARC */
-    BOOL buildForARC;
     if (nil != options[kObjectiveCWritingOptionUseARC]) {
-        buildForARC = [options[kObjectiveCWritingOptionUseARC] boolValue];
+        self.buildForARC = [options[kObjectiveCWritingOptionUseARC] boolValue];
     }
     else {
         /* Default to not building for ARC */
-        buildForARC = NO;
+        self.buildForARC = NO;
     }
     
-    for(ClassBaseObject *base in files) {
+    for (ClassBaseObject *base in files) {
+        NSString *newBaseClassName = base.className;
         
         // This section is to guard against people going through and renaming the class
         // to something that has already been named.
         // This will check the class name and keep appending an additional number until something has been found
-        if([[base className] isEqualToString:@"InternalBaseClass"]) {
-            NSString *newBaseClassName;
+        
+        if ([[base className] isEqualToString:@"InternalBaseClass"]) {
+            
             if (nil != options[kObjectiveCWritingOptionBaseClassName]) {
                 newBaseClassName = options[kObjectiveCWritingOptionBaseClassName];
             }
             else {
                 newBaseClassName = @"BaseClass";
             }
+            
             BOOL hasUniqueFileNameBeenFound = NO;
             NSUInteger classCheckInteger = 2;
             while (hasUniqueFileNameBeenFound == NO) {
                 hasUniqueFileNameBeenFound = YES;
                 for(ClassBaseObject *collisionBaseObject in files) {
                     if([[collisionBaseObject className] isEqualToString:newBaseClassName]) {
-                        hasUniqueFileNameBeenFound = NO; 
+                        hasUniqueFileNameBeenFound = NO;
                     }
                 }
                 if(hasUniqueFileNameBeenFound == NO) {
@@ -71,10 +76,16 @@
                     classCheckInteger++;
                 }
             }
-            
-            [base setClassName:newBaseClassName];
         }
         
+        if (nil != options[kObjectiveCWritingOptionClassPrefix]) {
+            newBaseClassName = [NSString stringWithFormat:@"%@%@", options[kObjectiveCWritingOptionClassPrefix], newBaseClassName ];
+        }
+        
+        [base setClassName:newBaseClassName];
+    }
+    
+    for(ClassBaseObject *base in files) {    
         /* Write the h file to disk */
         NSError * hFileError;
         NSString *outputHFile = [self ObjC_HeaderFileForClassObject:base];
@@ -99,7 +110,7 @@
         
         /* Write the m file to disk */
         NSError * mFileError;
-        NSString *outputMFile = [self ObjC_ImplementationFileForClassObject:base useARC:buildForARC];
+        NSString *outputMFile = [self ObjC_ImplementationFileForClassObject:base];
         NSString *mFilename = [NSString stringWithFormat:@"%@.m", base.className];
         
 #ifndef COMMAND_LINE
@@ -121,6 +132,34 @@
             filesHaveBeenWritten = YES;
         }
     }
+
+#ifndef COMMAND_LINE
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    
+    NSString *dataModelsTemplate = [mainBundle pathForResource:@"DataModelsTemplate" ofType:@"txt"];
+    NSString *templateString = [[NSString alloc] initWithContentsOfFile:dataModelsTemplate
+                                                               encoding:NSUTF8StringEncoding
+                                                                  error:nil];
+
+    // Now for the data models
+    for(ClassBaseObject *base in files) {
+        NSString *importString = [NSString stringWithFormat:@"#import \"%@.h\"\r", base.className];
+        templateString = [templateString stringByAppendingString:importString];
+    }
+    
+    templateString = [self processHeaderForString:templateString];
+    
+    NSError *dataModelFileError = nil;
+    [templateString writeToURL:[url URLByAppendingPathComponent:@"DataModels.h"]
+                    atomically:YES
+                      encoding:NSUTF8StringEncoding
+                         error:&dataModelFileError];
+    
+    if(dataModelFileError) {
+        DLog(@"%@", [dataModelFileError localizedDescription]);
+        filesHaveHadError = YES;
+    }
+#endif
     
     /* Return the error flag (by reference) */
     *generatedErrorFlag = filesHaveHadError;
@@ -134,9 +173,8 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
     // Defaults to not use ARC. This should probably be updated at some point.
-    
     dict[[NSString stringWithFormat:@"%@.h", classObject.className]] = [self ObjC_HeaderFileForClassObject:classObject];
-    dict[[NSString stringWithFormat:@"%@.m", classObject.className]] = [self ObjC_ImplementationFileForClassObject:classObject useARC:NO];        
+    dict[[NSString stringWithFormat:@"%@.m", classObject.className]] = [self ObjC_ImplementationFileForClassObject:classObject];
     
     return [NSDictionary dictionaryWithDictionary:dict];
 
@@ -162,33 +200,7 @@
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{DATE}" withString:[dateFormatter stringFromDate:currentDate]];
     
-    /* Set the name and company values in the template from the current logged in user's address book information */
-#ifndef COMMAND_LINE
-    ABAddressBook *addressBook = [ABAddressBook sharedAddressBook];
-    ABPerson *me = [addressBook me];
-    NSString *meFirstName = [me valueForProperty:kABFirstNameProperty];
-    NSString *meLastName = [me valueForProperty:kABLastNameProperty];
-    NSString *meCompany = [me valueForProperty:kABOrganizationProperty];
-#else
-    NSString *meFirstName = @"";
-    NSString *meLastName = @"";
-    NSString *meCompany = @"";
-#endif
-    
-    if(meFirstName == nil) {
-        meFirstName = @"";
-    }
-    
-    if(meLastName == nil) {
-        meLastName = @"";
-    }
-    
-    if(meCompany == nil) {
-        meCompany = @"__MyCompanyName__";
-    }
-    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"__NAME__" withString:[NSString stringWithFormat:@"%@ %@", meFirstName, meLastName]];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{COMPANY_NAME}" withString:[NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany]];
+    templateString = [self processHeaderForString:templateString];
     
     // First we need to find if there are any class properties, if so do the @Class business
     NSString *forwardDeclarationString = @"";
@@ -212,7 +224,8 @@
     
     NSString *propertyString = @"";
     for(ClassPropertiesObject *property in [classObject.properties allValues]) {
-        propertyString = [propertyString stringByAppendingFormat:@"%@\n", property];
+        
+        propertyString = [propertyString stringByAppendingFormat:@"%@\n", [self propertyForProperty:property]];
     }
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{PROPERTIES}" withString:propertyString];
@@ -220,7 +233,7 @@
     return templateString;
 }
 
-- (NSString *) ObjC_ImplementationFileForClassObject:(ClassBaseObject *)classObject useARC:(BOOL)useARCFlag
+- (NSString *) ObjC_ImplementationFileForClassObject:(ClassBaseObject *)classObject
 {
 #ifndef COMMAND_LINE
     NSBundle *mainBundle = [NSBundle mainBundle];
@@ -231,12 +244,8 @@
     NSString *templateString = @"//\n//  {CLASSNAME}.m\n//\n//  Created by __NAME__ on {DATE}\n//  Copyright (c) {COMPANY_NAME}. All rights reserved.\n//\n\n#import \"{CLASSNAME}.h\"\n{IMPORT_BLOCK}\n\n@interface {CLASSNAME} ()\n\n- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;\n\n@end\n\n@implementation {CLASSNAME}\n\n{SYNTHESIZE_BLOCK}\n\n+ ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict\n{\n    {CLASSNAME} *instance = {CLASSNAME_INIT};\n    return instance;\n}\n\n- (id)initWithDictionary:(NSDictionary *)dict\n{\n    self = [super init];\n    \n    // This check serves to make sure that a non-NSDictionary object\n    // passed into the model class doesn't break the parsing.\n    if(self && [dict isKindOfClass:[NSDictionary class]]) {\n{SETTERS}\n    }\n    \n    return self;\n    \n}\n\n- (NSDictionary *)dictionaryRepresentation\n{\n    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];\n{DICTIONARY_REPRESENTATION}\n    return [NSDictionary dictionaryWithDictionary:mutableDict];\n}\n\n- (NSString *)description \n{\n    return [NSString stringWithFormat:@\"%@\", [self dictionaryRepresentation]];\n}\n\n#pragma mark - Helper Method\n- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict\n{\n    id object = [dict objectForKey:aKey];\n    return [object isEqual:[NSNull null]] ? nil : object;\n}\n\n\n#pragma mark - NSCoding Methods\n\n- (id)initWithCoder:(NSCoder *)aDecoder\n{\n    self = [super init];\n{INITWITHCODER}\n    return self;\n}\n\n- (void)encodeWithCoder:(NSCoder *)aCoder\n{\n{ENCODEWITHCODER}\n}\n\n{DEALLOC}\n@end\n";
 #endif
     
-    NSDate *currentDate = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    
     // Need to check for ARC to tell whether or not to use autorelease or not
-    if(useARCFlag) {
+    if(self.buildForARC) {
         // Uses ARC
         templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME_INIT}" withString:@"[[{CLASSNAME} alloc] initWithDictionary:dict]"];
     } else {
@@ -328,7 +337,7 @@
     NSString *deallocString = @"";
     
     /* Add dealloc method only if not building for ARC */
-    if(useARCFlag == NO) {
+    if(self.buildForARC == NO) {
         deallocString = @"\n- (void)dealloc\n{\n";
         for(ClassPropertiesObject *property in [classObject.properties allValues]) {
             if([property type] != PropertyTypeInt && [property type] != PropertyTypeDouble && [property type] != PropertyTypeBool){
@@ -337,6 +346,28 @@
         }
         deallocString = [deallocString stringByAppendingString:@"    [super dealloc];\n}\n"];
     }
+    
+    /* Set other template strings */
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:classObject.className];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORT_BLOCK}" withString:importString];    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SYNTHESIZE_BLOCK}" withString:sythesizeString];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DICTIONARY_REPRESENTATION}" withString:dictionaryRepresentation];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{INITWITHCODER}" withString:initWithCoderString];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{ENCODEWITHCODER}" withString:encodeWithCoderString];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DEALLOC}" withString:deallocString];
+    
+    templateString = [self processHeaderForString:templateString];
+    
+    return templateString;
+}
+
+- (NSString *)processHeaderForString:(NSString *)unprocessedString
+{
+    NSString *templateString = [unprocessedString copy];
+    NSDate *currentDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     
     /* Set the name and company values in the template from the current logged in user's address book information */
 #ifndef COMMAND_LINE
@@ -362,21 +393,16 @@
     if(meCompany == nil) {
         meCompany = @"__MyCompanyName__";
     }
-    
+
     templateString = [templateString stringByReplacingOccurrencesOfString:@"__NAME__" withString:[NSString stringWithFormat:@"%@ %@", meFirstName, meLastName]];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{COMPANY_NAME}" withString:[NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany]];
+    
+    NSString *companyReplacement = [NSString stringWithFormat:@"%@ %@", [currentDate descriptionWithCalendarFormat:@"%Y" timeZone:nil locale:nil] , meCompany];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{COMPANY_NAME}"
+                                                               withString:companyReplacement];
     
     /* Set other template strings */
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:classObject.className];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DATE}" withString:[dateFormatter stringFromDate:currentDate]];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORT_BLOCK}" withString:importString];    
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SYNTHESIZE_BLOCK}" withString:sythesizeString];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DICTIONARY_REPRESENTATION}" withString:dictionaryRepresentation];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{INITWITHCODER}" withString:initWithCoderString];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{ENCODEWITHCODER}" withString:encodeWithCoderString];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DEALLOC}" withString:deallocString];
-    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{DATE}"
+                                                               withString:[dateFormatter stringFromDate:currentDate]];
     return templateString;
 }
 
@@ -497,7 +523,11 @@
             returnString = [returnString stringByAppendingString:@"assign"];
             break;
         case SetterSemanticRetain:
-            returnString = [returnString stringByAppendingString:@"retain"];
+            if (self.buildForARC) {
+                returnString = [returnString stringByAppendingString:@"strong"];
+            } else {
+                returnString = [returnString stringByAppendingString:@"retain"];
+            }
             break;
         case SetterSemanticCopy:
             returnString = [returnString stringByAppendingString:@"copy"];

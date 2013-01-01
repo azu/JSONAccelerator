@@ -79,21 +79,24 @@
 /* Success message in an action sheet */
 "Your files have successfully been generated." = "已成功生成您的文件。";
 
+/* "The letters to prepend to the file */
+"Class Prefix" = "文件前缀";
+
 /*************** HTTP OPTIONS WINDOW STRINGS *************/
 
 /* Title for the Method box in the HTTP Options window */
 "Method" = "方法";
 
 /* Title for the Headers box in the HTTP Options window */
-"Headers" = "页眉";
+"Headers" = "请求头";
 
 /* Title for the field to enter a HTTP header key */
 /* Title for the column of HTTP header keys */
-"Key" = "重点";
+"Key" = "键";
 
 /* Title for the field to enter a HTTP header value */
 /* Title for the column of HTTP header values */
-"Value" = "价值";
+"Value" = "值";
 
 /* Title for the Add header button in the HTTP Options window */
 "Add" = "添加";

@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/jrexeise/Library/Developer/Shared/Documentation/DocSets/org.cocoapods.MASPreferences-1.0.docset
+Time: 2012-12-29 22:42:48 +0000

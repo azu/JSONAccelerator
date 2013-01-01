@@ -47,7 +47,7 @@
 
 //These need to be defined for each application and version
 #warning REMEMBER TO ALWAYS UPDATE THIS
-static NSString * const kReceiptBundleVersion = @"1.0.6";
+static NSString * const kReceiptBundleVersion = @"1.0.7";
 static NSString * const kReceiptBundleIdentifier = @"com.nerdery.JSON-Accelerator";
 
 
@@ -58,6 +58,10 @@ static NSString * const kReceiptOpaqueValueKey = @"OpaqueValue";
 static NSString * const kReceiptHashKey = @"Hash";
 
 @implementation NPReceiptVerification
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 
 + (void)load {
 #ifdef DEBUG
@@ -473,5 +477,5 @@ static NSString * const kReceiptHashKey = @"Hash";
     
     return info;
 }
-
+#pragma clang diagnostic pop
 @end

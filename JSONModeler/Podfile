@@ -1,0 +1,7 @@
+platform :osx, '10.8'
+
+xcodeproj 'JSONAccelerator.xcodeproj'
+
+pod 'AFNetworking', '1.1'
+pod 'iRate', '1.7'
+pod 'MASPreferences', '1.0'
