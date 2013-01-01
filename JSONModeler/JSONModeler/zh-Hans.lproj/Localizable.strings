@@ -88,7 +88,7 @@
 "Method" = "方法";
 
 /* Title for the Headers box in the HTTP Options window */
-"Headers" = "页眉";
+"Headers" = "请求头";
 
 /* Title for the field to enter a HTTP header key */
 /* Title for the column of HTTP header keys */
