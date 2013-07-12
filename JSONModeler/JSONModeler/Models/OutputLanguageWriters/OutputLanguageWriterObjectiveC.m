@@ -563,11 +563,11 @@
     } else {
         setterString = [setterString stringByAppendingString:[NSString stringWithFormat:@"            self.%@ = ", [property.name lowercaseCamelcaseString]]];
         if([property type] == PropertyTypeInt) {
-            setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] intValue];\n", property.jsonName];
+            setterString = [setterString stringByAppendingFormat:@"[[self objectOrNilForKey:@\"%@\" fromDictionary:dict] intValue];\n", property.jsonName];
         } else if([property type] == PropertyTypeDouble) {
-            setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] doubleValue];\n", property.jsonName]; 
+            setterString = [setterString stringByAppendingFormat:@"[[self objectOrNilForKey:@\"%@\" fromDictionary:dict] doubleValue];\n", property.jsonName]; 
         } else if([property type] == PropertyTypeBool) {
-            setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] boolValue];\n", property.jsonName]; 
+            setterString = [setterString stringByAppendingFormat:@"[[self objectOrNilForKey:@\"%@\" fromDictionary:dict] boolValue];\n", property.jsonName]; 
         } else {
             // It's a normal class type
             setterString = [setterString stringByAppendingFormat:@"[self objectOrNilForKey:@\"%@\" fromDictionary:dict];\n", property.jsonName];
