@@ -12,6 +12,8 @@
 #import "MainWindowController.h"
 #import "MASPreferencesWindowController.h"
 #import "JRFeedbackController.h"
+#import "DFFeedbackWindowController.h"
+#import "DFCrashReportWindowController.h"
 #import "ModelerDocument.h"
 #import "iRate.h"
 
@@ -38,7 +40,13 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     _preferencesWindowController = nil;
+    [DFFeedbackWindowController initializeWithFeedbackUrl:@"http://www.jsonmodeler.com/feedback.php"
+                                   systemProfileDataTypes:DFSystemProfileData_All];
     
+    [DFCrashReportWindowController initializeWithFeedbackUrl:@"http://www.jsonmodeler.com/feedback.php"
+                                                   updateUrl:@""
+                                                        icon:nil
+                                      systemProfileDataTypes:DFSystemProfileData_All];
 }
 
 -(BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender {
@@ -70,7 +78,8 @@
 
 - (IBAction)feedbackMenuSelected:(id)sender
 {
-    [JRFeedbackController showFeedback];
+//    [JRFeedbackController showFeedback];
+    [[DFFeedbackWindowController singleton] show];
 }
 
 @end
