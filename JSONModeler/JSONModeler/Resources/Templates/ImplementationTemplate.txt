@@ -8,6 +8,8 @@
 #import "{CLASSNAME}.h"
 {IMPORT_BLOCK}
 
+{STRING_CONSTANT_BLOCK}
+
 @interface {CLASSNAME} ()
 
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
