@@ -419,7 +419,9 @@
                 }
                 else if (language == OutputLanguageCoreDataObjectiveC) {
                     writer = [[OutputLanguageWriterCoreData alloc] init];
-                    optionsDict = @{kCoreDataWritingOptionBaseClassName: baseClassName};
+                    if (baseClassName != nil) {
+                        optionsDict = @{kCoreDataWritingOptionBaseClassName: baseClassName};
+                    }
                 }
                 else if (language == OutputLanguageDjangoPython) {
                     writer = [[OutputLanguageWriterDjango alloc] init];
