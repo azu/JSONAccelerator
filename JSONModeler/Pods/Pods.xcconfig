@@ -1,7 +1,4 @@
-ALWAYS_SEARCH_USER_PATHS = YES
-PODS_HEADERS_SEARCH_PATHS = ${PODS_PUBLIC_HEADERS_SEARCH_PATHS}
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/MASPreferences" "${PODS_ROOT}/Headers/iRate"
+OTHER_LDFLAGS = -ObjC -framework CoreServices -framework Security -framework StoreKit -framework SystemConfiguration
 PODS_ROOT = ${SRCROOT}/Pods
-OTHER_LDFLAGS = -ObjC -framework CoreServices -framework StoreKit -framework SystemConfiguration
-HEADER_SEARCH_PATHS = ${PODS_HEADERS_SEARCH_PATHS}
-PODS_BUILD_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/AFNetworking" "${PODS_ROOT}/BuildHeaders/MASPreferences" "${PODS_ROOT}/BuildHeaders/iRate"
-PODS_PUBLIC_HEADERS_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/MASPreferences" "${PODS_ROOT}/Headers/iRate"
