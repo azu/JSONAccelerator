@@ -103,21 +103,24 @@
     [request setHTTPMethod:method];
     
     self.operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    __block AFHTTPRequestOperation *blockOperation = self.operation;
+    
     self.operation.completionBlock = ^ {
-        if ([self.operation isCancelled]) {
+        if ([blockOperation isCancelled]) {
             return;
         }
         
-        if (self.operation.error) {
+        if (blockOperation.error) {
             if (failure) {
                 dispatch_async(dispatch_get_main_queue(), ^(void) {
-                    failure(self.operation.response, self.operation.error);
+                    failure(blockOperation.response, blockOperation.error);
                 });
             }
         } else {
             if (success) {
                 dispatch_async(dispatch_get_main_queue(), ^(void) {
-                    success(self.operation.responseData);
+                    success(blockOperation.responseData);
                 });
             }
         }

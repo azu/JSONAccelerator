@@ -274,10 +274,10 @@
     for (NSXMLElement *attribute in attributes) {
         /* Attribute properties are either NSStrings or NSNumbers based on our parsing */
         if ([[[attribute attributeForName:@"attributeType"] stringValue] isEqualToString:@"String"]) {
-            propertiesString = [propertiesString stringByAppendingFormat:@"@property (nonatomic, retain) NSString *%@\n", [[attribute attributeForName:@"name"] stringValue]];
+            propertiesString = [propertiesString stringByAppendingFormat:@"@property (nonatomic, retain) NSString *%@;\n", [[attribute attributeForName:@"name"] stringValue]];
         }
         else {
-            propertiesString = [propertiesString stringByAppendingFormat:@"@property (nonatomic, retain) NSNumber *%@\n", [[attribute attributeForName:@"name"] stringValue]];
+            propertiesString = [propertiesString stringByAppendingFormat:@"@property (nonatomic, retain) NSNumber *%@;\n", [[attribute attributeForName:@"name"] stringValue]];
         }
     }
     
@@ -286,11 +286,11 @@
     for (NSXMLElement *relationship in relationships) {
         /* To-many relationship are NSSets, otherwise the class name */
         if ([[[relationship attributeForName:@"toMany"] stringValue] isEqualToString:@"YES"]) {
-            propertiesString = [propertiesString stringByAppendingFormat:@"@property (nonatomic, retain) NSSet *%@\n", [[relationship attributeForName:@"name"] stringValue]];
+            propertiesString = [propertiesString stringByAppendingFormat:@"@property (nonatomic, retain) NSSet *%@;\n", [[relationship attributeForName:@"name"] stringValue]];
             [toManyRelationships addObject:relationship];
         }
         else {
-            propertiesString = [propertiesString stringByAppendingFormat:@"@property (nonatomic, retain) %@ *%@\n", [[relationship attributeForName:@"destinationEntity"] stringValue], [[relationship attributeForName:@"name"] stringValue]];
+            propertiesString = [propertiesString stringByAppendingFormat:@"@property (nonatomic, retain) %@ *%@;\n", [[relationship attributeForName:@"destinationEntity"] stringValue], [[relationship attributeForName:@"name"] stringValue]];
         }
     }
     

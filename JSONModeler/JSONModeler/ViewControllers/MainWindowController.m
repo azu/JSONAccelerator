@@ -419,7 +419,9 @@
                 }
                 else if (language == OutputLanguageCoreDataObjectiveC) {
                     writer = [[OutputLanguageWriterCoreData alloc] init];
-                    optionsDict = @{kCoreDataWritingOptionBaseClassName: baseClassName};
+                    if (baseClassName != nil) {
+                        optionsDict = @{kCoreDataWritingOptionBaseClassName: baseClassName};
+                    }
                 }
                 else if (language == OutputLanguageDjangoPython) {
                     writer = [[OutputLanguageWriterDjango alloc] init];
@@ -480,7 +482,7 @@
     
     OutputLanguage language = [self.languageChooserViewController chosenLanguage];
     // If we're creating java files, and there's no package name, reject
-    if (language == OutputLanguageJava && (self.languageChooserViewController.packageName == nil || self.languageChooserViewController.packageName == @"") ) {
+    if (language == OutputLanguageJava && (self.languageChooserViewController.packageName == nil || [self.languageChooserViewController.packageName isEqual: @""]) ) {
         NSAlert *alert = [NSAlert alertWithMessageText:@"No Package Name" defaultButton:@"Close" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Please enter a package name."];
         [alert runModal];
         return NO;

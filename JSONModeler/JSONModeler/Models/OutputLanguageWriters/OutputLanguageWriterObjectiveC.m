@@ -241,7 +241,9 @@
     NSString *implementationTemplate = [mainBundle pathForResource:@"ImplementationTemplate" ofType:@"txt"];
     NSString *templateString = [[NSString alloc] initWithContentsOfFile:implementationTemplate encoding:NSUTF8StringEncoding error:nil];
 #else
-    NSString *templateString = @"//\n//  {CLASSNAME}.m\n//\n//  Created by __NAME__ on {DATE}\n//  Copyright (c) {COMPANY_NAME}. All rights reserved.\n//\n\n#import \"{CLASSNAME}.h\"\n{IMPORT_BLOCK}\n\n@interface {CLASSNAME} ()\n\n- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;\n\n@end\n\n@implementation {CLASSNAME}\n\n{SYNTHESIZE_BLOCK}\n\n+ ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict\n{\n    {CLASSNAME} *instance = {CLASSNAME_INIT};\n    return instance;\n}\n\n- (id)initWithDictionary:(NSDictionary *)dict\n{\n    self = [super init];\n    \n    // This check serves to make sure that a non-NSDictionary object\n    // passed into the model class doesn't break the parsing.\n    if(self && [dict isKindOfClass:[NSDictionary class]]) {\n{SETTERS}\n    }\n    \n    return self;\n    \n}\n\n- (NSDictionary *)dictionaryRepresentation\n{\n    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];\n{DICTIONARY_REPRESENTATION}\n    return [NSDictionary dictionaryWithDictionary:mutableDict];\n}\n\n- (NSString *)description \n{\n    return [NSString stringWithFormat:@\"%@\", [self dictionaryRepresentation]];\n}\n\n#pragma mark - Helper Method\n- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict\n{\n    id object = [dict objectForKey:aKey];\n    return [object isEqual:[NSNull null]] ? nil : object;\n}\n\n\n#pragma mark - NSCoding Methods\n\n- (id)initWithCoder:(NSCoder *)aDecoder\n{\n    self = [super init];\n{INITWITHCODER}\n    return self;\n}\n\n- (void)encodeWithCoder:(NSCoder *)aCoder\n{\n{ENCODEWITHCODER}\n}\n\n{DEALLOC}\n@end\n";
+    NSString *templateString = @"//\n//  {CLASSNAME}.m\n//\n//  Created by __NAME__ on {DATE}\n//  Copyright (c) {COMPANY_NAME}. All rights reserved.\n//\n\n#import \"{CLASSNAME}.h\"\n{IMPORT_BLOCK}\n\n{STRING_CONSTANT_BLOCK}\n\n@interface {CLASSNAME} ()\n\n- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;\n\n@end\n\n@implementation {CLASSNAME}\n\n{SYNTHESIZE_BLOCK}\n\n+ ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict\n{\n    {CLASSNAME} *instance = {CLASSNAME_INIT};\n    return instance;\n}\n\n- (id)initWithDictionary:(NSDictionary *)dict\n{\n    self = [super init];\n    \n    // This check serves to make sure that a non-NSDictionary object\n    // passed into the model class doesn't break the parsing.\n    if(self && [dict isKindOfClass:[NSDictionary class]]) {\n{SETTERS}\n    }\n    \n    return self;\n    \n}\n\n- (NSDictionary *)dictionaryRepresentation\n{\n    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];\n{DICTIONARY_REPRESENTATION}\n    return [NSDictionary dictionaryWithDictionary:mutableDict];\n}\n\n- (NSString *)description \n{\n    return [NSString stringWithFormat:@\"%@\", [self dictionaryRepresentation]];\n}\n\n#pragma mark - Helper Method\n- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict\n{\n    id object = [dict objectForKey:aKey];\n    return [object isEqual:[NSNull null]] ? nil : object;\n}\n\n\n#pragma mark - NSCoding Methods\n\n- (id)initWithCoder:(NSCoder *)aDecoder\n{\n    self = [super init];\n{INITWITHCODER}\n    return self;\n}\n\n- (void)encodeWithCoder:(NSCoder *)aCoder\n{\n{ENCODEWITHCODER}\n}\n\n{DEALLOC}\n@end\n";
+//    NSString *templateString = @"//\n//  {CLASSNAME}.m\n//\n//  Created by __NAME__ on {DATE}\n//  Copyright (c) {COMPANY_NAME}. All rights reserved.\n//\n\n#import \"{CLASSNAME}.h\"\n{IMPORT_BLOCK}\n\n@interface {CLASSNAME} ()\n\n- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;\n\n@end\n\n@implementation {CLASSNAME}\n\n{SYNTHESIZE_BLOCK}\n\n+ ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict\n{\n    {CLASSNAME} *instance = {CLASSNAME_INIT};\n    return instance;\n}\n\n- (id)initWithDictionary:(NSDictionary *)dict\n{\n    self = [super init];\n    \n    // This check serves to make sure that a non-NSDictionary object\n    // passed into the model class doesn't break the parsing.\n    if(self && [dict isKindOfClass:[NSDictionary class]]) {\n{SETTERS}\n    }\n    \n    return self;\n    \n}\n\n- (NSDictionary *)dictionaryRepresentation\n{\n    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];\n{DICTIONARY_REPRESENTATION}\n    return [NSDictionary dictionaryWithDictionary:mutableDict];\n}\n\n- (NSString *)description \n{\n    return [NSString stringWithFormat:@\"%@\", [self dictionaryRepresentation]];\n}\n\n#pragma mark - Helper Method\n- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict\n{\n    id object = [dict objectForKey:aKey];\n    return [object isEqual:[NSNull null]] ? nil : object;\n}\n\n\n#pragma mark - NSCoding Methods\n\n- (id)initWithCoder:(NSCoder *)aDecoder\n{\n    self = [super init];\n{INITWITHCODER}\n    return self;\n}\n\n- (void)encodeWithCoder:(NSCoder *)aCoder\n{\n{ENCODEWITHCODER}\n}\n\n{DEALLOC}\n@end\n";
+
 #endif
     
     // Need to check for ARC to tell whether or not to use autorelease or not
@@ -275,6 +277,12 @@
         importString = [importString stringByAppendingFormat:@"#import \"%@.h\"\n", referenceImport];
     }
     
+    // STRING CONSTANTS
+    NSString *stringConstantString = @"";
+    for (ClassPropertiesObject *property in [classObject.properties allValues]) {
+        stringConstantString = [stringConstantString stringByAppendingFormat:@"NSString *const %@ = @\"%@\";\n", [self stringConstantForProperty:property], property.jsonName];
+    }
+    
     
     // SYNTHESIZE
     NSString *sythesizeString = @"";
@@ -300,16 +308,16 @@
     for (ClassPropertiesObject *property in [classObject.properties allValues]) {
         switch (property.type) {
             case PropertyTypeInt:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeIntegerForKey:@\"%@\"];", [property.name lowercaseCamelcaseString], property.name]];
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeIntegerForKey:%@];", [property.name lowercaseCamelcaseString], [self stringConstantForProperty:property]]];
                 break;
             case PropertyTypeDouble:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeDoubleForKey:@\"%@\"];", [property.name lowercaseCamelcaseString], property.name]];
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeDoubleForKey:%@];", [property.name lowercaseCamelcaseString], [self stringConstantForProperty:property]]];
                 break;
             case PropertyTypeBool:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeBoolForKey:@\"%@\"];", [property.name lowercaseCamelcaseString], property.name]];
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeBoolForKey:%@];", [property.name lowercaseCamelcaseString], [self stringConstantForProperty:property]]];
                 break;
             default:
-                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeObjectForKey:@\"%@\"];", [property.name lowercaseCamelcaseString], property.name]];
+                initWithCoderString = [initWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    self.%@ = [aDecoder decodeObjectForKey:%@];", [property.name lowercaseCamelcaseString], [self stringConstantForProperty:property]]];
                 break;
         }
     }
@@ -319,16 +327,16 @@
     for (ClassPropertiesObject *property in [classObject.properties allValues]) {
         switch (property.type) {
             case PropertyTypeInt:
-                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeInteger:_%@ forKey:@\"%@\"];", property.name, property.name]];
+                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeInteger:_%@ forKey:%@];", property.name, [self stringConstantForProperty:property]]];
                 break;
             case PropertyTypeDouble:
-                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeDouble:_%@ forKey:@\"%@\"];", property.name, property.name]];
+                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeDouble:_%@ forKey:%@];", property.name, [self stringConstantForProperty:property]]];
                 break;
             case PropertyTypeBool:
-                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeBool:_%@ forKey:@\"%@\"];", property.name, property.name]];
+                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeBool:_%@ forKey:%@];", property.name, [self stringConstantForProperty:property]]];
                 break;
             default:
-                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeObject:_%@ forKey:@\"%@\"];", property.name, property.name]];
+                encodeWithCoderString = [encodeWithCoderString stringByAppendingString:[NSString stringWithFormat:@"\n    [aCoder encodeObject:_%@ forKey:%@];", property.name, [self stringConstantForProperty:property]]];
                 break;
         }
     }
@@ -349,7 +357,8 @@
     
     /* Set other template strings */
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:classObject.className];
-    templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORT_BLOCK}" withString:importString];    
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{IMPORT_BLOCK}" withString:importString];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{STRING_CONSTANT_BLOCK}" withString:stringConstantString];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{SYNTHESIZE_BLOCK}" withString:sythesizeString];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERS}" withString:settersString];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{DICTIONARY_REPRESENTATION}" withString:dictionaryRepresentation];
@@ -423,18 +432,18 @@
         NSString *implementationTemplate = [mainBundle pathForResource:@"DictionaryRepresentationArrayTemplate" ofType:@"txt"];
         NSString *templateString = [[NSString alloc] initWithContentsOfFile:implementationTemplate encoding:NSUTF8StringEncoding error:nil];
 #else
-        NSString *templateString = @"NSMutableArray *tempArrayFor{ARRAY_GETTER_NAME} = [NSMutableArray array];\n    for (NSObject *subArrayObject in self.{ARRAY_GETTER_NAME_LOWERCASE}) {\n        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {\n            // This class is a model object\n            [tempArrayFor{ARRAY_GETTER_NAME} addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];\n        } else {\n            // Generic object\n            [tempArrayFor{ARRAY_GETTER_NAME} addObject:subArrayObject];\n        }\n    }\n    [mutableDict setValue:[NSArray arrayWithArray:tempArrayFor{ARRAY_GETTER_NAME}] forKey:@\"%@\"];\n";
+        NSString *templateString = @"NSMutableArray *tempArrayFor{ARRAY_GETTER_NAME} = [NSMutableArray array];\n    for (NSObject *subArrayObject in self.{ARRAY_GETTER_NAME_LOWERCASE}) {\n        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {\n            // This class is a model object\n            [tempArrayFor{ARRAY_GETTER_NAME} addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];\n        } else {\n            // Generic object\n            [tempArrayFor{ARRAY_GETTER_NAME} addObject:subArrayObject];\n        }\n    }\n    [mutableDict setValue:[NSArray arrayWithArray:tempArrayFor{ARRAY_GETTER_NAME}] forKey:%@];\n";
 #endif
         templateString = [templateString stringByReplacingOccurrencesOfString:@"{ARRAY_GETTER_NAME}" withString:[property.name uppercaseCamelcaseString]];
         templateString = [templateString stringByReplacingOccurrencesOfString:@"{ARRAY_GETTER_NAME_LOWERCASE}" withString:[property.name lowercaseCamelcaseString]];
-        return [NSString stringWithFormat:templateString, property.jsonName];
+        return [NSString stringWithFormat:templateString, [self stringConstantForProperty:property]];
     }
 
     
     NSString *dictionaryRepresentation = @"";
-    NSString *formatString = @"    [mutableDict setValue:%@ forKey:@\"%@\"];\n";
+    NSString *formatString = @"    [mutableDict setValue:%@ forKey:%@];\n";
     NSString *value;
-    NSString *key = [NSString stringWithFormat:@"%@", property.jsonName];
+    NSString *key = [NSString stringWithFormat:@"%@", [self stringConstantForProperty:property]];
     
     
     
@@ -546,7 +555,8 @@
 {
     NSString *setterString = @"";
     if(property.isClass && (property.type == PropertyTypeDictionary || property.type == PropertyTypeClass)) {
-        setterString = [setterString stringByAppendingFormat:@"            self.%@ = [%@ modelObjectWithDictionary:[dict objectForKey:@\"%@\"]];\n", property.name, property.referenceClass.className, property.jsonName];
+        setterString = [setterString stringByAppendingFormat:@"            self.%@ = [%@ modelObjectWithDictionary:[dict objectForKey:%@]];\n", property.name, property.referenceClass.className, [self stringConstantForProperty:property]];
+
     } else if(property.type == PropertyTypeArray && property.referenceClass != nil) {
 #ifndef COMMAND_LINE
         NSBundle *mainBundle = [NSBundle mainBundle];
@@ -554,23 +564,23 @@
         NSString *interfaceTemplate = [mainBundle pathForResource:@"ArraySetterTemplate" ofType:@"txt"];
         NSString *templateString = [[NSString alloc] initWithContentsOfFile:interfaceTemplate encoding:NSUTF8StringEncoding error:nil];
 #else 
-        NSString *templateString = @"    NSObject *received{REFERENCE_CLASS} = [dict objectForKey:@\"{JSONNAME}\"];\n    NSMutableArray *parsed{REFERENCE_CLASS} = [NSMutableArray array];\n    if ([received{REFERENCE_CLASS} isKindOfClass:[NSArray class]]) {\n        for (NSDictionary *item in (NSArray *)received{REFERENCE_CLASS}) {\n            if ([item isKindOfClass:[NSDictionary class]]) {\n                [parsed{REFERENCE_CLASS} addObject:[{REFERENCE_CLASS} modelObjectWithDictionary:item]];\n            }\n       }\n    } else if ([received{REFERENCE_CLASS} isKindOfClass:[NSDictionary class]]) {\n       [parsed{REFERENCE_CLASS} addObject:[{REFERENCE_CLASS} modelObjectWithDictionary:(NSDictionary *)received{REFERENCE_CLASS}]];\n    }\n\n    self.{SETTERNAME} = [NSArray arrayWithArray:parsed{REFERENCE_CLASS}];\n";
+        NSString *templateString = @"    NSObject *received{REFERENCE_CLASS} = [dict objectForKey:{JSONNAME}];\n    NSMutableArray *parsed{REFERENCE_CLASS} = [NSMutableArray array];\n    if ([received{REFERENCE_CLASS} isKindOfClass:[NSArray class]]) {\n        for (NSDictionary *item in (NSArray *)received{REFERENCE_CLASS}) {\n            if ([item isKindOfClass:[NSDictionary class]]) {\n                [parsed{REFERENCE_CLASS} addObject:[{REFERENCE_CLASS} modelObjectWithDictionary:item]];\n            }\n       }\n    } else if ([received{REFERENCE_CLASS} isKindOfClass:[NSDictionary class]]) {\n       [parsed{REFERENCE_CLASS} addObject:[{REFERENCE_CLASS} modelObjectWithDictionary:(NSDictionary *)received{REFERENCE_CLASS}]];\n    }\n\n    self.{SETTERNAME} = [NSArray arrayWithArray:parsed{REFERENCE_CLASS}];\n";
 #endif
-        templateString = [templateString stringByReplacingOccurrencesOfString:@"{JSONNAME}" withString:property.jsonName];
+        templateString = [templateString stringByReplacingOccurrencesOfString:@"{JSONNAME}" withString:[self stringConstantForProperty:property]];
         templateString = [templateString stringByReplacingOccurrencesOfString:@"{SETTERNAME}" withString:property.name];
         setterString = [templateString stringByReplacingOccurrencesOfString:@"{REFERENCE_CLASS}" withString:property.referenceClass.className];
         
     } else {
         setterString = [setterString stringByAppendingString:[NSString stringWithFormat:@"            self.%@ = ", [property.name lowercaseCamelcaseString]]];
         if([property type] == PropertyTypeInt) {
-            setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] intValue];\n", property.jsonName];
+            setterString = [setterString stringByAppendingFormat:@"[[self objectOrNilForKey:%@ fromDictionary:dict] intValue];\n", [self stringConstantForProperty:property]];
         } else if([property type] == PropertyTypeDouble) {
-            setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] doubleValue];\n", property.jsonName]; 
+            setterString = [setterString stringByAppendingFormat:@"[[self objectOrNilForKey:%@ fromDictionary:dict] doubleValue];\n", [self stringConstantForProperty:property]];
         } else if([property type] == PropertyTypeBool) {
-            setterString = [setterString stringByAppendingFormat:@"[[dict objectForKey:@\"%@\"] boolValue];\n", property.jsonName]; 
+            setterString = [setterString stringByAppendingFormat:@"[[self objectOrNilForKey:%@ fromDictionary:dict] boolValue];\n", [self stringConstantForProperty:property]];
         } else {
             // It's a normal class type
-            setterString = [setterString stringByAppendingFormat:@"[self objectOrNilForKey:@\"%@\" fromDictionary:dict];\n", property.jsonName];
+            setterString = [setterString stringByAppendingFormat:@"[self objectOrNilForKey:%@ fromDictionary:dict];\n", [self stringConstantForProperty:property]];
         }
     }
     return setterString;
@@ -624,6 +634,11 @@
         default:
             break;
     }
+}
+
+- (NSString *)stringConstantForProperty:(ClassPropertiesObject *)property
+{
+    return [NSString stringWithFormat:@"k%@", [property.jsonName uppercaseCamelcaseString]];
 }
 
 
