@@ -26,7 +26,7 @@
     return instance;
 }
 
-- (id)initWithDictionary:(NSDictionary *)dict
+- (instancetype)initWithDictionary:(NSDictionary *)dict
 {
     self = [super init];
     
