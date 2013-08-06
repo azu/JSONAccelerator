@@ -24,11 +24,25 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## MASPreferences
+
+# MASPreferences
+
+This component is intended as a replacement for SS_PrefsController by Matt Legend Gemmell and Selectable Toolbar by Brandon Walkin. It is designed to use NSViewController subclasses for preference panes.
+
+# How to use
+
+You can find a Demo project at [MASPreferencesDemo](https://github.com/shpakovski/MASPreferencesDemo).
+
+# License
+
+MASPreferences is licensed under the BSD license
+
 ## iRate
 
 iRate
 
-Version 1.7, November 24th, 2012
+Version 1.7.5, April 26th, 2013
 
 Copyright (C) 2011 Charcoal Design
 

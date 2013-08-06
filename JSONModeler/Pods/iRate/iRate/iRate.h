@@ -1,7 +1,7 @@
 //
 //  iRate.h
 //
-//  Version 1.7
+//  Version 1.7.4
 //
 //  Created by Nick Lockwood on 26/01/2011.
 //  Copyright 2011 Charcoal Design
@@ -33,15 +33,12 @@
 
 #import <Availability.h>
 #undef weak_delegate
-#undef __weak_delegate
 #if __has_feature(objc_arc_weak) && \
 (!(defined __MAC_OS_X_VERSION_MIN_REQUIRED) || \
 __MAC_OS_X_VERSION_MIN_REQUIRED >= __MAC_10_8)
 #define weak_delegate weak
-#define __weak_delegate __weak
 #else
 #define weak_delegate unsafe_unretained
-#define __weak_delegate __unsafe_unretained
 #endif
 
 
@@ -80,10 +77,13 @@ iRateErrorCode;
 - (void)iRateCouldNotConnectToAppStore:(NSError *)error;
 - (void)iRateDidDetectAppUpdate;
 - (BOOL)iRateShouldPromptForRating;
+- (void)iRateDidPromptForRating;
 - (void)iRateUserDidAttemptToRateApp;
 - (void)iRateUserDidDeclineToRateApp;
 - (void)iRateUserDidRequestReminderToRateApp;
 - (BOOL)iRateShouldOpenAppStore;
+- (void)iRateDidPresentStoreKitModal;
+- (void)iRateDidDismissStoreKitModal;
 
 @end
 
