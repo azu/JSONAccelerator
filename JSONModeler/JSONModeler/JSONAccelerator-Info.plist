@@ -66,7 +66,7 @@
 	<key>NSContactsUsageDescription</key>
 	<string>This application fetches your vCard and puts your name and company in the header comment block in Objective-C.</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2012 The Nerdery. All rights reserved.</string>
+	<string>Copyright © 2013 The Nerdery. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
