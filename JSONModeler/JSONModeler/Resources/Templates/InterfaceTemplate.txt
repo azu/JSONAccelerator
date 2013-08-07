@@ -13,7 +13,7 @@
 
 {PROPERTIES}
 + ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict;
-- (id)initWithDictionary:(NSDictionary *)dict;
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
 - (NSDictionary *)dictionaryRepresentation;
 
 @end

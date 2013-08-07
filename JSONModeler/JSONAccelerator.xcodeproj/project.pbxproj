@@ -154,6 +154,7 @@
 		44C0FF86150AA3B30039A847 /* MarkerLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF79150AA33A0039A847 /* MarkerLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44C0FF88150AA3BA0039A847 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF7B150AA33A0039A847 /* NoodleLineNumberMarker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		44C0FF89150AA3C00039A847 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44C0FF7D150AA33A0039A847 /* NoodleLineNumberView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		44C509E117B1E30500DC0483 /* JSONModeler.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 44C509E017B1E30500DC0483 /* JSONModeler.entitlements */; };
 		44C546E8146C18D700D3860A /* InterfaceTemplate.txt in Resources */ = {isa = PBXBuildFile; fileRef = 44C546E7146C18D700D3860A /* InterfaceTemplate.txt */; };
 		44DF663D158A3FDF00B8E4E6 /* ArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DF663C158A3FDF00B8E4E6 /* ArrowView.m */; };
 		44DF663E158A3FDF00B8E4E6 /* ArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44DF663C158A3FDF00B8E4E6 /* ArrowView.m */; };
@@ -365,7 +366,6 @@
 		44519A29150E67A1003A5CE0 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradientView.m; path = Views/GradientView.m; sourceTree = "<group>"; };
 		445F441E15328B7C00E501F6 /* DictionaryRepresentationArrayTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = DictionaryRepresentationArrayTemplate.txt; path = Resources/Templates/DictionaryRepresentationArrayTemplate.txt; sourceTree = "<group>"; };
 		44670A7F1489987E0042A444 /* appIcons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = appIcons.icns; sourceTree = "<group>"; };
-		44670A821489988E0042A444 /* JSONModeler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = JSONModeler.entitlements; sourceTree = "<group>"; };
 		446B281B14ABCBD400FBE699 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		446B282514ABCC0600FBE699 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		446E0766150EA6290071DB0B /* InvalidDataButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InvalidDataButton.h; path = Views/InvalidDataButton.h; sourceTree = "<group>"; };
@@ -433,6 +433,7 @@
 		44C0FF7B150AA33A0039A847 /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberMarker.m; path = Vendor/Noodle/NoodleLineNumberMarker.m; sourceTree = "<group>"; };
 		44C0FF7C150AA33A0039A847 /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoodleLineNumberView.h; path = Vendor/Noodle/NoodleLineNumberView.h; sourceTree = "<group>"; };
 		44C0FF7D150AA33A0039A847 /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoodleLineNumberView.m; path = Vendor/Noodle/NoodleLineNumberView.m; sourceTree = "<group>"; };
+		44C509E017B1E30500DC0483 /* JSONModeler.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = JSONModeler.entitlements; sourceTree = SOURCE_ROOT; };
 		44C546E7146C18D700D3860A /* InterfaceTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = InterfaceTemplate.txt; path = Resources/Templates/InterfaceTemplate.txt; sourceTree = "<group>"; };
 		44C546EA146C191F00D3860A /* ImplementationTemplate.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ImplementationTemplate.txt; path = Resources/Templates/ImplementationTemplate.txt; sourceTree = "<group>"; };
 		44C6F4E714AB37FB006B53F3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -678,7 +679,7 @@
 		441FC4EC1462D8E1007BF9DC /* JSONModeler */ = {
 			isa = PBXGroup;
 			children = (
-				44670A821489988E0042A444 /* JSONModeler.entitlements */,
+				44C509E017B1E30500DC0483 /* JSONModeler.entitlements */,
 				441FC51D1462D942007BF9DC /* Categories */,
 				7DC99D1B14A26D6000314AA5 /* Documents */,
 				441FC51A1462D92B007BF9DC /* Models */,
@@ -1149,6 +1150,7 @@
 				21A81BD217947918006ABF6B /* DFFeedbackWindow.xib in Resources */,
 				21A81BD317947918006ABF6B /* DFLocalizable.strings in Resources */,
 				21A81BD417947918006ABF6B /* DFWarning.pdf in Resources */,
+				44C509E117B1E30500DC0483 /* JSONModeler.entitlements in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
