@@ -74,5 +74,16 @@
 {ENCODEWITHCODER}
 }
 
+- (id)copyWithZone:(NSZone *)zone
+{
+    {CLASSNAME} *copy = [[{CLASSNAME} alloc] init];
+    
+    if (copy) {
+{COPYWITHZONE}
+    }
+    
+    return copy;
+}
+
 {DEALLOC}
 @end
