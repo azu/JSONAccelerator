@@ -188,7 +188,7 @@
     NSString *interfaceTemplate = [mainBundle pathForResource:@"InterfaceTemplate" ofType:@"txt"];
     NSString *templateString = [[NSString alloc] initWithContentsOfFile:interfaceTemplate encoding:NSUTF8StringEncoding error:nil];
 #else
-    NSString *templateString = @"//\n//  {CLASSNAME}.h\n//\n//  Created by __NAME__ on {DATE}\n//  Copyright (c) {COMPANY_NAME}. All rights reserved.\n//\n\n#import <Foundation/Foundation.h>\n\n{FORWARD_DECLARATION}\n\n@interface {CLASSNAME} : {BASEOBJECT} <NSCoding>\n\n{PROPERTIES}\n+ ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict;\n- (instancetype)initWithDictionary:(NSDictionary *)dict;\n- (NSDictionary *)dictionaryRepresentation;\n\n@end\n";
+    NSString *templateString = @"//\n//  {CLASSNAME}.h\n//\n//  Created by __NAME__ on {DATE}\n//  Copyright (c) {COMPANY_NAME}. All rights reserved.\n//\n\n#import <Foundation/Foundation.h>\n\n{FORWARD_DECLARATION}\n\n@interface {CLASSNAME} : {BASEOBJECT} <NSCoding, NSCopying>\n\n{PROPERTIES}\n+ ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict;\n- (instancetype)initWithDictionary:(NSDictionary *)dict;\n- (NSDictionary *)dictionaryRepresentation;\n\n@end\n";
 #endif
     
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:classObject.className];
@@ -241,7 +241,7 @@
     NSString *implementationTemplate = [mainBundle pathForResource:@"ImplementationTemplate" ofType:@"txt"];
     NSString *templateString = [[NSString alloc] initWithContentsOfFile:implementationTemplate encoding:NSUTF8StringEncoding error:nil];
 #else
-    NSString *templateString = @"//\n//  {CLASSNAME}.m\n//\n//  Created by __NAME__ on {DATE}\n//  Copyright (c) {COMPANY_NAME}. All rights reserved.\n//\n\n#import \"{CLASSNAME}.h\"\n{IMPORT_BLOCK}\n\n{STRING_CONSTANT_BLOCK}\n\n@interface {CLASSNAME} ()\n\n- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;\n\n@end\n\n@implementation {CLASSNAME}\n\n{SYNTHESIZE_BLOCK}\n\n+ ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict\n{\n    {CLASSNAME} *instance = {CLASSNAME_INIT};\n    return instance;\n}\n\n- (instancetype)initWithDictionary:(NSDictionary *)dict\n{\n    self = [super init];\n    \n    // This check serves to make sure that a non-NSDictionary object\n    // passed into the model class doesn't break the parsing.\n    if(self && [dict isKindOfClass:[NSDictionary class]]) {\n{SETTERS}\n    }\n    \n    return self;\n    \n}\n\n- (NSDictionary *)dictionaryRepresentation\n{\n    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];\n{DICTIONARY_REPRESENTATION}\n    return [NSDictionary dictionaryWithDictionary:mutableDict];\n}\n\n- (NSString *)description \n{\n    return [NSString stringWithFormat:@\"%@\", [self dictionaryRepresentation]];\n}\n\n#pragma mark - Helper Method\n- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict\n{\n    id object = [dict objectForKey:aKey];\n    return [object isEqual:[NSNull null]] ? nil : object;\n}\n\n\n#pragma mark - NSCoding Methods\n\n- (id)initWithCoder:(NSCoder *)aDecoder\n{\n    self = [super init];\n{INITWITHCODER}\n    return self;\n}\n\n- (void)encodeWithCoder:(NSCoder *)aCoder\n{\n{ENCODEWITHCODER}\n}\n\n{DEALLOC}\n@end\n";
+    NSString *templateString = @"//\n//  {CLASSNAME}.m\n//\n//  Created by __NAME__ on {DATE}\n//  Copyright (c) {COMPANY_NAME}. All rights reserved.\n//\n\n#import \"{CLASSNAME}.h\"\n{IMPORT_BLOCK}\n\n{STRING_CONSTANT_BLOCK}\n\n@interface {CLASSNAME} ()\n\n- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;\n\n@end\n\n@implementation {CLASSNAME}\n\n{SYNTHESIZE_BLOCK}\n\n+ ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict\n{\n    {CLASSNAME} *instance = {CLASSNAME_INIT};\n    return instance;\n}\n\n- (instancetype)initWithDictionary:(NSDictionary *)dict\n{\n    self = [super init];\n    \n    // This check serves to make sure that a non-NSDictionary object\n    // passed into the model class doesn't break the parsing.\n    if(self && [dict isKindOfClass:[NSDictionary class]]) {\n{SETTERS}\n    }\n    \n    return self;\n    \n}\n\n- (NSDictionary *)dictionaryRepresentation\n{\n    NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];\n{DICTIONARY_REPRESENTATION}\n    return [NSDictionary dictionaryWithDictionary:mutableDict];\n}\n\n- (NSString *)description \n{\n    return [NSString stringWithFormat:@\"%@\", [self dictionaryRepresentation]];\n}\n\n#pragma mark - Helper Method\n- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict\n{\n    id object = [dict objectForKey:aKey];\n    return [object isEqual:[NSNull null]] ? nil : object;\n}\n\n\n#pragma mark - NSCoding Methods\n\n- (id)initWithCoder:(NSCoder *)aDecoder\n{\n    self = [super init];\n{INITWITHCODER}\n    return self;\n}\n\n- (void)encodeWithCoder:(NSCoder *)aCoder\n{\n{ENCODEWITHCODER}\n}\n- (id)copyWithZone:(NSZone *)zone\n{    \n{CLASSNAME} *copy = [[{CLASSNAME} alloc] init];\n     \nif (copy) {{COPYWITHZONE}\n}\n   \nreturn copy;\n}\n{DEALLOC}\n@end\n";
 #endif
     
     // Need to check for ARC to tell whether or not to use autorelease or not
@@ -339,6 +339,21 @@
         }
     }
     
+    // NSCOPYING SECTION
+    NSString *nsCopyingString = @"";
+    for (ClassPropertiesObject *property in [classObject.properties allValues]) {
+        switch (property.type) {
+            case PropertyTypeInt:
+            case PropertyTypeDouble:
+            case PropertyTypeBool:
+                nsCopyingString = [nsCopyingString stringByAppendingString:[NSString stringWithFormat:@"\n        copy.%@ = self.%@;", [property.name lowercaseCamelcaseString], [property.name lowercaseCamelcaseString]]];
+                break;
+            default:
+                nsCopyingString = [nsCopyingString stringByAppendingString:[NSString stringWithFormat:@"\n        copy.%@ = [self.%@ copyWithZone:zone];", [property.name lowercaseCamelcaseString], [property.name lowercaseCamelcaseString]]];
+                break;
+        }
+    }
+    
     // DEALLOC SECTION
     NSString *deallocString = @"";
     
@@ -362,6 +377,7 @@
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{DICTIONARY_REPRESENTATION}" withString:dictionaryRepresentation];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{INITWITHCODER}" withString:initWithCoderString];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{ENCODEWITHCODER}" withString:encodeWithCoderString];
+    templateString = [templateString stringByReplacingOccurrencesOfString:@"{COPYWITHZONE}" withString:nsCopyingString];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{DEALLOC}" withString:deallocString];
     templateString = [templateString stringByReplacingOccurrencesOfString:@"{CLASSNAME}" withString:classObject.className];
     

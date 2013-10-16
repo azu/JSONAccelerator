@@ -9,7 +9,7 @@
 
 {FORWARD_DECLARATION}
 
-@interface {CLASSNAME} : {BASEOBJECT} <NSCoding>
+@interface {CLASSNAME} : {BASEOBJECT} <NSCoding, NSCopying>
 
 {PROPERTIES}
 + ({CLASSNAME} *)modelObjectWithDictionary:(NSDictionary *)dict;
