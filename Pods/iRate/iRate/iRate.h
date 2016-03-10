@@ -1,7 +1,7 @@
 //
 //  iRate.h
 //
-//  Version 1.7.4
+//  Version 1.11.4
 //
 //  Created by Nick Lockwood on 26/01/2011.
 //  Copyright 2011 Charcoal Design
@@ -31,44 +31,59 @@
 //
 
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-missing-property-synthesis"
+
+
 #import <Availability.h>
 #undef weak_delegate
 #if __has_feature(objc_arc_weak) && \
-(!(defined __MAC_OS_X_VERSION_MIN_REQUIRED) || \
-__MAC_OS_X_VERSION_MIN_REQUIRED >= __MAC_10_8)
+(TARGET_OS_IPHONE || __MAC_OS_X_VERSION_MIN_REQUIRED >= __MAC_10_8)
 #define weak_delegate weak
 #else
 #define weak_delegate unsafe_unretained
 #endif
 
 
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+#import <TargetConditionals.h>
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#define IRATE_EXTERN UIKIT_EXTERN
 #else
 #import <Cocoa/Cocoa.h>
+#define IRATE_EXTERN APPKIT_EXTERN
 #endif
 
 
-extern NSUInteger const iRateAppStoreGameGenreID;
-extern NSString *const iRateErrorDomain;
-
+IRATE_EXTERN NSUInteger const iRateAppStoreGameGenreID;
+IRATE_EXTERN NSString *const iRateErrorDomain;
 
 //localisation string keys
-static NSString *const iRateMessageTitleKey = @"iRateMessageTitle";
-static NSString *const iRateAppMessageKey = @"iRateAppMessage";
-static NSString *const iRateGameMessageKey = @"iRateGameMessage";
-static NSString *const iRateCancelButtonKey = @"iRateCancelButton";
-static NSString *const iRateRemindButtonKey = @"iRateRemindButton";
-static NSString *const iRateRateButtonKey = @"iRateRateButton";
+IRATE_EXTERN NSString *const iRateMessageTitleKey; //iRateMessageTitle
+IRATE_EXTERN NSString *const iRateAppMessageKey; //iRateAppMessage
+IRATE_EXTERN NSString *const iRateGameMessageKey; //iRateGameMessage
+IRATE_EXTERN NSString *const iRateUpdateMessageKey; //iRateUpdateMessage
+IRATE_EXTERN NSString *const iRateCancelButtonKey; //iRateCancelButton
+IRATE_EXTERN NSString *const iRateRemindButtonKey; //iRateRemindButton
+IRATE_EXTERN NSString *const iRateRateButtonKey; //iRateRateButton
+
+//notification keys
+IRATE_EXTERN NSString *const iRateCouldNotConnectToAppStore;
+IRATE_EXTERN NSString *const iRateDidDetectAppUpdate;
+IRATE_EXTERN NSString *const iRateDidPromptForRating;
+IRATE_EXTERN NSString *const iRateUserDidAttemptToRateApp;
+IRATE_EXTERN NSString *const iRateUserDidDeclineToRateApp;
+IRATE_EXTERN NSString *const iRateUserDidRequestReminderToRateApp;
+IRATE_EXTERN NSString *const iRateDidOpenAppStore;
 
 
-typedef enum
+typedef NS_ENUM(NSUInteger, iRateErrorCode)
 {
     iRateErrorBundleIdDoesNotMatchAppStore = 1,
     iRateErrorApplicationNotFoundOnAppStore,
-    iRateErrorApplicationIsNotLatestVersion
-}
-iRateErrorCode;
+    iRateErrorApplicationIsNotLatestVersion,
+    iRateErrorCouldNotOpenRatingPageURL
+};
 
 
 @protocol iRateDelegate <NSObject>
@@ -82,15 +97,14 @@ iRateErrorCode;
 - (void)iRateUserDidDeclineToRateApp;
 - (void)iRateUserDidRequestReminderToRateApp;
 - (BOOL)iRateShouldOpenAppStore;
-- (void)iRateDidPresentStoreKitModal;
-- (void)iRateDidDismissStoreKitModal;
+- (void)iRateDidOpenAppStore;
 
 @end
 
 
 @interface iRate : NSObject
 
-+ (iRate *)sharedInstance;
++ (instancetype)sharedInstance;
 
 //app store ID - this is only needed if your
 //bundle ID is not unique between iOS and Mac app stores
@@ -113,17 +127,17 @@ iRateErrorCode;
 //message text, you may wish to customise these
 @property (nonatomic, copy) NSString *messageTitle;
 @property (nonatomic, copy) NSString *message;
+@property (nonatomic, copy) NSString *updateMessage;
 @property (nonatomic, copy) NSString *cancelButtonLabel;
 @property (nonatomic, copy) NSString *remindButtonLabel;
 @property (nonatomic, copy) NSString *rateButtonLabel;
 
 //debugging and prompt overrides
+@property (nonatomic, assign) BOOL useUIAlertControllerIfAvailable;
 @property (nonatomic, assign) BOOL useAllAvailableLanguages;
-@property (nonatomic, assign) BOOL disableAlertViewResizing;
-@property (nonatomic, assign) BOOL promptAgainForEachNewVersion;
+@property (nonatomic, assign) BOOL promptForNewVersionIfUserRated;
 @property (nonatomic, assign) BOOL onlyPromptIfLatestVersion;
 @property (nonatomic, assign) BOOL onlyPromptIfMainWindowIsAvailable;
-@property (nonatomic, assign) BOOL displayAppUsingStorekitIfAvailable;
 @property (nonatomic, assign) BOOL promptAtLaunch;
 @property (nonatomic, assign) BOOL verboseLogging;
 @property (nonatomic, assign) BOOL previewMode;
@@ -145,7 +159,11 @@ iRateErrorCode;
 - (BOOL)shouldPromptForRating;
 - (void)promptForRating;
 - (void)promptIfNetworkAvailable;
+- (void)promptIfAllCriteriaMet;
 - (void)openRatingsPageInAppStore;
 - (void)logEvent:(BOOL)deferPrompt;
 
 @end
+
+
+#pragma clang diagnostic pop

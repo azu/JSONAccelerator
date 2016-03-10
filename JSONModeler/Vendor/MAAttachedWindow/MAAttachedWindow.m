@@ -9,7 +9,9 @@
 
 #define MAATTACHEDWINDOW_DEFAULT_BACKGROUND_COLOR [NSColor colorWithCalibratedWhite:0.1 alpha:0.75]
 #define MAATTACHEDWINDOW_DEFAULT_BORDER_COLOR [NSColor whiteColor]
-#define MAATTACHEDWINDOW_SCALE_FACTOR [[NSScreen mainScreen] userSpaceScaleFactor]
+#define MAATTACHEDWINDOW_SCALE_FACTOR [[NSScreen mainScreen] backingScaleFactor]
+
+
 
 @interface MAAttachedWindow () {
     NSGradient *backgroundGradient;
@@ -225,8 +227,10 @@
             break; // won't happen, but this satisfies gcc with -Wall
     }
     
+    NSRect _rect = NSMakeRect(_point.x, _point.y, 0, 0);
     // Position frame origin appropriately for _side, accounting for arrow-inset.
-    contentRect.origin = (_window) ? [_window convertBaseToScreen:_point] : _point;
+    contentRect.origin = (_window) ? [_window convertRectToScreen:_rect].origin : _point;
+
     float arrowInset = [self _arrowInset];
     float halfWidth = contentRect.size.width / 2.0;
     float halfHeight = contentRect.size.height / 2.0;
