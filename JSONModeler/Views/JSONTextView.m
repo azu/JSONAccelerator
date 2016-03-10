@@ -79,5 +79,31 @@
     
 }
 
+#pragma mark Override Methods
+
+- (void)paste:(id)sender
+{
+    [super paste:sender];
+    self.string = [self prettyPrintedString] ?: self.string;
+}
+
+#pragma mark Public Methods
+
+- (NSString *)prettyPrintedString
+{
+    NSError *error = nil;
+    NSData *data = [self.string dataUsingEncoding:NSUTF8StringEncoding];
+    id object = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    if (!error && object)
+    {
+        id output = [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted error:&error];
+        if (!error)
+        {
+            NSString *outputString = [[NSString alloc] initWithData:output encoding:NSUTF8StringEncoding];
+            return outputString;
+        }
+    }
+    return nil;
+}
 
 @end

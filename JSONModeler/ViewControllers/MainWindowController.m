@@ -18,6 +18,7 @@
 #import "GenerateFilesButton.h"
 #import "InvalidDataButton.h"
 #import "MAAttachedWindow.h"
+#import "JSONTextView.h"
 
 #import "OutputLanguageWriterObjectiveC.h"
 #import "OutputLanguageWriterJava.h"
